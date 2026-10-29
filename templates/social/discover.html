@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}发现 · 同频{% endblock %}
+{% block content %}
+<header class="page-heading"><div><p class="eyebrow">DISCOVER</p><h1>发现同频的人<span class="coral-dot">.</span></h1><p>从共同兴趣开始，给新朋友一个机会。</p></div><button class="button secondary filter-trigger" type="button" data-dialog="filters"><svg><use href="#i-filter"/></svg>筛选{% if has_filters %}<span class="filter-dot"></span>{% endif %}</button></header>
+{% if not my_profile.discoverable %}<p class="inline-note">你已暂停被发现，新朋友暂时看不到你。<a href="{% url 'profile' %}">修改设置</a></p>{% endif %}
+<div class="discovery-tabs"><span class="tab-active">为你推荐 <span>{{ candidate_count }}</span></span><span class="tab-explanation">根据共同兴趣与交友意向排序</span></div>
+{% if candidate %}
+<div class="discovery-layout">
+  <section class="card-stage" aria-label="推荐资料">
+    <div class="card-stack">
+      <div class="stack-sheet stack-two" aria-hidden="true"></div><div class="stack-sheet stack-one" aria-hidden="true"></div>
+      <article class="person-card tone-{{ candidate.profile.accent }}" id="person-card" tabindex="0" aria-label="{{ candidate.profile.display_name }}的资料，左右方向键可跳过或喜欢">
+        <div class="card-top"><span class="profile-badge">{% if candidate.profile.is_demo %}示例资料{% else %}新朋友{% endif %}</span><button type="button" class="icon-button" data-dialog="person-options" aria-label="更多资料操作"><svg><use href="#i-more"/></svg></button></div>
+        <div class="portrait-placeholder" aria-label="尚未设置照片"><div class="portrait-monogram">{{ candidate.profile.initials }}</div><div class="portrait-caption"><svg><use href="#i-photo"/></svg><span>未设置照片</span></div></div>
+        <div class="card-person"><div class="person-name-row"><h2>{{ candidate.profile.display_name }}</h2><span class="intent-pill">{{ candidate.profile.get_goal_display }}</span></div><p class="person-location"><svg><use href="#i-location"/></svg>{{ candidate.profile.campus }}</p><p class="person-headline">{{ candidate.profile.headline }}</p><div class="tag-list">{% for interest in candidate.interests %}<span>{{ interest.label }}</span>{% endfor %}</div></div>
+        <div class="swipe-stamp stamp-like" aria-hidden="true">喜欢</div><div class="swipe-stamp stamp-skip" aria-hidden="true">跳过</div>
+      </article>
+    </div>
+    <form class="decision-form" method="post" action="{% url 'decision' candidate.profile.user_id %}" id="decision-form">{% csrf_token %}
+      <button class="decision skip" type="submit" name="kind" value="skip" aria-label="跳过{{ candidate.profile.display_name }}"><svg><use href="#i-cross"/></svg><span>跳过</span></button>
+      <div class="action-hint"><span>向左跳过</span><span class="hint-line"></span><span>向右喜欢</span></div>
+      <button class="decision like" type="submit" name="kind" value="like" aria-label="喜欢{{ candidate.profile.display_name }}"><svg><use href="#i-heart"/></svg><span>喜欢</span></button>
+    </form>
+  </section>
+  <aside class="profile-notes">
+    <div class="shared-note"><div class="note-icon"><svg><use href="#i-spark"/></svg></div><p class="tiny-label">为什么推荐给你</p>{% if candidate.shared %}<h3>{{ candidate.shared|length }} 个共同兴趣，<br>值得聊一聊。</h3><div class="tag-list accent-tags">{% for interest in candidate.shared %}<span>{{ interest.label }}</span>{% endfor %}</div>{% else %}<h3>不同的爱好，<br>也能带来新鲜感。</h3><p class="muted small-copy">这位朋友暂时与你没有重合的兴趣标签。</p>{% endif %}</div>
+    <section class="about-note"><p class="tiny-label">关于 {{ candidate.profile.display_name }}</p><p>{{ candidate.profile.bio }}</p></section>
+    <section class="connection-note"><svg><use href="#i-shield"/></svg><div><strong>双向喜欢，再开始聊天</strong><p>跳过不会通知对方。你可以随时解除匹配或屏蔽。</p></div></section>
+    <div class="your-interests"><span class="tiny-label">你的兴趣</span><a href="{% url 'profile' %}">编辑 ↗</a><p>{% for interest in my_profile.interests.all %}{{ interest.label }}{% if not forloop.last %} · {% endif %}{% endfor %}</p></div>
+  </aside>
+</div>
+<dialog id="person-options" class="dialog compact-dialog"><button type="button" class="dialog-close icon-button" data-close aria-label="关闭">×</button><h2>管理这份资料</h2><p class="muted">{{ candidate.profile.display_name }}</p><a class="button secondary" href="{% url 'report' candidate.profile.user_id %}">举报资料</a><form method="post" action="{% url 'block' candidate.profile.user_id %}">{% csrf_token %}<button class="button danger secondary" type="submit">屏蔽这位用户</button></form></dialog>
+{% else %}
+<section class="empty-state"><span class="empty-orbit"><svg><use href="#i-discover"/></svg></span><p class="eyebrow">TAKE YOUR TIME</p><h2>这一轮，先看到这里。</h2><p>{% if has_filters %}暂时没有符合这些条件的朋友，试着调整筛选。{% else %}你已经看完当前的推荐。也可以重新看看跳过的资料。{% endif %}</p><div class="button-row">{% if has_filters %}<a href="{% url 'discover' %}" class="button">清除筛选</a>{% endif %}<form method="post" action="{% url 'reset_skips' %}">{% csrf_token %}<button class="button secondary">重新看看跳过的人</button></form><a href="{% url 'connections' %}" class="text-link">查看我的匹配 →</a></div></section>
+{% endif %}
+<dialog id="filters" class="dialog"><button type="button" class="dialog-close icon-button" data-close aria-label="关闭筛选">×</button><p class="eyebrow">YOUR PREFERENCES</p><h2>更接近你的同频</h2><p class="muted">选择兴趣和想一起做的事。</p><form method="get" action="{% url 'discover' %}"><label for="interest-filter">感兴趣的话题</label><select name="interest" id="interest-filter"><option value="">所有兴趣</option>{% for interest in all_interests %}<option value="{{ interest.slug }}" {% if selected_interest == interest.slug %}selected{% endif %}>{{ interest.label }}</option>{% endfor %}</select><label for="goal-filter">想一起做什么</label><select name="goal" id="goal-filter"><option value="">不限</option>{% for value,label in goals %}<option value="{{ value }}" {% if selected_goal == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><button class="button full-width" type="submit">应用筛选</button><a href="{% url 'discover' %}" class="reset-filter">清除筛选</a></form></dialog>
+{% endblock %}

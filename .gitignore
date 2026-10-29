@@ -1,0 +1,11 @@
+.conda/
+.pip-cache/
+.local/
+.static/
+__pycache__/
+*.py[cod]
+.env
+coverage.xml
+htmlcov/
+test-results/
+*.log

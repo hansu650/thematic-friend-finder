@@ -1,0 +1,13 @@
+{% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+{% for field in form %}
+{% if field.use_fieldset %}
+<fieldset class="form-field fieldset-field"><legend>{{ field.label }}</legend>{{ field }}
+{% else %}
+<div class="form-field {% if field.field.widget.input_type == 'checkbox' %}checkbox-field{% endif %}">
+  {% if field.field.widget.input_type == 'checkbox' %}{{ field }}<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  {% else %}<label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% endif %}
+{% endif %}
+  {% if field.help_text %}<div class="field-help" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}
+  {% if field.errors %}<div class="field-error" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>{% endif %}
+{% if field.use_fieldset %}</fieldset>{% else %}</div>{% endif %}
+{% endfor %}

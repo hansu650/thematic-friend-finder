@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>{% block title %}同频 · 认识有共同兴趣的人{% endblock %}</title>
+  <link rel="icon" href="{% static 'brand.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'app.css' %}">
+  <script src="{% static 'app.js' %}" defer></script>
+</head>
+<body>
+{% include "social/icons.html" %}
+<a class="skip-link" href="#main">跳到主要内容</a>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="{% url 'welcome' %}" aria-label="同频首页"><img src="{% static 'brand.svg' %}" alt=""><span>同频<span class="brand-en">TONGPIN</span></span></a>
+    <p class="brand-caption">有共同爱好，也有新的可能。</p>
+    {% if user.is_authenticated %}
+    <nav class="nav-links" aria-label="主要导航">
+      <a href="{% url 'discover' %}" {% if page == "discover" %}aria-current="page"{% endif %}><svg><use href="#i-discover"/></svg>发现<span class="nav-marker"></span></a>
+      <a href="{% url 'connections' %}" {% if page == "matches" %}aria-current="page"{% endif %}><svg><use href="#i-heart"/></svg>匹配{% if match_count %}<span class="nav-count">{{ match_count }}</span>{% endif %}</a>
+      <a href="{% url 'inbox' %}" {% if page == "messages" %}aria-current="page"{% endif %}><svg><use href="#i-chat"/></svg>消息</a>
+      <a href="{% url 'profile' %}" {% if page == "profile" %}aria-current="page"{% endif %}><svg><use href="#i-person"/></svg>我的资料</a>
+    </nav>
+    <div class="sidebar-note"><span class="tiny-label">一段新连接</span><p>从发现共同兴趣开始，<br>让相识慢慢发生。</p><svg><use href="#i-spark"/></svg></div>
+    <nav class="secondary-nav" aria-label="账号导航">
+      <a href="{% url 'safety' %}"><svg><use href="#i-shield"/></svg>隐私与安全</a>
+      <a href="{% url 'privacy' %}">数据与使用说明 <span>↗</span></a>
+    </nav>
+    <div class="sidebar-account">
+      <a class="account-link" href="{% url 'profile' %}"><span class="avatar small tone-{{ my_profile.accent }}">{{ my_profile.initials }}</span><span><strong>{{ my_profile.display_name }}</strong><small>查看个人资料</small></span></a>
+      <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="icon-button" aria-label="退出登录" title="退出登录"><svg><use href="#i-exit"/></svg></button></form>
+    </div>
+    {% else %}
+    <nav class="nav-links" aria-label="主要导航"><a href="{% url 'welcome' %}" aria-current="page"><svg><use href="#i-discover"/></svg>认识同频</a><a href="{% url 'login' %}"><svg><use href="#i-person"/></svg>登录</a></nav>
+    <div class="sidebar-note"><span class="tiny-label">兴趣让相遇更自然</span><p>一个话题，<br>就是认识的开始。</p></div>
+    <a class="secondary-link" href="{% url 'privacy' %}">数据与使用说明 ↗</a>
+    {% endif %}
+    {% if demo_mode %}
+    <details class="demo-switch"><summary>本地演示 <span>⌄</span></summary><p>这里的示例资料均为虚构。切换身份可以测试双向匹配与聊天。</p><form method="post" action="{% url 'demo_login' %}">{% csrf_token %}<label for="demo-identity">演示身份</label><select id="demo-identity" name="identity">{% for person in demo_profiles %}<option value="{{ person.user.username }}" {% if person.user_id == user.id %}selected{% endif %}>{{ person.display_name }}</option>{% endfor %}</select><button class="button small-button secondary" type="submit">切换身份</button></form></details>
+    {% endif %}
+  </aside>
+  <main id="main" class="main-content" tabindex="-1">
+    <div class="topline"><span>认识新朋友</span><span>{% if demo_mode %}<span class="status-dot"></span>本地演示 · 虚构资料{% else %}共同兴趣，让相识更自然{% endif %}</span></div>
+    {% if messages %}<div class="feedback-stack" aria-live="polite">{% for message in messages %}<div class="feedback {{ message.tags }}">{{ message }}<button type="button" class="icon-button" data-dismiss aria-label="关闭提示">×</button></div>{% endfor %}</div>{% endif %}
+    {% block content %}{% endblock %}
+    <footer class="site-footer"><span>同频 · 从一个共同话题开始</span><a href="{% url 'privacy' %}">隐私说明</a></footer>
+  </main>
+</div>
+{% if user.is_authenticated %}
+<nav class="mobile-nav" aria-label="移动导航">
+  <a href="{% url 'discover' %}" {% if page == "discover" %}aria-current="page"{% endif %}><svg><use href="#i-discover"/></svg><span>发现</span></a>
+  <a href="{% url 'connections' %}" {% if page == "matches" %}aria-current="page"{% endif %}><svg><use href="#i-heart"/></svg><span>匹配</span></a>
+  <a href="{% url 'inbox' %}" {% if page == "messages" %}aria-current="page"{% endif %}><svg><use href="#i-chat"/></svg><span>消息</span></a>
+  <a href="{% url 'profile' %}" {% if page == "profile" %}aria-current="page"{% endif %}><svg><use href="#i-person"/></svg><span>我的</span></a>
+</nav>
+{% endif %}
+</body>
+</html>
