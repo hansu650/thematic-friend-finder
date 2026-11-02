@@ -21,6 +21,33 @@
     button.addEventListener("click", function () { button.parentElement.remove(); });
   });
 
+  document.querySelectorAll(".feedback.success, .feedback.info").forEach(function (notice) {
+    window.setTimeout(function () { notice.remove(); }, 4200);
+  });
+
+  var searchToggle = document.querySelector("[data-toggle-search]");
+  var search = document.getElementById("conversation-search");
+  if (searchToggle && search) {
+    searchToggle.setAttribute("aria-expanded", "false");
+    function filterConversations() {
+      var query = search.value.trim().toLocaleLowerCase();
+      var visible = 0;
+      document.querySelectorAll("[data-conversation]").forEach(function (row) {
+        row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+        if (!row.hidden) visible += 1;
+      });
+      document.querySelector(".search-empty").hidden = !query || visible > 0;
+    }
+    searchToggle.addEventListener("click", function () {
+      var panel = search.closest(".message-search");
+      panel.hidden = !panel.hidden;
+      searchToggle.setAttribute("aria-expanded", String(!panel.hidden));
+      if (!panel.hidden) search.focus();
+      else { search.value = ""; filterConversations(); }
+    });
+    search.addEventListener("input", filterConversations);
+  }
+
   var card = document.getElementById("person-card");
   var decisions = document.getElementById("decision-form");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,7 +68,9 @@
       decisions.setAttribute("aria-busy", "true");
       decisions.querySelectorAll("button").forEach(function (button) { button.disabled = true; });
       if (!reduced) {
-        card.style.transform = "translateX(" + (kind === "like" ? "110" : "-110") + "px) rotate(" + (kind === "like" ? "7" : "-7") + "deg)";
+        var stamp = card.querySelector(kind === "star" ? ".stamp-star" : kind === "like" ? ".stamp-like" : ".stamp-skip");
+        if (stamp) stamp.style.opacity = "1";
+        card.style.transform = kind === "star" ? "translateY(-110px) scale(.96)" : "translateX(" + (kind === "like" ? "110" : "-110") + "px) rotate(" + (kind === "like" ? "7" : "-7") + "deg)";
         card.style.opacity = "0";
       }
       window.setTimeout(function () { decisions.submit(); }, reduced ? 0 : 170);

@@ -8,6 +8,7 @@ urlpatterns = [
     path("discover/", views.discover, name="discover"),
     path("profile/", views.edit_profile, name="profile"),
     path("people/<int:user_id>/decision/", views.decision, name="decision"),
+    path("discover/undo/", views.undo_decision, name="undo_decision"),
     path("discover/reset-skips/", views.reset_skips, name="reset_skips"),
     path("matches/", views.connections, name="connections"),
     path("matches/<int:match_id>/", views.match_detail, name="match_detail"),

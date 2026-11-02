@@ -1,3 +1,14 @@
 {% extends "base.html" %}
-{% block title %}消息 · 同频{% endblock %}
-{% block content %}<header class="page-heading"><div><p class="eyebrow">SAY SOMETHING NICE</p><h1>从一句你好开始<span class="coral-dot">.</span></h1><p>和已经互相喜欢的朋友，慢慢聊。</p></div></header>{% if connections %}<div class="conversation-list">{% for row in connections %}<a class="conversation-row" href="{% url 'conversation' row.match.id %}"><span class="avatar tone-{{ row.person.accent }}">{{ row.person.initials }}</span><div><strong>{{ row.person.display_name }}</strong><p>{% if row.last_message %}{{ row.last_message.body|truncatechars:80 }}{% else %}你们已经匹配，打个招呼吧。{% endif %}</p></div><svg><use href="#i-arrow"/></svg></a>{% endfor %}</div>{% else %}<section class="empty-state"><span class="empty-orbit"><svg><use href="#i-chat"/></svg></span><h2>第一句你好，还在等你。</h2><p>先发现新朋友，互相喜欢后就可以在这里聊天。</p><a class="button" href="{% url 'discover' %}">去发现新朋友</a></section>{% endif %}{% endblock %}
+{% block title %}探探 · 消息{% endblock %}
+{% block header_actions %}<button class="icon-button" data-toggle-search type="button" aria-label="搜索消息"><svg><use href="#i-search"/></svg></button>{% endblock %}
+{% block content %}
+<section class="inbox-page">
+  <div class="message-search" hidden><label class="sr-only" for="conversation-search">搜索联系人或消息</label><input id="conversation-search" type="search" placeholder="搜索联系人或消息" autocomplete="off"></div>
+  <div class="section-title"><h1><svg><use href="#i-spark"/></svg>新配对</h1><a href="{% url 'connections' %}">全部配对{% if connections %}<span>{{ connections|length }}</span>{% endif %}<svg><use href="#i-chevron"/></svg></a></div>
+  <div class="new-matches">
+    {% for row in connections %}<a class="new-match" href="{% url 'conversation' row.match.id %}"><span class="avatar tone-{{ row.person.accent }}">{{ row.person.initials }}</span><strong>{{ row.person.display_name }}</strong><span>已配对</span></a>{% empty %}<a class="new-match first-match" href="{% url 'discover' %}"><svg><use href="#i-heart"/></svg><strong>等待新配对</strong><span>去探探</span></a><p class="match-empty-hint">互相喜欢的人<br>会出现在这里</p>{% endfor %}
+  </div>
+  <div class="section-title conversations-title"><h2>消息</h2><span>{{ connections|length }} 个对话</span></div>
+  <div class="conversation-list">{% for row in connections %}<a class="conversation-row" href="{% url 'conversation' row.match.id %}" data-conversation><span class="avatar tone-{{ row.person.accent }}">{{ row.person.initials }}</span><div class="conversation-preview"><div class="conversation-name"><strong>{{ row.person.display_name }}</strong><time>{% if row.last_message %}{{ row.last_message.created_at|date:'H:i' }}{% endif %}</time></div><p>{% if row.last_message %}{{ row.last_message.body|truncatechars:80 }}{% else %}配对成功，打个招呼吧{% endif %}</p></div></a>{% empty %}<div class="inbox-empty"><svg><use href="#i-chat"/></svg><p>匹配成功后，就可以开始聊天了</p><a href="{% url 'discover' %}">去认识新朋友</a></div>{% endfor %}</div><p class="search-empty" hidden>没有找到相关消息</p>
+</section>
+{% endblock %}

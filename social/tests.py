@@ -213,3 +213,50 @@ class SocialFlowTests(TestCase):
                 self.assertEqual(self.client.get(reverse(route)).status_code, 200)
         for route in ("match_detail", "conversation"):
             self.assertEqual(self.client.get(reverse(route, args=[match.pk])).status_code, 200)
+
+
+    def test_superlike_requires_reciprocal_consent(self):
+        self.client.post(reverse("decision", args=[self.bob.pk]), {"kind": "star"})
+        self.assertFalse(Match.objects.exists())
+        self.assertEqual(Decision.objects.get(sender=self.alice).kind, "star")
+        self.assertIsNotNone(decide(self.bob, self.alice, "like"))
+        self.assertEqual(Match.objects.count(), 1)
+
+    def test_two_superlikes_create_one_match(self):
+        decide(self.alice, self.bob, "star")
+        match = decide(self.bob, self.alice, "star")
+        self.assertEqual(decide(self.alice, self.bob, "star").pk, match.pk)
+        self.assertEqual(Match.objects.count(), 1)
+
+    def test_rewind_restores_exact_latest_profile_first(self):
+        decide(self.alice, self.bob, "skip")
+        decide(self.alice, self.carol, "star")
+        response = self.client.post(reverse("undo_decision"), follow=True)
+        self.assertEqual(response.context["candidate"]["profile"].user_id, self.carol.pk)
+        self.assertFalse(Decision.objects.filter(sender=self.alice, receiver=self.carol).exists())
+        self.assertTrue(Decision.objects.filter(sender=self.alice, receiver=self.bob).exists())
+
+    def test_rewind_does_not_revoke_an_existing_match(self):
+        match = self.matched()
+        self.client.post(reverse("undo_decision"))
+        match.refresh_from_db()
+        self.assertTrue(match.active)
+        self.assertTrue(Decision.objects.filter(sender=self.alice, receiver=self.bob).exists())
+
+    def test_rewind_respects_hidden_and_blocked_profiles(self):
+        decide(self.alice, self.bob, "skip")
+        Profile.objects.filter(user=self.bob).update(discoverable=False)
+        self.client.post(reverse("undo_decision"))
+        self.assertTrue(Decision.objects.filter(sender=self.alice, receiver=self.bob).exists())
+        Profile.objects.filter(user=self.bob).update(discoverable=True)
+        Block.objects.create(blocker=self.bob, blocked=self.alice)
+        self.client.post(reverse("undo_decision"))
+        self.assertTrue(Decision.objects.filter(sender=self.alice, receiver=self.bob).exists())
+
+    def test_rewind_requires_post_and_csrf(self):
+        decide(self.alice, self.bob, "skip")
+        self.assertEqual(self.client.get(reverse("undo_decision")).status_code, 405)
+        client = Client(enforce_csrf_checks=True)
+        client.force_login(self.alice)
+        self.assertEqual(client.post(reverse("undo_decision")).status_code, 403)
+        self.assertTrue(Decision.objects.filter(sender=self.alice, receiver=self.bob).exists())

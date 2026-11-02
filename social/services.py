@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Q
+from django.utils import timezone
 from .models import Block, Decision, Match, Profile
 
 class ContactUnavailable(ValueError):
@@ -43,7 +44,7 @@ def recommendations(user, interest="", goal=""):
 
 @transaction.atomic
 def decide(user, target, kind):
-    if kind not in ("like", "skip") or user.pk == target.pk:
+    if kind not in ("like", "skip", "star") or user.pk == target.pk:
         raise ContactUnavailable("这个操作不可用。")
     # PostgreSQL deployments use a stable lock order; SQLite relies on its write lock.
     list(get_user_model().objects.select_for_update().filter(pk__in=[user.pk, target.pk]).order_by("pk"))
@@ -54,8 +55,8 @@ def decide(user, target, kind):
         raise ContactUnavailable("这段联系已经结束。")
     if existing_match:
         return existing_match
-    Decision.objects.update_or_create(sender=user, receiver=target, defaults={"kind": kind})
-    if kind == "like" and Decision.objects.filter(sender=target, receiver=user, kind="like").exists():
+    Decision.objects.update_or_create(sender=user, receiver=target, defaults={"kind": kind, "created_at": timezone.now()})
+    if kind in ("like", "star") and Decision.objects.filter(sender=target, receiver=user, kind__in=("like", "star")).exists():
         match, _ = Match.objects.get_or_create(**pair_query(user, target))
         return match
     return None
@@ -88,3 +89,30 @@ def can_report(user, target):
         hasattr(target, "profile") and target.profile.ready
         and target.profile.discoverable and not is_blocked(user, target)
     )
+
+
+def undoable_decision(user):
+    latest = Decision.objects.filter(sender=user).select_related("receiver__profile").order_by("-created_at", "-pk").first()
+    if latest is None:
+        return None
+    target = latest.receiver
+    if (not target.is_active or not hasattr(target, "profile")
+            or not target.profile.ready or not target.profile.discoverable
+            or is_blocked(user, target)
+            or Match.objects.filter(**pair_query(user, target)).exists()):
+        return None
+    return latest
+
+
+@transaction.atomic
+def undo_last_decision(user):
+    latest = undoable_decision(user)
+    if latest is None:
+        raise ContactUnavailable("暂无可以反悔的操作。已配对的联系请在配对中管理。")
+    target = latest.receiver
+    list(get_user_model().objects.select_for_update().filter(pk__in=[user.pk, target.pk]).order_by("pk"))
+    checked = undoable_decision(user)
+    if checked is None or checked.pk != latest.pk:
+        raise ContactUnavailable("这次操作已发生变化，请刷新后重试。")
+    latest.delete()
+    return target.pk

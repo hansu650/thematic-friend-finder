@@ -35,7 +35,7 @@ class Profile(models.Model):
         return self.adult_confirmed and bool(self.bio.strip()) and self.interests.exists()
 
 class Decision(models.Model):
-    KINDS = [("like", "喜欢"), ("skip", "跳过")]
+    KINDS = [("like", "喜欢"), ("skip", "跳过"), ("star", "超级喜欢")]
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="decisions_sent")
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="decisions_received")
     kind = models.CharField(max_length=4, choices=KINDS)

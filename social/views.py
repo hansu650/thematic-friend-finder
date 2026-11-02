@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_POST
 from .forms import MessageForm, ProfileForm, ReportForm, SignupForm
 from .models import Block, Decision, Interest, Match, Message, Profile, Report
-from .services import ContactUnavailable, block_user, can_access_match, can_report, decide, matches_for, recommendations
+from .services import ContactUnavailable, block_user, can_access_match, can_report, decide, matches_for, recommendations, undoable_decision, undo_last_decision
 
 def welcome(request):
     if request.user.is_authenticated:
@@ -50,11 +50,14 @@ def discover(request):
     if goal not in dict(Profile.GOALS):
         goal = ""
     candidates = recommendations(request.user, interest, goal)
+    rewound = request.session.pop("rewound_profile_id", None)
+    if rewound:
+        candidates.sort(key=lambda row: row["profile"].user_id != rewound)
     return render(request, "social/discover.html", {
         "page": "discover", "candidate": candidates[0] if candidates else None,
         "candidate_count": len(candidates), "all_interests": Interest.objects.all(),
         "goals": Profile.GOALS, "selected_interest": interest, "selected_goal": goal,
-        "has_filters": bool(interest or goal),
+        "has_filters": bool(interest or goal), "can_undo": undoable_decision(request.user) is not None,
     })
 
 @login_required
@@ -71,7 +74,9 @@ def decision(request, user_id):
     if match:
         messages.success(request, "你们互相喜欢，新的连接开始了。")
         return redirect("match_detail", match_id=match.pk)
-    if request.POST.get("kind") == "like":
+    if request.POST.get("kind") == "star":
+        messages.success(request, "超级喜欢已记录，互相喜欢后就能聊天。")
+    elif request.POST.get("kind") == "like":
         messages.success(request, "喜欢已记录，互相喜欢后就能聊天。")
     return redirect("discover")
 
@@ -207,4 +212,14 @@ def demo_login(request):
         raise Http404
     profile = get_object_or_404(Profile.objects.select_related("user"), user__username=request.POST.get("identity"), is_demo=True, user__is_active=True)
     login(request, profile.user, backend="django.contrib.auth.backends.ModelBackend")
+    return redirect("discover")
+
+
+@login_required
+@require_POST
+def undo_decision(request):
+    try:
+        request.session["rewound_profile_id"] = undo_last_decision(request.user)
+    except ContactUnavailable as exc:
+        messages.info(request, str(exc))
     return redirect("discover")
