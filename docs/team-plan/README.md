@@ -46,4 +46,4 @@
 - [会议与决策记录模板](./模板/会议与决策记录模板.md)
 - [个人贡献与 PDP 模板](./模板/个人贡献与PDP模板.md)
 
-GitHub 私有仓库已建立：[hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder)。代码、团队计划和五份个人任务已推送，仓库内的计划位于 `docs/team-plan/`。A–E 使用自己的分支提交 PR，由 A 复核后合并；组员需先被添加为仓库协作者。这里也提供 Trello 的设置和卡片内容；尚未创建线上看板，也未向组员发送任务。
+GitHub 私有仓库为 [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder)。当前 `main` 只保存计划、五份个人任务和已提交的调研；旧原型保留在本地，后续按实际开发进度再提交代码。仓库内的计划位于 `docs/team-plan/`。A–E 使用自己的分支提交 PR，由 A 复核后合并；组员需先被添加为仓库协作者。这里也提供 Trello 的设置和卡片内容；尚未创建线上看板，也未向组员发送任务。

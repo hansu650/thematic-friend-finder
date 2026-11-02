@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}探探 · 界面原型{% endblock %}
-{% block bodyclass %}welcome-screen{% endblock %}
-{% block content %}<section class="welcome-page"><div class="welcome-brand"><img src="{% static 'brand.svg' %}" alt=""><h1>探探</h1><p>探索精彩，探索爱</p></div><div class="welcome-symbols" aria-hidden="true"><span><svg><use href="#i-cross"/></svg></span><span><svg><use href="#i-heart"/></svg></span></div><div class="welcome-entry">{% if demo_mode %}<form action="{% url 'demo_login' %}" method="post">{% csrf_token %}<input type="hidden" name="identity" value="demo_zhou"><button type="submit" class="button full-width">进入本地演示</button></form>{% endif %}<a href="{% url 'signup' %}" class="button secondary full-width">创建账号</a><a href="{% url 'login' %}" class="login-link">已有账号？登录</a><p class="prototype-note">课程界面原型 · 使用虚构演示资料</p><a class="privacy-link" href="{% url 'privacy' %}">数据与使用说明</a></div></section>{% endblock %}

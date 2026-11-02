@@ -1,6 +1,0 @@
-{% extends "base.html" %}
-{% block title %}探探 · 配对成功{% endblock %}
-{% block bodyclass %}match-screen{% endblock %}
-{% block content %}
-<section class="match-celebration"><div class="celebration-heart" aria-hidden="true"><svg><use href="#i-heart"/></svg></div><p class="match-cheer">Wooo!</p><h1>配对成功</h1><p class="match-description">你和 <strong>{{ person.display_name }}</strong> 互相喜欢了对方</p><div class="match-avatars"><span class="avatar huge tone-{{ my_profile.accent }}">{{ my_profile.initials }}</span><span class="avatar huge tone-{{ person.accent }}">{{ person.initials }}</span><span class="match-heart"><svg><use href="#i-heart"/></svg></span></div><p class="match-topics">{% if shared %}从 {% for interest in shared %}{{ interest.label }}{% if not forloop.last %}、{% endif %}{% endfor %} 聊起{% else %}打个招呼，开始认识吧{% endif %}</p><a href="{% url 'conversation' match.id %}" class="button full-width">打个招呼</a><a href="{% url 'discover' %}" class="button secondary full-width">继续探探</a></section>
-{% endblock %}

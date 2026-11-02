@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-{% block title %}探探 · 我的{% endblock %}
-{% block header_actions %}<a class="icon-button" href="{% url 'safety' %}" aria-label="隐私与安全"><svg><use href="#i-settings"/></svg></a>{% endblock %}
-{% block content %}
-<section class="profile-page"><div class="profile-hero"><span class="avatar profile-avatar tone-{{ my_profile.accent }}">{{ my_profile.initials }}</span><div><h1>{{ my_profile.display_name }}</h1><p>{{ my_profile.campus }}</p><span class="profile-status">{% if my_profile.discoverable %}正在被发现{% else %}已暂停被发现{% endif %}</span></div><svg class="profile-arrow"><use href="#i-chevron"/></svg></div><div class="profile-stats"><a href="{% url 'connections' %}"><strong>{{ match_count }}</strong><span>我的配对</span></a><a href="{% url 'inbox' %}"><svg><use href="#i-chat"/></svg><span>我的消息</span></a><a href="{% url 'safety' %}"><svg><use href="#i-shield"/></svg><span>隐私与安全</span></a></div>
-<h2 class="form-section-title">编辑资料</h2><form class="profile-form" method="post">{% csrf_token %}{% include 'social/fields.html' %}<button class="button full-width" type="submit">保存资料</button></form><div class="profile-account-tools"><a href="{% url 'privacy' %}">数据与使用说明<svg><use href="#i-chevron"/></svg></a><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button type="submit">退出登录</button></form></div></section>
-{% endblock %}

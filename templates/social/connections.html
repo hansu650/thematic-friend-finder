@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-{% block title %}探探 · 配对{% endblock %}
-{% block content %}
-<div class="connections-page"><div class="list-tabs"><span class="active">全部配对 <b>{{ connections|length }}</b></span><a href="{% url 'inbox' %}">查看消息</a></div>
-{% if connections %}<div class="connections-grid">{% for row in connections %}<a class="connection-card tone-{{ row.person.accent }}" href="{% url 'conversation' row.match.id %}"><div class="connection-photo"><svg><use href="#i-person"/></svg></div><div class="connection-info"><h2>{{ row.person.display_name }}</h2><p>{{ row.person.get_goal_display }}</p></div><span class="connection-chat"><svg><use href="#i-chat"/></svg></span></a>{% endfor %}</div>
-{% else %}<section class="empty-state"><span class="empty-orbit"><svg><use href="#i-heart"/></svg></span><h1>等待一次双向心动</h1><p>你喜欢的人也喜欢你时，就会出现在这里。</p><a class="button" href="{% url 'discover' %}">去探探</a></section>{% endif %}</div>
-{% endblock %}

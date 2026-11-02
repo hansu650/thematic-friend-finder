@@ -20,7 +20,7 @@
 
 ## 现有原型与 A 的开发候选
 
-源码已有兴趣＋意向筛选、共同兴趣计算和清除入口。主卡显示共同兴趣数量，名称在详情；不计为本次新增。依据：[推荐逻辑](https://github.com/hansu650/thematic-friend-finder/blob/ae63188/social/services.py)、[发现页](https://github.com/hansu650/thematic-friend-finder/blob/ae63188/templates/social/discover.html)。
+历史原型源码已有兴趣＋意向筛选、共同兴趣计算和清除入口。主卡显示共同兴趣数量，名称在详情；不计为本次新增。该原型目前本地保留，以下链接固定到清理前的历史提交：[推荐逻辑](https://github.com/hansu650/thematic-friend-finder/blob/ae63188/social/services.py)、[发现页](https://github.com/hansu650/thematic-friend-finder/blob/ae63188/templates/social/discover.html)。
 
 建议讨论三项小改进：①显示当前筛选条件摘要；②主卡优先显示最多两个真实共同兴趣；③无结果时仍显示条件并提供“修改条件”入口，保留已有清除功能。
 
