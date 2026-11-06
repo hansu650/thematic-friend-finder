@@ -74,17 +74,11 @@ A real page capture under reduced-motion preference; submission behavior is chec
 
 ![Reduced motion: discovery](./images/12-reduced-motion.png)
 
-## Executable test results
+## Terminal screenshots — pending actual capture
 
-A rendered view of the saved JUnit/browser outputs; see [TEST_REPORT.html](./TEST_REPORT.html) and the original evidence files. This is not a screenshot of a teammate running the tests.
+The former images 13 and 14 were formatted HTML views of saved logs, not terminal screenshots. They have been removed from this evidence gallery and archive. Original Java/browser outputs remain supporting evidence.
 
-![Saved executable test results](./images/13-test-results.png)
-
-## Actual defect and successful retest
-
-The first failure and successful retest are both retained. See [DEFECT_REPORT.html](./DEFECT_REPORT.html).
-
-![Actual template defect and retest](./images/14-defect-and-retest.png)
+Run the [live PowerShell workflow](./TERMINAL_EVIDENCE.md) from the full project and capture the real terminal at its pause points. Expected filenames: 01_java_terminal.png, 02_browser_terminal.png and 03_github_checks_terminal.png. No placeholder images are supplied, and no human capture is claimed.
 
 ## Trello: first increment ready for peer review
 

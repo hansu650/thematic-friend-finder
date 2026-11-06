@@ -59,6 +59,8 @@ Do not change database credentials for an existing database without planning the
 
 ## Checks and handover
 
+For actual terminal screenshots, use [the live PowerShell evidence workflow](docs/TERMINAL_EVIDENCE.md). It executes Maven/browser checks and pauses for the person taking the screenshots. Formatted HTML reports are not terminal evidence.
+
 A's 6 November discovery increment adds visible filter chips/counts, useful empty-result recovery and participant-only match feedback. See [A's progress and evidence](docs/progress/week2/A_progress.md). The optional [browser checks](scripts/browser/README.md) run against disposable data; they are separate from the Java-only website startup.
 
 Run tests from the project directory with `mvnw.cmd test` using JDK 21. The build helper is the simplest way to keep the task's Maven cache settings consistent. See [verification](docs/VERIFICATION.md), [routes and data contracts](docs/CONTRACTS.md), [reference/licence record](docs/THIRD_PARTY.md) and [A's baseline](docs/BASELINE.md).

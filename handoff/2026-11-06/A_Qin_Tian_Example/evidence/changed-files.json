@@ -1,6 +1,46 @@
 {
   "files": [
     {
+      "path": ".gitignore",
+      "sha256": "83a170c65047891b79d7bc253c381da076c7aa17ee44c893b0a82089ab6428ac",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/TERMINAL_EVIDENCE.md",
+      "sha256": "1e4277ba69884fce404f823a578c9772bc38d4ca766c3491f002a6ba6daf8fef",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/README.md",
+      "sha256": "47c5ef1c162b2f8db8b0c4781bd4e60cb7ecefdf0e8ced7fe3e24be213f7819b",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/discovery-check.mjs",
+      "sha256": "1236816c2eef333f1e6f67c3e0f42a425ef406b8f9a8176ab5b1ddf0e37142b2",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/package.json",
+      "sha256": "64da5910910974a8960a80f00e0856b940cc99c350e33fd443ace7192951841d",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/run-discovery-check.mjs",
+      "sha256": "df52b0f2025323fd424596a0590c14568064dc5468461cbf8fcc0d9e2b313187",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/show-github-checks.ps1",
+      "sha256": "6c3338ecb6bc3b48decf63da708e312e9c6e0e1f9efdf7c0ffa841015f44de60",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/test-evidence.ps1",
+      "sha256": "789d0f51ad6572a1defcde0882aeec4661cbde6f1c05ba0f9006706f3d2bef8b",
+      "kind": "added"
+    },
+    {
       "path": "src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java",
       "sha256": "2fd9ce9fbc4bd9ad7890e337cceb70c164c2a9f31c507bc6e85759d7abc4a788",
       "kind": "modified"
@@ -44,31 +84,6 @@
       "path": "src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java",
       "sha256": "3cff84ebe0a806fd729f68ccba91bbc363dad492372accf361d72a276ca77a84",
       "kind": "added"
-    },
-    {
-      "path": "scripts/browser/README.md",
-      "sha256": "47c5ef1c162b2f8db8b0c4781bd4e60cb7ecefdf0e8ced7fe3e24be213f7819b",
-      "kind": "added"
-    },
-    {
-      "path": "scripts/browser/discovery-check.mjs",
-      "sha256": "1236816c2eef333f1e6f67c3e0f42a425ef406b8f9a8176ab5b1ddf0e37142b2",
-      "kind": "added"
-    },
-    {
-      "path": "scripts/browser/package.json",
-      "sha256": "64da5910910974a8960a80f00e0856b940cc99c350e33fd443ace7192951841d",
-      "kind": "added"
-    },
-    {
-      "path": "scripts/browser/run-discovery-check.mjs",
-      "sha256": "df52b0f2025323fd424596a0590c14568064dc5468461cbf8fcc0d9e2b313187",
-      "kind": "added"
-    },
-    {
-      "path": ".gitignore",
-      "sha256": "83a170c65047891b79d7bc253c381da076c7aa17ee44c893b0a82089ab6428ac",
-      "kind": "modified"
     }
   ]
 }

@@ -4,7 +4,7 @@ Prepared for the six-person team on 6 November 2026. **Use the named MD/ZIP pack
 
 **A's worked submission example is available:** [read the example](./A_Qin_Tian_Example/README.md), [what B–F submit next](./A_Qin_Tian_Example/WHAT_TO_SUBMIT.md), and [actual screenshots/tests](./A_Qin_Tian_Example/EVIDENCE_INDEX.md). A's discovery increment is on **w2/a-discovery**, pending independent peer review and merge. The original named ZIPs below remain baseline snapshots.
 
-For a single file to send to teammates, use [A_Qin_Tian_Example.zip](./A_Qin_Tian_Example.zip). It contains 17 genuine product/test/process captures, raw outputs, the worked progress report, changed source/test files and named next-step instructions. Extract it fully and open README.html or README.md.
+For a single file to send to teammates, use [A_Qin_Tian_Example.zip](./A_Qin_Tian_Example.zip). It contains 15 product/process captures and live PowerShell scripts; terminal screenshots are pending actual user capture, raw outputs, the worked progress report, changed source/test files and named next-step instructions. Extract it fully and open README.html or README.md.
 
 | Owner | Assignment | Task MD | Individual ZIP | Reference images |
 |---|---|---|---|---|

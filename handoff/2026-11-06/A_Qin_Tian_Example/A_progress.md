@@ -39,6 +39,6 @@ The first Java run reported two template-rendering errors. The chip aria-label e
 
 ## Evidence, assistance and remaining work
 
-These are screenshots of the running implementation and recorded tests with fictional profiles. Touch was emulated in Chromium; no physical phone or user study was conducted. [Evidence index](./EVIDENCE_INDEX.md).
+Product images show the running implementation with fictional profiles. The two formatted test-report images were removed because they were not terminal screenshots. Actual terminal captures are pending; run the PowerShell scripts in [TERMINAL_EVIDENCE.md](./TERMINAL_EVIDENCE.md). Touch was emulated in Chromium; no physical phone or user study was conducted. [Evidence index](./EVIDENCE_INDEX.md).
 
 Codex assisted implementation, regression tests, capture automation and this report. Baseline ownership is not unaided authorship. A should read the changed code and rerun the relevant checks before explaining it. B's independent review is still required; leave that checklist unchecked until B performs it. Future contract agreement, peer reproduction and integration records will be added from real activity. Actual human hours have not been supplied and are not invented here.

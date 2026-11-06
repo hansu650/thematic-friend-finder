@@ -1,5 +1,7 @@
 # A Qin Tian — Verification Record
 
+**Terminal evidence correction:** TEST_REPORT.html / DEFECT_REPORT.html and their screenshots were formatted summaries, not terminal captures. They were removed from the submitted gallery/archive. The raw outputs below remain valid historical records. Use [TERMINAL_EVIDENCE.md](./TERMINAL_EVIDENCE.md) to capture new live runs; user terminal screenshots are pending.
+
 Verified on **6 November 2026**, Windows, JDK 21.0.12.1, Maven Wrapper. Tested source is identified by [SHA-256 build inputs](./evidence/source-manifest.json), not by a screenshot filename alone. JAR SHA-256: f60233a20b77ba0f9cbe951cb7b5b5e488ffdcbdfd89d1ee80fcfbb03b29c230.
 
 | Run | Result | Exit | Evidence |

@@ -12,5 +12,6 @@
   "trelloListAtCapture": "Review",
   "independentReviewer": "B Wang Yikai",
   "independentReview": "pending",
-  "note": "Subsequent delivery-only commits can add captures and packaging; source identity is recorded separately."
+  "note": "Subsequent delivery-only commits can add captures and packaging; source identity is recorded separately.",
+  "terminalEvidenceCorrection": "Formatted report images removed; use live PowerShell scripts. Actual terminal screenshots are pending user capture."
 }
