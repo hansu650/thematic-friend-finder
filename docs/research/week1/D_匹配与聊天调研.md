@@ -1,27 +1,40 @@
-# D｜第一周：匹配与聊天调研
+# D | Week 1: Matching and Chat Research
 
-查看日期：2026-11-06（北京时间）。参考 [Tinder][t1]、[Hinge][h1]；方式：阅读官方帮助，未登录实测、付费或联系陌生人。以下产品行为均为官方说明。
+**Review date:** 6 November 2026 (Beijing time).  
+**Products:** [Tinder][t1] and [Hinge][h1].  
+**Method:** Review of official help pages. No account-based testing, paid features, or contact with strangers was involved. Product behaviour below is reported by the official documentation, rather than personally tested.
 
-## 比较与证据
+## Comparison and evidence
 
-- **Tinder**：单向喜欢尚非匹配；收赞可在 Likes 查看，完整查看需订阅；回赞后匹配（[证据：Likes，Already subscribed?][t1]）。普通聊天需双方同意（[聊天页首段][t2]）。聊天从匹配关系进入；新配对与历史聊天的当前分区位置待实测。解除后双方从匹配列表消失，不能再联系（[解除页正文及 To Unmatch Someone][t3]）。
-- **Hinge**：发送喜欢后，对方从发现页消失，等待回应；接收方 Likes You 显示数字角标（[Likes，Sending/Receiving Likes][h1]）。接受后进入 Matches，新匹配和已有会话均从此进入（[匹配页，Messaging your Match][h2]）。解除后会话消失、无法再发消息，且不可恢复；Hide 只隐藏会话、保留关系（[Unmatching 首段及操作步骤][h3]）。
+- **Tinder:** A one-sided Like is not yet a match. Received Likes can be viewed on the Likes page, with full access requiring a subscription. Liking someone back creates a match ([evidence: Likes, "Already subscribed?"][t1]). Ordinary chat requires mutual interest ([messaging page, opening paragraph][t2]). Chat is available through a matching relationship; the current placement of new matches and historical conversations still needs practical verification. Unmatching removes each person from the other's match list and prevents further contact ([unmatching page, main text and "To Unmatch Someone"][t3]).
+- **Hinge:** After a Like is sent, the other person's profile disappears from Discover while awaiting a response. The recipient sees a numerical badge in Likes You ([Likes, "Sending Likes" and "Receiving Likes"][h1]). Accepting the Like moves the person into Matches, which provides access to new matches and existing conversations ([matching page, "Messaging your Match"][h2]). Unmatching removes the conversation, prevents further messages, and cannot be reversed. Hide only removes a conversation from view while preserving the connection ([Unmatching, opening paragraphs and instructions][h3]).
 
-## 状态流程与开发建议
+## State flow and development recommendations
 
-未喜欢 → 单向喜欢（等待）→ 双向匹配（关系成立）→ 可聊天（权限开放）→ 解除联系（入口移除、禁止发送）。这是依据上述资料归纳的普通聊天流程；Hinge 的随赞评论不等于开放会话。直接核对的是官方文案，未观察真实账号转换；付费例外、离线旧页面及解除与发送并发仍待验证。
+**No Like → One-sided Like (waiting) → Mutual Match (connection established) → Chat Enabled (messaging permitted) → Unmatched (entry removed; sending blocked).**
 
-值得借鉴：①双向同意后开放聊天，保留选择权；②区分隐藏与解除，避免整理列表时误断联系。不建议照搬 Tinder 的付费查看收赞，校园项目应降低确认意愿的成本。下周建议统一关系状态，并由服务端按当前关系校验每次发送。
+This flow summarises ordinary chat based on the sources above. A comment attached to a Hinge Like is not equivalent to an open conversation. The evidence directly checked was official wording; no transitions between real accounts were observed. Paid-feature exceptions, stale offline screens, and simultaneous unmatching and message sending remain unverified.
 
-## 候选用户故事与验收
+Two practices worth adopting:
 
-作为用户，我希望双方同意后再聊天，以便保留选择权。
+1. Enable chat only after mutual consent, so each user retains control over whether to connect.
+2. Distinguish hiding a conversation from ending a connection, so organising a chat list does not accidentally remove a match.
 
-1. 仅一方喜欢时，尝试发消息，应拒绝发送且不生成会话。
-2. 对方回赞时，应只生成一个匹配；双方从匹配列表打开后可发送，重进可见历史。
-3. 任一方解除后，刷新应移除双方入口；另一方在旧页面发送，应提示联系已解除且消息不送达。
+One practice not recommended is copying Tinder's paid access to received Likes. A campus project should make it easier, and less costly, to confirm mutual interest.
 
-团队讨论：解除后是否保留仅供举报使用的记录，谁可访问、保留多久？
+For next week's development, define shared relationship states and require the server to check the current relationship whenever a message is sent. This is a proposal for our project, not a claim about either product's internal implementation.
+
+## Candidate user story and acceptance criteria
+
+**User story:** As a user, I want to chat only after both people agree, so that I retain control over whom I connect with.
+
+1. **Given** only one person has sent a Like, **when** either person attempts to send a chat message, **then** the request is rejected and no conversation is created.
+2. **Given** one person has already sent a Like, **when** the other person likes them back, **then** exactly one match is created. Both users can open it from the match list and send messages; reopening the conversation shows its history.
+3. **Given** either person has unmatched, **when** both users refresh their lists, **then** the corresponding entries disappear. If the other person sends from a stale chat screen, the interface reports that the connection has ended and the message is not delivered.
+
+## Question for the team
+
+After unmatching, should any conversation records be retained solely for reporting abuse? If so, who may access them, and for how long?
 
 [t1]: https://www.help.tinder.com/hc/en-us/articles/115005246123-Likes
 [t2]: https://www.help.tinder.com/hc/en-us/articles/115003341183-How-do-I-message-someone
