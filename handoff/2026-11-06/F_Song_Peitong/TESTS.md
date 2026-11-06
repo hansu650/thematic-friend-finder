@@ -11,8 +11,12 @@ Owner: **Song Peitong**. Reviewer: **A Qin Tian**. All six groups start **Not ru
 | F-05 | Restart persistence | Process/browser | Stop/restart against the same test database preserves the expected fixture records. | Not run |
 | F-06 | Independent reproduction | Process/browser | Another member follows the README, runs selected A–E checks and records environment, commands, output and limitations. | Not run |
 
-Use JUnit/Spring integration tests for server rules, browser automation for UI and isolated PowerShell/process tests for backup/restore. Agree a browser-test dependency/command with A/F before introducing it; the baseline includes Maven tests but no shared browser-test runner yet. Parameterise useful boundaries; do not duplicate tests just to reach a count.
+Use JUnit/Spring integration tests for server rules, browser automation for UI and isolated PowerShell/process tests for backup/restore. This ZIP retains the merged Maven baseline. A has an optional discovery browser runner on PR #9; reuse it as a regression after integration and add checks for your own feature. Agree and document any new browser/process test command with A/F. Parameterise useful boundaries; do not duplicate tests just to reach a count.
 
 Deliver test source and fixtures with the feature, exact commands, exit code, version and readable output. Keep a real failing/retest pair when a defect occurs. Link the relevant screenshots from your own progress MD with relative paths.
 
 First checkpoint: three relevant scenarios with the feature. By 22 Nov: all six groups and two independently run checks from the member whose work you review. During W4, retest changed areas and one cross-module flow. See [your task](./F_Song_Peitong_TASK.md).
+
+## Capture and submission
+
+Use [CAPTURE.md](./CAPTURE.md) for live output and [SUBMIT.md](./SUBMIT.md) for branch/PR steps. Submit executable source, not a picture of test code. Code screenshots are optional for B–F.

@@ -2,7 +2,7 @@
 
 Owner: **Qin Tian (A)**. Peer reviewer: **B Wang Yikai**. Scope: Discovery, matching feedback and integration.
 
-**6 November execution record:** all six groups below have local automated coverage in [A's worked example](../../../handoff/2026-11-06/A_Qin_Tian_Example/TEST_RESULTS.md), with 31 Java tests and 11 browser groups passing. Codex assisted these checks. B's independent reproduction and A's two peer checks remain pending.
+**6 November execution record:** all six groups below have local automated coverage in [A's verification record](../../../code/thematic-friend/docs/VERIFICATION.md), with 31 Java tests and 11 browser groups passing. Codex assisted these checks. B's independent reproduction and A's two peer checks remain pending.
 
 Implemented test source: src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java and scripts/browser/. Existing baseline tests are retained and identified separately.
 

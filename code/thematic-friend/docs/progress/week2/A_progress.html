@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A Qin Tian evidence</title><style>body{font:16px/1.6 Segoe UI,Arial,sans-serif;color:#27303b;max-width:1100px;margin:36px auto;padding:0 24px}h1{font-size:29px}h2{margin-top:32px}a{color:#a84f43}table{border-collapse:collapse;width:100%}th,td{padding:9px 11px;border:1px solid #ddd;text-align:left;vertical-align:top}th{background:#f1f2f4}img{display:block;max-width:100%;height:auto;max-height:820px;object-fit:contain;margin:20px 0}pre{background:#f5f5f5;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}hr{border:0;border-top:1px solid #ddd;margin:36px 0}</style></head><body><h1>A Qin Tian Discovery and Integration Progress</h1>
+<p>6 November 2026. Branch: w2/a-discovery. <a href="https://github.com/hansu650/thematic-friend-finder/pull/9">PR #9</a> contains the first discovery increment; independent reviewer <strong>B Wang Yikai</strong> is pending. The remaining shared contracts, five incoming modules, final acceptance and demonstration coordination are assigned work.</p>
+<h2>Implemented and checked</h2>
+<p>The AI-assisted baseline already supplied accounts/profiles, filtering, mutual matching, basic chat and safety actions. A&#39;s increment adds removable filter summaries and eligible counts, useful empty-result recovery and participant-only match feedback leading to the correct conversation. Genuine shared interests come from stored profile intersections.</p>
+<p>Local verification passed <strong>31 Java tests</strong> (19 retained baseline + 12 new regressions) and <strong>11 browser groups</strong>, with exit 0. Qin Tian ran the capture workflow at 13:20–13:22 +08:00 on 6 November. The GitHub capture at 13:22:44 records passing CI for commit 1f407de; it is a snapshot of that observation. See <a href="../../VERIFICATION.md">verification scope</a> and <a href="../../../scripts/browser/README.md">browser reproduction</a>. Touch is emulated; independent review is separate.</p>
+<h2>Actual terminal screenshots</h2>
+<p>Command and source identity:</p>
+<p><img src="./images/A_01_java_terminal_start.png" alt="A Java command and build start"></p>
+<p>31 tests, BUILD SUCCESS and process exit 0:</p>
+<p><img src="./images/A_01_java_terminal.png" alt="A Java terminal result"></p>
+<p>11 browser groups, BrowserExit=0 and process exit 0. The original output-path encoding artifact is retained:</p>
+<p><img src="./images/A_02_browser_terminal.png" alt="A browser terminal result"></p>
+<p>PR #9 and actual GitHub checks at capture time:</p>
+<p><img src="./images/A_03_github_checks_terminal.png" alt="A GitHub terminal checks"></p>
+<h2>Code explanation</h2>
+<p><a href="../../../src/main/java/com/example/thematicfriend/discovery/MatchController.java">MatchController.java</a>, lines 24–37, resolves the session user, validates participation, derives the partner/shared interests and renders match feedback.</p>
+<p><img src="./images/A_04_match_controller_code.png" alt="A match controller in IDEA"></p>
+<p><a href="../../../src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java">DiscoveryRegressionTests.java</a>, lines 124–134, checks the expected partner, common interest, retained filter and conversation destination.</p>
+<p><img src="./images/A_05_match_test_code.png" alt="A matching test in IDEA"></p>
+<p>Some long lines extend beyond the right edge in the supplied editor screenshots; the linked source files retain the complete statements. All six original PNGs keep their original resolution and bytes. <a href="./evidence/A_user_captures_20261106.json">Original-name mapping and hashes</a>. B–F need source/test files and explanations; code screenshots are optional for them.</p>
+<h2>Remaining A work</h2>
+<ol>
+<li>Agree account/session, read-state, staff-role and data-path contracts with the assigned owners.</li>
+<li>Review and integrate accepted B–F PRs; resolve shared integration defects with the affected owners.</li>
+<li>Lead CORE-01–08 on the final integrated revision and the English interface check.</li>
+<li>Coordinate product evaluation, the demonstration narrative and handover; write A&#39;s own evidence-based reflection.</li>
+</ol>
+<p>The largest individual allocation remains A 42 planned hours versus 28 per teammate, including testing, review and coordination. These are estimates, not actual contribution hours. <a href="../../../../../team-plan/14_final_acceptance_and_assessment.md">Shared finish line</a>.</p>
+<p>Code, tests, capture scripts and documentation used Codex assistance. Qin Tian supplied the six terminal/editor screenshots. B&#39;s review, teammate contributions, user observations and later integrations will be recorded when performed.</p>
+</body></html>

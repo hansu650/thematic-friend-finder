@@ -29,7 +29,7 @@ Code area: account/, security integration, change-password template and account 
 
 Password-change feature, permission and credential tests, and updated field/session contracts.
 
-After the Java baseline is merged, create branch w2/c-accounts from the latest main in [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder). Do not develop from the preserved historical research branch. Split work into 1–3 hour cards; aim for a small initial PR around 10 Nov and integration/review on 13–15 Nov.
+The Java baseline is merged. Create branch w2/c-accounts from the latest main in [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder). Do not develop from the preserved historical research branch. Split work into 1–3 hour cards; aim for a small initial PR around 10 Nov and integration/review on 13–15 Nov.
 
 Include your source, meaningful checks and docs/progress/week2/C_progress.md. Images belong beside the MD in an images folder with relative links. Identify the existing baseline, your actual increment, references, AI assistance, validation and limits. Mark completed and verified PRs Ready for review; A merges after review.
 
@@ -40,3 +40,7 @@ Five-week planning budget: 28 hours, including implementation, testing, review, 
 ## UI and test handover
 
 Use [the UI reference map](../../12_ui_reference_map.md), especially references Cross-page consistency; no account screen was supplied. Your scope is account settings, password change and data contracts. Complete [your six test scenario groups](../testing/C_tests.md) with executable checks and evidence. Follow [the weekly photo and screenshot plan](../../13_testing_and_weekly_evidence.md).
+
+## Revised handoff
+
+Use [your named package](../../../handoff/2026-11-06/C_Tao_Jiacheng/START_HERE.md) for current commands and PR steps, and [the final acceptance plan](../../14_final_acceptance_and_assessment.md) for CORE-01–08. Code screenshots are optional for B–F; source/test files, real test output and feature/process evidence are required.

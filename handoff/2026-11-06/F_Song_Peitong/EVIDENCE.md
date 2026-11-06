@@ -1,6 +1,6 @@
 # Evidence and Weekly Photos
 
-Each completed increment should have three useful captures: a normal result, one meaningful boundary/error result and the actual test-run summary. Record the test ID, source version, environment, command, expected/actual outcome and exit code. A code screenshot alone is not an executable test.
+Each completed increment should have three useful captures: a normal result, one meaningful boundary/error result and the actual test-run summary. Record the test ID, source version, environment, command, expected/actual outcome and exit code. Source and executable tests are required in Git; editor screenshots are optional for B–F. Qin Tian retains two code screenshots for explaining A's work.
 
 Save your progress Markdown under **code/thematic-friend/docs/progress/week2/** and its images in the adjacent **images/** folder. Use relative image paths such as **./images/B-02_interest-limit.png**. Preserve real failures and retests; do not claim future tests as passed.
 
@@ -17,3 +17,7 @@ Aim for three useful team photos per week, not three per person. This is an evid
 Take a landscape view of the discussion and agenda, a closer view of real pair work/testing, then a review/decision view. Save a direct screenshot of the board or result as well, because photographed screens can be unreadable. Caption each with date, participants, activity, decision and next owner.
 
 Save **one full-board screenshot after the weekly progress update**. The compact five-column board fits one view; preserve truthful task states. The team demo has a 15-minute course maximum.
+
+## Current hand-in instructions
+
+Follow [CAPTURE.md](./CAPTURE.md) for real terminal results and your own PR/check identity. Also retain your personal Trello card when starting and submitting for review. Use [SUBMIT.md](./SUBMIT.md) to submit the actual source/test changes and evidence. The named package contains your complete task instructions; no example ZIP is needed. Selected photos sent by A illustrate the format, not your own contribution.

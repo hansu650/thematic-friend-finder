@@ -6,6 +6,7 @@ Updated 6 November 2026. This is the English working pack for a browser-based fr
 
 - [Six named development packages: task MDs and runnable source ZIPs](../handoff/2026-11-06/README.md). Begin with your package's `START_HERE.md`.
 - [Named team roster](./00_team_roster.md), [UI references and page ownership](./12_ui_reference_map.md), and [testing and weekly evidence](./13_testing_and_weekly_evidence.md).
+- [Core flow, completion gates and highest-band evidence](./14_final_acceptance_and_assessment.md).
 - [Live Trello board](https://trello.com/b/j4LiifAK).
 
 - [Five-week plan](./01_five_week_plan.md), [roles and collaboration](./02_roles_and_collaboration.md) and [prototype handover](./07_prototype_handover.md).
@@ -38,6 +39,6 @@ A's earlier research is available as an [English translation with its original p
 
 These are proposed internal dates, not the university deadline. Both Sprints last two weeks. Names and A–F mapping are confirmed in the roster. Capacity and final commitments still need confirmation by the members. Meeting and contribution templates are not records of work already performed.
 
-The [GitHub repository](https://github.com/hansu650/thematic-friend-finder) is public. The Java baseline and this English handoff use the `w2/a-baseline` branch and a PR for peer review. Start your development branch from the latest `main` after that PR is merged; the ZIPs can be used immediately for local work. Existing research branches and historical planning remain as evidence. The website has a temporary EN/Chinese switch and defaults to English.
+The [GitHub repository](https://github.com/hansu650/thematic-friend-finder) is public. The Java baseline was merged through PR #8. Start a new development branch from current `main`, or preserve and continue an existing task branch. The named ZIPs retain that baseline with revised task/capture/submission instructions; A's discovery increment remains a separate reviewable PR. Existing research branches and historical planning remain as evidence. The website has a temporary EN/Chinese switch and defaults to English.
 
 Workload target: A 42 hours; B–F 28 hours each, including coordination and evidence. See [workload balance](./11_workload_balance.md) for the allocation and adjustment rule.
