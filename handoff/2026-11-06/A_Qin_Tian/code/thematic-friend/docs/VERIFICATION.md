@@ -1,0 +1,46 @@
+# Baseline Verification
+
+Verified on **6 November 2026** on the local Windows machine, using JDK 21, Maven Wrapper and an isolated headless Microsoft Edge/Playwright browser. All accounts and messages used for verification were fictional. This is A's AI-assisted baseline verification, not evidence that B–F performed their reserved tasks or that user research took place.
+
+## Automated Java checks
+
+The final Mingle source was extracted from A's named handoff ZIP and built with JDK 21 and Maven Wrapper on 6 November 2026. `package` completed with exit code 0 and **19 tests, zero failures/errors/skips**. Dependencies were read from this task's already-populated Maven cache in offline mode, so this proves a clean source extraction and build, not a download on a new teammate machine. A branding assertion initially expected the old Chinese product name; it was updated to the selected Mingle name, and the suite passed. The original and corrected logs remain in the local handoff verification folder.
+
+`mvnw.cmd --batch-mode --no-transfer-progress --offline test` completed with **19 tests, zero failures, zero errors and zero skipped**. Coverage includes registration and validation, own-profile editing, discovery exclusions, mutual matching, duplicate decisions, participant-only messaging, escaping, ending/blocking/unblocking, private report receipts and authenticated page rendering.
+
+Four language checks verify English default despite a Chinese browser preference, persistent session switching and switching back, translated form validation and an unsupported language leaving the default unchanged. Raw local output: `.local/verification/maven-test.log`; XML reports: `target/surefire-reports/`.
+
+The executable JAR was subsequently packaged successfully. An initial offline package lacked an uncached Maven plugin; it was downloaded through the normal Maven build. A later Windows file-lock failure during rebuilding was resolved by stopping the owned verification process before repackaging. The final package completed successfully; the log is `.local/verification/maven-package.log`.
+
+## Browser checks
+
+The same eight groups below were rerun successfully against the JAR from the extracted Mingle ZIP. The run also checked the Mingle page title and header. Final local output: `tmp/six-person-plan-20261106/mingle-clean-browser.json` in the coursework workspace. The screenshots below show this Mingle run. B–F must still verify their own increments and environments.
+
+The final browser flow verified:
+
+1. Public English/Chinese switching and English page text.
+2. A short mouse drag returning the card without submitting.
+3. A long right drag submitting a real server-side like.
+4. A reciprocal like from a second session opening a conversation.
+5. A real saved message appearing in the other session through polling.
+6. An emulated mobile touch swipe submitting a skip.
+7. A 390 × 844 layout, visible language control and no horizontal overflow in either language.
+8. No browser exceptions or HTTP 5xx responses in the checked flow.
+
+The first mobile run exposed a capture-transfer bug: a child element's `lostpointercapture` event bubbled to the card and reset the drag. The handler now reacts only when the card itself loses capture; the final emulated-touch run passed. This is browser touch emulation, not a claim of testing a physical phone. Earlier failing runs remain in the local verification folder.
+
+![English discovery page](./images/discover-en.png)
+
+![Mobile discovery and language switch](./images/mobile-discover-en.png)
+
+![Conversation with a real persisted test message](./images/chat-en.png)
+
+## Restart and final English mode
+
+The verification process was stopped and restarted against the **same H2 file database**. The connection and its previously sent message remained available after login. With `app.chinese-enabled=false`, a request for `lang=zh` still rendered English and no language switch was present. This verifies data retention for this local process-restart scenario; backup/restore tooling and independent clean-copy reproduction remain F's work.
+
+Raw local summaries: `.local/verification/browser-state.json`, the final browser run's `results.json`, and `.local/verification/restart-result.json`.
+
+## Not yet verified or implemented
+
+No public deployment, physical-device matrix, high-load concurrency assessment, actual moderation service, real-user observation or independent team-member reproduction is claimed. B's live preview, C's password change, D's unread/history features, E's staff review and F's backup/restore tools are not in this baseline. Each member must add verification for their own increment.

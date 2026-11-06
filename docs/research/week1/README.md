@@ -1,15 +1,16 @@
-# 第一周调研提交目录
+# Week 1 Research Submissions
 
-这里保存成员实际完成的调研，不预填研究结果。任务说明见 [第一周个人任务](../../team-plan/每周任务/W1_个人任务/)。
+These are the merged W1 research files. A merge records repository integration; it does not independently prove authorship, peer review, interviews or app testing. Preserve each submission's own provenance and evidence.
 
-| 成员 | 分支 | 本目录下的调研文件 | 复核人 |
-|---|---|---|---|
-| A | `w1/a-research` | `A_发现与筛选调研.md` | B |
-| B | `w1/b-research` | `B_界面与导航调研.md` | C |
-| C | `w1/c-research` | `C_注册与资料调研.md` | D |
-| D | `w1/d-research` | `D_匹配与聊天调研.md` | E |
-| E | `w1/e-research` | `E_屏蔽与举报调研.md` | A |
+| Member | Preserved branch | Submission |
+|---|---|---|
+| A Qin Tian | `w1/a-research` | [Discovery and filtering](./A_发现与筛选调研.md) |
+| B Wang Yikai | `w1/b-research` | [Interface and navigation](./B_Interface_and_Navigation_Research.md) |
+| C Tao Jiacheng | `w1/c-research` | [Registration and profiles](./C_注册与资料调研.md) |
+| D Zhou Ziyue | `w1/d-research` | [Matching and chat](./D_匹配与聊天调研.md) |
+| E Wu Zhuoda | `w1/e-research` | [Blocking and reporting](./E_屏蔽与举报调研.md) |
+| F Song Peitong | `w1/f-research` | [Runtime and handover](./F_运行与交接调研.md) |
 
-截图放在 `images/`，分别用 `a-` 至 `e-` 开头命名。调研 MD 使用 `./images/图片名.png` 相对路径。
+[Current English six-person plan](../../../team-plan/README.md) · [New development packages](../../../handoff/2026-11-06/README.md) · [A's English translation with provenance](../../../team-plan/research/week1/A_discovery_research.md)
 
-所有成员先发起以 `main` 为目标的 PR。复核意见处理后，由 A 合并。这里约定协作流程，尚未配置强制分支保护或添加协作者。
+Research images remain in `images/`. Use relative Markdown paths. Start new development branches from updated main after the Java baseline PR is merged, not from these historical research branches.

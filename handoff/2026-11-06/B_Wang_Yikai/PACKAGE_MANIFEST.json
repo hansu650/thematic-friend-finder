@@ -1,0 +1,325 @@
+{
+  "package": "B_Wang_Yikai",
+  "owner": "Wang Yikai",
+  "created": "2026-11-06",
+  "baselineSourceHash": "1e8f4d264d7a8c47e5a13cfa54a4fae94198e6fbaaefb9098ab30aa0da73b58f",
+  "sourceCodeFiles": 60,
+  "files": [
+    {
+      "path": "B_Wang_Yikai_TASK.md",
+      "sha256": "92359354dc43cc3f16a89b3851b93b8ef656723c8e8ee945da8f974ac492f646"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "sha256": "e9f91eac5d23fc2ed63b6c757268d3036d23dd161c692dd6a789aab3bba9be1c"
+    },
+    {
+      "path": "RUN.md",
+      "sha256": "be4cf94ee6ddbf1d053505b05532b8e811afb73211076e773a79ceed0f945897"
+    },
+    {
+      "path": "START_HERE.md",
+      "sha256": "b60ed62735708f7a6b058eefc0d660538d1caa40c6dec910a0e4d5f90f18982d"
+    },
+    {
+      "path": "TEAM.md",
+      "sha256": "351474ec30ef8ed28c1f60457f7c7e52ce2908dda7ba45d5bf9cd30907520bc8"
+    },
+    {
+      "path": "TESTS.md",
+      "sha256": "fc93c7f1f61334aed9428ecaa570a65a5ee85ed029fbaa8cf912fb3ba53e6c10"
+    },
+    {
+      "path": "code/thematic-friend/.gitattributes",
+      "sha256": "5775a77ad2f6d12dde053a3fb0cca4309189163f0888f4e7e984cd0ab327028b"
+    },
+    {
+      "path": "code/thematic-friend/.gitignore",
+      "sha256": "cc5e503d580245034da4c00ceaa13d527ae0927fc0fb32311d4c76bebb858aa1"
+    },
+    {
+      "path": "code/thematic-friend/.mvn/maven.config",
+      "sha256": "bb13266f2d58001ca471371c972b4db1596dd85fd75bf00648c2cd0cb125342c"
+    },
+    {
+      "path": "code/thematic-friend/.mvn/wrapper/maven-wrapper.properties",
+      "sha256": "e475c49e0cb54793fef372f979672f56bfe7d272b981ad6f5ebd5e50e08ee1dd"
+    },
+    {
+      "path": "code/thematic-friend/README.md",
+      "sha256": "eecc9ceef9d609f7c746a6054f4461d57f8874a6853dd4d1182bc0aeae2af676"
+    },
+    {
+      "path": "code/thematic-friend/docs/BASELINE.md",
+      "sha256": "13d9b03d31a727609bc9c3349ede008201166211c8317c293b3e4d20f80b0ed9"
+    },
+    {
+      "path": "code/thematic-friend/docs/CONTRACTS.md",
+      "sha256": "99bf46dbd33eec04f753c7b2d8e0c3f13f62655459b32f2c4afe68b49415dc97"
+    },
+    {
+      "path": "code/thematic-friend/docs/THIRD_PARTY.md",
+      "sha256": "c5f2a606573331c8066bd7ad0dc533a89eb2754c378597c1de107cbddab93790"
+    },
+    {
+      "path": "code/thematic-friend/docs/VERIFICATION.md",
+      "sha256": "ffbbbe9e804ea88dfc535efa1b62474b41664af3042ccb5c6fee253ae7980296"
+    },
+    {
+      "path": "code/thematic-friend/docs/images/chat-en.png",
+      "sha256": "3cb0602441768b75aea85d3f3eaf43b2a80255144ab8dd695ffe80258e2b4d00"
+    },
+    {
+      "path": "code/thematic-friend/docs/images/discover-en.png",
+      "sha256": "0435bd00c2e741f2f3c40812d297187c0d2df42f82528139d9845f8e712e8be4"
+    },
+    {
+      "path": "code/thematic-friend/docs/images/home-en.png",
+      "sha256": "635cdfd96587adcc410304aa80a00500c70825ea83512c3157d452c1cdf46299"
+    },
+    {
+      "path": "code/thematic-friend/docs/images/mobile-discover-en.png",
+      "sha256": "73dd9ec333642c472d3419f39217b4469287218f724cc0fe144d4fb1a127baf3"
+    },
+    {
+      "path": "code/thematic-friend/docs/progress/week2/B_progress.md",
+      "sha256": "5c9933aa1e9fc5c5008a9db76c555c43c8546f9d381c1fe3ba29f0a407fc5133"
+    },
+    {
+      "path": "code/thematic-friend/mvnw",
+      "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02"
+    },
+    {
+      "path": "code/thematic-friend/mvnw.cmd",
+      "sha256": "4a361e1374a3e5ad6d03e18e9adc0cf181ac5058ac6203b76f0ba3b456b56481"
+    },
+    {
+      "path": "code/thematic-friend/pom.xml",
+      "sha256": "27f6585330902aeb249bcc71e05589bf8501e7b6a99e07c701f93444e156d05d"
+    },
+    {
+      "path": "code/thematic-friend/scripts/build.ps1",
+      "sha256": "b66d2fa816fb2016f0fe6bd81ef1f0ecd904ba37a9202a4b647e1cce989e17bb"
+    },
+    {
+      "path": "code/thematic-friend/scripts/run-demo.ps1",
+      "sha256": "ba4c6f6613872484159bd94d337a0ef550edc76b16958fdf73a3254b2d487d9e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/ThematicFriendApplication.java",
+      "sha256": "262ef73e0cc8cc9a9c837fe43a41aa39e3cc554e16337f5741d7742989d7490d"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/AccountController.java",
+      "sha256": "4552c589f52787a11d331e702ca6bc6106898ec3228fa0863376bd0249ea2146"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/AccountService.java",
+      "sha256": "e5669c858a2edcbbb59c2688d701d226b697141271b065afb2bf654b39b4d91a"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/Member.java",
+      "sha256": "157c4711356143bfa0527b4d3ff74952583723ab0e701eff4f5c43dd7db3ea59"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/MemberRepository.java",
+      "sha256": "f8338930ea7ac823671eb1d96c66ad9e5059f7ffeda89442c552b80c36690276"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/ProfileForm.java",
+      "sha256": "d4268a98e9c18ebb1165459468e2bb5c3acc0a4240992aa2ddf74fe99c87299a"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/account/SignupForm.java",
+      "sha256": "625178836d03d77f19f6c28ba2c0a4759029062e00f0802d9e36a22cfb72421e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/bootstrap/DemoData.java",
+      "sha256": "2842cc3d5bbd7c06d377342aac99cb8e41cd3cef659f4d66740287bae76c9f2b"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/chat/ChatController.java",
+      "sha256": "f3a85b49e8908f90f7751579322cae6aa9d9e9ff963d6e634abd55eba390d1f2"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/chat/ChatService.java",
+      "sha256": "905baf4e819589a7ed9a2594e36b5771c31e7f8742df19259731caffdf192789"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/chat/Message.java",
+      "sha256": "bce4ae48c53bb223d375215d876f7388fd0a6b8e6c0fc83aff02d6b887267259"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/chat/MessageRepository.java",
+      "sha256": "ef1147d4080571a5f855dc31be3f4265493ee375fea99a26b68429eccda71948"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/config/I18n.java",
+      "sha256": "10b54cebce0f1b589b5171c62e013f93df3f8c194fef3243106f326538c7b6ba"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/config/PageAdvice.java",
+      "sha256": "b24dd3297b34e9e6b75ec2d1f493428816f580640e818eded6fee4d9e6739d6e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/config/SecurityConfig.java",
+      "sha256": "2e554dc9241dcc6122434d119495fb6ccd787319dfe5ed4e27faacf7fad578b0"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/config/WebConfig.java",
+      "sha256": "9acb58890164a7102b3ae100cc1a9584d25a86e34ffaa11caa842087dcf476d6"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/Connection.java",
+      "sha256": "d13582aebbe591a45b9fc5fc673351342e49b65b6df5dc5fde6beef4b320a871"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/ConnectionRepository.java",
+      "sha256": "77ba25772db9307416a4858c0449723411bcaa9295b0819f758d140f299f219e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/ConnectionService.java",
+      "sha256": "d7ad5edb95c80ada0abb73e9297525f99b0b61ce9ef3c0d72ec6a41ca40b7ed0"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/Decision.java",
+      "sha256": "bc3ed0b00a3756b2d0824cbc405863c7307bbe621746548efae848e58e22bf5b"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/DecisionRepository.java",
+      "sha256": "8f22468b768958686becefa2deecc4b20bc8d9a5617a4377752ad7ddc432b7bc"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/connection/PairGuard.java",
+      "sha256": "8d96dd78c5738459bd521e8a0cd20bd467210d844198949bf9d13a827398e544"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java",
+      "sha256": "d81c3f85662e7f26649af6f65006316d673f516a111bfacb2d3fe1d6a8244b83"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/discovery/DiscoveryService.java",
+      "sha256": "c05195303b7a6d9de653438cac31809b09b8a2cec13f813b8c4503f5bae0ba9a"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/Block.java",
+      "sha256": "5215f032088ace6ba8cf4f29b06323ced14a2cb13c28ddb5858afe293778d2ae"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/BlockRepository.java",
+      "sha256": "57e1242d199af01d4f91e8f9d4f71f751c640d8e0c45d8095d457e321befecdf"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/Report.java",
+      "sha256": "b8489fc3e5d49cc1e56a7abfa0ffbcfa9809b13339c1dda30ddf3430cd8b99e8"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/ReportRepository.java",
+      "sha256": "2273038e23e3df44267062d904fcfc8e8cd74e93d9b06a0cb02c5939e939a583"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/SafetyController.java",
+      "sha256": "0a4ec956dd5839a0f017d54f8edd506b51fff17f5d366cd5356f8c3edfd1594d"
+    },
+    {
+      "path": "code/thematic-friend/src/main/java/com/example/thematicfriend/safety/SafetyService.java",
+      "sha256": "d3e65c9dc26cdf0a4054237b9dc8b5d4dbe67059cb6438da54545a3070efd9bf"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/application.properties",
+      "sha256": "b8cc79df3a6bc75868a043721ad28f21109b5d732d7bd24a343ab88d19237898"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/messages.properties",
+      "sha256": "2de591778ed15a56a2c077124abdca8c415cbc45783c11ef25d6d379ab2c0407"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/messages_zh.properties",
+      "sha256": "7d5e0ffdfa5691f54e27687bb88301d1c00cc9c587c84b076f6279ec0089cef7"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/static/css/app.css",
+      "sha256": "b0c5213e26966d1db581acbda5aa2d68eea104991e35fa3ff3d8a3a48060589b"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/static/js/app.js",
+      "sha256": "a7e3bbf5850d51aaa6a6a9ec97063c3d222b408d4ca7fa89cbf4be44bd4c8380"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/static/js/chat.js",
+      "sha256": "b4f4ae06bfe470f7c57277a7f805ae8344fbaab21dba021413a3ac72d1e0d3e1"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/connections.html",
+      "sha256": "f0709733e804d1b0f0e032ef6e7087431f39ee17e3822c3772bd303d54f4f0a7"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/conversation.html",
+      "sha256": "53d43b7f18a4bc24cfc339f56d37f608c0672429885aa0c54919a6f24798f550"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/discover.html",
+      "sha256": "08c349fbc71ffb22a99f8b631689095bafeed1742419a26b7f6d98a5b20c7526"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/error.html",
+      "sha256": "4c46e3606657e74e976477aed6ab3f651d7afaf3b5aae613a1dba3fc96704b3b"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/fragments/layout.html",
+      "sha256": "5c982ec8ae9db0bf2a7a6f7078bab5b7ae95b1d4e49b153f1eff104737d1ccb6"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/login.html",
+      "sha256": "effea1fe1681eac59ffcd3d560c7483138ba9d4f86682fa0b95942a4e1493080"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/privacy.html",
+      "sha256": "468bdeef92c81951985cb4c4d5f703984b21bcdaa88c3a29b7f7f6b4a7f1c3d2"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/profile.html",
+      "sha256": "d21f32562d6df17f493d55ce58e55d53b08d50cca9378a3ea79b54035734eb17"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/report.html",
+      "sha256": "1b4b3b7a8b2ca3ecf534bd4dfbd8a8527065f788456d2f982b87802c17c4bb7e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/safety.html",
+      "sha256": "503da5aac1888b3c35e768190bccbd0dcd9b98b4d089f3184895b09bc117004a"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/signup.html",
+      "sha256": "e15b57d29d6388c33ba393f96363baffd868333b1ce2cd0fb81b4ef12dfb821e"
+    },
+    {
+      "path": "code/thematic-friend/src/main/resources/templates/welcome.html",
+      "sha256": "8afb349683e33e96376d1dc02e6ca04649815857a05028c3cd9053ca5ff1c3ff"
+    },
+    {
+      "path": "code/thematic-friend/src/test/java/com/example/thematicfriend/LanguageTests.java",
+      "sha256": "0a892fa4699a393d75633d8ca6944882aaca05dc967faccacf12680b910d9467"
+    },
+    {
+      "path": "code/thematic-friend/src/test/java/com/example/thematicfriend/PrototypeFlowTests.java",
+      "sha256": "1bf77a55bc80415e9ffb0db5276b01803976fbedd7c10753c37b7955811b02ff"
+    },
+    {
+      "path": "code/thematic-friend/src/test/java/com/example/thematicfriend/ThematicFriendApplicationTests.java",
+      "sha256": "cfdf7f6a63d6d474c1ea8d9f35e0099806a0ccdc0f33af3b8a399d895711853f"
+    },
+    {
+      "path": "images/momo-04.jpg",
+      "sha256": "08b42315da5342225110dbb3c04ca99f46c8ca454565f55cc884ee3d7d48fe36"
+    },
+    {
+      "path": "images/momo-07.jpg",
+      "sha256": "301bba2f9cb82307cec159cf0d8fe03884adf865f650f2d091dc35e04b1190bf"
+    },
+    {
+      "path": "images/momo-09.jpg",
+      "sha256": "5b815e519b761fa1612140f27238ea6a67ef74b3e29c9cd14594b55f6bada5e2"
+    }
+  ]
+}

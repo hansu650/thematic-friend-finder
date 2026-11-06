@@ -1,0 +1,10 @@
+**/.cache/
+**/.local/
+**/target/
+**/.idea/
+**/node_modules/
+**/_preview.html
+*.log
+*.mv.db
+*.trace.db
+.env
