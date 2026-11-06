@@ -1,0 +1,13 @@
+PASS A-01 Visible filters, eligible count and actual shared interests; removing one filter preserves the other.
+PASS A-04a Short mouse drag returns the same card and sends zero decisions.
+PASS A-05a Empty results offer working clear/revisit actions; revisiting keeps filters.
+PASS A-04b Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.
+PASS A-03/A-05b Reciprocal button like opens real feedback, correct chat and a message received by the other participant.
+PASS A-04c Repeated arrow-key events during commitment submit one decision.
+PASS A-04d 390 px emulated touch: short drag returns; committed swipe submits once.
+PASS A-06a 390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.
+PASS A-06b 390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.
+PASS A-06c Reduced-motion button decision submits once.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during these flows.
+Browser output: D:\课程资料\01_本学期课程\专题项目\tmp\a-discovery-example-20261106\browser-runs\discovery-CTQYsb
+BrowserExit=0

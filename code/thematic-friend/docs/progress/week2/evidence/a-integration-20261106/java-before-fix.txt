@@ -1,0 +1,1132 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24383 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] --------------------< com.example:thematic-friend >---------------------
+[INFO] Building thematic-friend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ thematic-friend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 18 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ thematic-friend ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 31 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ thematic-friend ---
+[INFO] skip non existing resourceDirectory D:\�γ�����\01_��ѧ�ڿγ�\ר����Ŀ\code\thematic-friend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ thematic-friend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 5 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ thematic-friend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.thematicfriend.AIntegrationTests
+14:16:26.125 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.thematicfriend.AIntegrationTests]: AIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:16:26.202 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.AIntegrationTests
+14:16:26.257 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.thematicfriend.AIntegrationTests]: AIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:16:26.260 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.AIntegrationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-06T14:16:26.517+08:00  INFO 44636 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : Starting AIntegrationTests using Java 21.0.12.1 with PID 44636 (started by rober in D:\课程资料\01_本学期课程\专题项目\code\thematic-friend)
+2026-11-06T14:16:26.519+08:00  INFO 44636 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : No active profile set, falling back to 1 default profile: "default"
+2026-11-06T14:16:27.169+08:00  INFO 44636 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T14:16:27.226+08:00  INFO 44636 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 6 JPA repository interfaces.
+2026-11-06T14:16:27.788+08:00  INFO 44636 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-06T14:16:27.843+08:00  INFO 44636 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-06T14:16:36.122+08:00  INFO 44636 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T14:16:36.142+08:00  INFO 44636 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-06T14:16:36.245+08:00  INFO 44636 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a-integration user=SA
+2026-11-06T14:16:36.246+08:00  INFO 44636 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-06T14:16:36.287+08:00  INFO 44636 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:a-integration]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: A-INTEGRATION/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T14:16:36.851+08:00  INFO 44636 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T14:16:37.322+08:00  INFO 44636 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T14:16:37.404+08:00  INFO 44636 --- [thematic-friend] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-06T14:16:38.451+08:00  INFO 44636 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-06T14:16:39.038+08:00  INFO 44636 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-06T14:16:39.038+08:00  INFO 44636 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-06T14:16:39.041+08:00  INFO 44636 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-11-06T14:16:39.131+08:00  INFO 44636 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : Started AIntegrationTests in 12.823 seconds (process running for 13.71)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (D:\¿γÌ×ÊÁÏ\01_±¾ѧÆڿγÌ\רÌâÏîĿ\code\thematic-friend\.cache\maven\repository\net\bytebuddy\byte-buddy-agent\1.18.15\byte-buddy-agent-1.18.15.)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/99999999
+       Parameters = {choice=[LIKE], interest=[Coffee], lang=[zh], _csrf=[TlF2-acbDShUiYRteijBxIbl8OC5yaT3TflPSq-2mfplCBs1LWMUzZUvPB15vbAPSwX18uDc3YKI-JDaKcx-LpuF-8lQOyJU]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]], org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE=zh_CN}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 404
+        Attribute = explanation
+            value = 暂时无法完成这个操作，请返回后重试。
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Language:"zh-CN", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="zh">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>暂时无法继续 · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">关于 Mingle </a><a class="button secondary small-button" href="/login">去登录 </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>这一步，暂时走不通。 </h1><p>暂时无法完成这个操作，请返回后重试。</p><a class="button" href="/discover">返回发现 </a><a class="text-link" href="/connections">查看我的联系 </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/99999999
+       Parameters = {choice=[LIKE], interest=[<script>stolen()</script>], goal=[https://example.invalid], next=[https://example.invalid], _csrf=[-_aAshmBOg062CT_ENavkVDN24ZxcxEZgSkrgBiDde51NxmJw8C50SDlD2sX7UabIPuboDT49r4VQyM0tBlJtHm1R95CAy26]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 404
+        Attribute = explanation
+            value = This action could not be completed. Please go back and try again.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This action could not be completed. Please go back and try again.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/17
+       Parameters = {choice=[LIKE], _csrf=[7KVBY25ZnTBEY9kfNan2WqGjm2iYJ2pkKDi32HT1XxXN4WYA3JBzV1o9-wBpVegtDITCbpmTtgmhRQhJHQzV7ETNOXCv0V85]}
+          Headers = []
+             Body = null
+    Session Attrs = {org.springframework.web.servlet.support.SessionFlashMapManager.FLASH_MAPS=[FlashMap [attributes={notice=ui.like_saved_you_can_chat_when_you_both_like_each_other}, targetRequestPath=/discover, targetRequestParams={}]], SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = redirect:/discover?interest=&goal=
+             View = null
+            Model = null
+
+FlashMap:
+        Attribute = notice
+            value = ui.like_saved_you_can_chat_when_you_both_like_each_other
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Content-Language:"en", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Location:"/discover?interest=&goal="]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /discover?interest=&goal=
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/16
+       Parameters = {choice=[LIKE], _csrf=[eY2PqreArIEzjlE9KjYjAt0PPMbsgkhtxrwaZI-D5yk8r-hPGu7uz4PhmrkevzNbTBsXZ75sEf_fsXBA9ol-VL_n0hkPmtkt]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = redirect:/matches/2?interest=&goal=
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Content-Language:"en", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Location:"/matches/2?interest=&goal="]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /matches/2?interest=&goal=
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /matches/2
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository.CSRF_TOKEN=org.springframework.security.web.csrf.DefaultCsrfToken@bb0ca30, SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.MatchController
+           Method = com.example.thematicfriend.discovery.MatchController#match(Principal, Long, String, String, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = match
+             View = null
+        Attribute = me
+            value = com.example.thematicfriend.account.Member@75a45ce
+           errors = []
+        Attribute = allInterests
+            value = [Coffee, Reading, Films, Music, Photography, Travel, Sport, Gaming, Food, Hiking]
+        Attribute = allGoals
+            value = [New friends, Study buddy, Workout buddy, Weekend plans]
+        Attribute = demoMode
+            value = false
+        Attribute = chineseEnabled
+            value = true
+        Attribute = englishUrl
+            value = /matches/2?lang=en
+        Attribute = chineseUrl
+            value = /matches/2?lang=zh
+        Attribute = connection
+            value = com.example.thematicfriend.connection.Connection@6910e725
+           errors = []
+        Attribute = partner
+            value = com.example.thematicfriend.account.Member@4c721f6b
+           errors = []
+        Attribute = shared
+            value = [Coffee]
+        Attribute = selectedInterest
+            value = 
+        Attribute = selectedGoal
+            value = 
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>It&#39;s a match. · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <span class="nav-caption">A little in common. A new story. </span>
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="/discover"><span aria-hidden="true">◈</span>Discover </a>
+    <a href="/connections" aria-current="page" class="active"><span aria-hidden="true">♡</span>Connections </a>
+    <a href="/profile"><span aria-hidden="true">○</span>My profile </a>
+    <a href="/safety"><span aria-hidden="true">◇</span>Privacy and safety </a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a class="mini-profile" href="/profile"><span class="avatar small palette-1">J</span><span><strong>Jamie</strong><small>Your Mingle card </small></span></a>
+    <form action="/logout" method="post"><input type="hidden" name="_csrf" value="hdivL1GmFO2NQPIalXTT2yltBGw_5PLRHi-ydngLLiBzynYrs-6XSWKWd92gdpZ_p1nn7hFYKQ5b3cH8J0yKExs-SEFL_U9N"/><button class="quiet" type="submit">Sign out <span aria-hidden="true">↗</span></button></form>
+    <p class="fine">Course prototype · Meet at your own pace </p>
+  </div>
+</aside>
+<div class="app-language"><nav class="language-switch" aria-label="Language">
+  <a href="/matches/2?lang=en" lang="en" aria-current="true" class="selected">EN</a>
+  <a href="/matches/2?lang=zh" lang="zh">中文</a>
+</nav></div>
+<main class="app-main match-main">
+  <section class="panel match-panel" aria-labelledby="match-title">
+    <p class="eyebrow">A NEW CONNECTION</p>
+    <div class="match-pair" aria-hidden="true">
+      <span class="avatar match-avatar palette-1">J</span>
+      <span class="match-heart">♡</span>
+      <span class="avatar match-avatar palette-2">A</span>
+    </div>
+    <h1 id="match-title">It&#39;s a match.</h1>
+    <p class="match-confirmation" role="status">You and Alex both chose to connect.</p>
+    <div class="match-common">
+      <p>You both enjoy</p>
+      <div class="tags" id="match-shared"><span>Coffee</span></div>
+      <p class="fine">A shared interest is a good place to start.</p>
+    </div>
+    
+    <div class="match-actions">
+      <a id="open-conversation" class="button" href="/conversations/2">Say hello to Alex</a>
+      <a id="keep-discovering" class="button secondary" href="/discover?interest=&amp;goal=">Keep discovering</a>
+    </div>
+    <p class="fine match-boundary">Take it at your own pace. You can end contact, block or report from the conversation.</p>
+  </section>
+</main>
+</body>
+</html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /conversations/2/messages
+       Parameters = {body=[A real HTTP integration message.], _csrf=[9fO3qxALcOhfzvaIaBnp6CF7f0GZqgX9yT_R1dZ0BwpDaQPtkZCBnHFpQd9yqpPpXDTdjEJJUnivkjzQ-F7n4uQXZTtxDWCI]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#send(Principal, Long, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = redirect:/conversations/2
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Content-Language:"en", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Location:"/conversations/2"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /conversations/2
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/conversations/2/messages
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#poll(Principal, Long, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = [{"id":1,"body":"A real HTTP integration message.","time":"11-06 14:16","mine":false}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/conversations/2/messages
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_outsider, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#poll(Principal, Long, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"error":"Connection not found."}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /connections/2/end
+       Parameters = {_csrf=[s3WbhnuRD2N6RvoDLDBZxfCBP5XFrN0l4XMzhEUMYCq4CP5j0UX4tk-pbgdXd8I1TR1t88m0EqzxnOwIh0ZW5SM4AknePctb]}
+          Headers = []
+             Body = null
+    Session Attrs = {org.springframework.web.servlet.support.SessionFlashMapManager.FLASH_MAPS=[FlashMap [attributes={notice=ui.connection_ended_neither_participant_can_use_this_conversation_again}, targetRequestPath=/connections, targetRequestParams={}]], SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#end(Principal, Long, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = redirect:/connections
+             View = null
+            Model = null
+
+FlashMap:
+        Attribute = notice
+            value = ui.connection_ended_neither_participant_can_use_this_conversation_again
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Content-Language:"en", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Location:"/connections"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /connections
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /matches/2
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.MatchController
+           Method = com.example.thematicfriend.discovery.MatchController#match(Principal, Long, String, String, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /conversations/2
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#conversation(Principal, Long, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/conversations/2/messages
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#poll(Principal, Long, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"error":"This connection is closed. Messages are no longer available."}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /conversations/2/messages
+       Parameters = {body=[Must not save], _csrf=[1zlZCMeVwLLnxPY6iqqNxP38YOiFZ63ewMv7C8iVM1IlwrMNsV1tMKP3pdHK_MQJu4e59J6fTYnjApvz9viYPamiAzMXp9E4]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#send(Principal, Long, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /matches/2
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.MatchController
+           Method = com.example.thematicfriend.discovery.MatchController#match(Principal, Long, String, String, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /conversations/2
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#conversation(Principal, Long, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/conversations/2/messages
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#poll(Principal, Long, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"error":"This connection is closed. Messages are no longer available."}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /conversations/2/messages
+       Parameters = {body=[Must not save], _csrf=[DOiFmnYtBM5mnE6itKd9qbs9UPew0rpGf7PKaD1z9sCQBksub9y8_EcYMvhLqSzG14pJnt4IfZbT695rHIuvWQtDx_GpYi8d]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_alex, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.chat.ChatController
+           Method = com.example.thematicfriend.chat.ChatController#send(Principal, Long, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 403
+        Attribute = explanation
+            value = This connection is closed. Messages are no longer available.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">403</p><h1>We could not complete that step. </h1><p>This connection is closed. Messages are no longer available.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/17
+       Parameters = {choice=[LIKE], interest=[Coffee], _csrf=[yr2WchoBQKXP0xl72UXfrwiFIrA9UaoFB4c2F9lpBY-pbQJ1-Y30F3xjecbisHwa72jrzT3mD4gEMJooPrIBculaZuuaWGRE]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 409
+        Attribute = explanation
+            value = This connection has ended.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">409</p><h1>We could not complete that step. </h1><p>This connection has ended.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /decisions/20
+       Parameters = {choice=[LIKE], interest=[Coffee], goal=[New friends], _csrf=[lRcG1Qz7KxUS0WrdHy_1amFs8IiXWuriA5xFSzy2l_w7UA1d8SZjszvNSSA_6Vm5LALBUlZd3eqvYtzPOq1xelnV9ZoIaD1t]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=integration_jamie, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]]}
+
+Handler:
+             Type = com.example.thematicfriend.discovery.DiscoveryController
+           Method = com.example.thematicfriend.discovery.DiscoveryController#decide(Principal, Long, Choice, String, String, RedirectAttributes)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.server.ResponseStatusException
+
+ModelAndView:
+        View name = error
+             View = null
+        Attribute = status
+            value = 404
+        Attribute = explanation
+            value = This person is not available to connect.
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue · Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This person is not available to connect.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 8, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 14.59 s <<< FAILURE! -- in com.example.thematicfriend.AIntegrationTests
+[ERROR] com.example.thematicfriend.AIntegrationTests.chineseRecoveryKeepsTheValidatedFilter -- Time elapsed: 0.679 s <<< FAILURE!
+java.lang.AssertionError: Model attribute 'recoveryInterest' expected:<Coffee> but was:<null>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+	at org.springframework.test.web.servlet.result.ModelResultMatchers.lambda$attribute$1(ModelResultMatchers.java:74)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at com.example.thematicfriend.AIntegrationTests.chineseRecoveryKeepsTheValidatedFilter(AIntegrationTests.java:173)
+
+[ERROR] com.example.thematicfriend.AIntegrationTests.recoveryOnlyAcceptsKnownFilters -- Time elapsed: 0.037 s <<< FAILURE!
+java.lang.AssertionError: 
+Response content
+Expected: a string containing "id=\"recovery-discover\""
+     but: was "<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue �� Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>��</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This action could not be completed. Please go back and try again.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$string$0(ContentResultMatchers.java:141)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at com.example.thematicfriend.AIntegrationTests.recoveryOnlyAcceptsKnownFilters(AIntegrationTests.java:96)
+
+[ERROR] com.example.thematicfriend.AIntegrationTests.completeMatchChatEndFlowEnforcesTheBoundary -- Time elapsed: 0.250 s <<< FAILURE!
+java.lang.AssertionError: Model attribute 'recoveryInterest' expected:<Coffee> but was:<null>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+	at org.springframework.test.web.servlet.result.ModelResultMatchers.lambda$attribute$1(ModelResultMatchers.java:74)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at com.example.thematicfriend.AIntegrationTests.completeMatchChatEndFlowEnforcesTheBoundary(AIntegrationTests.java:127)
+
+[ERROR] com.example.thematicfriend.AIntegrationTests.hiddenCardHasAUsableFilteredRecovery -- Time elapsed: 0.034 s <<< FAILURE!
+java.lang.AssertionError: 
+Response content
+Expected: a string containing "href=\"/discover?interest=Coffee&amp;goal=New%20friends\""
+     but: was "<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue �� Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>��</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This person is not available to connect.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$string$0(ContentResultMatchers.java:141)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at com.example.thematicfriend.AIntegrationTests.hiddenCardHasAUsableFilteredRecovery(AIntegrationTests.java:71)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   AIntegrationTests.chineseRecoveryKeepsTheValidatedFilter:173 Model attribute 'recoveryInterest' expected:<Coffee> but was:<null>
+[ERROR]   AIntegrationTests.completeMatchChatEndFlowEnforcesTheBoundary:127 Model attribute 'recoveryInterest' expected:<Coffee> but was:<null>
+[ERROR]   AIntegrationTests.hiddenCardHasAUsableFilteredRecovery:71 Response content
+Expected: a string containing "href=\"/discover?interest=Coffee&amp;goal=New%20friends\""
+     but: was "<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue �� Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>��</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This person is not available to connect.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+"
+[ERROR]   AIntegrationTests.recoveryOnlyAcceptsKnownFilters:96 Response content
+Expected: a string containing "id=\"recovery-discover\""
+     but: was "<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unable to continue �� Mingle</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js" defer></script>
+</head><body><header class="public-nav">
+  
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">m<span>��</span></span><span>Mingle <small>MINGLE</small></span></a>
+  <div><a class="quiet" href="/privacy">About </a><a class="button secondary small-button" href="/login">Sign in </a></div>
+</header>
+<main class="panel error-page"><p class="eyebrow">404</p><h1>We could not complete that step. </h1><p>This action could not be completed. Please go back and try again.</p><a class="button" href="/discover">Back to Discover </a><a class="text-link" href="/connections">View connections </a></main></body></html>
+"
+[INFO] 
+[ERROR] Tests run: 8, Failures: 4, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.516 s
+[INFO] Finished at: 2026-11-06T14:16:40+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project thematic-friend: There are test failures.
+[ERROR] 
+[ERROR] See D:\�γ�����\01_��ѧ�ڿγ�\ר����Ŀ\code\thematic-friend\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

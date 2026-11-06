@@ -1,0 +1,71 @@
+{
+  "providedOn": "2026-11-06",
+  "archivedAt": "2026-11-06T05:25:17.661Z",
+  "source": "Six screenshots supplied by Qin Tian in this chat",
+  "preservation": "Original PNG bytes retained; no resizing, recompression or annotation changes",
+  "localRun": "20261106-132012-3d4219",
+  "githubObservedAt": "2026-11-06T13:22:44+08:00",
+  "codeScreenshotLimit": "Some long lines extend beyond the right editor edge; the linked source files retain the complete statements.",
+  "files": [
+    {
+      "attachment": 1,
+      "originalName": "codex-clipboard-d6343f4d-2a09-4360-bac1-d3847076a671.png",
+      "path": "images/A_04_match_controller_code.png",
+      "description": "IntelliJ IDEA: MatchController.java, lines 24–37",
+      "bytes": 724472,
+      "width": 3072,
+      "height": 1824,
+      "sha256": "d0e0991c3d59451a710dc5af0e4d7de3a54109238b462e3b68c4c168638222db"
+    },
+    {
+      "attachment": 2,
+      "originalName": "codex-clipboard-23501611-afa6-4922-bfb5-3960a676d402.png",
+      "path": "images/A_05_match_test_code.png",
+      "description": "IntelliJ IDEA: DiscoveryRegressionTests.java, lines 124–134",
+      "bytes": 879383,
+      "width": 3072,
+      "height": 1824,
+      "sha256": "07ad6609caf3c8e5bf6b1df72a4e6656482d61597f35c5c3716897e46484362f"
+    },
+    {
+      "attachment": 3,
+      "originalName": "codex-clipboard-2b5a9dbc-f311-4452-9165-4dc44ffeea53.png",
+      "path": "images/A_01_java_terminal_start.png",
+      "description": "PowerShell command, source identity and Java build start",
+      "bytes": 442808,
+      "width": 3072,
+      "height": 1824,
+      "sha256": "5a7f1e4d33ea93a5ef5364adb31522ae3aa91046b56b9e85320fdef898cd4e0c"
+    },
+    {
+      "attachment": 4,
+      "originalName": "codex-clipboard-0d26636d-2222-4cd5-a97a-b3060cec6c1f.png",
+      "path": "images/A_01_java_terminal.png",
+      "description": "PowerShell: 31 Java tests, BUILD SUCCESS and exit 0",
+      "bytes": 398062,
+      "width": 3072,
+      "height": 1824,
+      "sha256": "0bd24762dae1d84b35c546066c1133a3684c26679ebdcb4ba63b6391ca32f0a0"
+    },
+    {
+      "attachment": 5,
+      "originalName": "codex-clipboard-1d69c302-0550-44af-9cc7-256d0e454c9d.png",
+      "path": "images/A_02_browser_terminal.png",
+      "description": "PowerShell: 11 browser check groups and exit 0",
+      "bytes": 219137,
+      "width": 3056,
+      "height": 770,
+      "sha256": "6b8cdb1852f0b518dcdc32612139ebc2caf6cc086a98993167085aa32f31d46f"
+    },
+    {
+      "attachment": 6,
+      "originalName": "codex-clipboard-2626e40a-483b-484b-b185-30574bb923ac.png",
+      "path": "images/A_03_github_checks_terminal.png",
+      "description": "PowerShell: PR #9, commit 1f407de, passing CI and exit 0",
+      "bytes": 244551,
+      "width": 3070,
+      "height": 900,
+      "sha256": "6fe3eaa03e16569ecea5f0391f773009793d97d687f43283aa170d69c5577fb8"
+    }
+  ]
+}

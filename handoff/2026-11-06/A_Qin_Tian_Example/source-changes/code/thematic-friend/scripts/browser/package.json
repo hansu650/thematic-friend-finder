@@ -1,0 +1,7 @@
+{
+  "name": "mingle-browser-checks",
+  "private": true,
+  "type": "module",
+  "scripts": { "test:discovery": "node run-discovery-check.mjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

@@ -1,20 +1,20 @@
-# Mingle Team
+# Mingle Team and Current Responsibilities
 
-Assignment date: 6 November 2026. The formal development handoff is the named Markdown and source package. Trello records actual progress and supports weekly screenshots.
+Updated 6 November 2026. Complete the agreed profile–discovery–mutual-match–chat–account–safety flow. Each member develops their own assigned increment and submits real evidence.
 
-| ID | Owner | Main increment | Reviewer | Five-week budget |
-|---|---|---|---|---|
-| A | Qin Tian | Discovery, matching feedback and integration | B Wang Yikai | 42 h |
-| B | Wang Yikai | Shared UI, live profile preview and accessibility | C Tao Jiacheng | 28 h |
-| C | Tao Jiacheng | Account settings, password change and data contracts | D Zhou Ziyue | 28 h |
-| D | Zhou Ziyue | Conversation list, unread state and older messages | E Wu Zhuoda | 28 h |
-| E | Wu Zhuoda | Safety actions, restricted report review and permission tests | F Song Peitong | 28 h |
-| F | Song Peitong | Backup and restore, clean-copy setup and reproduction | A Qin Tian | 28 h |
+| Member | Work | Reviewer | Planned five-week hours |
+|---|---|---|---|
+| A Qin Tian | Baseline, discovery, contracts, integration, final acceptance and demonstration organisation | B Wang Yikai | 42 |
+| B Wang Yikai | Live profile preview, interest counter, accessibility and usability observation | C Tao Jiacheng | 28 |
+| C Tao Jiacheng | Password change, session policy and account contracts | D Zhou Ziyue | 28 |
+| D Zhou Ziyue | Unread state, older-message history and conversation integration | E Wu Zhuoda | 28 |
+| E Wu Zhuoda | Restricted report review, permission tests and process facilitation | F Song Peitong | 28 |
+| F Song Peitong | Backup/restore, independent reproduction and runtime handover | A Qin Tian | 28 |
 
-Budgets are provisional person-hours, including testing, review, coordination and reflection. Each B–F budget includes roughly 8–10 hours for test code, debugging, reproduction and evidence. Confirm capacity with Qin Tian.
+A has the largest individual scope and budget: 42 hours versus 28 for each teammate. A also owns shared contracts, PR integration, final cross-module testing and demonstration organisation. Module owners fix their own defects and explain their code. Estimates include testing, peer review, coordination and reflection; they are not a record of actual hours.
 
-Work can start from this ZIP now. Agree shared interfaces before integrating overlapping changes. Target first feature PRs: A/B/C/F 11 Nov, E 14 Nov, D 15 Nov. Integration is planned for 16–18 Nov, all six test groups and peer checks by 22 Nov, feedback fixes 23–26 Nov and reproduction 27–29 Nov. The internal plan ends 4 Dec with 5–6 Dec buffer; the official university deadline still needs confirmation.
+Start with an agreed 1–3 hour slice, then complete the six relevant scenario groups. The existing internal targets remain estimates pending member capacity: first increments during 9–15 Nov, integration/review through 22 Nov, feedback and reproduction during 23–29 Nov, and final demonstration/reflection preparation by 4 Dec with 5–6 Dec buffer. Confirm the official deadline through Moodle/the teacher.
 
-A owns the AI-assisted baseline; B–F implement their own new increments. Describe actual work and assistance truthfully. Existing tests or screenshots are baseline evidence, not a teammate's new contribution.
+Use [Trello](https://trello.com/b/j4LiifAK) for actual status. Move to Review when code, tests and evidence are ready; Done needs acceptance and merge. B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. Each review records what was actually rerun.
 
-[Live compact Kanban](https://trello.com/b/j4LiifAK): To do → Doing → Review → Test → Done. Keep only current work visible. Doing limit: 6, one main task each; Review/Test limit: 2 each. Done needs implementation, relevant passing checks, evidence and peer review.
+Read [FINISH_LINE.md](./FINISH_LINE.md) for the shared product checks and the distinction between feature completion and assessment completion.

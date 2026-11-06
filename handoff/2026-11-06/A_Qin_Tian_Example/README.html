@@ -1,0 +1,336 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mingle — A Qin Tian worked example</title><style>body{font-family:Segoe UI,Arial,sans-serif;color:#273139;background:#faf8f5;margin:0;padding:44px 54px;line-height:1.5}main{max-width:1300px;margin:auto}h1{font-size:34px;margin:0 0 8px}h2{margin-top:30px}p{margin:10px 0}a{color:#bd4a38}table{width:100%;border-collapse:collapse;background:#fff;margin:20px 0;font-size:14px}td,th{padding:9px 13px;text-align:left;border:1px solid #e4ddd7}th{background:#efe9e3}code,pre{font-family:Consolas,monospace;font-size:13px}pre{padding:18px;background:#fff;border:1px solid #e4ddd7;white-space:pre-wrap;word-break:break-word}.stamp{color:#6d756f;font-size:14px}.stats{display:flex;gap:20px;margin:25px 0}.stat{padding:18px 30px;border:1px solid #c9dbce;background:#f1f8f3;border-radius:12px}.stat strong{display:block;font-size:30px;color:#316e45}.fail{background:#fff0eb;border-color:#ecc9be}.fail strong{color:#a24431}img{display:block;max-width:100%;height:auto;margin:20px 0;border:1px solid #e3ddd6}hr{border:0;border-top:1px solid #ded8d1;margin:40px 0}li{margin-bottom:8px}</style></head><body><main><h1>Mingle — A Qin Tian&#39;s Worked Submission Example</h1>
+<p>Prepared on <strong>6 November 2026</strong>. Owner: <strong>A Qin Tian</strong>. Peer reviewer: <strong>B Wang Yikai</strong>. This is the first discovery increment and a submission example. A&#39;s later integration/review duties continue.</p>
+<p>Published as <a href="https://github.com/hansu650/thematic-friend-finder/pull/9">PR #9 — Ready for review</a>. The implementation commit is <strong>e8cd17e</strong>; <a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">GitHub Java CI passed</a>. A&#39;s <a href="https://trello.com/c/YQhFPGKX/1-a-qin-tian-discovery">Trello card</a> is in <strong>Review</strong>, with independent review still pending. Open <strong>README.html</strong> for a browser preview of all instructions and images, or read the Markdown files directly.</p>
+<p><strong>Terminal-evidence correction:</strong> the two formatted test-report images were removed. This archive now contains 15 product/process captures; actual terminal captures remain pending. Use <a href="./TERMINAL_EVIDENCE.md">TERMINAL_EVIDENCE.md</a> and the supplied PowerShell scripts to run and capture the checks live.</p>
+<p><strong>Start with <a href="./WHAT_TO_SUBMIT.md">WHAT_TO_SUBMIT.md</a>.</strong> It tells every member what to build, test, capture and hand in. Then inspect <a href="./A_progress.md">A_progress.md</a> as a completed implementation record and <a href="./EVIDENCE_INDEX.md">EVIDENCE_INDEX.md</a> for the real screenshots.</p>
+<table>
+<thead>
+<tr>
+<th>File/folder</th>
+<th>What it contains</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./A_progress.md">A_progress.md</a></td>
+<td>Baseline versus new work, verification, one real defect and pending peer review</td>
+</tr>
+<tr>
+<td><a href="./WHAT_TO_SUBMIT.md">WHAT_TO_SUBMIT.md</a></td>
+<td>Named B–F next steps, branch names and the common submission checklist</td>
+</tr>
+<tr>
+<td><a href="./EVIDENCE_INDEX.md">EVIDENCE_INDEX.md</a></td>
+<td>Before/after, boundary, match/chat, mobile, test and board evidence</td>
+</tr>
+<tr>
+<td><a href="./TEST_RESULTS.md">TEST_RESULTS.md</a></td>
+<td>Exact test scope, commands, process results and limitations</td>
+</tr>
+<tr>
+<td><a href="./REVIEW_CHECKLIST.md">REVIEW_CHECKLIST.md</a></td>
+<td>B&#39;s independent reproduction checklist; currently pending</td>
+</tr>
+<tr>
+<td><a href="./CONTRACTS_TO_CONFIRM.md">CONTRACTS_TO_CONFIRM.md</a></td>
+<td>Implemented discovery contract and decisions requiring member discussion</td>
+</tr>
+<tr>
+<td><a href="./source-changes/">source-changes</a></td>
+<td>Exact changed feature/test files; apply to a full project checkout</td>
+</tr>
+<tr>
+<td><a href="./evidence/">evidence</a></td>
+<td>Original outputs, JUnit XML, browser JSON and SHA-256 source manifest</td>
+</tr>
+<tr>
+<td><a href="./images/">images</a></td>
+<td>Actual browser/board captures; relative image links work after extraction</td>
+</tr>
+</tbody></table>
+<p>The included source changes are an <strong>increment</strong>, not a second complete Maven project. Use the full <a href="https://github.com/hansu650/thematic-friend-finder">repository</a> and branch <strong>w2/a-discovery</strong> to run A&#39;s version. B–F start their own task branches from current <strong>main</strong>; A&#39;s feature branch is a worked example until it is reviewed and merged. Their existing named task packages remain their starting instructions.</p>
+<p>The automated results are <strong>31 Java tests passed</strong> (19 existing + 12 new) and <strong>11 browser groups passed</strong>. Both processes exited 0. Read the failure/retest evidence rather than presenting this as an uninterrupted first-time success.</p>
+<p>The implementation and evidence preparation used Codex assistance. Qin Tian still needs to understand and explain the changes; Wang Yikai&#39;s review and each teammate&#39;s own work must be recorded when they actually happen. No independent review, user interview or completion of B–F&#39;s increments is implied.</p>
+<hr><h1>What Each Member Does Next</h1>
+<p>Use A&#39;s example to copy the <strong>submission structure and evidence quality</strong>. Implement your own assigned increment and run your own checks. The baseline has already been merged through PR #8; create your task branch from the latest main. Do not start development on the preserved W1 research branches.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Branch</th>
+<th>First concrete change</th>
+<th>Evidence to show</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>B Wang Yikai</strong></td>
+<td>w2/b-interface</td>
+<td>Live unsaved profile preview and a selected-interest counter</td>
+<td>Preview before/after typing; five-interest boundary; keyboard and 390 px checks</td>
+</tr>
+<tr>
+<td><strong>C Tao Jiacheng</strong></td>
+<td>w2/c-accounts</td>
+<td>Change-password form requiring the current password</td>
+<td>Wrong-current-password rejection; valid change; old login fails/new login succeeds; agreed session policy</td>
+</tr>
+<tr>
+<td><strong>D Zhou Ziyue</strong></td>
+<td>w2/d-connections</td>
+<td>Per-participant unread state and older-message loading</td>
+<td>Two sessions with unread changes; more than 100 messages; no gaps/duplicates; outsider denial</td>
+</tr>
+<tr>
+<td><strong>E Wu Zhuoda</strong></td>
+<td>w2/e-safety</td>
+<td>Staff-only report queue and handling status</td>
+<td>Staff workflow; ordinary-user/anonymous denial; private notes and valid status handling</td>
+</tr>
+<tr>
+<td><strong>F Song Peitong</strong></td>
+<td>w2/f-runtime</td>
+<td>Safe backup/restore on disposable H2 data</td>
+<td>Known data before/after restore; refused unsafe or running target; clean-copy reproduction</td>
+</tr>
+</tbody></table>
+<p>The detailed task and six scenario groups remain in each member&#39;s named MD/ZIP package. Check shared changes with A before editing common fields/routes. The proposed boundaries are listed in <a href="./CONTRACTS_TO_CONFIRM.md">CONTRACTS_TO_CONFIRM.md</a>; discussion and agreement are still required.</p>
+<h2>A small submission that someone can review</h2>
+<ol>
+<li>Implement a focused 1–3 hour slice on your W2 branch. Describe the baseline behavior and what changed.</li>
+<li>Commit the feature and meaningful executable tests together. Include at least three relevant scenarios in the first feature PR; complete the six planned groups by the internal 22 November checkpoint. Reused tests must be identified as reused.</li>
+<li>Save exact commands, source commit/hash, exit code and readable output. Keep a real failure and retest when one occurs. Do not manufacture a failed run.</li>
+<li>Capture at least three purposeful images: a normal outcome, a boundary/error outcome and executable test results. Add 390 px or two-session images when the assertion needs them. A screenshot of the interface does not replace an executable test.</li>
+<li>Complete your own progress MD: actual change, expected/actual checks, defect/fix, remaining limits, references/AI assistance and reviewer status. Put images in the same folder&#39;s images/ subfolder and link them relatively.</li>
+<li>Open a PR to main and link it from your Trello card. Move the card to Review when the implementation/checks are ready. Record peer review and fixes; move to Done only after acceptance/merge.</li>
+</ol>
+<p>Suggested evidence layout:</p>
+<pre><code class="language-text">docs/progress/week2/
+  B_progress.md
+  images/B_normal.png
+  images/B_boundary.png
+  images/B_tests.png
+  evidence/B_test-output.txt
+</code></pre>
+<p>Use your own member letter. Include test source in the project, not just in a screenshot. Do not commit target/, caches, node_modules/, passwords or runtime databases.</p>
+<h2>Review and weekly process evidence</h2>
+<p>B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. A integrates accepted work. Review means running the agreed checks and recording what was actually examined, not marking a box because a PR exists.</p>
+<p>Each week, retain roughly three useful genuine discussion/work/review photos and a board capture after updating actual status. Record date, topic, participants confirmed by the team, decision and next owner. Do not stage a retrospective record as if it happened earlier. Classroom/team photographs remain in the local photo archive; this worked example contains product/test/process screenshots.</p>
+<p>Send A the PR link, progress MD, test outputs and screenshots together. A&#39;s <a href="./A_progress.md">A_progress.md</a>, <a href="./TEST_RESULTS.md">TEST_RESULTS.md</a> and <a href="./REVIEW_CHECKLIST.md">REVIEW_CHECKLIST.md</a> demonstrate the format.</p>
+<hr><h1>A Qin Tian — Week 2 Progress</h1>
+<p>Date: <strong>6 November 2026</strong> · Branch: <strong>w2/a-discovery</strong> · Reviewer: <strong>B Wang Yikai</strong>.</p>
+<p>Implementation and local verification: <strong>complete for this increment</strong>. Independent peer review: <strong>pending</strong>. Later member-contract agreements and integration: <strong>pending actual team work</strong>.</p>
+<p><a href="https://github.com/hansu650/thematic-friend-finder/pull/9">PR #9</a> is Ready for review. Implementation commit: <strong>e8cd17e</strong>. <a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">GitHub Java CI passed</a>. The Trello card moved from Doing to Review after the passing local checks; the PR remains unmerged for peer review.</p>
+<h2>Starting point and actual change</h2>
+<p>The baseline already handled registration, saved profiles, discovery ranking, like/skip gestures, mutual connections, basic chat and safety receipts. Those are retained baseline capabilities, not new work in this submission.</p>
+<p>This increment adds a visible eligible-profile count and removable filter chips, preserves the other selected filter when one chip is removed, and gives empty results useful recovery actions. It counts only eligible skipped profiles before offering to revisit. It also adds a separate mutual-match feedback page with the actual participant, actual shared-interest intersection and a button opening that connection&#39;s conversation. The existing drag/button/keyboard submission mechanism is reused and checked.</p>
+<p><img src="./images/03-after-filters.png" alt="Discovery with the new filter summary"></p>
+<p><img src="./images/07-match-success.png" alt="Real reciprocal match and correct conversation action"></p>
+<h2>Code and integration</h2>
+<p>Changed implementation: DiscoveryController, DiscoveryService, new MatchController, discover.html, new match.html, app.css and both message bundles. Added tests: DiscoveryRegressionTests and the optional isolated browser runner. Exact paths/hashes: <a href="./evidence/changed-files.json">changed-files.json</a>. Full build inputs: <a href="./evidence/source-manifest.json">source-manifest.json</a>.</p>
+<p>There are no entity/schema changes in this increment. The new GET /matches/{id} requires an active connection participant; third parties, anonymous requests and ended/blocked connections cannot read active feedback. POST decisions remain CSRF protected. D continues to own unread/history work, C account/session changes, E restricted report handling, B profile preview, and F backup/restore.</p>
+<h2>What was verified</h2>
+<ul>
+<li><strong>A-01:</strong> filters, shared-interest truth, invalid-filter normalization and visible counts.</li>
+<li><strong>A-02:</strong> exclusion rules and eligible revisitable profiles, including hidden users and blocking in either direction; the baseline self-exclusion tests remain included.</li>
+<li><strong>A-03:</strong> one-sided likes, reciprocal likes and repeated server submissions using one connection.</li>
+<li><strong>A-04:</strong> short/committed mouse and emulated-touch gestures, arrow keys and buttons; request counts checked in the browser.</li>
+<li><strong>A-05:</strong> appropriate empty recovery, active participant-only feedback, actual shared interests, correct conversation and received message.</li>
+<li><strong>A-06:</strong> 390 px and desktop layouts, temporary Chinese controls and reduced motion.</li>
+</ul>
+<p>Java: <strong>31 passed, 0 failures, 0 errors, 0 skipped; exit 0</strong>. Browser: <strong>11 groups passed; exit 0</strong>. Details and original output: <a href="./TEST_RESULTS.md">TEST_RESULTS.md</a>.</p>
+<h2>Real defect and retest</h2>
+<p>The first Java run reported two template-rendering errors. The chip aria-label evaluated a bean method inside a restricted message parameter. I changed the template to resolve translated labels with th:with first, then pass the resulting strings to the message expression. The same build/test command subsequently passed all 31 tests. <a href="./evidence/java-first-failure.txt">Original failure</a> · <a href="./evidence/java-retest.txt">Successful retest</a>.</p>
+<h2>Evidence, assistance and remaining work</h2>
+<p>Product images show the running implementation with fictional profiles. The two formatted test-report images were removed because they were not terminal screenshots. Actual terminal captures are pending; run the PowerShell scripts in <a href="./TERMINAL_EVIDENCE.md">TERMINAL_EVIDENCE.md</a>. Touch was emulated in Chromium; no physical phone or user study was conducted. <a href="./EVIDENCE_INDEX.md">Evidence index</a>.</p>
+<p>Codex assisted implementation, regression tests, capture automation and this report. Baseline ownership is not unaided authorship. A should read the changed code and rerun the relevant checks before explaining it. B&#39;s independent review is still required; leave that checklist unchecked until B performs it. Future contract agreement, peer reproduction and integration records will be added from real activity. Actual human hours have not been supplied and are not invented here.</p>
+<hr><h1>A Qin Tian — Verification Record</h1>
+<p><strong>Terminal evidence correction:</strong> TEST_REPORT.html / DEFECT_REPORT.html and their screenshots were formatted summaries, not terminal captures. They were removed from the submitted gallery/archive. The raw outputs below remain valid historical records. Use <a href="./TERMINAL_EVIDENCE.md">TERMINAL_EVIDENCE.md</a> to capture new live runs; user terminal screenshots are pending.</p>
+<p>Verified on <strong>6 November 2026</strong>, Windows, JDK 21.0.12.1, Maven Wrapper. Tested source is identified by <a href="./evidence/source-manifest.json">SHA-256 build inputs</a>, not by a screenshot filename alone. JAR SHA-256: f60233a20b77ba0f9cbe951cb7b5b5e488ffdcbdfd89d1ee80fcfbb03b29c230.</p>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Result</th>
+<th>Exit</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>First Java package</td>
+<td>31 tests; 0 assertion failures; 2 template-rendering errors</td>
+<td>1</td>
+<td><a href="./evidence/java-first-failure.txt">Original output</a>, <a href="./evidence/first-failure-report.txt">stack trace</a></td>
+</tr>
+<tr>
+<td>Same Java command after template fix</td>
+<td>31 tests; 0 failures/errors/skips</td>
+<td>0</td>
+<td><a href="./evidence/java-retest.txt">Retest output</a>, <a href="./evidence/junit/">JUnit reports</a></td>
+</tr>
+<tr>
+<td>Isolated Edge browser run</td>
+<td>11 assertion groups passed; no page exceptions/HTTP 5xx</td>
+<td>0</td>
+<td><a href="./evidence/browser-output.txt">Output</a>, <a href="./evidence/browser-results.json">assertions</a>, <a href="./evidence/browser-run.json">run metadata</a></td>
+</tr>
+<tr>
+<td>GitHub Actions on implementation commit e8cd17e</td>
+<td>Mingle Java CI completed successfully</td>
+<td>Success</td>
+<td><a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">Run 42164383872</a></td>
+</tr>
+</tbody></table>
+<h2>Java command and coverage</h2>
+<p>The source was copied to a clean verification directory and built using the existing task Maven cache:</p>
+<pre><code class="language-powershell">.mvnw.cmd --batch-mode --no-transfer-progress --offline &quot;-Dmaven.repo.local=&lt;existing task cache&gt;&quot; package
+</code></pre>
+<p>The actual command sets JAVA_HOME to the installed JDK 21 and MAVEN_USER_HOME to the task&#39;s cache. This proves a clean source copy builds against available dependencies; it does not prove a fresh network download on a teammate&#39;s machine.</p>
+<p>The total consists of <strong>19 retained baseline tests plus 12 new DiscoveryRegressionTests</strong>. New tests cover normalized filters, eligible counts and skip recovery, reciprocal/repeated likes, actual shared interests, correct match routes, outsider/anonymous/blocked access, escaped user text and Chinese feedback. Read the <a href="./source-changes/code/thematic-friend/src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java">test source</a>.</p>
+<h2>Browser command and coverage</h2>
+<pre><code class="language-powershell">node scripts/browser/run-discovery-check.mjs
+</code></pre>
+<p>This run selected the already-built verification JAR with MINGLE_TEST_JAR and the existing Edge executable with MINGLE_BROWSER_PATH. It used Node v24.22.1, Playwright 1.62.1 and Edge 156.0.4314.58. Optional local capture/motion modules produced the ordinary arrow. <a href="./source-changes/code/thematic-friend/scripts/browser/README.md">Portable runner instructions</a>.</p>
+<p>The runner creates a fresh database and random fictional-account password, starts a loopback-only server, executes the UI assertions and stops the server. It does not use the shared demo. Exact per-group outcomes are retained in the JSON and text outputs.</p>
+<p>The eleven groups cover filters/shared interests, short mouse return, empty-result recovery, committed mouse like, reciprocal match/correct chat/message arrival, repeated arrow keys, short/committed emulated touch, 390 px discovery/empty/Chinese controls, mobile match/Chinese/reduced-motion navigation, reduced-motion button submission and absence of runtime errors in those flows.</p>
+<h2>Real defect</h2>
+<p>Two tests initially errored because a bean call nested inside an aria-label message parameter triggered Thymeleaf&#39;s restricted expression context. Precomputing translated filter labels with th:with resolved the error. The first log and successful retest are both retained unchanged. The fix is in discover.html; the test assertions were not removed or weakened.</p>
+<h2>Limits and review</h2>
+<p>This is one Windows/Edge verification run with Chromium touch emulation. It is not a physical-device check, production/security certification, load test, independent reviewer run or user interview. B Wang Yikai&#39;s review is <strong>pending</strong>. B–F&#39;s feature increments are still theirs to implement. Later CI and PR status are recorded separately when available; local passing results do not imply peer approval.</p>
+<hr><h1>Capture Actual Terminal Evidence</h1>
+<p>The earlier TEST_REPORT.html / DEFECT_REPORT.html images were rendered summaries of saved outputs. They are <strong>not terminal screenshots</strong> and must not be submitted as terminal evidence. Keep original logs as supporting evidence; capture the real terminal while executing the commands below.</p>
+<h2>Local Java and browser tests</h2>
+<p>Open PowerShell or Windows Terminal and maximize the window. From the project directory:</p>
+<pre><code class="language-powershell">powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\test-evidence.ps1
+</code></pre>
+<p>The script creates a fresh source/build copy under <code>.local/terminal-evidence/</code>, runs Maven, and pauses after the actual result. Take screenshot <strong>01_java_terminal.png</strong> with Windows Snipping Tool (<code>Win + Shift + S</code>), including the terminal window, <code>Tests run</code>, <code>BUILD SUCCESS</code> or <code>BUILD FAILURE</code>, and the process exit code. If necessary scroll slightly upward and take a second image showing the command and source path. Preserve enough context to identify the run.</p>
+<p>Press Enter only after capturing that result. The script then starts a disposable local server and runs the browser assertions. At the second pause, capture <strong>02_browser_terminal.png</strong>, including the real assertion lines, <code>BrowserExit</code> and process exit code. The script stops its own test server; it does not restart the shared demonstration.</p>
+<p>Output is generated by the real commands. The script does not print a hardcoded passing test count and does not create terminal images. Failures remain failures. Raw command output, a terminal transcript, source-file hashes and exit codes are saved in the displayed run directory. Use the result from your run even if it differs from an earlier report.</p>
+<p>Offline Maven uses the existing task cache on this machine. If dependencies are genuinely unavailable, rerun with <code>-Online</code> to let Maven download them. <code>-NoPause</code> is for unattended verification only; omit it when taking screenshots. Existing Java 21, Node.js, Playwright and Edge are used; this script installs none of them.</p>
+<h2>GitHub CI and PR status</h2>
+<pre><code class="language-powershell">powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\show-github-checks.ps1
+</code></pre>
+<p>Capture <strong>03_github_checks_terminal.png</strong> at the pause. Include the observation time, PR URL/head commit, actual checks and command exit code. It reuses the existing GitHub CLI sign-in and performs read-only requests. Pending or failed CI must not be labelled passed. A successful CI run is not independent peer approval.</p>
+<h2>Where to put the captures</h2>
+<p>Save the actual PNG files under an <code>images</code> folder beside your progress Markdown. Link them relatively, for example <code>./images/01_java_terminal.png</code>, and record the run folder, command, date, expected/actual result and who ran it. Until a person actually captures the terminal, record <strong>terminal screenshots pending</strong>. Do not create placeholder images, replay an old log as a new test run, or manufacture a failure to complete the evidence set.</p>
+<p>The older real template failure remains in the original saved output. Viewing that historical log is useful but does not constitute a new failing execution or a terminal capture from the earlier run.</p>
+<hr><h1>A Qin Tian — Evidence Index</h1>
+<p>Captured on 6 November 2026. Product images are real isolated Edge captures of fictional data. The board image comes from the existing managed Edge session. Source/run identity is in <a href="./TEST_RESULTS.md">TEST_RESULTS.md</a>.</p>
+<h2>Trello: work started</h2>
+<p>A moved into Doing before this implementation. Native managed-browser JPEG retained as captured.</p>
+<p><img src="./images/01-trello-doing.jpg" alt="Trello: work started"></p>
+<h2>Before: baseline discovery</h2>
+<p>The preserved baseline JAR, same fictional user and Coffee/New friends filters. No count/chip summary yet.</p>
+<p><img src="./images/02-before-discover.png" alt="Before: baseline discovery"></p>
+<h2>After: visible filters</h2>
+<p>Eligible count, removable chips and actual shared interests.</p>
+<p><img src="./images/03-after-filters.png" alt="After: visible filters"></p>
+<h2>Boundary: short drag returns</h2>
+<p>The same card after a short mouse drag. Zero submitted requests is verified by the script, not by this still image alone.</p>
+<p><img src="./images/04-short-drag-return.png" alt="Boundary: short drag returns"></p>
+<h2>Boundary: eligible skipped profile</h2>
+<p>The filtered result is empty; one eligible skipped profile can be restored.</p>
+<p><img src="./images/05-empty-revisit.png" alt="Boundary: eligible skipped profile"></p>
+<h2>Boundary: no eligible candidate</h2>
+<p>Clear filters is offered; no ineffective revisit action is shown.</p>
+<p><img src="./images/06-empty-no-match.png" alt="Boundary: no eligible candidate"></p>
+<h2>Normal: reciprocal match</h2>
+<p>Only after both fictional users like each other. Real common interests and the correct participant are shown.</p>
+<p><img src="./images/07-match-success.png" alt="Normal: reciprocal match"></p>
+<h2>Normal: correct conversation</h2>
+<p>The match action opened the correct conversation; the other session received the message.</p>
+<p><img src="./images/08-correct-conversation.png" alt="Normal: correct conversation"></p>
+<h2>390 px: discovery</h2>
+<p>Actual full-page capture of the emulated mobile layout.</p>
+<p><img src="./images/09-mobile-discover.png" alt="390 px: discovery"></p>
+<h2>390 px: match feedback</h2>
+<p>The correct conversation action stays available in reduced-motion mode.</p>
+<p><img src="./images/10-mobile-match.png" alt="390 px: match feedback"></p>
+<h2>390 px: temporary Chinese UI</h2>
+<p>The same validated actions are available after switching language.</p>
+<p><img src="./images/11-mobile-chinese.png" alt="390 px: temporary Chinese UI"></p>
+<h2>Reduced motion: discovery</h2>
+<p>A real page capture under reduced-motion preference; submission behavior is checked in the script.</p>
+<p><img src="./images/12-reduced-motion.png" alt="Reduced motion: discovery"></p>
+<h2>Terminal screenshots — pending actual capture</h2>
+<p>The former images 13 and 14 were formatted HTML views of saved logs, not terminal screenshots. They have been removed from this evidence gallery and archive. Original Java/browser outputs remain supporting evidence.</p>
+<p>Run the <a href="./TERMINAL_EVIDENCE.md">live PowerShell workflow</a> from the full project and capture the real terminal at its pause points. Expected filenames: 01_java_terminal.png, 02_browser_terminal.png and 03_github_checks_terminal.png. No placeholder images are supplied, and no human capture is claimed.</p>
+<h2>Trello: first increment ready for peer review</h2>
+<p>A is in Review; the other members retain their own work. This capture records actual board state and does not mark the full project complete. Native managed-browser JPEG retained without editing.</p>
+<p><img src="./images/15-trello-review-board.jpg" alt="A in Review on the team board"></p>
+<h2>GitHub: Ready for review and passing checks</h2>
+<p>PR #9 is open and not Draft. The captured implementation commit is e8cd17e; GitHub Java CI passed. The page also shows that no peer review had been submitted at capture time. Later delivery-only commits do not change the implementation pictured here.</p>
+<p><img src="./images/16-github-pr-ready.jpg" alt="PR 9 ready for review with passing checks"></p>
+<h2>Trello: implementation record and review boundary</h2>
+<p>The card links the PR and passing CI and explicitly leaves Wang Yikai&#39;s independent review pending.</p>
+<p><img src="./images/17-trello-review-detail.jpg" alt="A&#39;s review card with real validation and pending review"></p>
+<hr><h1>B Wang Yikai — Review A&#39;s Discovery Increment</h1>
+<p>Review status: <strong>Pending</strong>. Do not mark these complete before performing them. The automated run in this package was prepared with Codex assistance; it is not B&#39;s independent reproduction.</p>
+<ul>
+<li><input disabled="" type="checkbox"> Record the checked commit, machine/JDK, commands and actual results.</li>
+<li><input disabled="" type="checkbox"> Run the Maven tests and explain one new assertion in DiscoveryRegressionTests.</li>
+<li><input disabled="" type="checkbox"> Filter Coffee + New friends; remove each chip separately and verify the other filter remains.</li>
+<li><input disabled="" type="checkbox"> Skip the only matching profile; revisit it; verify the filter survives and a stored like is not cleared.</li>
+<li><input disabled="" type="checkbox"> In two fictional sessions, complete reciprocal likes, inspect real shared interests and open the correct conversation.</li>
+<li><input disabled="" type="checkbox"> Confirm a third user cannot open that match page; confirm ending/blocking prevents active feedback.</li>
+<li><input disabled="" type="checkbox"> Check one short/committed gesture and 390 px controls; identify emulation versus a physical device.</li>
+<li><input disabled="" type="checkbox"> Record an actual issue or an explicit no-issue finding with the scope reviewed.</li>
+<li><input disabled="" type="checkbox"> A resolves findings; the reviewer verifies the fix before acceptance/merge.</li>
+</ul>
+<p>Reviewer name, review date, evidence and acceptance are intentionally unfilled. A&#39;s later peer reproduction of F&#39;s work is also pending.</p>
+<hr><h1>Implemented Contract and Member Discussion</h1>
+<p>A&#39;s discovery increment changes the mutual-like redirect to GET /matches/{connectionId}. That participant-only page opens the existing GET /conversations/{connectionId}; the ID and chat API stay the same. It adds no database columns. Filters use existing English option values, with translated labels only in the UI.</p>
+<p>The following are proposals/checkpoints, <strong>not recorded team agreements</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Owners</th>
+<th>Decision to confirm before integration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A + B</td>
+<td>Keep unsaved preview separate from persistence; preserve discovery form IDs and CSRF forms if shared CSS/JS changes.</td>
+</tr>
+<tr>
+<td>A + C</td>
+<td>Document the session invalidation rule after password change and how staff roles are stored/granted.</td>
+</tr>
+<tr>
+<td>A + C + D</td>
+<td>Use per-participant read markers, stable message-ID ordering and a bounded older-history cursor; agree the POST read acknowledgement.</td>
+</tr>
+<tr>
+<td>A + C + E</td>
+<td>Controlled staff setup; ordinary sign-up cannot grant staff access; enforce report access on the server and keep internal notes private.</td>
+</tr>
+<tr>
+<td>A + F</td>
+<td>Treat APP_DATA_DIR as the configured database directory; verify stopped-app backup/restore on disposable data before any real replacement.</td>
+</tr>
+</tbody></table>
+<p>Record the actual agreed fields/routes, decision date and participants in the shared contracts document after discussion. A continues integration when the members&#39; implementations and reviews are ready.</p>
+<h2>Code screenshots (verified line numbers)</h2>
+<p>Use the full project in IntelliJ IDEA. Keep the filename/tab, line numbers and method visible. Use Ctrl+G to jump to the first line. Take the actual editor screenshot with Win+Shift+S; do not replace it with a formatted code image.</p>
+<table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>File inside the project</th>
+<th>Lines</th>
+<th>What to explain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>04_match_controller_code.png</td>
+<td>src/main/java/com/example/thematicfriend/discovery/MatchController.java</td>
+<td>24-37</td>
+<td>Current session identity, participant validation, actual shared-interest intersection and match view</td>
+</tr>
+<tr>
+<td>05_match_test_code.png (recommended)</td>
+<td>src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java</td>
+<td>124-134</td>
+<td>Assertions for the correct partner, common interest, retained filter and conversation link</td>
+</tr>
+</tbody></table>
+<p>Line ranges were read from the current files on 6 November 2026. They may change after edits. Use soft wraps if a long line would otherwise be cut off. These images complement the actual page and test-run captures; editor screenshots alone do not show that a test passed.</p>
+</main></body></html>

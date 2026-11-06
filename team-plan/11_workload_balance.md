@@ -4,7 +4,7 @@ User decision, 6 November 2026: A may take more work, but B–F should have comp
 
 | Member | Independent implementation | Additional responsibility that counts as work | Estimated total |
 |---|---|---|---|
-| A Qin Tian | Existing AI-assisted baseline, discovery, contracts and integration | Product Owner, team coordination and final PR review | 42 h |
+| A Qin Tian | Existing AI-assisted baseline, discovery, contracts and integration | Product Owner, shared contracts, five-module integration, final acceptance, team coordination and demonstration organisation | 42 h |
 | B Wang Yikai | Live profile preview, interest counter and accessible interaction | Lead usability observation and help coordinate the demonstration | 28 h |
 | C Tao Jiacheng | Password change, account/session policy and data contracts | Review B and support D's read-state data contract | 28 h |
 | D Zhou Ziyue | Unread indicators and older-message history | Review C and support communication/safety boundaries | 28 h |
