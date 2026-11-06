@@ -1,49 +1,5 @@
-# 专题项目五人团队协作计划
+# Historical Planning Archive
 
-这套计划用于交友网站专题项目：先做参考调研和分工，再以两个两周 Sprint 推进代码、测试和最终材料。A 是组长本人，B、C、D、E 为另外四位组员的临时代号；具体姓名和主责在本周讨论后确认。
+These files preserve the earlier Chinese five-person planning stage. They are historical evidence, not the current assignment map.
 
-你负责发布任务。每位成员单独领取自己的 Markdown 任务，成员在 Trello 更新任务状态，并保留自己的实际贡献记录。当前文件是计划与发布稿，不代表任务、会议或用户研究已经完成。
-
-## 先看这三份
-
-1. [五周总计划](./01_五周总计划.md)：每周目标、五人产出、时间安排和交付标准。
-2. [五人复合角色与协作规则](./02_五人复合角色与协作规则.md)：你也参与开发，B–E 各有特色职责。
-3. [W1 五份个人任务](./每周任务/W1_个人任务/)：分别发送给 A、B、C、D、E。
-
-## 组织与跟踪
-
-本周分别发送给成员的独立任务文件：
-
-- [A：发现与筛选](./每周任务/W1_个人任务/A_第一周任务.md)
-- [B：界面与导航](./每周任务/W1_个人任务/B_第一周任务.md)
-- [C：注册与资料](./每周任务/W1_个人任务/C_第一周任务.md)
-- [D：匹配与聊天](./每周任务/W1_个人任务/D_第一周任务.md)
-- [E：屏蔽与举报](./每周任务/W1_个人任务/E_第一周任务.md)
-
-每人用自己的分支提交调研并发起 PR，A（组长）在复核后合并到 main；A 本人的调研先由 B 复核。
-
-- [Trello 看板与任务卡](./03_Trello看板与任务卡.md)
-- [Product Backlog 初稿](./04_Product_Backlog.md)
-- [本周讨论议程与记录](./讨论记录/W1_启动与调研讨论.md)
-- [课程依据与使用说明](./05_课程依据与使用说明.md)
-
-## 每周任务
-
-| 周次 | 内部计划窗口 | 文件 | 状态 |
-|---|---|---|---|
-| W1 | 2026-11-02 至 11-08 | [A–E 独立任务](./每周任务/W1_个人任务/) | 当前发布稿，姓名及时间待确认 |
-| W2 | 2026-11-09 至 11-15 | [Sprint 1 启动与功能改进](./每周任务/W2_Sprint1启动与功能改进.md) | 预案，按 W1 讨论更新后发布 |
-| W3 | 2026-11-16 至 11-22 | [Sprint 1 集成与评审](./每周任务/W3_Sprint1集成与评审.md) | 预案 |
-| W4 | 2026-11-23 至 11-29 | [Sprint 2 测试与改进](./每周任务/W4_Sprint2测试与改进.md) | 预案 |
-| W5 | 2026-11-30 至 12-06 | [Sprint 2 交付与反思](./每周任务/W5_Sprint2交付与反思.md) | 预案 |
-
-以上日期是约五周的项目节奏，不是学校规定的提交日期。正式截止时间仍须向 Moodle 或教师核实。
-
-## 可重复使用的模板
-
-- [周任务与单张任务卡模板](./模板/周任务与任务卡模板.md)
-- [参考网站调研模板](./模板/参考网站调研模板.md)
-- [会议与决策记录模板](./模板/会议与决策记录模板.md)
-- [个人贡献与 PDP 模板](./模板/个人贡献与PDP模板.md)
-
-GitHub 私有仓库为 [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder)。当前 `main` 只保存计划、五份个人任务和已提交的调研；旧原型保留在本地，后续按实际开发进度再提交代码。仓库内的计划位于 `docs/team-plan/`。A–E 使用自己的分支提交 PR，由 A 复核后合并；组员需先被添加为仓库协作者。这里也提供 Trello 的设置和卡片内容；尚未创建线上看板，也未向组员发送任务。
+Use the [current English six-person plan](../../team-plan/README.md), [confirmed named roster](../../team-plan/00_team_roster.md) and [named MD/ZIP handoffs](../../handoff/2026-11-06/README.md) for Mingle development. Original files and Git history are retained.

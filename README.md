@@ -1,31 +1,42 @@
-# 专题项目 · 五人协作
+# Mingle: An Interest-Based Friendship Website
 
-当前阶段是参考调研与团队计划。本仓库的 `main` 暂时只保存五周计划、A–E 个人任务和已提交的调研；旧网站原型保留在本地，后续按团队实际开发进度提交代码。
+A six-person Thematic Project built as one **Java 21 / Spring Boot / Thymeleaf** browser website. The current code is **A Qin Tian's AI-assisted baseline**. B–F have separate, unimplemented increments; assigning a module does not claim that its owner has already completed it.
 
-## 五周计划
+## Run the website
 
-- [计划总入口](docs/team-plan/README.md)
-- [五周总计划](docs/team-plan/01_五周总计划.md)
-- [五人复合角色与协作规则](docs/team-plan/02_五人复合角色与协作规则.md)
-- [Trello 看板规则](docs/team-plan/03_Trello看板与任务卡.md)
-- [Product Backlog](docs/team-plan/04_Product_Backlog.md)
+Open [code/thematic-friend](./code/thematic-friend/) as a Maven project in IntelliJ IDEA, select JDK 21 and run `ThematicFriendApplication`. The console prints the address; the default is **http://127.0.0.1:8080/**. Java, HTML, CSS and JavaScript are in the same project. No Node.js build is needed.
 
-## 第一周个人任务
+For six fictional test accounts, run `scripts/run-demo.ps1` from the Java project and choose a local password. Usernames: `demo_zhou`, `demo_lin`, `demo_xu`, `demo_chen`, `demo_he`, `demo_su`. Each person's localhost address and database are separate. This repository is source delivery, not a shared deployed website.
 
-| 成员 | 调研方向 | 独立任务 |
-|---|---|---|
-| A（组长） | 发现与筛选 | [A 的任务](docs/team-plan/每周任务/W1_个人任务/A_第一周任务.md) |
-| B | 界面与导航 | [B 的任务](docs/team-plan/每周任务/W1_个人任务/B_第一周任务.md) |
-| C | 注册与个人资料 | [C 的任务](docs/team-plan/每周任务/W1_个人任务/C_第一周任务.md) |
-| D | 匹配与聊天 | [D 的任务](docs/team-plan/每周任务/W1_个人任务/D_第一周任务.md) |
-| E | 屏蔽与举报 | [E 的任务](docs/team-plan/每周任务/W1_个人任务/E_第一周任务.md) |
+[Full build/run instructions](./code/thematic-friend/README.md) · [Baseline and ownership](./code/thematic-friend/docs/BASELINE.md) · [Local verification](./code/thematic-friend/docs/VERIFICATION.md)
 
-## 已提交的调研
+![Mingle discovery page](./code/thematic-friend/docs/images/discover-en.png)
 
-- [A：发现与筛选调研](docs/research/week1/A_发现与筛选调研.md)，已通过 [PR #1](https://github.com/hansu650/thematic-friend-finder/pull/1) 合入 `main`。
-- [调研目录与提交约定](docs/research/week1/README.md)
-- [W1 讨论议程与记录](docs/team-plan/讨论记录/W1_启动与调研讨论.md)
+## Named development handoffs
 
-成员从最新 `main` 建立自己的任务分支，提交完成的材料并发起 PR；交叉复核后由 A 合并。讨论记录只填写实际发生的决定，合并状态不代表已完成访谈、团队会议或个人复核。
+Download your ZIP, fully extract it and begin with `START_HERE.md`. Each package contains the same clean source baseline, a named task, six test scenario groups, screenshot/photo guidance, a progress template and selected supplied UI references. The ZIPs are dated handoff snapshots. Ongoing development belongs in the canonical `code/thematic-friend/` directory on your task branch.
 
-正式课程提交仍按学校要求准备团队视频和个人反思。五周安排为内部计划，正式截止日期另行核实。此前原型的历史提交保留，用于追溯已发生的辅助搭建与调研依据。
+| Member | New work | Task | Source ZIP |
+|---|---|---|---|
+| A Qin Tian | Discovery, match feedback and integration | [MD](./handoff/2026-11-06/A_Qin_Tian/A_Qin_Tian_TASK.md) | [ZIP](./handoff/2026-11-06/A_Qin_Tian.zip) |
+| B Wang Yikai | Live profile preview and accessibility | [MD](./handoff/2026-11-06/B_Wang_Yikai/B_Wang_Yikai_TASK.md) | [ZIP](./handoff/2026-11-06/B_Wang_Yikai.zip) |
+| C Tao Jiacheng | Password change and account/session contracts | [MD](./handoff/2026-11-06/C_Tao_Jiacheng/C_Tao_Jiacheng_TASK.md) | [ZIP](./handoff/2026-11-06/C_Tao_Jiacheng.zip) |
+| D Zhou Ziyue | Unread indicators and older-message paging | [MD](./handoff/2026-11-06/D_Zhou_Ziyue/D_Zhou_Ziyue_TASK.md) | [ZIP](./handoff/2026-11-06/D_Zhou_Ziyue.zip) |
+| E Wu Zhuoda | Restricted report review and permission tests | [MD](./handoff/2026-11-06/E_Wu_Zhuoda/E_Wu_Zhuoda_TASK.md) | [ZIP](./handoff/2026-11-06/E_Wu_Zhuoda.zip) |
+| F Song Peitong | Backup/restore and independent reproduction | [MD](./handoff/2026-11-06/F_Song_Peitong/F_Song_Peitong_TASK.md) | [ZIP](./handoff/2026-11-06/F_Song_Peitong.zip) |
+
+[Handoff index and validation](./handoff/2026-11-06/README.md) · [Six-person plan](./team-plan/README.md) · [Test and evidence plan](./team-plan/13_testing_and_weekly_evidence.md)
+
+## Collaboration and schedule
+
+Use `w<week>/<member-letter>-<task>`, such as `w2/a-discovery` and `w2/b-interface`. The shared Java baseline is published through **w2/a-baseline** and a PR. Start member development branches from current `main` after that PR is reviewed and merged. The ZIPs can be used immediately for local work. Keep the six W1 research branches as history. Members open PRs for A to review and integrate; A's work also needs peer review.
+
+[Compact Trello board](https://trello.com/b/j4LiifAK) · [Excel Gantt](./team-plan/project-management/six-person-gantt.xlsx) · [Editable critical paths](./team-plan/project-management/critical-paths.drawio) · [Diagram preview](./team-plan/project-management/critical-paths.png)
+
+The proposed workload is A 42 hours and B–F 28 hours each. These are estimates pending capacity confirmation. The 4 December planned finish and 5–6 December buffer are internal dates; confirm the university deadline in Moodle. Keep about three useful team photos and one updated board screenshot each week, with real dates and decisions. Trello provides process evidence; the MD/ZIP packages are the implementation handoff.
+
+## Verification and historical work
+
+The extracted Mingle source passed **19 Java tests** and **eight browser-flow groups**, including matching, chat polling, dragging, emulated touch and 390 px layouts. All six local demo accounts were checked. See [validation scope and limitations](./handoff/2026-11-06/VALIDATION.md). The Java CI workflow runs the canonical Maven project when its PR changes.
+
+The [W1 research submissions](./docs/research/week1/README.md) and [historical planning](./docs/team-plan/README.md) are retained. Use the current English six-person plan for development. English is the default UI; the temporary Chinese switch remains during development. Real member contributions, meetings and independent reproductions must be evidenced when they occur.
