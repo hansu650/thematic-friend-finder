@@ -1,84 +1,60 @@
-# C｜注册与个人资料调研 / Registration and Profile Research
+# C｜W1 注册与个人资料调研
 
-## 1. 来源与观察 / Sources and Observation Method
+查看日期：2026-11-06；对象：Tinder、Bumble。方式：读取官方帮助正文接口（Zendesk API）与 Web 说明；网页有访问校验，未登录陌生账号或实测。待 C 核对、D 复核。
 
-参考产品：[Soul](https://www.soulapp.cn/)、[Blued](https://www.blued.cn/)。查看日期均为2026年11月4日。由C实际操作并提供截图，结论仅限本次观察到的流程；官网用于确认产品来源，操作结论来自C的记录。
+## 观察与证据
 
-Reference products: [Soul](https://www.soulapp.cn/) and [Blued](https://www.blued.cn/). Both were observed on November 4, 2026. C used the apps and supplied screenshots. Findings are limited to the flows observed during these sessions. Official websites identify the products; findings about app behavior come from C’s records.
+| 比较点 | Tinder | Bumble |
+|---|---|---|
+| 注册与必填项 | 支持手机号、邮箱或第三方登录。必填：验证码、姓名、生日（满 18 岁）、性别、展示偏好及至少 2 张照片，未传齐无法进入下一步。Bio、学校、兴趣（≤5 项）选填。[T1] | 支持手机号或 Apple/FB 登录。必填：验证码、姓名、生日、性别（可自选是否展示）、模式选择与合规头像。Bio（≤300 字符）、兴趣（≤5 项）、意向（≤2 项）选填。[B1] |
+| 资料编辑与保存 | 编辑页可修改头像、Bio、兴趣等。**姓名与年龄在建号后无法在 App 直接修改**；若填错，官方要求注销账号重来。会员仅能隐藏年龄，无法改动数值。[T2, T3] | 资料页可编辑 Bio（限 300 字符并显式保存）、兴趣与意向。**姓名需联系客服修改**；生日与身份认证绑定后不可更改，且不可隐藏年龄展示。[B2–B4] |
+| 校验与异常提示 | 生日小于 18 岁立即拦截；缺失必填项时“继续”置灰；网络异常时提示重试并保留输入。[T1, T4] | 必填项缺失给出行内报错；Bio 达 300 字符限制输入；保存失败保留草稿并提示重试。[B1, B3] |
 
-## 2. 流程对比与证据 / Flow Comparison and Evidence
+上述为当日核对的官方说明与正文，地区与版本可能略有差异，文档步骤不代表实测。
 
-**Soul：** 支持手机号验证码登录，微信登录需绑定手机号。据C实测，身高、体重、MBTI不可跳过，地区可跳过，兴趣可快捷选择。注册页展示性别、头像、昵称和生日；注册后可编辑签名、身高、体重。MBTI页提供测试或直接选择入口。
+## 借鉴与取舍
 
-**Soul:** Supports sign-in using a phone number and verification code; WeChat sign-in requires linking a phone number. According to C’s testing, height, weight, and MBTI cannot be skipped, while region can be skipped. Interests can be selected from suggested options. The registration screen includes gender, avatar, nickname, and date of birth. The bio, height, and weight can be edited after registration. The MBTI screen offers a test or direct selection of a known type.
+1. **借鉴结构化标签与上限控制**：预设兴趣（1–5 项）和交友意向，降低输入负担，便于后端计算共同兴趣交集。
+2. **借鉴分阶段资料完善**：注册时仅校验核心身份与成年确认，详细资料支持后续编辑，降低新用户流失。
+3. **不采用终身锁定昵称与年龄的做法**：参考产品为防诈骗禁止修改，填错只能注销重来。校园原型应适度容错，允许修改昵称与展示信息，避免强制注销造成数据丢失。
 
-![证据一：Soul的MBTI入口 / Evidence 1: Soul MBTI options](./images/c-soul-mbti.jpg)
+## 特色工作：项目字段建议表
 
-图一定位：页面底部提供“已知我的MBTI类型，去选择”和“开始鉴定”两个入口。
+区分参考产品做法与本项目建议：
 
-Figure 1 location: The bottom of the screen offers “Select my known MBTI type” and “Start the assessment.”
+| 字段名称 | 必填 | 校验规则 | 用途 | 参考做法 vs 本项目建议 |
+|---|---|---|---|---|
+| 用户名 / 密码 | 是 | 字符 3–30 位；密码符合强度 | 账号认证 | 参考产品重手机号；本项目沿用 Django 内置 User 模型。 |
+| 昵称 (`display_name`) | 是 | 2–24 字符，去首尾空格 | 身份展示 | 参考产品锁死或需人工申诉；本项目允许资料页自主修改。 |
+| 成年确认 (`adult_confirmed`) | 是 | 必须勾选（True） | 合规边界 | 参考产品严格校验证件与生日；本项目注册页设 18 岁勾选框。 |
+| 兴趣标签 (`interests`) | 否/建议 | 预设库中选 1–6 项，无重复 | 匹配交集 | 两者均限 5 项；本项目模型关联 `Interest`，支持交集计算。 |
+| 交友意向 (`goal`) | 是 | 预设枚举（咖啡/学习/运动/探索） | 表达意向 | Bumble 允许选 2 项；本项目原型先做单选以控制复杂度。 |
+| 一句话介绍 (`headline`) | 否 | ≤60 字符，单行文本 | 卡片摘要 | 参考产品用提示卡；本项目保留短标，便于发现页快速浏览。 |
+| 关于我 (`bio`) | 否 | ≤300 字符，多行文本 | 深度了解 | Bumble 限 300 字符，Tinder 限 500；本项目限 300 字符。 |
+| 校园或城市 (`campus`) | 否 | ≤32 字符，默认“联合学院” | 场景归属 | 参考产品基于 GPS；本项目设固定校园文本。 |
+| 发现页公开 (`discoverable`) | 是 | 布尔值，默认 True | 隐私控制 | 两者均有隐藏开关；本项目保留，关闭后不在推荐流显示。 |
 
-**Blued：** 支持手机号登录。据C实测，昵称、年龄、身高、体重不可跳过。修改资料页有头像、签名、生日、身高体重、标签等入口，右上角有“确认”按钮；C确认签名可保存。用户列表可展示“匀称”“肌肉”等体型标签。
+## 候选需求与待讨论
 
-**Blued:** Supports phone-number sign-in. According to C’s testing, nickname, age, height, and weight cannot be skipped. The profile editor includes an avatar, bio, date of birth, height and weight, and tags, with a “Confirm” button in the upper-right corner. C confirmed that the bio can be saved. User listings can display body-type labels such as “average build” and “muscular.”
+用户故事：作为新用户，我希望注册并编辑资料，以便别人了解我的真实兴趣与交友意向。
 
-![证据二：Blued修改资料页 / Evidence 2: Blued profile editor](./images/c-blued-edit.jpg)
+验收草案：
 
-图二定位：“我的签名”“出生日期”“身高体重”等为编辑入口，右上角为“确认”。
+1. 编辑资料时清空昵称或只填空格并点击保存，系统阻止提交，在昵称项显示行内红色提示“昵称不能为空”，且保留其他已填内容不被重置。
+2. 选择超过 6 项兴趣时提示上限且不入库；选择 1–6 项保存成功后提示“修改已保存”，刷新后展示最新数据。
+3. 注册时未勾选“我已年满 18 岁”，提交时阻止注册并提示必选，数据库不生成无效 User 记录。
 
-Figure 2 location: “My bio,” “Date of birth,” and “Height and weight” are editing entries; “Confirm” appears in the upper-right corner.
+待团队讨论：资料编辑时昵称是否需要限制修改频次（如 30 天一次）还是演示期保持无限制？交友意向后续是否扩展为最多双选？
 
-**观察限制：** 两款产品的错误输入和网络失败提示均未测试；Soul的保存提示及Blued保存成功提示的原文未记录，不推断具体行为。
+## 官方来源及定位
 
-**Observation limits:** Invalid-input and network-failure messages were not tested in either app. Soul’s save feedback and the exact wording of Blued’s save-success feedback were not recorded. No specific behavior is inferred for these cases.
+网页如触发校验，可打开“正文”。
 
-## 3. 借鉴与取舍 / Design Lessons and Trade-offs
-
-1. 借鉴Soul的分步引导与快捷兴趣选择，降低填写负担，帮助寻找共同话题。
-   Adopt Soul’s step-by-step onboarding and suggested interest choices to reduce input effort and help users find shared topics.
-2. 借鉴Blued集中展示结构化资料的方式，便于快速了解用户。
-   Adopt Blued’s grouped presentation of structured profile information so users can understand a profile quickly.
-3. 不建议照搬过多必填项。我们面向异性交友，建议身高、体重、MBTI选填，允许逐步完善资料。
-   Avoid requiring too many profile fields. For our dating service for people seeking someone of a different gender, height, weight, and MBTI should be optional so users can complete their profiles gradually.
-
-## 4. 项目字段建议 / Proposed Project Fields
-
-以下为我们项目的候选建议，不代表参考产品的实际规则。
-
-The following are proposals for our project, not descriptions of the reference products’ rules.
-
-| 字段 / Field | 必填 / Required | 校验规则 / Validation | 用途 / Purpose |
-|---|---|---|---|
-| 手机号、验证码 / Phone number and verification code | 是 / Yes | 校验号码格式及验证码有效性 / Validate number format and code validity | 登录，不公开号码 / Sign-in; phone number stays private |
-| 昵称 / Nickname | 是 / Yes | 去首尾空格后2–20个字符 / 2–20 characters after trimming surrounding whitespace | 展示身份 / Display name |
-| 性别 / Gender | 是 / Yes | 男／女 / Male or female | 异性匹配 / Match users seeking a different gender |
-| 出生日期 / Date of birth | 是 / Yes | 有效日期；是否仅限成年人待讨论 / Valid date; adults-only eligibility remains to be discussed | 计算并展示年龄 / Calculate and display age |
-| 兴趣、交友意向 / Interests and dating intentions | 是 / Yes | 兴趣1–5项、不重复；意向从预设项选择 / 1–5 distinct interests; select an intention from preset options | 共同话题与期待 / Shared topics and expectations |
-| 签名 / Bio | 否 / No | 最多200个字符 / Maximum 200 characters | 自我介绍 / Self-introduction |
-| 身高、体重 / Height and weight | 否 / No | 正数，明确厘米／公斤 / Positive numbers, with centimeters and kilograms specified | 补充资料 / Additional profile details |
-| 头像、城市、MBTI、体型 / Avatar, city, MBTI, and body type | 否 / No | 头像限制文件类型及大小，具体值待定；其余预设选择 / Restrict avatar file type and size, with limits to be defined; use preset choices for other fields | 个人展示 / Profile presentation |
-
-不设置1／0／side或T／P／H角色字段。
-
-The project will not include the role fields 1/0/side or T/P/H.
-
-## 5. 用户故事与验收条件 / User Story and Acceptance Criteria
-
-作为希望认识异性的新用户，我希望注册并编辑资料，以便找到兴趣和交友期待相近的人。
-
-As a new user seeking someone of a different gender, I want to register and edit my profile so that I can find people with similar interests and dating expectations.
-
-- 昵称为空时点击保存，应提示必填并保留其他输入。
-  When the nickname is empty and the user selects Save, show a required-field message and retain all other input.
-- 填齐必填项、跳过选填项时，应能完成注册。
-  When all required fields are completed and optional fields are skipped, registration should succeed.
-- 修改签名并成功保存后，重新进入资料页，应显示最新内容。
-  After a bio is edited and successfully saved, reopening the profile should display the updated content.
-- 网络失败时保存，应提示失败、保留输入并允许重试。
-  When saving fails because of a network error, show a failure message, retain the input, and allow a retry.
-
-## 6. 团队讨论 / Team Discussion
-
-是否仅限成年人注册？交友意向以普通交友、认真恋爱还是两者并重？
-
-Should registration be restricted to adults? Should the service support casual social connections, serious relationships, or both?
+- **T1**：[创建账号](https://www.help.tinder.com/hc/en-us/articles/115003356706-Create-a-Tinder-Account)（[正文](https://www.help.tinder.com/api/v2/help_center/en-us/articles/115003356706.json)），定位 `Android or iOS`、`Tinder.com`。
+- **T2**：[编辑资料](https://www.help.tinder.com/hc/en-us/articles/115003339043-Editing-your-profile)（[正文](https://www.help.tinder.com/api/v2/help_center/en-us/articles/115003339043.json)），定位 `Update your profile information`、`Keep in mind`。
+- **T3**：[姓名年龄更正](https://www.help.tinder.com/hc/en-us/articles/115003498366-My-age-or-name-is-wrong)（[正文](https://www.help.tinder.com/api/v2/help_center/en-us/articles/115003498366.json)），定位开头、`To delete your account`。
+- **T4**：[兴趣标签](https://www.help.tinder.com/hc/en-us/articles/360046122691-Interests)（[正文](https://www.help.tinder.com/api/v2/help_center/en-us/articles/360046122691.json)），定位 `How to add or edit Interests`。
+- **B1**：[注册登录](https://support.bumble.com/hc/en-us/articles/28533989291421-Signing-up-and-logging-in)（[正文](https://support.bumble.com/api/v2/help_center/en-us/articles/28533989291421.json)），定位步骤、`Logging out`。
+- **B2**：[修改个人信息](https://support.bumble.com/hc/en-us/articles/28938787921053-Changing-your-personal-details)（[正文](https://support.bumble.com/api/v2/help_center/en-us/articles/28938787921053.json)），定位 `Updating your name and age`、`Updating your gender`。
+- **B3**：[编写简介](https://support.bumble.com/hc/en-us/articles/28530679977757-Writing-your-bio)（[正文](https://support.bumble.com/api/v2/help_center/en-us/articles/28530679977757.json)），定位 `Adding or updating your bio`、`300 characters`。
+- **B4**：[添加兴趣](https://support.bumble.com/hc/en-us/articles/28530297182365-Adding-your-interests)（[正文](https://support.bumble.com/api/v2/help_center/en-us/articles/28530297182365.json)），定位 `choose up to 5`、`To add interests`。
