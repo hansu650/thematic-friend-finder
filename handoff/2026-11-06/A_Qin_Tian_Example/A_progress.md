@@ -4,6 +4,8 @@ Date: **6 November 2026** · Branch: **w2/a-discovery** · Reviewer: **B Wang Yi
 
 Implementation and local verification: **complete for this increment**. Independent peer review: **pending**. Later member-contract agreements and integration: **pending actual team work**.
 
+[PR #9](https://github.com/hansu650/thematic-friend-finder/pull/9) is Ready for review. Implementation commit: **e8cd17e**. [GitHub Java CI passed](https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872). The Trello card moved from Doing to Review after the passing local checks; the PR remains unmerged for peer review.
+
 ## Starting point and actual change
 
 The baseline already handled registration, saved profiles, discovery ranking, like/skip gestures, mutual connections, basic chat and safety receipts. Those are retained baseline capabilities, not new work in this submission.

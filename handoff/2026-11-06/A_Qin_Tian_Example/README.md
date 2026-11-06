@@ -2,6 +2,8 @@
 
 Prepared on **6 November 2026**. Owner: **A Qin Tian**. Peer reviewer: **B Wang Yikai**. This is the first discovery increment and a submission example. A's later integration/review duties continue.
 
+Published as [PR #9 — Ready for review](https://github.com/hansu650/thematic-friend-finder/pull/9). The implementation commit is **e8cd17e**; [GitHub Java CI passed](https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872). A's [Trello card](https://trello.com/c/YQhFPGKX/1-a-qin-tian-discovery) is in **Review**, with independent review still pending. Open **README.html** for a browser preview of all instructions and images, or read the Markdown files directly.
+
 **Start with [WHAT_TO_SUBMIT.md](./WHAT_TO_SUBMIT.md).** It tells every member what to build, test, capture and hand in. Then inspect [A_progress.md](./A_progress.md) as a completed implementation record and [EVIDENCE_INDEX.md](./EVIDENCE_INDEX.md) for the real screenshots.
 
 | File/folder | What it contains |

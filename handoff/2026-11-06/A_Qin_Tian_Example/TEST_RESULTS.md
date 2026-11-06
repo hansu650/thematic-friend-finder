@@ -7,6 +7,7 @@ Verified on **6 November 2026**, Windows, JDK 21.0.12.1, Maven Wrapper. Tested s
 | First Java package | 31 tests; 0 assertion failures; 2 template-rendering errors | 1 | [Original output](./evidence/java-first-failure.txt), [stack trace](./evidence/first-failure-report.txt) |
 | Same Java command after template fix | 31 tests; 0 failures/errors/skips | 0 | [Retest output](./evidence/java-retest.txt), [JUnit reports](./evidence/junit/) |
 | Isolated Edge browser run | 11 assertion groups passed; no page exceptions/HTTP 5xx | 0 | [Output](./evidence/browser-output.txt), [assertions](./evidence/browser-results.json), [run metadata](./evidence/browser-run.json) |
+| GitHub Actions on implementation commit e8cd17e | Mingle Java CI completed successfully | Success | [Run 42164383872](https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872) |
 
 ## Java command and coverage
 

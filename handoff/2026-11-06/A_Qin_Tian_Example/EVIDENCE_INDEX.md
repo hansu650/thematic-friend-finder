@@ -85,3 +85,21 @@ A rendered view of the saved JUnit/browser outputs; see [TEST_REPORT.html](./TES
 The first failure and successful retest are both retained. See [DEFECT_REPORT.html](./DEFECT_REPORT.html).
 
 ![Actual template defect and retest](./images/14-defect-and-retest.png)
+
+## Trello: first increment ready for peer review
+
+A is in Review; the other members retain their own work. This capture records actual board state and does not mark the full project complete. Native managed-browser JPEG retained without editing.
+
+![A in Review on the team board](./images/15-trello-review-board.jpg)
+
+## GitHub: Ready for review and passing checks
+
+PR #9 is open and not Draft. The captured implementation commit is e8cd17e; GitHub Java CI passed. The page also shows that no peer review had been submitted at capture time. Later delivery-only commits do not change the implementation pictured here.
+
+![PR 9 ready for review with passing checks](./images/16-github-pr-ready.jpg)
+
+## Trello: implementation record and review boundary
+
+The card links the PR and passing CI and explicitly leaves Wang Yikai's independent review pending.
+
+![A's review card with real validation and pending review](./images/17-trello-review-detail.jpg)

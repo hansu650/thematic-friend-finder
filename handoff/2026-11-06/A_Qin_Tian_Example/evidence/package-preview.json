@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-11-06T04:43:32.636Z",
+  "checkedAt": "2026-11-06T04:49:11.675Z",
   "preview": "Edge 156 local HTML rendered from Markdown",
   "markdownFiles": 7,
-  "localLinksChecked": 51,
-  "imagesLoaded": 16,
+  "localLinksChecked": 54,
+  "imagesLoaded": 19,
   "brokenLinks": [],
   "images": [
     {
@@ -68,6 +68,18 @@
     },
     {
       "src": "./images/14-defect-and-retest.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/15-trello-review-board.jpg",
+      "loaded": true
+    },
+    {
+      "src": "./images/16-github-pr-ready.jpg",
+      "loaded": true
+    },
+    {
+      "src": "./images/17-trello-review-detail.jpg",
       "loaded": true
     }
   ]

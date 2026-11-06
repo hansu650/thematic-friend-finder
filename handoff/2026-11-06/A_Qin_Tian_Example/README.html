@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mingle — A Qin Tian worked example</title><style>body{font-family:Segoe UI,Arial,sans-serif;color:#273139;background:#faf8f5;margin:0;padding:44px 54px;line-height:1.5}main{max-width:1300px;margin:auto}h1{font-size:34px;margin:0 0 8px}h2{margin-top:30px}p{margin:10px 0}a{color:#bd4a38}table{width:100%;border-collapse:collapse;background:#fff;margin:20px 0;font-size:14px}td,th{padding:9px 13px;text-align:left;border:1px solid #e4ddd7}th{background:#efe9e3}code,pre{font-family:Consolas,monospace;font-size:13px}pre{padding:18px;background:#fff;border:1px solid #e4ddd7;white-space:pre-wrap;word-break:break-word}.stamp{color:#6d756f;font-size:14px}.stats{display:flex;gap:20px;margin:25px 0}.stat{padding:18px 30px;border:1px solid #c9dbce;background:#f1f8f3;border-radius:12px}.stat strong{display:block;font-size:30px;color:#316e45}.fail{background:#fff0eb;border-color:#ecc9be}.fail strong{color:#a24431}img{display:block;max-width:100%;height:auto;margin:20px 0;border:1px solid #e3ddd6}hr{border:0;border-top:1px solid #ded8d1;margin:40px 0}li{margin-bottom:8px}</style></head><body><main><section id="README.md"><h1>Mingle — A Qin Tian&#39;s Worked Submission Example</h1>
 <p>Prepared on <strong>6 November 2026</strong>. Owner: <strong>A Qin Tian</strong>. Peer reviewer: <strong>B Wang Yikai</strong>. This is the first discovery increment and a submission example. A&#39;s later integration/review duties continue.</p>
+<p>Published as <a href="https://github.com/hansu650/thematic-friend-finder/pull/9">PR #9 — Ready for review</a>. The implementation commit is <strong>e8cd17e</strong>; <a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">GitHub Java CI passed</a>. A&#39;s <a href="https://trello.com/c/YQhFPGKX/1-a-qin-tian-discovery">Trello card</a> is in <strong>Review</strong>, with independent review still pending. Open <strong>README.html</strong> for a browser preview of all instructions and images, or read the Markdown files directly.</p>
 <p><strong>Start with <a href="./WHAT_TO_SUBMIT.md">WHAT_TO_SUBMIT.md</a>.</strong> It tells every member what to build, test, capture and hand in. Then inspect <a href="./A_progress.md">A_progress.md</a> as a completed implementation record and <a href="./EVIDENCE_INDEX.md">EVIDENCE_INDEX.md</a> for the real screenshots.</p>
 <table>
 <thead>
@@ -116,6 +117,7 @@
 </section><hr><section id="A_progress.md"><h1>A Qin Tian — Week 2 Progress</h1>
 <p>Date: <strong>6 November 2026</strong> · Branch: <strong>w2/a-discovery</strong> · Reviewer: <strong>B Wang Yikai</strong>.</p>
 <p>Implementation and local verification: <strong>complete for this increment</strong>. Independent peer review: <strong>pending</strong>. Later member-contract agreements and integration: <strong>pending actual team work</strong>.</p>
+<p><a href="https://github.com/hansu650/thematic-friend-finder/pull/9">PR #9</a> is Ready for review. Implementation commit: <strong>e8cd17e</strong>. <a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">GitHub Java CI passed</a>. The Trello card moved from Doing to Review after the passing local checks; the PR remains unmerged for peer review.</p>
 <h2>Starting point and actual change</h2>
 <p>The baseline already handled registration, saved profiles, discovery ranking, like/skip gestures, mutual connections, basic chat and safety receipts. Those are retained baseline capabilities, not new work in this submission.</p>
 <p>This increment adds a visible eligible-profile count and removable filter chips, preserves the other selected filter when one chip is removed, and gives empty results useful recovery actions. It counts only eligible skipped profiles before offering to revisit. It also adds a separate mutual-match feedback page with the actual participant, actual shared-interest intersection and a button opening that connection&#39;s conversation. The existing drag/button/keyboard submission mechanism is reused and checked.</p>
@@ -167,6 +169,12 @@
 <td>11 assertion groups passed; no page exceptions/HTTP 5xx</td>
 <td>0</td>
 <td><a href="./evidence/browser-output.txt">Output</a>, <a href="./evidence/browser-results.json">assertions</a>, <a href="./evidence/browser-run.json">run metadata</a></td>
+</tr>
+<tr>
+<td>GitHub Actions on implementation commit e8cd17e</td>
+<td>Mingle Java CI completed successfully</td>
+<td>Success</td>
+<td><a href="https://github.com/hansu650/thematic-friend-finder/actions/runs/42164383872">Run 42164383872</a></td>
 </tr>
 </tbody></table>
 <h2>Java command and coverage</h2>
@@ -229,6 +237,15 @@
 <h2>Actual defect and successful retest</h2>
 <p>The first failure and successful retest are both retained. See <a href="./DEFECT_REPORT.html">DEFECT_REPORT.html</a>.</p>
 <p><img src="./images/14-defect-and-retest.png" alt="Actual template defect and retest"></p>
+<h2>Trello: first increment ready for peer review</h2>
+<p>A is in Review; the other members retain their own work. This capture records actual board state and does not mark the full project complete. Native managed-browser JPEG retained without editing.</p>
+<p><img src="./images/15-trello-review-board.jpg" alt="A in Review on the team board"></p>
+<h2>GitHub: Ready for review and passing checks</h2>
+<p>PR #9 is open and not Draft. The captured implementation commit is e8cd17e; GitHub Java CI passed. The page also shows that no peer review had been submitted at capture time. Later delivery-only commits do not change the implementation pictured here.</p>
+<p><img src="./images/16-github-pr-ready.jpg" alt="PR 9 ready for review with passing checks"></p>
+<h2>Trello: implementation record and review boundary</h2>
+<p>The card links the PR and passing CI and explicitly leaves Wang Yikai&#39;s independent review pending.</p>
+<p><img src="./images/17-trello-review-detail.jpg" alt="A&#39;s review card with real validation and pending review"></p>
 </section><hr><section id="REVIEW_CHECKLIST.md"><h1>B Wang Yikai — Review A&#39;s Discovery Increment</h1>
 <p>Review status: <strong>Pending</strong>. Do not mark these complete before performing them. The automated run in this package was prepared with Codex assistance; it is not B&#39;s independent reproduction.</p>
 <ul>
