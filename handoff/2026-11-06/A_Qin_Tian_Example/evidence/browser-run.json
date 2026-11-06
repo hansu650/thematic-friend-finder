@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-11-06T04:35:15.993Z",
+  "jarSha256": "f60233a20b77ba0f9cbe951cb7b5b5e488ffdcbdfd89d1ee80fcfbb03b29c230",
+  "java": "D:\\kaifagongju\\Java\\jdk-21.0.12.1-hotspot\\bin\\java.exe",
+  "node": "v24.22.1",
+  "base": "http://127.0.0.1:62448",
+  "output": "D:\\课程资料\\01_本学期课程\\专题项目\\tmp\\a-discovery-example-20261106\\browser-runs\\discovery-CTQYsb",
+  "command": "node scripts/browser/run-discovery-check.mjs",
+  "finishedAt": "2026-11-06T04:36:04.763Z",
+  "exitCode": 0
+}

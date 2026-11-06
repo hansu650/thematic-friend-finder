@@ -2,6 +2,8 @@
 
 Prepared for the six-person team on 6 November 2026. **Use the named MD/ZIP packages to do the work.** Each ZIP includes the same clean Spring Boot baseline, its owner's task, six test scenarios, screenshots/photo requirements and the relevant supplied UI references. Fully extract the ZIP and begin with START_HERE.md.
 
+**A's worked submission example is available:** [read the example](./A_Qin_Tian_Example/README.md), [what B–F submit next](./A_Qin_Tian_Example/WHAT_TO_SUBMIT.md), and [actual screenshots/tests](./A_Qin_Tian_Example/EVIDENCE_INDEX.md). A's discovery increment is on **w2/a-discovery**, pending independent peer review and merge. The original named ZIPs below remain baseline snapshots.
+
 | Owner | Assignment | Task MD | Individual ZIP | Reference images |
 |---|---|---|---|---|
 | A Qin Tian | Discovery Cards, Match Feedback and Integration | [Open task](./A_Qin_Tian/A_Qin_Tian_TASK.md) | [Download package](./A_Qin_Tian.zip) | 3, 4, 5 |
@@ -17,4 +19,4 @@ Each member delivers code, executable tests, normal/boundary/test-result screens
 
 [Trello](https://trello.com/b/j4LiifAK) is compact: five columns, six member cards and one weekly review card. [Gantt workbook](./project-management/six-person-gantt.xlsx) · [Editable critical paths](./project-management/critical-paths.drawio) · [Diagram preview](./project-management/critical-paths.png).
 
-[Handoff validation](./VALIDATION.md). The Java baseline is delivered through branch **w2/a-baseline** in the [GitHub repository](https://github.com/hansu650/thematic-friend-finder/tree/w2/a-baseline). Members can start from these packages now; create their task branches from the updated main after the baseline PR is reviewed and merged.
+[Handoff validation](./VALIDATION.md). The Java baseline was merged through [PR #8](https://github.com/hansu650/thematic-friend-finder/pull/8). Create each W2 task branch from current **main** in the [GitHub repository](https://github.com/hansu650/thematic-friend-finder). The baseline merge does not establish that independent peer review occurred.

@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "path": "src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java",
+      "sha256": "2fd9ce9fbc4bd9ad7890e337cceb70c164c2a9f31c507bc6e85759d7abc4a788",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/java/com/example/thematicfriend/discovery/DiscoveryService.java",
+      "sha256": "34db77f699c648bf8ce30aa9f8438bd9e93f2cd069f53c34ecf72b5b7fee0128",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/java/com/example/thematicfriend/discovery/MatchController.java",
+      "sha256": "a84b1289884aee95cc1ba016857a667e2f38c36f9f9bf5f21dc81cac4d4f11b0",
+      "kind": "added"
+    },
+    {
+      "path": "src/main/resources/messages.properties",
+      "sha256": "b7d0eaa0fd122c74b447f70eda76bb8a6860bfe161ee0a1d3671899fd9d6064d",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/resources/messages_zh.properties",
+      "sha256": "c605da2f1c3baeee47ecd3b451e8644102fadb0013b136e0da42b4ed1b87c49f",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/resources/static/css/app.css",
+      "sha256": "7cf007f1d5adea292a1367ba2ad005ca44732ac4cb64cad05ef034446fd9d05c",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/resources/templates/discover.html",
+      "sha256": "54dcef6cdd0f0af4e0914dbdbaa8386cb72fe7c6196e9210e65686e81847f351",
+      "kind": "modified"
+    },
+    {
+      "path": "src/main/resources/templates/match.html",
+      "sha256": "85288992b648ed4cddef0cee6840b30cd2f1ffd5b35dd00f1d9481a7f450841a",
+      "kind": "added"
+    },
+    {
+      "path": "src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java",
+      "sha256": "3cff84ebe0a806fd729f68ccba91bbc363dad492372accf361d72a276ca77a84",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/README.md",
+      "sha256": "47c5ef1c162b2f8db8b0c4781bd4e60cb7ecefdf0e8ced7fe3e24be213f7819b",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/discovery-check.mjs",
+      "sha256": "1236816c2eef333f1e6f67c3e0f42a425ef406b8f9a8176ab5b1ddf0e37142b2",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/package.json",
+      "sha256": "64da5910910974a8960a80f00e0856b940cc99c350e33fd443ace7192951841d",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/browser/run-discovery-check.mjs",
+      "sha256": "df52b0f2025323fd424596a0590c14568064dc5468461cbf8fcc0d9e2b313187",
+      "kind": "added"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "83a170c65047891b79d7bc253c381da076c7aa17ee44c893b0a82089ab6428ac",
+      "kind": "modified"
+    }
+  ]
+}

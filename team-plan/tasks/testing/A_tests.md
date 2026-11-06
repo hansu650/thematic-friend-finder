@@ -2,6 +2,8 @@
 
 Owner: **Qin Tian (A)**. Peer reviewer: **B Wang Yikai**. Scope: Discovery, matching feedback and integration. Six behavior groups are planned below; they are not completed results.
 
+**6 November execution record:** all six groups below now have local automated coverage in [A's worked example](../../../handoff/2026-11-06/A_Qin_Tian_Example/TEST_RESULTS.md), with 31 Java tests and 11 browser groups passing. The original planning table is retained below; use the linked execution record for current results. Codex assisted these checks. B's independent reproduction and A's two peer checks remain pending.
+
 Suggested code location: src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java. Add browser tests where the scenario needs UI interaction. These paths are planned additions, not claims that the files already exist.
 
 | ID | Scenario | Test level | Acceptance assertion | Status |

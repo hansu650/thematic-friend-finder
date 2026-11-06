@@ -2,6 +2,8 @@
 
 Named owner: **Qin Tian (A)**. Reviewer: **B Wang Yikai**.
 
+**6 November update:** the first discovery/filter/match-feedback increment is implemented and locally verified: 31 Java tests (19 existing + 12 new) and 11 browser groups pass. See [A's worked submission](../../../handoff/2026-11-06/A_Qin_Tian_Example/A_progress.md). B's independent review, member-contract agreements and later integration remain pending; this does not complete the full five-week role.
+
 Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **10–14 hours**, to be confirmed by the member. Role: **Product Owner + Developer; team leader**. Reviewer: **B, with C/F for security and runtime**. A reviews and merges PRs.
 
 ## Starting point

@@ -1,3 +1,9 @@
+# Discovery increment verification — 6 November 2026
+
+The new discovery/match increment passed **31 Java tests** (19 retained baseline + 12 new `DiscoveryRegressionTests`) and **11 browser assertion groups**, with exit code 0 for both processes. The first Java run had two template-expression errors; the original failure and successful retest are preserved in the [example evidence](../../../handoff/2026-11-06/A_Qin_Tian_Example/TEST_RESULTS.md). The tested JAR SHA-256 is `f60233a20b77ba0f9cbe951cb7b5b5e488ffdcbdfd89d1ee80fcfbb03b29c230`.
+
+Browser verification used Edge 156.0.4314.58, Playwright 1.62.1 and isolated H2 data. It covered desktop and 390 px, emulated touch, keyboard/button request counts, correct match-to-chat navigation, language and reduced motion. Physical-device checks and B Wang Yikai's independent review remain pending. The previous baseline record below is retained as historical evidence; its direct-match-to-chat behavior is superseded by the explicit match-feedback page.
+
 # Baseline Verification
 
 Verified on **6 November 2026** on the local Windows machine, using JDK 21, Maven Wrapper and an isolated headless Microsoft Edge/Playwright browser. All accounts and messages used for verification were fictional. This is A's AI-assisted baseline verification, not evidence that B–F performed their reserved tasks or that user research took place.

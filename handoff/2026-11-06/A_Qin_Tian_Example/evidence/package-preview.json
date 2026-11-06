@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-11-06T04:43:32.636Z",
+  "preview": "Edge 156 local HTML rendered from Markdown",
+  "markdownFiles": 7,
+  "localLinksChecked": 51,
+  "imagesLoaded": 16,
+  "brokenLinks": [],
+  "images": [
+    {
+      "src": "./images/03-after-filters.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/07-match-success.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/01-trello-doing.jpg",
+      "loaded": true
+    },
+    {
+      "src": "./images/02-before-discover.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/03-after-filters.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/04-short-drag-return.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/05-empty-revisit.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/06-empty-no-match.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/07-match-success.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/08-correct-conversation.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/09-mobile-discover.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/10-mobile-match.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/11-mobile-chinese.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/12-reduced-motion.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/13-test-results.png",
+      "loaded": true
+    },
+    {
+      "src": "./images/14-defect-and-retest.png",
+      "loaded": true
+    }
+  ]
+}

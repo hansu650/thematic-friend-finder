@@ -11,6 +11,7 @@ Base package: `com.example.thematicfriend`. Controllers render Thymeleaf pages; 
 | GET `/discover?interest=&goal=` | Filter and order eligible profiles by shared interests and activity |
 | POST `/decisions/{target}` | `choice=LIKE` or `SKIP`; preserve valid filter values |
 | POST `/decisions/reset` | Clear the current user's skips |
+| GET `/matches/{id}?interest=&goal=` | Active participant-only match feedback, real shared interests and a link to the same conversation; preserve valid discovery filters |
 | GET `/connections` | Active, unblocked mutual connections |
 | GET `/conversations/{id}` | Participant-only conversation and latest 100 messages |
 | POST `/conversations/{id}/messages` | Save a non-blank message up to 1,000 characters |
@@ -38,5 +39,7 @@ Templates escape user text; polling appends text with `textContent`. The card sc
 This follows [Spring's locale-resolver model](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/localeresolver.html) and [Thymeleaf message expressions](https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#messages).
 
 ## Changes to coordinate
+
+A's discovery increment adds no database fields. A reciprocal like now redirects to `/matches/{id}` before the user chooses to open `/conversations/{id}`. Existing conversation IDs, message APIs, authorization checks and CSRF-protected decision forms remain the integration surfaces. Empty discovery results count only skipped profiles eligible under the current filters; reset still clears the current user's skips globally, as the UI explains, without clearing likes or boundaries.
 
 C's password/session rules, D's per-participant read markers and history cursor, E's controlled staff role and report handling, and F's data-path/backup rules must be agreed with A before changing shared contracts. B's live preview must not persist unsaved edits or bypass backend validation. Existing tests are a regression baseline, not a substitute for each member's new acceptance checks.
