@@ -28,11 +28,14 @@ The tested dependency is pinned to Playwright 1.62.1. The supplied Windows run u
 | `MINGLE_BROWSER_PATH` | Existing Edge/Chromium executable; omit to use Playwright's installed Chromium. |
 | `MINGLE_PLAYWRIGHT_MODULE` | File URL for an existing Playwright module; omit after `npm install`. |
 | `MINGLE_CAPTURE_MODULE`, `MINGLE_MOTION_MODULE` | Optional local screenshot and arrow-motion helpers. Not required to execute assertions. |
+| `MINGLE_SKIP_SCREENSHOTS` | Set to `1` to run all assertions without saving automatic browser images. The PowerShell evidence workflow exposes this as `-SkipScreenshots`. |
 
 `run.json` records the tested JAR hash, browser-test command and process exit code. `results.json` records browser version and each assertion. Screenshot files are real page captures; a screenshot alone does not prove exactly-once submission or motion behavior. Those claims rely on the executable assertions and request counts.
 
 ## Scope
 
-Eleven reported groups cover visible filters/shared interests, short and committed mouse drags, clear/revisit recovery, reciprocal match feedback and the correct conversation, repeated arrow keys, emulated touch, 390 px layout, temporary Chinese controls, reduced motion and absence of browser/server errors during these flows. JUnit covers exclusions, participant-only match access and repeated server submissions.
+Sixteen reported groups cover visible filters/shared interests, short and committed mouse drags, clear/revisit recovery, reciprocal match feedback and the correct conversation, repeated arrow keys, emulated touch, 390 px layout, temporary Chinese controls, reduced motion, delayed-response feedback and duplicate suppression, browser Back recovery, native forms without JavaScript, a stale card hidden in another session, a closed match link and absence of browser/server errors during these flows. JUnit covers exclusions, participant-only match access, repeated server submissions and cross-route safety invariants.
+
+The history check uses actual Back navigation and separately dispatches an explicit persisted-pageshow event, since the browser may choose a fresh navigation instead of BFCache. The delayed-response check intentionally holds a request in the test harness; it is not a measured network-performance claim. Disabling screenshots leaves the assertions and recorded outcomes intact.
 
 Touch is Chromium CDP emulation, not a physical phone test. This run is not an accessibility audit, a load test, independent peer review, or implementation of B–F's features.

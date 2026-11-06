@@ -43,3 +43,7 @@ This follows [Spring's locale-resolver model](https://docs.spring.io/spring-fram
 A's discovery increment adds no database fields. A reciprocal like now redirects to `/matches/{id}` before the user chooses to open `/conversations/{id}`. Existing conversation IDs, message APIs, authorization checks and CSRF-protected decision forms remain the integration surfaces. Empty discovery results count only skipped profiles eligible under the current filters; reset still clears the current user's skips globally, as the UI explains, without clearing likes or boundaries.
 
 C's password/session rules, D's per-participant read markers and history cursor, E's controlled staff role and report handling, and F's data-path/backup rules must be agreed with A before changing shared contracts. B's live preview must not persist unsaved edits or bypass backend validation. Existing tests are a regression baseline, not a substitute for each member's new acceptance checks.
+
+Concrete owner-review proposals, integration order and the pending decision log are in [A's integration plan](INTEGRATION_PLAN.md). Proposed routes there are not implemented API contracts yet.
+
+The second A increment preserves error HTTP status and the JSON error shape. HTML recovery returns to a local GET `/discover`, retaining only valid interest/activity filters. Restored discovery pages refresh current eligibility; pending decisions announce saving and suppress duplicate inputs. Native CSRF forms remain the fallback when JavaScript is disabled. No database fields were added.

@@ -6,6 +6,8 @@ Browser verification used Edge 156.0.4314.58, Playwright 1.62.1 and isolated H2 
 
 # Baseline Verification
 
+Latest A increment: **39 Java tests and 16 browser groups passed** on 6 November 2026. See [A's current progress](progress/week2/A_progress.md) and [the exact source/run record](progress/week2/evidence/a-integration-20261106/verification.json). New user screenshots and independent review remain pending. The sections below retain the earlier 19-test baseline verification and its original images; those images are not evidence of the latest run.
+
 Verified on **6 November 2026** on the local Windows machine, using JDK 21, Maven Wrapper and an isolated headless Microsoft Edge/Playwright browser. All accounts and messages used for verification were fictional. This is A's AI-assisted baseline verification, not evidence that B–F performed their reserved tasks or that user research took place.
 
 ## Automated Java checks

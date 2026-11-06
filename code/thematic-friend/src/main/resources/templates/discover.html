@@ -32,6 +32,7 @@
  <form id="like-form" th:action="@{/decisions/{id}(id=${candidate.member.id})}" method="post"><input type="hidden" name="choice" value="LIKE"><input type="hidden" name="interest" th:value="${selectedInterest}"><input type="hidden" name="goal" th:value="${selectedGoal}"><button class="action-button like-button" type="submit"><span aria-hidden="true">♡</span><span><th:block th:text="#{ui.like_to_meet}">Like to meet</th:block> </span></button></form>
 </div>
 <p class="swipe-hint" id="decision-help" th:if="${candidate != null}" th:text="#{discover.decision_help}">Drag, use ← / → on the card, or choose a button.</p>
+<p id="decision-status" class="swipe-hint" role="status" aria-live="polite" aria-atomic="true" th:if="${candidate != null}" th:data-pending="#{discover.saving_choice}"></p>
 <section th:if="${candidate == null}" class="panel empty-state discovery-empty" aria-labelledby="empty-title">
   <span class="empty-symbol" aria-hidden="true">◌</span>
   <h2 id="empty-title" th:text="${hasFilters} ? #{discover.empty.filtered_title} : #{ui.you_are_all_caught_up}">You are all caught up.</h2>

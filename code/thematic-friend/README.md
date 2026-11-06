@@ -63,6 +63,8 @@ For actual terminal screenshots, use [the live PowerShell evidence workflow](doc
 
 A's 6 November discovery increment adds visible filter chips/counts, useful empty-result recovery and participant-only match feedback. See [A's progress and evidence](docs/progress/week2/A_progress.md). The optional [browser checks](scripts/browser/README.md) run against disposable data; they are separate from the Java-only website startup.
 
+The second A increment retains valid filters on error recovery, refreshes discovery after a cached history return and announces pending decisions. Shared-route integration checks and [concrete owner-review proposals](docs/INTEGRATION_PLAN.md) prepare the next merge work. Use [A's next capture guide](docs/A_NEXT_CAPTURE.md) for fresh terminal and product evidence.
+
 Run tests from the project directory with `mvnw.cmd test` using JDK 21. The build helper is the simplest way to keep the task's Maven cache settings consistent. See [verification](docs/VERIFICATION.md), [routes and data contracts](docs/CONTRACTS.md), [reference/licence record](docs/THIRD_PARTY.md) and [A's baseline](docs/BASELINE.md).
 
 Backup/restore tools, password change, unread/history UI, staff report review and live profile preview are reserved for B–F. They are not implemented in this baseline. The current application has no live moderation, account recovery, self-service deletion, real profile photos or end-to-end message encryption.

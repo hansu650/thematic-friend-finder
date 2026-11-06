@@ -16,8 +16,8 @@ public class DiscoveryService {
     public DiscoveryService(AccountService accounts,MemberRepository members,DecisionRepository decisions,ConnectionRepository connections,PairGuard guard) {
         this.accounts=accounts; this.members=members; this.decisions=decisions; this.connections=connections; this.guard=guard;
     }
-    public static String validInterest(String value) { return AccountService.INTERESTS.contains(value)?value:""; }
-    public static String validGoal(String value) { return AccountService.GOALS.contains(value)?value:""; }
+    public static String validInterest(String value) { return value!=null&&AccountService.INTERESTS.contains(value)?value:""; }
+    public static String validGoal(String value) { return value!=null&&AccountService.GOALS.contains(value)?value:""; }
     public List<Candidate> discover(String username,String interest,String goal) {
         return candidates(username,interest,goal,false);
     }

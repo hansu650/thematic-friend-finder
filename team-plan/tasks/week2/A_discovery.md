@@ -4,6 +4,8 @@ Named owner: **Qin Tian (A)**. Reviewer: **B Wang Yikai**.
 
 **6 November update:** the first discovery/filter/match-feedback increment is implemented and locally verified: 31 Java tests (19 existing + 12 new) and 11 browser groups pass. See [A's actual evidence](../../../code/thematic-friend/docs/progress/week2/A_progress.md). B's independent review, member-contract agreements and later integration remain pending; this does not complete the full five-week role.
 
+**Second increment, 6 November:** filter-preserving error recovery, cached-history refresh and pending-decision feedback are implemented. The full suite now passes 39 Java tests and 16 browser groups. Eight new Java integration cases protect the shared match/chat/safety routes. [Concrete contract proposals](../../../code/thematic-friend/docs/INTEGRATION_PLAN.md) are ready for owner confirmation. [New screenshots](../../../code/thematic-friend/docs/A_NEXT_CAPTURE.md), B's review and B–F integration remain pending.
+
 Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **10–14 hours**, to be confirmed by the member. Role: **Product Owner + Developer; team leader**. Reviewer: **B, with C/F for security and runtime**. A reviews and merges PRs.
 
 ## Starting point

@@ -1,5 +1,6 @@
 param(
     [switch]$NoPause,
+    [switch]$SkipScreenshots,
     [switch]$Online
 )
 $ErrorActionPreference = 'Stop'
@@ -12,7 +13,7 @@ $overallExit = 1
 $javaExit = $null
 $browserExit = $null
 $startedAt = [DateTime]::UtcNow.ToString('o')
-$environmentKeys = @('JAVA_HOME','MAVEN_USER_HOME','MINGLE_TEST_JAR','MINGLE_TEST_OUTPUT','MINGLE_PLAYWRIGHT_MODULE','MINGLE_BROWSER_PATH','MINGLE_CAPTURE_MODULE','MINGLE_MOTION_MODULE')
+$environmentKeys = @('JAVA_HOME','MAVEN_USER_HOME','MINGLE_TEST_JAR','MINGLE_TEST_OUTPUT','MINGLE_PLAYWRIGHT_MODULE','MINGLE_BROWSER_PATH','MINGLE_CAPTURE_MODULE','MINGLE_MOTION_MODULE','MINGLE_SKIP_SCREENSHOTS')
 $previousEnvironment = @{}
 foreach ($name in $environmentKeys) { $previousEnvironment[$name] = [Environment]::GetEnvironmentVariable($name,'Process') }
 
@@ -94,6 +95,7 @@ try {
     if (Test-Path -LiteralPath $motion) { $env:MINGLE_MOTION_MODULE = ([Uri]$motion).AbsoluteUri }
     $env:MINGLE_TEST_JAR = Join-Path $buildDir 'target/thematic-friend-0.0.1-SNAPSHOT.jar'
     $env:MINGLE_TEST_OUTPUT = Join-Path $runDir 'browser'
+    if ($SkipScreenshots) { $env:MINGLE_SKIP_SCREENSHOTS = '1' }
     $jarHash = (Get-FileHash -LiteralPath $env:MINGLE_TEST_JAR -Algorithm SHA256).Hash.ToLowerInvariant()
     Write-Host ''
     Write-Host '02 - Browser: actual isolated UI assertions' -ForegroundColor Cyan

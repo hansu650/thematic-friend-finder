@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A Qin Tian evidence</title><style>body{font:16px/1.6 Segoe UI,Arial,sans-serif;color:#27303b;max-width:1100px;margin:36px auto;padding:0 24px}h1{font-size:29px}h2{margin-top:32px}a{color:#a84f43}table{border-collapse:collapse;width:100%}th,td{padding:9px 11px;border:1px solid #ddd;text-align:left;vertical-align:top}th{background:#f1f2f4}img{display:block;max-width:100%;height:auto;max-height:820px;object-fit:contain;margin:20px 0}pre{background:#f5f5f5;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}hr{border:0;border-top:1px solid #ddd;margin:36px 0}</style></head><body><h1>A Qin Tian — Capture the Recovery and Integration Increment</h1>
+<p>This is the second A increment on <code>w2/a-discovery</code>, following the earlier 31-test / 11-browser-group captures. Keep those originals as earlier evidence. New terminal/editor/product captures are pending Qin Tian&#39;s actual run. Do not relabel old screenshots as proof of this revision.</p>
+<h2>1. Capture the real Java and browser results</h2>
+<p>Open PowerShell in the full project <code>code/thematic-friend</code>, maximize the terminal, then run:</p>
+<pre><code class="language-powershell">powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\test-evidence.ps1 -SkipScreenshots
+</code></pre>
+<p>The command freezes a source copy, builds it and executes real tests. It pauses after Java and again after browser checks. Capture the actual result, test count, source/run identity and process exit code; press Enter after each capture. The script does not fabricate output or terminal images. <code>-SkipScreenshots</code> disables automatic browser images so the new captures remain yours.</p>
+<p>The expected current suite is 39 Java tests and 16 browser groups. Use the numbers and status actually printed by your run; a difference or failure needs investigation rather than an edited screenshot. If the result is longer than one screen, take two readable captures.</p>
+<table>
+<thead>
+<tr>
+<th>Suggested final filename</th>
+<th>Capture</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A_06_integration_java_terminal.png</td>
+<td>Actual Maven result and exit code, with command/source context</td>
+</tr>
+<tr>
+<td>A_07_integration_browser_terminal.png</td>
+<td>New A-INT-UI groups and BrowserExit, with any additional screen needed for the full result</td>
+</tr>
+<tr>
+<td>A_08_integration_github_checks.png</td>
+<td>Current PR/head commit and actual CI state from the command below</td>
+</tr>
+</tbody></table>
+<pre><code class="language-powershell">powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\show-github-checks.ps1
+</code></pre>
+<p>CI is an automated check, not the pending independent review. Send the original captures as-is; final naming, relative Markdown links and checksums can be added after receipt. Save them under <code>docs/progress/week2/images/</code> if saving directly into the project.</p>
+<h2>2. Capture a real recovery screen</h2>
+<p>Use two browser sessions and fictional accounts on the local demo at <code>http://127.0.0.1:8081/</code>. Use a normal window for the viewer and an InPrivate window for the target. If those addresses stop responding, start the current application before following the steps.</p>
+<ol>
+<li>Create fresh fictional accounts, for example <code>a_view_1106</code> and <code>a_card_1106</code>, using passwords you choose locally. Do not include credentials in captures or progress files. Use distinct names such as <strong>Recovery Viewer</strong> and <strong>Recovery Target</strong>.</li>
+<li>Save both profiles with the <strong>Gaming</strong> interest, <strong>Weekend plans</strong> activity and discovery enabled. In the viewer window, apply Gaming + Weekend plans. The target card should be visible. If another fictional profile shares those filters, skip it until the named target is shown.</li>
+<li>Leave that card open. In the target window, clear <strong>Show my profile in Discover</strong> and save the profile.</li>
+<li>Return to the viewer&#39;s old card and choose <strong>Like to meet</strong>. Capture the real 404 recovery page with <strong>Your filters are kept when you return to Discover.</strong> Suggested name: <code>A_09_stale_card_recovery.png</code>.</li>
+<li>Select <strong>Back to Discover</strong>. Gaming and Weekend plans should remain selected; the hidden target must be absent. Capture the retained filter chips and result. Suggested name: <code>A_10_filters_after_recovery.png</code>.</li>
+</ol>
+<p>These steps change only the fictional accounts you created. The first rejected request must not save a like or create a connection; the automated integration tests verify that database invariant. A screenshot of the error page alone does not prove it.</p>
+<p>For browser Back behaviour, show a visible fictional card, skip it, then go Back. Discovery should refresh from the server and offer the next eligible card with usable buttons. Browser cache choices vary; the automated suite additionally exercises the persisted-pageshow event explicitly. A still image cannot establish timing or exactly-once submission.</p>
+<h2>3. Optional editor explanation</h2>
+<p>The earlier two editor captures remain valid for the first increment. For this increment, open the full project in IDEA, enable line numbers and soft wraps, and use Ctrl+G:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Method / block to show</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>src/main/java/com/example/thematicfriend/config/PageAdvice.java</code></td>
+<td>Recovery URL construction inside <code>responseError</code></td>
+<td>Keep the 403/404/409 status; retain allowlisted filters; return through a local GET</td>
+</tr>
+<tr>
+<td><code>src/main/resources/static/js/app.js</code></td>
+<td><code>pageshow</code> listener and <code>commit</code></td>
+<td>Refresh restored discovery pages; show pending state; suppress duplicate submissions</td>
+</tr>
+<tr>
+<td><code>src/test/java/com/example/thematicfriend/AIntegrationTests.java</code></td>
+<td><code>completeMatchChatEndFlowEnforcesTheBoundary</code></td>
+<td>Exercise real controller routes and prove a closed connection rejects both participants</td>
+</tr>
+</tbody></table>
+<p>Use the linked source and method names as the durable reference; exact current line ranges are recorded with the progress evidence. B–F still do not need code screenshots. Their named task packages and assigned modules remain unchanged by this increment.</p>
+</body></html>

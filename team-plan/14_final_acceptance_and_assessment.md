@@ -6,7 +6,7 @@ Scope confirmed by Qin Tian on 6 November 2026: complete the friendship flow thr
 
 When the six increments have been reviewed, integrated and tested together, the core product can be feature-complete for the agreed coursework scope. Completing a feature PR or collecting screenshots alone does not complete the assessment. User observation, improvements, reproducible handover, the team demonstration and six individual reflections follow.
 
-The current source already has A's AI-assisted account/profile, discovery, mutual-match, basic chat and block/report baseline. A's first discovery refinement is implemented on w2/a-discovery and awaits independent review. B–F's increments below remain assigned work, not completed features.
+The current source already has A's AI-assisted account/profile, discovery, mutual-match, basic chat and block/report baseline. A's discovery refinement and second recovery/integration increment are implemented on w2/a-discovery and await independent review. The latest local gate passes 39 Java tests and 16 browser groups; [A's contract proposals](../code/thematic-friend/docs/INTEGRATION_PLAN.md) still need owner confirmation. B–F's increments below remain assigned work, not completed features.
 
 | Owner | Assigned result | Completion evidence |
 |---|---|---|
@@ -38,7 +38,7 @@ The final submitted interface is English. The temporary development language swi
 
 ## From development to submission
 
-1. **Assign and agree:** distribute each named package, confirm capacity, and record account/session, read-state, staff-role and data-path agreements before overlapping edits. Current preparation stops at task and instruction updates.
+1. **Assign and agree:** distribute each named package, confirm capacity, and record account/session, read-state, staff-role and data-path agreements before overlapping edits. Task/instruction updates were completed on 6 November and A's implementation has resumed; actual owner agreements remain pending.
 2. **Build and review:** each owner delivers a focused feature, meaningful executable tests and their own evidence. B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. Completed PRs are Ready for review.
 3. **Integrate and observe:** A integrates accepted work and runs CORE-01–08. B coordinates real, consented task observation; record the task, outcome, difficulty and changes made. Each owner fixes issues in their area. Do not manufacture participants, feedback or failed tests.
 4. **Evaluate and reproduce:** compare the final outcome with the brief and original plan; explain supported strengths, remaining weaknesses, changed priorities and what the team learned. F coordinates a second person's reproduction. A records the final revision and known limits.

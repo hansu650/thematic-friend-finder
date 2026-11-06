@@ -1,8 +1,22 @@
 # A Qin Tian Discovery and Integration Progress
 
-6 November 2026. Branch: w2/a-discovery. [PR #9](https://github.com/hansu650/thematic-friend-finder/pull/9) contains the first discovery increment; independent reviewer **B Wang Yikai** is pending. The remaining shared contracts, five incoming modules, final acceptance and demonstration coordination are assigned work.
+6 November 2026. Branch: w2/a-discovery. [PR #9](https://github.com/hansu650/thematic-friend-finder/pull/9) is the active A review. Independent reviewer **B Wang Yikai** is pending. The remaining owner agreements, five incoming modules, final acceptance and demonstration coordination are assigned work.
 
-## Implemented and checked
+## Second increment: recovery and integration preparation
+
+The second increment preserves validated filters on error recovery, refreshes discovery when a cached history page is restored, and announces a pending choice while suppressing duplicate input. Existing rejection statuses and JSON errors are retained. Native CSRF-protected forms work without JavaScript. No database fields or B–F feature implementations were added.
+
+Verification passed **39 Java tests** (the previous 31 plus 8 new integration cases) and **16 Edge/Playwright groups** (the previous 11 plus 5 new groups), with both process exit codes 0. The Java build ran at 14:19–14:20 +08:00; browser-only retests used its exact JAR. Its SHA-256 is `826e62b9b93e938cf64905e12ad7b7d76c38f165c37d41585e345da0fe1ca153`. All 60 Java/build-input files still match that frozen build. See [machine-readable verification](./evidence/a-integration-20261106/verification.json), [Java output](./evidence/a-integration-20261106/java-output.txt), [browser output](./evidence/a-integration-20261106/browser-output.txt) and [assertion results](./evidence/a-integration-20261106/browser-results.json).
+
+Before implementation, the eight new Java integration cases had four missing-recovery failures. The first browser attempt exposed a harness wait conflict; subsequent harness attempts used an incorrect generated checkbox ID and failed to open the chat menu. Their real outputs are retained beside the passing results. The application/Java inputs did not change during those browser-only fixes. These were corrected test-harness problems, not claimed new product defects.
+
+The new Java cases cover stale hidden/blocked cards, safe recovery parameters, the HTTP match → chat → end flow, report privacy and unblock semantics, missing-CSRF rejection and temporary Chinese recovery. The browser additions check pending feedback/duplicate suppression, real Back navigation plus an explicitly simulated persisted-pageshow event, native buttons without JavaScript, another session hiding a profile, and a closed match link. Touch remains emulated; no screen-reader audit, load certification or independent review is claimed.
+
+[Concrete contract proposals and the integration gate](../../INTEGRATION_PLAN.md) are ready for B–F to review. Their confirmation and implementation are still pending. [The next capture guide](../../A_NEXT_CAPTURE.md) gives commands and a repeatable two-session product scenario. **New user terminal/editor/product screenshots are pending; this verification run saved no automatic browser images.** The six original images below belong to the first increment.
+
+Current optional editor references: [PageAdvice.java](../../../src/main/java/com/example/thematicfriend/config/PageAdvice.java), lines 37–56; [app.js](../../../src/main/resources/static/js/app.js), lines 9–42; and [AIntegrationTests.java](../../../src/test/java/com/example/thematicfriend/AIntegrationTests.java), lines 104–130. These show safe recovery, cached-history/pending handling and the cross-route closure assertions. Source/test preparation used Codex assistance under A's ownership; Qin Tian's own explanation and B's independent review remain separate evidence.
+
+## First increment: implemented and checked
 
 The AI-assisted baseline already supplied accounts/profiles, filtering, mutual matching, basic chat and safety actions. A's increment adds removable filter summaries and eligible counts, useful empty-result recovery and participant-only match feedback leading to the correct conversation. Genuine shared interests come from stored profile intersections.
 

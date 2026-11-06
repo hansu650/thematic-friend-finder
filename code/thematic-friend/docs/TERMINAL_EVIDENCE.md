@@ -1,5 +1,7 @@
 # Capture Actual Terminal Evidence
 
+For the latest A recovery/integration increment, follow [A's next capture guide](A_NEXT_CAPTURE.md). The earlier 31-test / 11-group captures below remain historical evidence for that revision; do not reuse them as new-run results.
+
 The earlier TEST_REPORT.html / DEFECT_REPORT.html images were rendered summaries of saved outputs. They are **not terminal screenshots** and must not be submitted as terminal evidence. Keep original logs as supporting evidence; capture the real terminal while executing the commands below.
 
 ## Local Java and browser tests

@@ -6,6 +6,13 @@
     });
   });
   const card = document.getElementById('swipe-card');
+  // History can restore a live DOM, including disabled buttons and a submitted
+  // card. Fetch current eligibility instead of reviving that stale decision.
+  if (document.querySelector('.discovery-summary')) {
+    window.addEventListener('pageshow', event => {
+      if (event.persisted) window.location.reload();
+    });
+  }
   if (!card) return;
   const like = document.getElementById('like-form');
   const skip = document.getElementById('skip-form');
@@ -21,6 +28,9 @@
   const commit = form => {
     if (committed) return;
     committed = true;
+    card.setAttribute('aria-busy', 'true');
+    const status = document.getElementById('decision-status');
+    if (status) status.textContent = status.dataset.pending;
     card.classList.remove('dragging'); card.classList.add('exiting');
     const direction = form === like ? 1 : -1;
     card.style.transform = `translateX(${direction * (card.offsetWidth + 160)}px) rotate(${direction * 18}deg)`;

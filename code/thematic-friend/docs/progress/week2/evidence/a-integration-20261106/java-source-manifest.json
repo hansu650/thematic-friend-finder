@@ -1,0 +1,258 @@
+[
+  {
+    "path": ".mvn/maven.config",
+    "sha256": "bb13266f2d58001ca471371c972b4db1596dd85fd75bf00648c2cd0cb125342c"
+  },
+  {
+    "path": ".mvn/wrapper/maven-wrapper.properties",
+    "sha256": "e475c49e0cb54793fef372f979672f56bfe7d272b981ad6f5ebd5e50e08ee1dd"
+  },
+  {
+    "path": "mvnw",
+    "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02"
+  },
+  {
+    "path": "mvnw.cmd",
+    "sha256": "4a361e1374a3e5ad6d03e18e9adc0cf181ac5058ac6203b76f0ba3b456b56481"
+  },
+  {
+    "path": "pom.xml",
+    "sha256": "27f6585330902aeb249bcc71e05589bf8501e7b6a99e07c701f93444e156d05d"
+  },
+  {
+    "path": "scripts/browser/discovery-check.mjs",
+    "sha256": "494cb0cd4545fd3c2188f92864b79aafc476562bd587ca376b2db817bf43732d"
+  },
+  {
+    "path": "scripts/browser/package.json",
+    "sha256": "64da5910910974a8960a80f00e0856b940cc99c350e33fd443ace7192951841d"
+  },
+  {
+    "path": "scripts/browser/README.md",
+    "sha256": "47c5ef1c162b2f8db8b0c4781bd4e60cb7ecefdf0e8ced7fe3e24be213f7819b"
+  },
+  {
+    "path": "scripts/browser/run-discovery-check.mjs",
+    "sha256": "df52b0f2025323fd424596a0590c14568064dc5468461cbf8fcc0d9e2b313187"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/AccountController.java",
+    "sha256": "4552c589f52787a11d331e702ca6bc6106898ec3228fa0863376bd0249ea2146"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/AccountService.java",
+    "sha256": "e5669c858a2edcbbb59c2688d701d226b697141271b065afb2bf654b39b4d91a"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/Member.java",
+    "sha256": "157c4711356143bfa0527b4d3ff74952583723ab0e701eff4f5c43dd7db3ea59"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/MemberRepository.java",
+    "sha256": "f8338930ea7ac823671eb1d96c66ad9e5059f7ffeda89442c552b80c36690276"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/ProfileForm.java",
+    "sha256": "d4268a98e9c18ebb1165459468e2bb5c3acc0a4240992aa2ddf74fe99c87299a"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/account/SignupForm.java",
+    "sha256": "625178836d03d77f19f6c28ba2c0a4759029062e00f0802d9e36a22cfb72421e"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/bootstrap/DemoData.java",
+    "sha256": "2842cc3d5bbd7c06d377342aac99cb8e41cd3cef659f4d66740287bae76c9f2b"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/chat/ChatController.java",
+    "sha256": "f3a85b49e8908f90f7751579322cae6aa9d9e9ff963d6e634abd55eba390d1f2"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/chat/ChatService.java",
+    "sha256": "905baf4e819589a7ed9a2594e36b5771c31e7f8742df19259731caffdf192789"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/chat/Message.java",
+    "sha256": "bce4ae48c53bb223d375215d876f7388fd0a6b8e6c0fc83aff02d6b887267259"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/chat/MessageRepository.java",
+    "sha256": "ef1147d4080571a5f855dc31be3f4265493ee375fea99a26b68429eccda71948"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/config/I18n.java",
+    "sha256": "10b54cebce0f1b589b5171c62e013f93df3f8c194fef3243106f326538c7b6ba"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/config/PageAdvice.java",
+    "sha256": "fbeed93e95265c77eed3247ac141751f9b1df055d36fbdfbe3d4099b3b5c9d83"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/config/SecurityConfig.java",
+    "sha256": "2e554dc9241dcc6122434d119495fb6ccd787319dfe5ed4e27faacf7fad578b0"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/config/WebConfig.java",
+    "sha256": "9acb58890164a7102b3ae100cc1a9584d25a86e34ffaa11caa842087dcf476d6"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/Connection.java",
+    "sha256": "d13582aebbe591a45b9fc5fc673351342e49b65b6df5dc5fde6beef4b320a871"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/ConnectionRepository.java",
+    "sha256": "77ba25772db9307416a4858c0449723411bcaa9295b0819f758d140f299f219e"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/ConnectionService.java",
+    "sha256": "d7ad5edb95c80ada0abb73e9297525f99b0b61ce9ef3c0d72ec6a41ca40b7ed0"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/Decision.java",
+    "sha256": "bc3ed0b00a3756b2d0824cbc405863c7307bbe621746548efae848e58e22bf5b"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/DecisionRepository.java",
+    "sha256": "8f22468b768958686becefa2deecc4b20bc8d9a5617a4377752ad7ddc432b7bc"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/connection/PairGuard.java",
+    "sha256": "8d96dd78c5738459bd521e8a0cd20bd467210d844198949bf9d13a827398e544"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java",
+    "sha256": "2fd9ce9fbc4bd9ad7890e337cceb70c164c2a9f31c507bc6e85759d7abc4a788"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/discovery/DiscoveryService.java",
+    "sha256": "6bee742cf647f6b4c935e9a739917d9fff72ba3cf5ae918b91b2ea3e15116f3c"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/discovery/MatchController.java",
+    "sha256": "a84b1289884aee95cc1ba016857a667e2f38c36f9f9bf5f21dc81cac4d4f11b0"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/Block.java",
+    "sha256": "5215f032088ace6ba8cf4f29b06323ced14a2cb13c28ddb5858afe293778d2ae"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/BlockRepository.java",
+    "sha256": "57e1242d199af01d4f91e8f9d4f71f751c640d8e0c45d8095d457e321befecdf"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/Report.java",
+    "sha256": "b8489fc3e5d49cc1e56a7abfa0ffbcfa9809b13339c1dda30ddf3430cd8b99e8"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/ReportRepository.java",
+    "sha256": "2273038e23e3df44267062d904fcfc8e8cd74e93d9b06a0cb02c5939e939a583"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/SafetyController.java",
+    "sha256": "0a4ec956dd5839a0f017d54f8edd506b51fff17f5d366cd5356f8c3edfd1594d"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/safety/SafetyService.java",
+    "sha256": "d3e65c9dc26cdf0a4054237b9dc8b5d4dbe67059cb6438da54545a3070efd9bf"
+  },
+  {
+    "path": "src/main/java/com/example/thematicfriend/ThematicFriendApplication.java",
+    "sha256": "262ef73e0cc8cc9a9c837fe43a41aa39e3cc554e16337f5741d7742989d7490d"
+  },
+  {
+    "path": "src/main/resources/application.properties",
+    "sha256": "b8cc79df3a6bc75868a043721ad28f21109b5d732d7bd24a343ab88d19237898"
+  },
+  {
+    "path": "src/main/resources/messages_zh.properties",
+    "sha256": "edf7c4a3ae0c44507c7cba05d20f2d797a05e0fdb892e53ad923f3a861d4d6ff"
+  },
+  {
+    "path": "src/main/resources/messages.properties",
+    "sha256": "435d1f6832907fbc9d3f629adc67c6736d2c69a8cc60acc027526c05edc0925b"
+  },
+  {
+    "path": "src/main/resources/static/css/app.css",
+    "sha256": "7cf007f1d5adea292a1367ba2ad005ca44732ac4cb64cad05ef034446fd9d05c"
+  },
+  {
+    "path": "src/main/resources/static/js/app.js",
+    "sha256": "15bb690d46de271a8af44c5488648a1e2c6f806cb8d57c0796c9e2976e6c94d5"
+  },
+  {
+    "path": "src/main/resources/static/js/chat.js",
+    "sha256": "b4f4ae06bfe470f7c57277a7f805ae8344fbaab21dba021413a3ac72d1e0d3e1"
+  },
+  {
+    "path": "src/main/resources/templates/connections.html",
+    "sha256": "f0709733e804d1b0f0e032ef6e7087431f39ee17e3822c3772bd303d54f4f0a7"
+  },
+  {
+    "path": "src/main/resources/templates/conversation.html",
+    "sha256": "53d43b7f18a4bc24cfc339f56d37f608c0672429885aa0c54919a6f24798f550"
+  },
+  {
+    "path": "src/main/resources/templates/discover.html",
+    "sha256": "feba2bd7e6fe27501ef4ae644fcb40bb0a58a5d846e63a3d24fb8de04966cc01"
+  },
+  {
+    "path": "src/main/resources/templates/error.html",
+    "sha256": "850105b214f3960d66a9702d114dc3d27d2f87365f3d6985af81271e421dabe3"
+  },
+  {
+    "path": "src/main/resources/templates/fragments/layout.html",
+    "sha256": "5c982ec8ae9db0bf2a7a6f7078bab5b7ae95b1d4e49b153f1eff104737d1ccb6"
+  },
+  {
+    "path": "src/main/resources/templates/login.html",
+    "sha256": "effea1fe1681eac59ffcd3d560c7483138ba9d4f86682fa0b95942a4e1493080"
+  },
+  {
+    "path": "src/main/resources/templates/match.html",
+    "sha256": "85288992b648ed4cddef0cee6840b30cd2f1ffd5b35dd00f1d9481a7f450841a"
+  },
+  {
+    "path": "src/main/resources/templates/privacy.html",
+    "sha256": "468bdeef92c81951985cb4c4d5f703984b21bcdaa88c3a29b7f7f6b4a7f1c3d2"
+  },
+  {
+    "path": "src/main/resources/templates/profile.html",
+    "sha256": "d21f32562d6df17f493d55ce58e55d53b08d50cca9378a3ea79b54035734eb17"
+  },
+  {
+    "path": "src/main/resources/templates/report.html",
+    "sha256": "1b4b3b7a8b2ca3ecf534bd4dfbd8a8527065f788456d2f982b87802c17c4bb7e"
+  },
+  {
+    "path": "src/main/resources/templates/safety.html",
+    "sha256": "503da5aac1888b3c35e768190bccbd0dcd9b98b4d089f3184895b09bc117004a"
+  },
+  {
+    "path": "src/main/resources/templates/signup.html",
+    "sha256": "e15b57d29d6388c33ba393f96363baffd868333b1ce2cd0fb81b4ef12dfb821e"
+  },
+  {
+    "path": "src/main/resources/templates/welcome.html",
+    "sha256": "8afb349683e33e96376d1dc02e6ca04649815857a05028c3cd9053ca5ff1c3ff"
+  },
+  {
+    "path": "src/test/java/com/example/thematicfriend/AIntegrationTests.java",
+    "sha256": "677cfae2c316f7ee1333679143059787e00ca828fb63173682383116f489aa05"
+  },
+  {
+    "path": "src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java",
+    "sha256": "3cff84ebe0a806fd729f68ccba91bbc363dad492372accf361d72a276ca77a84"
+  },
+  {
+    "path": "src/test/java/com/example/thematicfriend/LanguageTests.java",
+    "sha256": "0a892fa4699a393d75633d8ca6944882aaca05dc967faccacf12680b910d9467"
+  },
+  {
+    "path": "src/test/java/com/example/thematicfriend/PrototypeFlowTests.java",
+    "sha256": "1bf77a55bc80415e9ffb0db5276b01803976fbedd7c10753c37b7955811b02ff"
+  },
+  {
+    "path": "src/test/java/com/example/thematicfriend/ThematicFriendApplicationTests.java",
+    "sha256": "cfdf7f6a63d6d474c1ea8d9f35e0099806a0ccdc0f33af3b8a399d895711853f"
+  }
+]

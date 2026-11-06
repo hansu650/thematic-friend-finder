@@ -11,7 +11,8 @@ const password = process.env.MINGLE_CHECK_PASSWORD;
 const output = process.env.MINGLE_CHECK_OUTPUT;
 if (!password || !output) throw new Error('Use run-discovery-check.mjs to create fixtures and an output directory.');
 const images = path.join(output, 'images');
-await fs.mkdir(images, { recursive: true });
+const skipScreenshots = process.env.MINGLE_SKIP_SCREENSHOTS === '1';
+if (!skipScreenshots) await fs.mkdir(images, { recursive: true });
 const browser = await chromium.launch({ headless: true, ...(process.env.MINGLE_BROWSER_PATH ? { executablePath: process.env.MINGLE_BROWSER_PATH } : {}) });
 const checks = [], issues = [], screenshots = [];
 const ok = (id, assertion) => { checks.push({ id, assertion, result: 'PASS' }); console.log(`PASS ${id} ${assertion}`); };
@@ -38,6 +39,7 @@ async function login(session, username) {
   await Promise.all([session.page.waitForURL('**/discover'), click(session, 'form button[type=submit]')]);
 }
 async function shot(session, name, fullPage = false) {
+  if (skipScreenshots) return;
   await session.page.evaluate(() => document.fonts.ready);
   const file = path.join(images, name + '.png');
   if (captureHelper) await captureHelper.captureScreenshot(session.page, { file, cursor: 'arrow', fullPage });
@@ -207,13 +209,121 @@ try {
   await shot(reduced, '12-reduced-motion');
   await oneDecision(reduced, () => click(reduced, '#skip-form button'), /^\/discover$/);
   ok('A-06c', 'Reduced-motion button decision submits once.');
+
+  const pending = await setup();
+  await login(pending, 'demo_su');
+  await filters(pending, 'Coffee', 'New friends');
+  const actedTarget = await pending.page.locator('#skip-form').getAttribute('action');
+  let observePending;
+  const pendingObserved = new Promise(resolve => { observePending = resolve; });
+  await pending.page.exposeFunction('recordPendingState', state => observePending(state));
+  await pending.page.evaluate(() => {
+    const status = document.querySelector('#decision-status');
+    const observer = new MutationObserver(() => {
+      if (!status.textContent) return;
+      observer.disconnect();
+      const state = {
+        text: status.textContent,
+        busy: document.querySelector('#swipe-card').getAttribute('aria-busy'),
+        disabled: document.querySelectorAll('.action-button:disabled').length
+      };
+      // Exercise the duplicate guard before the browser starts a navigation.
+      document.querySelector('#like-form').requestSubmit();
+      window.recordPendingState(state);
+    });
+    observer.observe(status, { childList: true });
+  });
+  let releaseDecision, signalIntercept;
+  const heldDecision = new Promise(resolve => { releaseDecision = resolve; });
+  const intercepted = new Promise(resolve => { signalIntercept = resolve; });
+  await pending.page.route('**/decisions/*', async route => {
+    signalIntercept();
+    await heldDecision;
+    await route.continue();
+  });
+  const beforePending = pending.posts.length;
+  const pendingButton = await pending.page.locator('#skip-form button').boundingBox();
+  await pending.page.mouse.click(pendingButton.x + pendingButton.width / 2, pendingButton.y + pendingButton.height / 2);
+  const pendingState = await pendingObserved;
+  await intercepted;
+  assert.equal(pendingState.text, 'Saving your choice…');
+  assert.equal(pendingState.busy, 'true');
+  assert.equal(pendingState.disabled, 2);
+  assert.equal(pending.posts.length - beforePending, 1);
+  const savedNavigation = pending.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+  releaseDecision();
+  await savedNavigation;
+  await pending.page.unroute('**/decisions/*');
+  assert.equal(pending.posts.length - beforePending, 1);
+  ok('A-INT-UI-01', 'A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.');
+
+  await pending.page.goBack({ waitUntil: 'domcontentloaded' });
+  await pending.page.waitForFunction(target => {
+    const form = document.querySelector('#skip-form');
+    return form && form.getAttribute('action') !== target && !form.querySelector('button').disabled;
+  }, actedTarget);
+  assert.equal(await pending.page.locator('#interest').inputValue(), 'Coffee');
+  // Browsers may choose a fresh load instead of BFCache. Exercise the persisted
+  // pageshow branch explicitly as well; this is a simulated event, not a claim
+  // that this Edge run naturally restored a BFCache entry.
+  const historyRefresh = pending.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+  await pending.page.evaluate(() => {
+    document.querySelector('#skip-form button').disabled = true;
+    window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true }));
+  });
+  await historyRefresh;
+  assert.equal(await pending.page.locator('#skip-form button').isEnabled(), true);
+  assert.notEqual(await pending.page.locator('#skip-form').getAttribute('action'), actedTarget);
+  assert.equal(await pending.page.locator('#decision-status').innerText(), '');
+  ok('A-INT-UI-02', 'Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.');
+
+  const noScript = await setup({ javaScriptEnabled: false });
+  await login(noScript, 'demo_he');
+  await filters(noScript, 'Coffee', 'New friends');
+  await oneDecision(noScript, () => click(noScript, '#like-form button'), /^\/discover$/);
+  assert.match(await noScript.page.locator('.notice').innerText(), /Like saved/);
+  ok('A-INT-UI-03', 'With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.');
+
+  const stale = await setup({ viewport: { width: 390, height: 844 } });
+  await login(stale, 'demo_xu');
+  await filters(stale, 'Coffee', 'New friends');
+  const staleTarget = await stale.page.locator('#like-form').getAttribute('action');
+  const targetName = await stale.page.locator('#swipe-card h2').innerText();
+  const targetLogin = { 'Jamie Zhou': 'demo_zhou', 'Alex Lin': 'demo_lin' }[targetName];
+  assert.ok(targetLogin, 'The stale-card fixture must be one of the known fictional Coffee profiles.');
+  const hiding = await setup();
+  await login(hiding, targetLogin);
+  await hiding.page.goto(base + '/profile');
+  await hiding.page.locator('input[type="checkbox"][name="discoverable"]').uncheck();
+  await Promise.all([hiding.page.waitForNavigation(), click(hiding, 'form.stack-form button[type=submit]')]);
+  const staleResponse = stale.page.waitForResponse(r => r.request().method() === 'POST' && r.url().endsWith(staleTarget));
+  await click(stale, '#like-form button');
+  assert.equal((await staleResponse).status(), 404);
+  assert.match(await stale.page.locator('#recovery-filters').innerText(), /Your filters are kept/);
+  await noOverflow(stale);
+  await click(stale, '#recovery-discover');
+  assert.equal(await stale.page.locator('#interest').inputValue(), 'Coffee');
+  assert.equal(await stale.page.locator('#goal').inputValue(), 'New friends');
+  assert.notEqual(await stale.page.locator('#like-form').getAttribute('action'), staleTarget);
+  await noOverflow(stale);
+  ok('A-INT-UI-04', 'A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.');
+
+  await alex.page.goto(base + conversation);
+  await click(alex, '.chat-menu summary');
+  alex.page.once('dialog', dialog => dialog.accept());
+  await Promise.all([alex.page.waitForURL('**/connections'), click(alex, 'form[action$="/end"] button')]);
+  const closedMatch = await jamie.page.goto(matchUrl);
+  assert.equal(closedMatch.status(), 403);
+  assert.equal(await jamie.page.locator('#open-conversation').count(), 0);
+  assert.equal(await jamie.page.locator('#recovery-discover').getAttribute('href'), '/discover?interest=Coffee&goal=New%20friends');
+  ok('A-INT-UI-05', 'Ending the connection denies an old match link and keeps a usable, filtered discovery destination.');
   assert.deepEqual(issues, []);
   ok('RUNTIME', 'No browser exceptions or HTTP 5xx responses during these flows.');
 } catch (error) {
   issues.push(error.stack || error.message);
   console.error(error.stack || error.message);
   process.exitCode = 1;
-  if (activePage && !activePage.isClosed()) await activePage.screenshot({ path: path.join(images, 'failure.png'), fullPage: true }).catch(() => {});
+  if (!skipScreenshots && activePage && !activePage.isClosed()) await activePage.screenshot({ path: path.join(images, 'failure.png'), fullPage: true }).catch(() => {});
 } finally {
   await fs.writeFile(path.join(output, 'results.json'), JSON.stringify({ capturedAt: new Date().toISOString(), browser: browser.version(), checks, issues, screenshots, exitCode: process.exitCode || 0 }, null, 2) + '\n');
   await browser.close();

@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-11-06T06:29:50.2709165Z",
+  "priorPublishedCommit": "4d107e01269ea2cb01fb32fbd27a392707522e17",
+  "javaTests": 39,
+  "javaExit": 0,
+  "browserGroups": 16,
+  "browserExit": 0,
+  "browserVersion": "156.0.4314.58",
+  "jarSha256": "826e62b9b93e938cf64905e12ad7b7d76c38f165c37d41585e345da0fe1ca153",
+  "frozenJavaInputsMatchCurrent": true,
+  "verifiedJavaInputCount": 60,
+  "newJavaIntegrationTests": 8,
+  "newBrowserGroups": 5,
+  "automaticBrowserScreenshots": 0,
+  "newUserScreenshots": "pending",
+  "independentReview": "pending B Wang Yikai",
+  "failedRuns": [
+    "java-before-fix.txt: 8 tests, 4 expected missing-recovery failures before implementation",
+    "browser-first-timeout.txt: harness held navigation while querying pending document",
+    "browser-selector-timeout.txt: harness used the wrong generated checkbox ID",
+    "browser-menu-timeout.txt: harness did not open the More menu before clicking End"
+  ],
+  "finalBrowserCommand": "node scripts/browser/run-discovery-check.mjs with existing verified JAR and MINGLE_SKIP_SCREENSHOTS=1",
+  "notes": "Java/application inputs were not changed after the passing package build. Browser-only retests used that same JAR; the browser harness changed. No repeated Java run is claimed."
+}
