@@ -40,3 +40,7 @@ This follows [Spring's locale-resolver model](https://docs.spring.io/spring-fram
 ## Changes to coordinate
 
 C's password/session rules, D's per-participant read markers and history cursor, E's controlled staff role and report handling, and F's data-path/backup rules must be agreed with A before changing shared contracts. B's live preview must not persist unsaved edits or bypass backend validation. Existing tests are a regression baseline, not a substitute for each member's new acceptance checks.
+
+## Password change decision (C local draft)
+
+On 2026-11-09 Tao confirmed that a successful password change invalidates the current session only; other existing sessions stay signed in. New logins use the new password. Notify A/E before integration; team acknowledgement is pending.

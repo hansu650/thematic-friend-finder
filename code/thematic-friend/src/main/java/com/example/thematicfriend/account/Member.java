@@ -41,6 +41,7 @@ public class Member {
     }
     public String getInitial() { return nickname.substring(0, nickname.offsetByCodePoints(0, 1)); }
     public int getPalette() { return id == null ? 0 : (int) (id % 5); }
+    void changePasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
     public void updateProfile(String nickname, String bio, List<String> interests, String goal, boolean discoverable) {
         this.nickname = nickname.strip();
         this.bio = bio.strip();

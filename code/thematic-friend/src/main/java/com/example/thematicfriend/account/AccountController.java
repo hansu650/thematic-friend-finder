@@ -1,6 +1,11 @@
 package com.example.thematicfriend.account;
 
 import jakarta.validation.Valid;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import java.util.Objects;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,5 +44,25 @@ public class AccountController {
         accounts.update(principal.getName(),profileForm);
         redirect.addFlashAttribute("notice","ui.profile_saved_discover_people_who_share_your_interests");
         return "redirect:/profile";
+    }
+    @GetMapping("/change-password")
+    public String changePassword(Model model) {
+        model.addAttribute("changePasswordForm", new ChangePasswordForm());
+        return "change-password";
+    }
+    @PostMapping("/change-password")
+    public String changePassword(Principal principal, @Valid @ModelAttribute ChangePasswordForm changePasswordForm,
+                                 BindingResult errors, HttpServletRequest request, HttpServletResponse response,
+                                 Authentication authentication) {
+        String newPassword = changePasswordForm.getNewPassword();
+        if (newPassword != null && newPassword.getBytes(StandardCharsets.UTF_8).length > 72)
+            errors.rejectValue("newPassword", "ui.use_a_password_of_no_more_than_72_utf_8_bytes");
+        if (!Objects.equals(newPassword, changePasswordForm.getConfirmation()))
+            errors.rejectValue("confirmation", "ui.passwords_do_not_match");
+        if (!errors.hasErrors() && !accounts.changePassword(principal.getName(), changePasswordForm.getCurrentPassword(), newPassword))
+            errors.rejectValue("currentPassword", "ui.current_password_incorrect");
+        if (errors.hasErrors()) return "change-password";
+        new SecurityContextLogoutHandler().logout(request, response, authentication);
+        return "redirect:/login?passwordChanged";
     }
 }
