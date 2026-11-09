@@ -1,0 +1,66 @@
+{
+  "capturedAt": "2026-11-09T01:00:42.511Z",
+  "browser": "156.0.8078.80",
+  "checks": [
+    {
+      "id": "D-01/D-02",
+      "assertion": "Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-02",
+      "assertion": "A later incoming message becomes unread again and a new acknowledgement clears it.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-03",
+      "assertion": "More than 100 messages load in a bounded page, remain ascending and contain no duplicates.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-04",
+      "assertion": "A polling result arriving after older-history paging merges by ID without duplicates or reordering.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06a",
+      "assertion": "A 1,000-character message remains readable without horizontal page overflow.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06b",
+      "assertion": "Keyboard navigation reaches the send control and Enter submits the message.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06c",
+      "assertion": "An empty conversation shows a usable composer without a misleading load-history control.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06d",
+      "assertion": "The desktop conversation remains usable at 390 px without horizontal overflow.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-05/D-06e",
+      "assertion": "An ended conversation returns a real 403 error state that remains readable at 390 px.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "assertion": "No browser exceptions or HTTP 5xx responses during the checked flows.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [],
+  "screenshots": [
+    "D_normal_connections.png",
+    "D_normal_conversation.png",
+    "D_boundary_history.png",
+    "D_empty_conversation.png",
+    "D_mobile_conversation.png",
+    "D_error_closed.png"
+  ],
+  "exitCode": 0
+}

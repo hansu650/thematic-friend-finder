@@ -1,0 +1,16 @@
+
+> test
+> node run-conversation-check.mjs
+
+PASS D-01/D-02 Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.
+PASS D-02 A later incoming message becomes unread again and a new acknowledgement clears it.
+PASS D-03 More than 100 messages load in a bounded page, remain ascending and contain no duplicates.
+PASS D-04 A polling result arriving after older-history paging merges by ID without duplicates or reordering.
+PASS D-06a A 1,000-character message remains readable without horizontal page overflow.
+PASS D-06b Keyboard navigation reaches the send control and Enter submits the message.
+PASS D-06c An empty conversation shows a usable composer without a misleading load-history control.
+PASS D-06d The desktop conversation remains usable at 390 px without horizontal overflow.
+PASS D-05/D-06e An ended conversation returns a real 403 error state that remains readable at 390 px.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during the checked flows.
+Browser output: <PROJECT_ROOT>/.local/browser-verification/conversation-80WLLh
+BrowserExit=0

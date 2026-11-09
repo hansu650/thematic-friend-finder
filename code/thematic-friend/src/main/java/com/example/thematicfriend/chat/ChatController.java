@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class ChatController {
-    public record Contact(Connection link,Member partner,String preview) { }
+    public record Contact(Connection link,Member partner,String preview,long unreadCount) { }
     private final AccountService accounts;
     private final ConnectionService connections;
     private final ChatService chat;
@@ -20,7 +20,7 @@ public class ChatController {
     @GetMapping("/connections")
     public String connections(Principal principal,Model model) {
         Long actor=accounts.current(principal.getName()).getId();
-        model.addAttribute("contacts",connections.forMember(actor).stream().map(c -> new Contact(c,accounts.member(c.other(actor)),chat.preview(c.getId()))).toList());
+        model.addAttribute("contacts",connections.forMember(actor).stream().map(c -> new Contact(c,accounts.member(c.other(actor)),chat.preview(c.getId()),chat.unreadCount(principal.getName(),c.getId()))).toList());
         model.addAttribute("activePage","connections"); return "connections";
     }
     @GetMapping("/conversations/{id}")
@@ -46,6 +46,15 @@ public class ChatController {
     @GetMapping("/api/conversations/{id}/messages") @ResponseBody
     public List<ChatService.MessageView> poll(Principal principal,@PathVariable Long id,@RequestParam(defaultValue="0") Long after) {
         return chat.read(principal.getName(),id,after);
+    }
+    @GetMapping("/api/conversations/{id}/history") @ResponseBody
+    public ChatService.HistoryPage history(Principal principal,@PathVariable Long id,@RequestParam Long before) {
+        return chat.history(principal.getName(),id,before);
+    }
+    @PostMapping("/api/conversations/{id}/read") @ResponseBody
+    public ChatService.ReadReceipt acknowledgeRead(Principal principal,@PathVariable Long id,
+                                                    @RequestParam Long throughMessageId) {
+        return chat.acknowledgeRead(principal.getName(),id,throughMessageId);
     }
     @PostMapping("/connections/{id}/end")
     public String end(Principal principal,@PathVariable Long id,RedirectAttributes redirect) {
