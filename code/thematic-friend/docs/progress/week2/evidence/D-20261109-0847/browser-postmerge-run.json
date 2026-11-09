@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-11-09T01:00:27.602Z",
+  "jarSha256": "cf72046818c64b95b65e3092d7d1ce91841ca32d1950be91545f85ccdec38187",
+  "java": "java",
+  "node": "v24.20.0",
+  "base": "http://127.0.0.1:49417",
+  "output": "<PROJECT_ROOT>/.local/browser-verification/conversation-mpT3O9",
+  "browserPath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "command": "node scripts/conversation-browser/run-conversation-check.mjs",
+  "finishedAt": "2026-11-09T01:00:42.768Z",
+  "exitCode": 0
+}

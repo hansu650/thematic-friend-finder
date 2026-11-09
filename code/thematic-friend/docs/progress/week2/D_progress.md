@@ -2,8 +2,8 @@
 
 Task: Unread state, older-message history and conversation integration
 Date: 9 November 2026
-Tested source: `555b0ca5e40bee28d60b21915e646c89c960b10a` on `w2/d-connections`
-Status: Implemented and locally verified; contract confirmation, peer review, PR checks and Trello evidence remain pending.
+Tested source: `a70a9c1` on `w2/d-connections`
+Status: Implemented and locally verified after main integration; contract confirmation, peer review, PR checks and Trello evidence remain pending.
 
 ## Actual change
 
@@ -39,14 +39,14 @@ cd code/thematic-friend
 bash mvnw --batch-mode --no-transfer-progress package
 ```
 
-Expected: existing 19 tests and new D tests pass.
-Actual: `Tests run: 27, Failures: 0, Errors: 0, Skipped: 0`; `BUILD SUCCESS`; exit code `0`.
+Expected: merged baseline, A integration and D tests pass.
+Actual: `Tests run: 47, Failures: 0, Errors: 0, Skipped: 0`; `BUILD SUCCESS`; exit code `0`.
 
-Evidence: [java-output.txt](./evidence/D-20261109-0847/java-output.txt), [java-exit.txt](./evidence/D-20261109-0847/java-exit.txt).
+Evidence: [java-postmerge-output.txt](./evidence/D-20261109-0847/java-postmerge-output.txt), [java-postmerge-exit.txt](./evidence/D-20261109-0847/java-postmerge-exit.txt).
 
 ![Java tests in IntelliJ IDEA Terminal](./images/D_java_terminal.png)
 
-Captured from the IntelliJ IDEA Terminal on 9 November 2026. The visible result is 27 tests passed, BUILD SUCCESS and Java exit code 0.
+Captured from the IntelliJ IDEA Terminal on 9 November 2026 after merging the latest main. The visible result is 47 tests passed, BUILD SUCCESS and Java exit code 0.
 
 ### Browser checks
 
@@ -59,11 +59,11 @@ npm test
 ```
 
 Expected: real recipient/connection flow, history boundary, merge, accessibility-oriented states and 390 px layout pass.
-Actual: 10 named checks passed; browser exit code `0`; no page exceptions or HTTP 5xx responses.
+Actual: 10 named checks passed after integration; browser exit code `0`; no page exceptions or HTTP 5xx responses.
 
 Local workspace paths in copied evidence are replaced with `<PROJECT_ROOT>` so submitted text contains no Han characters. No other log content was changed.
 
-Evidence: [browser-results.json](./evidence/D-20261109-0847/browser-results.json), [browser-run.json](./evidence/D-20261109-0847/browser-run.json), [browser-output.txt](./evidence/D-20261109-0847/browser-output.txt).
+Evidence: [browser-postmerge-results.json](./evidence/D-20261109-0847/browser-postmerge-results.json), [browser-postmerge-run.json](./evidence/D-20261109-0847/browser-postmerge-run.json), [browser-postmerge-output.txt](./evidence/D-20261109-0847/browser-postmerge-output.txt).
 
 | Test | Expected | Actual |
 |---|---|---|
@@ -79,7 +79,7 @@ Evidence: [browser-results.json](./evidence/D-20261109-0847/browser-results.json
 The first 390 px visual run exposed a real layout defect: the send button bottom was `808.4 px` while the fixed navigation started at `772 px`, so the composer was obscured. I reduced the mobile message viewport and added an executable bounding-box assertion. The corrected run passed with the send control fully above the navigation.
 
 Failure evidence: [browser-mobile-failure-results.json](./evidence/D-20261109-0847/browser-mobile-failure-results.json), [D_mobile_composer_failure.png](./images/D_mobile_composer_failure.png).
-Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-results.json](./evidence/D-20261109-0847/browser-results.json).
+Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-postmerge-results.json](./evidence/D-20261109-0847/browser-postmerge-results.json).
 
 ## Screenshots and process
 
@@ -101,16 +101,17 @@ Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-results.json]
 
 - Contract state: D accepted A's CONTRACT-D proposal; C and A confirmation still pending.
 - Reviewer: E Wu Zhuoda, pending.
-- Integration owner: A Qin Tian, pending.
-- PR and GitHub checks: not created or captured yet.
-- Trello: starting and review captures still required.
-- Merge target: `main`; A's discovery branch must be integrated and D's chat flows retested afterward.
+- Integration owner: A Qin Tian. Latest `main` (`c9d1b78`) is merged through merge commit `a70a9c1`, and the post-merge Java/browser checks passed.
+- PR: [#10](https://github.com/hansu650/thematic-friend-finder/pull/10), currently Draft.
+- GitHub checks: pending after the post-merge push.
+- Trello: current and review captures still required.
+- Merge target: `main`.
 
 ## Reflection notes and next action
 
 The useful incident was the mobile composer becoming hidden under the fixed navigation even though the DOM and horizontal-overflow assertions passed. Looking at the actual screenshot, rather than trusting the first green run, exposed the problem. I added a geometry assertion so the defect cannot return silently.
 
-The next concrete action is to ask C/A to confirm the contract, push `w2/d-connections`, open the PR for E's review, and then record real GitHub and Trello evidence. After A's discovery increment is merged, rerun all six D groups on the integrated revision.
+The next concrete action is to push the merged revision, collect the GitHub JDK 21 checks and Trello evidence, then ask C/A to confirm the contract and E to review PR #10.
 
 ## References and assistance
 
