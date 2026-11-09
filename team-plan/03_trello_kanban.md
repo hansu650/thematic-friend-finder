@@ -4,6 +4,8 @@ Live private board: [Mingle Team Kanban](https://trello.com/b/j4LiifAK), created
 
 The Product Backlog orders possible work. Sprint Planning selects a goal and a feasible subset. Trello shows actual task state, Excel shows dates/dependencies and Draw.io explains the critical paths. Use the same IDs across these artifacts.
 
+Role update, 9 November: A combines Product Owner and Scrum Master, maintains backlog priorities and facilitates planning, blocker follow-up and retrospectives. Each member updates their own cards. E coordinates regression results and defect/retest evidence as Test Coordinator.
+
 | List | Entry / exit policy | Initial WIP limit |
 |---|---|---|
 | To do | Current assigned work with an owner, task brief and prerequisites | Keep the current board compact |
@@ -36,4 +38,4 @@ Test work is included in each feature's budget, not extra hours added to the Gan
 
 ![Mingle Team Kanban, 6 November 2026](./images/mingle-kanban-20261106.jpg)
 
-The seven cards were still in To do in this capture. This is the browser tool's native JPEG. The seven user-supplied first-day originals remain in the local `photo/2026-11-06/` archive.
+The seven cards were still in To do in this capture. This is the browser tool's native JPEG. The seven user-supplied first-day originals are now indexed in the local `photo/A_progress.md` category archive, retaining their 6 November date and original bytes.

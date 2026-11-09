@@ -28,15 +28,19 @@ If `java` is not on PATH, use `& "$env:JAVA_HOME\bin\java.exe" -jar ...`. The bu
 
 Maven Wrapper is included. Dependencies stay in `.cache/maven/repository`; the helper also keeps the wrapper distribution cache under `.cache/maven`. An initial build needs access to the configured Maven repositories. No Node.js build is required for the website.
 
-## Optional fictional demo accounts
+## Fictional demo on port 8080
 
 ```powershell
 .\scripts\run-demo.ps1
 ```
 
-The helper asks for a local demo password unless `TONGPIN_DEMO_PASSWORD` is already set. Use 10–64 characters, no more than 72 UTF-8 bytes. With the `demo` profile, six fictional accounts are added: `demo_zhou`, `demo_lin`, `demo_xu`, `demo_chen`, `demo_he` and `demo_su`. Try `demo_zhou` and `demo_lin` in separate browser sessions to explore mutual likes and messaging.
+Open [http://127.0.0.1:8080/login](http://127.0.0.1:8080/login). The helper reuses a saved local demo database when available, so moving from port 8081 to 8080 keeps the same accounts and messages. An explicit `-DataDirectory` or `APP_DATA_DIR` takes priority; otherwise a fresh checkout uses `.local/data`. It reports an occupied port without stopping another application.
 
-Seeding is idempotent: existing accounts and edited profiles are not overwritten. Existing demo accounts keep the password used when first created; setting another startup password does not reset them. Do not commit passwords or runtime databases. Use a separate `APP_DATA_DIR` for disposable experiments instead of deleting a database that contains work you want to keep.
+The helper asks for a local demo password unless `TONGPIN_DEMO_PASSWORD` is already set. Use 10-64 characters, no more than 72 UTF-8 bytes. The demo profile seeds six fictional accounts: `demo_zhou`, `demo_lin`, `demo_xu`, `demo_chen`, `demo_he` and `demo_su`. Use normal and private browser windows on the same port to try mutual likes and messages.
+
+Existing demo accounts keep the password used when first created; setting another startup password does not reset them. Profiles, likes and messages remain in the chosen H2 database. Passwords and runtime databases stay outside Git.
+
+After pulling updated source, stop the previous demo and run `.\scripts\run-demo.ps1 -Rebuild`. This runs the existing Java tests and packages the current code. See [local demo, account and test instructions](docs/LOCAL_DEMO.md) for the data-directory selection order and automated test environments.
 
 ## English and temporary Chinese interface
 
@@ -67,4 +71,4 @@ The second A increment retains valid filters on error recovery, refreshes discov
 
 Run tests from the project directory with `mvnw.cmd test` using JDK 21. The build helper is the simplest way to keep the task's Maven cache settings consistent. See [verification](docs/VERIFICATION.md), [routes and data contracts](docs/CONTRACTS.md), [reference/licence record](docs/THIRD_PARTY.md) and [A's baseline](docs/BASELINE.md).
 
-Backup/restore tools, password change, unread/history UI, staff report review and live profile preview are reserved for B–F. They are not implemented in this baseline. The current application has no live moderation, account recovery, self-service deletion, real profile photos or end-to-end message encryption.
+D's unread indicators and bounded conversation history are now merged. B's live profile preview, C's password change, E's staff report review and F's backup/restore tools remain assigned increments; check their branches and PRs for current progress. The current application has no live moderation, account recovery, self-service deletion, real profile photos or end-to-end message encryption.

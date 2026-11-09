@@ -1,3 +1,15 @@
+# Current main verification - 9 November 2026
+
+Main revision `7551876875d1ddd403e1a272d28ade98e682cbf7` includes A's discovery/integration work and D's unread-state and bounded-history increment. A copy of the updated coursework source passed **47 Java tests, 16 discovery browser groups and 10 conversation browser checks**, with all three processes exiting successfully. The Java run used JDK 21 with zero failures, errors or skips. Both browser suites used the same packaged JAR, Edge 157.0.4341.42, Playwright 1.62.1 through the documented module override, and separate H2 databases.
+
+The local demo was moved from 8081 to **8080** using the verified JAR and its previous database. All six fictional accounts were present before startup. The login page returned HTTP 200 and the served conversation script matched the current source. Existing passwords were retained; this readiness check does not claim a new login using the user's saved password.
+
+See the [structured verification record](progress/week2/evidence/a-main-20261109/verification.json) and [startup/test instructions](LOCAL_DEMO.md). Runtime databases, credentials, machine paths and process identifiers are excluded from the published record. These are AI-assisted automated/local checks, not an independent teammate review or a public deployment.
+
+Five launcher checks also passed with isolated databases on Windows PowerShell 5.1: explicit data-path precedence and first login, saved-data reuse with the original password, no password reset from a changed seed password, occupied-port refusal, and missing-saved-database protection. The persistent demo on 8080 remained available.
+
+The dated records below retain earlier verification scopes and screenshots.
+
 # Discovery increment verification — 6 November 2026
 
 The new discovery/match increment passed **31 Java tests** (19 retained baseline + 12 new `DiscoveryRegressionTests`) and **11 browser assertion groups**, with exit code 0 for both processes. The first Java run had two template-expression errors; the original failure and successful retest are preserved in the [example evidence](../../../handoff/2026-11-06/A_Qin_Tian_Example/TEST_RESULTS.md). The tested JAR SHA-256 is `f60233a20b77ba0f9cbe951cb7b5b5e488ffdcbdfd89d1ee80fcfbb03b29c230`.

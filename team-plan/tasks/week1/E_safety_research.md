@@ -2,7 +2,9 @@
 
 Named owner: **Wu Zhuoda (E)**. Reviewer: **F Song Peitong**.
 
-Role: **Scrum Master, Developer and Test Coordinator**. Investigate two relevant products and propose a small improvement for the next iteration. The selected implementation is a Spring Boot website; an observed mobile app can still inform a web interaction.
+**Role revision effective 9 November:** Developer and Test Coordinator. The Week 1 brief below retains its original allocation; later work follows the current [role plan](../../02_roles_and_collaboration.md).
+
+Role in the original Week 1 brief: **Scrum Master, Developer and Test Coordinator**. Investigate two relevant products and propose a small improvement for the next iteration. The selected implementation is a Spring Boot website; an observed mobile app can still inform a web interaction.
 
 ## Research focus
 

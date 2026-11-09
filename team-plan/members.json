@@ -1,12 +1,13 @@
 {
   "confirmed": "2026-11-06",
+  "roles_updated": "2026-11-09",
   "order": "1–6 maps to A–F",
   "members": [
     {
       "id": "A",
       "name": "Qin Tian",
       "zh": "秦天",
-      "role": "Product Owner, Team Leader and Developer",
+      "role": "Product Owner, Scrum Master, Team Leader and Developer",
       "area": "Discovery, matching feedback and integration",
       "refs": "3, 4, 5",
       "reviewer": "B Wang Yikai",
@@ -50,7 +51,7 @@
       "id": "E",
       "name": "Wu Zhuoda",
       "zh": "邬卓达",
-      "role": "Scrum Master, Developer and Test Coordinator",
+      "role": "Developer and Test Coordinator",
       "area": "Safety actions, restricted report review and permission tests",
       "refs": "2, 7 (entry placement); review screen is a project design",
       "reviewer": "F Song Peitong",

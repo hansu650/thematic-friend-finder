@@ -10,11 +10,11 @@ The current source already has A's AI-assisted account/profile, discovery, mutua
 
 | Owner | Assigned result | Completion evidence |
 |---|---|---|
-| A Qin Tian | Own and explain the baseline; refine discovery and match feedback; agree shared contracts; review and integrate all modules; lead final acceptance and demonstration organisation | Discovery regressions, real screenshots, contract decisions, reviewed PRs, integrated flow results and release/handover record |
+| A Qin Tian | Combine Product Owner and Scrum Master responsibilities; own and explain the baseline; refine discovery and match feedback; agree shared contracts; review and integrate all modules; lead final acceptance and demonstration organisation | Discovery regressions, real screenshots, actual backlog/process decisions, contract agreements, reviewed PRs, integrated flow results and release/handover record |
 | B Wang Yikai | Live unsaved profile preview, interest counter and accessible responsive interaction; coordinate usability observation | Preview/refresh and five-interest boundary tests, keyboard/390 px results, observed issues and one justified improvement |
 | C Tao Jiacheng | Password change and explicit account/session contracts | Invalid requests leave credentials unchanged; old/new login behaviour, agreed session invalidation and persistence verified |
 | D Zhou Ziyue | Per-participant unread state and bounded older-message loading | Two-session unread tests, history beyond 100 messages, ordering/duplicate checks and permission rejection |
-| E Wu Zhuoda | Restricted report review and meaningful safety permissions; facilitate process reviews | Staff/ordinary/anonymous tests, private notes, valid status/handler/time and real process decisions |
+| E Wu Zhuoda | Restricted report review and meaningful safety permissions; coordinate regression and defect evidence | Staff/ordinary/anonymous tests, private notes, valid status/handler/time and actual regression/defect/retest records |
 | F Song Peitong | Stopped-database backup/restore and independent reproduction | Checksums, safe disposable restore, rejection of unsafe/corrupt/occupied targets and another person's clean-copy run |
 
 A has the largest individual allocation: **42 planned hours**, compared with **28 each for B–F**. These include development, testing, review, coordination, demonstration and reflection preparation. They are capacity estimates, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own implementation and tests.
@@ -51,7 +51,7 @@ The assessment's highest band is **86–100%**. This is a target for the quality
 | Assessment requirement | Evidence to prepare | Responsible people |
 |---|---|---|
 | A thoroughly designed, innovative working MVP and a detailed account of its lifecycle (p. 7) | Explain the user problem, alternatives and references, requirements, design choices, implementation, validation, iteration and handover. Justify Mingle's interest-based, mutual-choice flow with actual design decisions and feedback; do not claim copying a reference screen is innovation. | A leads; all owners explain their changes |
-| Insightful evaluation of both product and project (p. 8) | Compare outcomes with objectives; analyse useful and weak choices, defects, scope changes, teamwork and tradeoffs. Link claims to real results and decisions, and explain what should change next. | Whole team, coordinated by A/E |
+| Insightful evaluation of both product and project (p. 8) | Compare outcomes with objectives; analyse useful and weak choices, defects, scope changes, teamwork and tradeoffs. Link claims to real results and decisions, and explain what should change next. | Whole team, facilitated by A with test evidence coordinated by E |
 | Thorough, creative professional goals and action plans (p. 9) | Each person connects actual learning and evidence to their PDP and sets a specific next action, method and way to judge improvement. | Every member individually |
 | Significant contribution, teamwork/leadership and critical reflection (p. 9) | Show a useful contribution to the shared outcome as well as the assigned module: peer testing, resolving an integration issue, helping a decision or improving a process. Analyse the effect, different perspectives and remaining weakness. | Every member individually |
 

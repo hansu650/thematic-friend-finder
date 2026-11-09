@@ -26,3 +26,9 @@ Boundaries start at day 0. A task's earliest start is the maximum earliest finis
 CPM assumes the proposed parallel work is feasible. It does not automatically resolve resource conflicts. A's principal architecture, discovery and integration packages are sequential, but supporting hours and absences must still be checked against capacity. Update scope, durations and dependencies when circumstances change.
 
 Draw.io is an editable snapshot of the current estimate, not a live Excel link. Update its durations, dates, float and highlighted edges after changing the workbook. The source uses Comic Sans MS for ordinary diagram text and MathJax for formulas.
+
+## Role and effort revision — 9 November 2026
+
+A now combines Product Owner, Scrum Master and Developer; E is Developer and Test Coordinator. Within the existing estimates, T11 review/triage changes from A 2 h / E 2 h to A 3 h / E 1 h, and T13 reproduction/retesting changes from A 2 h / E 2 h to A 1 h / E 3 h. This transfers facilitation effort to A and more regression coordination to E.
+
+Totals remain A 42 h and B–F 28 h each (182 h overall). Task owners, durations and dependencies are unchanged, so the critical-path diagram remains the same calendar estimate. Capacity still needs confirmation; these are planned hours.

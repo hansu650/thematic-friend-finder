@@ -1,12 +1,12 @@
 # Mingle: An Interest-Based Friendship Website
 
-A six-person Thematic Project built as one **Java 21 / Spring Boot / Thymeleaf** browser website. The current code is **A Qin Tian's AI-assisted baseline**. B–F have separate, unimplemented increments; assigning a module does not claim that its owner has already completed it.
+A six-person Thematic Project built as one **Java 21 / Spring Boot / Thymeleaf** browser website. The current code includes **A Qin Tian's AI-assisted baseline, discovery and integration work**, plus D's merged unread-state and bounded-history increment. B–F retain ownership of their assigned increments; completion and independent review require their actual evidence.
 
 ## Run the website
 
 Open [code/thematic-friend](./code/thematic-friend/) as a Maven project in IntelliJ IDEA, select JDK 21 and run `ThematicFriendApplication`. The console prints the address; the default is **http://127.0.0.1:8080/**. Java, HTML, CSS and JavaScript are in the same project. No Node.js build is needed.
 
-For six fictional test accounts, run `scripts/run-demo.ps1` from the Java project and choose a local password. Usernames: `demo_zhou`, `demo_lin`, `demo_xu`, `demo_chen`, `demo_he`, `demo_su`. Each person's localhost address and database are separate. This repository is source delivery, not a shared deployed website.
+For six fictional demo accounts, run `scripts/run-demo.ps1` from the Java project and open **http://127.0.0.1:8080/login**. The helper reuses the recorded local demo database. Existing passwords, profiles and messages stay in that database. After pulling changed source, stop the previous demo and run `scripts/run-demo.ps1 -Rebuild`. Usernames: `demo_zhou`, `demo_lin`, `demo_xu`, `demo_chen`, `demo_he`, `demo_su`. See [startup, account and test instructions](./code/thematic-friend/docs/LOCAL_DEMO.md). Teammates' localhost databases and any separate deployment contain independent accounts.
 
 [Full build/run instructions](./code/thematic-friend/README.md) · [Baseline and ownership](./code/thematic-friend/docs/BASELINE.md) · [Local verification](./code/thematic-friend/docs/VERIFICATION.md)
 
@@ -35,10 +35,10 @@ Use `w<week>/<member-letter>-<task>`, such as `w2/a-discovery` and `w2/b-interfa
 
 [Compact Trello board](https://trello.com/b/j4LiifAK) · [Excel Gantt](./team-plan/project-management/six-person-gantt.xlsx) · [Editable critical paths](./team-plan/project-management/critical-paths.drawio) · [Diagram preview](./team-plan/project-management/critical-paths.png)
 
-A has the largest individual scope: baseline/discovery, shared contracts, five-module integration, final acceptance and demonstration organisation. The proposed workload is A 42 hours and B–F 28 hours each. These are estimates pending capacity confirmation. The 4 December planned finish and 5–6 December buffer are internal dates; confirm the university deadline in Moodle. Keep about three useful team photos and one updated board screenshot each week, with real dates and decisions. Trello provides process evidence; the MD/ZIP packages are the implementation handoff.
+From 9 November, **A Qin Tian combines Product Owner, Scrum Master, Team Leader and Developer**. E Wu Zhuoda is Developer and Test Coordinator. A has the largest individual scope: backlog priorities, Sprint facilitation, baseline/discovery, shared contracts, five-module integration, final acceptance and demonstration organisation. The proposed workload is A 42 hours and B–F 28 hours each. These are estimates pending capacity confirmation. The 4 December planned finish and 5–6 December buffer are internal dates; confirm the university deadline in Moodle. Keep about three useful team photos and one updated board screenshot each week, with real dates and decisions. Trello provides process evidence; the MD/ZIP packages are the implementation handoff.
 
 ## Verification and historical work
 
-The extracted Mingle source passed **19 Java tests** and **eight browser-flow groups**, including matching, chat polling, dragging, emulated touch and 390 px layouts. All six local demo accounts were checked. See [validation scope and limitations](./handoff/2026-11-06/VALIDATION.md). A's later discovery increment on w2/a-discovery has 31 passing Java tests and 11 passing browser groups; the named starting ZIPs retain the merged baseline. The Java CI workflow runs the canonical Maven project when its PR changes.
+The integrated main revision `7551876` passed **47 Java tests, 16 discovery browser groups and 10 conversation browser checks** on 9 November. See the [current verification record](./code/thematic-friend/docs/VERIFICATION.md). The dated handoff ZIPs retain the earlier baseline with 19 Java tests and eight browser-flow groups; their [historical validation](./handoff/2026-11-06/VALIDATION.md) remains available. The Java CI workflow checks changes to the canonical Maven project. Automated results do not establish independent peer review.
 
 The [W1 research submissions](./docs/research/week1/README.md) and [historical planning](./docs/team-plan/README.md) are retained. Use the current English six-person plan for development. English is the default UI; the temporary Chinese switch remains during development. Real member contributions, meetings and independent reproductions must be evidenced when they occur.

@@ -4,7 +4,7 @@ Internal window: **16–22 Nov 2026**.
 
 Integrate by 18 Nov, observe real tasks when participants are arranged, fix blocking issues and demonstrate the increment at the Sprint Review.
 
-B coordinates observation without inventing participants or quotes. E coordinates regression. D records decisions. Separate product review from process retrospective and explain carry-over work.
+B coordinates observation without inventing participants or quotes. E coordinates regression. A facilitates the Sprint Review and Retrospective as Product Owner and Scrum Master. D records decisions. Separate product review from process retrospective and explain carry-over work.
 
 Use [Trello policies](../03_trello_kanban.md) for actual flow and the [schedule](../08_schedule_and_critical_paths.md) for dependencies. Record actual results, issues, decisions and next actions in the [meeting template](../meetings/meeting_template.md) and [individual progress template](../templates/weekly_progress.md). A plan is not a completed event.
 

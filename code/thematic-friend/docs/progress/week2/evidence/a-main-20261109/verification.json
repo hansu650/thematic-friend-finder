@@ -1,0 +1,58 @@
+{
+  "verifiedAt": "2026-11-09T01:36:43.454Z",
+  "sourceRevision": "7551876875d1ddd403e1a272d28ade98e682cbf7",
+  "java": {
+    "version": "21",
+    "tests": 47,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exitCode": 0
+  },
+  "discovery": {
+    "checks": 16,
+    "exitCode": 0
+  },
+  "conversation": {
+    "checks": 10,
+    "exitCode": 0
+  },
+  "tooling": {
+    "browser": "157.0.4341.42",
+    "playwright": "1.62.1 through the documented module override"
+  },
+  "samePackagedJar": true,
+  "scope": "Updated coursework source; isolated browser databases; raw local logs retained outside Git.",
+  "launcherValidation": {
+    "status": "passed",
+    "verifiedAt": "2026-11-09T02:41:07.6689405Z",
+    "powershell": "5.1.26100.9711",
+    "checks": [
+      {
+        "name": "Explicit relative data directory overrides the environment; seeded account signs in.",
+        "passed": true
+      },
+      {
+        "name": "Saved runtime data is reused after restart; the original password still signs in.",
+        "passed": true
+      },
+      {
+        "name": "A different seed password does not replace an existing account password.",
+        "passed": true
+      },
+      {
+        "name": "An occupied port is reported before startup; the existing 8080 demo remains available.",
+        "passed": true
+      },
+      {
+        "name": "Missing saved data is rejected without creating an empty replacement database.",
+        "passed": true
+      }
+    ],
+    "persistentDemoUnaffected": true,
+    "credentialsRecorded": false
+  },
+  "independentPeerReview": false,
+  "publicDeployment": false,
+  "aiAssistance": "Codex-assisted integration, verification and documentation."
+}

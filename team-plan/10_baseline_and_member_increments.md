@@ -4,14 +4,14 @@ Decision confirmed by the user on 6 November 2026: **keep the implemented protot
 
 | Member | Scrum accountability | Development or collaboration focus | New deliverable |
 |---|---|---|---|
-| A Qin Tian | Product Owner + Developer | Baseline Ownership, Discovery and Integration | [Individual task](./tasks/week2/A_discovery.md) |
+| A Qin Tian | Product Owner + Scrum Master + Developer | Baseline Ownership, Discovery and Integration | [Individual task](./tasks/week2/A_discovery.md) |
 | B Wang Yikai | Developer | Live Profile Preview and Accessible Interaction | [Individual task](./tasks/week2/B_interface.md) |
 | C Tao Jiacheng | Developer | Password Change and Account Data Contracts | [Individual task](./tasks/week2/C_accounts.md) |
 | D Zhou Ziyue | Developer | Unread Indicators and Conversation History | [Individual task](./tasks/week2/D_connections.md) |
-| E Wu Zhuoda | Scrum Master + Developer | Restricted Report Review and Permission Tests | [Individual task](./tasks/week2/E_safety.md) |
+| E Wu Zhuoda | Developer; Test Coordinator | Restricted Report Review and Permission Tests | [Individual task](./tasks/week2/E_safety.md) |
 | F Song Peitong | Developer | Backup, Restore and Independent Reproduction | [Individual task](./tasks/week2/F_runtime.md) |
 
-Scrum has three accountabilities: Product Owner, Scrum Master and Developers. UI, data, communication, testing and runtime leads are practical team responsibilities layered on top, not five additional Scrum roles. Coordination time counts towards capacity. A leads the product review; E facilitates process retrospectives; all six contribute development and verification.
+Scrum has three accountabilities: Product Owner, Scrum Master and Developers. UI, data, communication, testing and runtime leads are practical team responsibilities layered on top, not five additional Scrum roles. Coordination time counts towards capacity. Under the 9 November role revision, A leads product reviews and facilitates process retrospectives; E coordinates regression and defect evidence; all six contribute development and verification.
 
 ## Existing A-owned baseline
 
