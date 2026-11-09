@@ -15,6 +15,8 @@ Base package: `com.example.thematicfriend`. Controllers render Thymeleaf pages; 
 | GET `/conversations/{id}` | Participant-only conversation and latest 100 messages |
 | POST `/conversations/{id}/messages` | Save a non-blank message up to 1,000 characters |
 | GET `/api/conversations/{id}/messages?after=0` | Up to 100 later messages in ID order |
+| GET `/api/conversations/{id}/history?before=<messageId>` | Up to 100 older messages in ascending ID order, with `hasOlder` and `nextBefore` |
+| POST `/api/conversations/{id}/read` | CSRF-protected monotonic acknowledgement for the current participant using `throughMessageId` |
 | POST `/connections/{id}/end` | End the connection |
 | GET `/safety` | Own block list and own report receipts |
 | POST `/blocks/{target}`, `/blocks/{target}/remove` | Block/unblock; unblock does not restore a closed connection |
@@ -26,6 +28,7 @@ Base package: `com.example.thematicfriend`. Controllers render Thymeleaf pages; 
 - `Decision`: directional actor/target pair and LIKE/SKIP choice; unique per direction.
 - `Connection`: one canonical lower/higher member-ID pair, active/ended status and creation time. Only mutual likes create a connection.
 - `Message`: connection, sender, text and timestamp. Every read/write checks membership, active state and both directions of blocking. Displayed times use Asia/Shanghai in this baseline.
+- `ConversationReadState`: one `(connectionId, participantId)` marker with a monotonically increasing `lastReadMessageId`. Unread count is the number of messages from the other participant above that marker.
 - `Block`: directional actor/target pair. Discovery and communication check both directions.
 - `Report`: reporter, target, reason, details and timestamp. An ordinary account sees only its own receipts. Staff roles and handling fields belong to E's future increment, coordinated with C/A.
 
@@ -39,4 +42,4 @@ This follows [Spring's locale-resolver model](https://docs.spring.io/spring-fram
 
 ## Changes to coordinate
 
-C's password/session rules, D's per-participant read markers and history cursor, E's controlled staff role and report handling, and F's data-path/backup rules must be agreed with A before changing shared contracts. B's live preview must not persist unsaved edits or bypass backend validation. Existing tests are a regression baseline, not a substitute for each member's new acceptance checks.
+D's CONTRACT-D draft is recorded in [CONTRACT_D.md](CONTRACT_D.md). The implementation exists on `w2/d-connections`; A/C confirmation and E's review remain pending before merge. C's password/session rules, E's controlled staff role and report handling, and F's data-path/backup rules must be agreed with A before changing shared contracts. B's live preview must not persist unsaved edits or bypass backend validation. Existing tests are a regression baseline, not a substitute for each member's new acceptance checks.

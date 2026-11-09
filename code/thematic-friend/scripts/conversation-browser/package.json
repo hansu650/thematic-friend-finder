@@ -1,0 +1,11 @@
+{
+  "name": "mingle-d-conversation-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run-conversation-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.65.0"
+  }
+}
