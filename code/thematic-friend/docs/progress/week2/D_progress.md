@@ -44,6 +44,10 @@ Actual: `Tests run: 27, Failures: 0, Errors: 0, Skipped: 0`; `BUILD SUCCESS`; ex
 
 Evidence: [java-output.txt](./evidence/D-20261109-0847/java-output.txt), [java-exit.txt](./evidence/D-20261109-0847/java-exit.txt).
 
+![Java tests in IntelliJ IDEA Terminal](./images/D_java_terminal.png)
+
+Captured from the IntelliJ IDEA Terminal on 9 November 2026. The visible result is 27 tests passed, BUILD SUCCESS and Java exit code 0.
+
 ### Browser checks
 
 Command:
@@ -91,7 +95,7 @@ Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-results.json]
 
 ![Ended conversation at 390 px](./images/D_error.png)
 
-`D_java_terminal.png`, `D_github_checks.png` and Trello captures are not claimed yet. They must be captured from the actual terminal, pushed PR and board state before submission.
+`D_github_checks.png` and Trello captures are not claimed yet. They must be captured from the actual terminal, pushed PR and board state before submission.
 
 ## Review and integration
 
