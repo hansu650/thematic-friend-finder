@@ -3,7 +3,7 @@
 Task: Unread state, older-message history and conversation integration
 Date: 9 November 2026
 Tested source: `a70a9c1` on `w2/d-connections`
-Status: Implemented and locally verified after main integration; contract confirmation, peer review, PR checks and Trello evidence remain pending.
+Status: Implemented and verified after main integration, including GitHub JDK 21 CI; contract confirmation, peer review and Trello evidence remain pending.
 
 ## Actual change
 
@@ -45,6 +45,8 @@ Actual: `Tests run: 47, Failures: 0, Errors: 0, Skipped: 0`; `BUILD SUCCESS`; ex
 Evidence: [java-postmerge-output.txt](./evidence/D-20261109-0847/java-postmerge-output.txt), [java-postmerge-exit.txt](./evidence/D-20261109-0847/java-postmerge-exit.txt).
 
 ![Java tests in IntelliJ IDEA Terminal](./images/D_java_terminal.png)
+
+![GitHub JDK 21 checks](./images/D_github_checks.png)
 
 Captured from the IntelliJ IDEA Terminal on 9 November 2026 after merging the latest main. The visible result is 47 tests passed, BUILD SUCCESS and Java exit code 0.
 
@@ -95,7 +97,7 @@ Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-postmerge-res
 
 ![Ended conversation at 390 px](./images/D_error.png)
 
-`D_github_checks.png` and Trello captures are not claimed yet. They must be captured from the actual terminal, pushed PR and board state before submission.
+Trello captures are not claimed yet. They must be captured from the actual board state before final submission.
 
 ## Review and integration
 
@@ -103,7 +105,7 @@ Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-postmerge-res
 - Reviewer: E Wu Zhuoda, pending.
 - Integration owner: A Qin Tian. Latest `main` (`c9d1b78`) is merged through merge commit `a70a9c1`, and the post-merge Java/browser checks passed.
 - PR: [#10](https://github.com/hansu650/thematic-friend-finder/pull/10), currently Draft.
-- GitHub checks: pending after the post-merge push.
+- GitHub checks: passed on PR #10 using the Mingle Java CI workflow and JDK 21.
 - Trello: current and review captures still required.
 - Merge target: `main`.
 
@@ -111,7 +113,7 @@ Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-postmerge-res
 
 The useful incident was the mobile composer becoming hidden under the fixed navigation even though the DOM and horizontal-overflow assertions passed. Looking at the actual screenshot, rather than trusting the first green run, exposed the problem. I added a geometry assertion so the defect cannot return silently.
 
-The next concrete action is to push the merged revision, collect the GitHub JDK 21 checks and Trello evidence, then ask C/A to confirm the contract and E to review PR #10.
+The next concrete action is to capture the current Trello card, ask C/A to confirm the contract, and request E to review Draft PR #10. The JDK 21 GitHub check has already passed.
 
 ## References and assistance
 
