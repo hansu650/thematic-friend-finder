@@ -2,7 +2,7 @@
 
 Task: Unread state, older-message history and conversation integration
 Date: 9 November 2026
-Tested source: `7f294e94293223b19c630aef3f1dd62a8172a847` on `w2/d-connections`
+Tested source: `555b0ca5e40bee28d60b21915e646c89c960b10a` on `w2/d-connections`
 Status: Implemented and locally verified; contract confirmation, peer review, PR checks and Trello evidence remain pending.
 
 ## Actual change
@@ -13,6 +13,7 @@ Status: Implemented and locally verified; contract confirmation, peer review, PR
 - Added recipient-only unread badges in the connection list and a bounded `Load older messages` control.
 - Reworked [chat.js](../../../src/main/resources/static/js/chat.js) to merge history and polling by numeric message ID, deduplicate rows and acknowledge only visible messages at the bottom of a visible page.
 - Kept the existing polling response unchanged for compatibility.
+- Kept all submitted text and test data English-only; image content is excluded from this rule.
 - Recorded the proposed interface and data semantics in [CONTRACT_D.md](../../CONTRACT_D.md) and updated [CONTRACTS.md](../../CONTRACTS.md).
 
 Relevant implementation:
@@ -41,7 +42,7 @@ bash mvnw --batch-mode --no-transfer-progress package
 Expected: existing 19 tests and new D tests pass.
 Actual: `Tests run: 27, Failures: 0, Errors: 0, Skipped: 0`; `BUILD SUCCESS`; exit code `0`.
 
-Evidence: [java-output.txt](./evidence/D-20261109-083427/java-output.txt), [java-exit.txt](./evidence/D-20261109-083427/java-exit.txt).
+Evidence: [java-output.txt](./evidence/D-20261109-0847/java-output.txt), [java-exit.txt](./evidence/D-20261109-0847/java-exit.txt).
 
 ### Browser checks
 
@@ -56,7 +57,9 @@ npm test
 Expected: real recipient/connection flow, history boundary, merge, accessibility-oriented states and 390 px layout pass.
 Actual: 10 named checks passed; browser exit code `0`; no page exceptions or HTTP 5xx responses.
 
-Evidence: [browser-results.json](./evidence/D-20261109-083427/browser-results.json), [browser-run.json](./evidence/D-20261109-083427/browser-run.json), [browser-output.txt](./evidence/D-20261109-083427/browser-output.txt).
+Local workspace paths in copied evidence are replaced with `<PROJECT_ROOT>` so submitted text contains no Han characters. No other log content was changed.
+
+Evidence: [browser-results.json](./evidence/D-20261109-0847/browser-results.json), [browser-run.json](./evidence/D-20261109-0847/browser-run.json), [browser-output.txt](./evidence/D-20261109-0847/browser-output.txt).
 
 | Test | Expected | Actual |
 |---|---|---|
@@ -71,8 +74,8 @@ Evidence: [browser-results.json](./evidence/D-20261109-083427/browser-results.js
 
 The first 390 px visual run exposed a real layout defect: the send button bottom was `808.4 px` while the fixed navigation started at `772 px`, so the composer was obscured. I reduced the mobile message viewport and added an executable bounding-box assertion. The corrected run passed with the send control fully above the navigation.
 
-Failure evidence: [browser-mobile-failure-results.json](./evidence/D-20261109-083427/browser-mobile-failure-results.json), [D_mobile_composer_failure.png](./images/D_mobile_composer_failure.png).
-Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-results.json](./evidence/D-20261109-083427/browser-results.json).
+Failure evidence: [browser-mobile-failure-results.json](./evidence/D-20261109-0847/browser-mobile-failure-results.json), [D_mobile_composer_failure.png](./images/D_mobile_composer_failure.png).
+Successful retest: [D_mobile.png](./images/D_mobile.png), [browser-results.json](./evidence/D-20261109-0847/browser-results.json).
 
 ## Screenshots and process
 

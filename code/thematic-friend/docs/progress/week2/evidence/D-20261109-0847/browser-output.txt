@@ -12,5 +12,5 @@ PASS D-06c An empty conversation shows a usable composer without a misleading lo
 PASS D-06d The desktop conversation remains usable at 390 px without horizontal overflow.
 PASS D-05/D-06e An ended conversation returns a real 403 error state that remains readable at 390 px.
 PASS RUNTIME No browser exceptions or HTTP 5xx responses during the checked flows.
-Browser output: /Users/yue/Documents/ChatGPT/专题项目/thematic-friend-finder/code/thematic-friend/.local/browser-verification/conversation-7K0eH6
+Browser output: <PROJECT_ROOT>/.local/browser-verification/conversation-80WLLh
 BrowserExit=0
