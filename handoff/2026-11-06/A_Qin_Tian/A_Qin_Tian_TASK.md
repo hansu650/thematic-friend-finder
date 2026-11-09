@@ -1,6 +1,6 @@
 # A Qin Tian: Discovery Cards, Match Feedback and Integration
 
-Owner: **Qin Tian (A)** · Reviewer: **B Wang Yikai** · First feature target: **11 November 2026**. Internal dates are estimates. Start from the included source now; confirm shared contracts before integration.
+Owner: **Qin Tian (A)** · Reviewer: **B Wang Yikai** · First feature target: **11 November 2026**. Internal dates are estimates. Use the merged baseline on current main, or this dated source snapshot; confirm shared contracts before overlapping edits.
 
 [Run the project](./RUN.md) · [Six test scenarios](./TESTS.md) · [Team map](./TEAM.md) · [Photo and evidence plan](./EVIDENCE.md)
 
@@ -13,9 +13,12 @@ Filtering, drag/button decisions, mutual matching and basic chat already work. T
 1. Refine the large discovery card, visible filter summary and useful empty-result actions.
 2. Add or improve mutual-match feedback with a clear action opening the correct conversation. Show only genuine shared interests.
 3. Preserve the same validated action for mouse, emulated touch, keyboard and buttons; keep reduced motion usable.
-4. Agree shared contracts with the other members, review their PRs and integrate the accepted increments.
+4. Agree account/session, read-state, staff-role and data-path contracts with the module owners before shared edits.
+5. Review the five incoming modules, integrate accepted PRs and resolve shared integration failures with their owners.
+6. Lead CORE-01–08 acceptance, consistent error/recovery behaviour and the final English interface check.
+7. Coordinate product evaluation, the demonstration narrative and final handover with B/E/F; each member writes their own reflection.
 
-**First small change:** Improve one filter/empty state, then add its focused regression check.
+**Current status:** the first filter/match increment is implemented on w2/a-discovery and locally verified with 31 Java tests and 11 browser groups. The included source remains the merged 19-test baseline snapshot; see [A's published evidence](https://github.com/hansu650/thematic-friend-finder/blob/w2/a-discovery/code/thematic-friend/docs/progress/week2/A_progress.md) for the increment. Independent review and the remaining integration work are pending.
 
 A owns the existing AI-assisted baseline and the extra coordination/integration work. B reviews A. Do not implement the reserved B–F increments on their behalf.
 
@@ -44,7 +47,9 @@ Use fictional data. Capture desktop and 390 px where a UI assertion requires it.
 
 ## Hand in
 
-Submit changed source, test source, test output, three purposeful captures and **A_progress.md**. A reviews and merges; A's own work receives peer review. After A publishes the Java baseline, use branch **w2/a-discovery** from the current main, not the historical research branch. Until then, develop in this extracted copy and retain an exact list of changed files for A to apply to that baseline. Do not include caches, target output or a runtime database in your submission.
+Submit your changed source and tests, real output, normal/boundary screenshots, a PR/check capture, an updated personal Trello card and **A_progress.md**. Follow [SUBMIT.md](./SUBMIT.md) for branch **w2/a-discovery**, [CAPTURE.md](./CAPTURE.md) for actual terminal commands and [FINISH_LINE.md](./FINISH_LINE.md) for final acceptance. The baseline was merged in PR #8; create a new task branch from current main, or continue your existing task branch without overwriting work.
+
+Qin Tian has two code screenshots for explaining A's work. B–F do not need code screenshots; submit source/test files and a brief explanation in Markdown. Each member uses their own task package and captures.
 
 ## Your supplied UI references
 

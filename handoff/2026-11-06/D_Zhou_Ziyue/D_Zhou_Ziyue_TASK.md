@@ -1,6 +1,6 @@
 # D Zhou Ziyue: Unread Messages and Older Chat History
 
-Owner: **Zhou Ziyue (D)** · Reviewer: **E Wu Zhuoda** · First feature target: **15 November 2026**. Internal dates are estimates. Start from the included source now; confirm shared contracts before integration.
+Owner: **Zhou Ziyue (D)** · Reviewer: **E Wu Zhuoda** · First feature target: **15 November 2026**. Internal dates are estimates. Use the merged baseline on current main, or this dated source snapshot; confirm shared contracts before overlapping edits.
 
 [Run the project](./RUN.md) · [Six test scenarios](./TESTS.md) · [Team map](./TEAM.md) · [Photo and evidence plan](./EVIDENCE.md)
 
@@ -45,7 +45,9 @@ Use fictional data. Capture desktop and 390 px where a UI assertion requires it.
 
 ## Hand in
 
-Submit changed source, test source, test output, three purposeful captures and **D_progress.md**. A reviews and merges; A's own work receives peer review. After A publishes the Java baseline, use branch **w2/d-connections** from the current main, not the historical research branch. Until then, develop in this extracted copy and retain an exact list of changed files for A to apply to that baseline. Do not include caches, target output or a runtime database in your submission.
+Submit your changed source and tests, real output, normal/boundary screenshots, a PR/check capture, an updated personal Trello card and **D_progress.md**. Follow [SUBMIT.md](./SUBMIT.md) for branch **w2/d-connections**, [CAPTURE.md](./CAPTURE.md) for actual terminal commands and [FINISH_LINE.md](./FINISH_LINE.md) for final acceptance. The baseline was merged in PR #8; create a new task branch from current main, or continue your existing task branch without overwriting work.
+
+Qin Tian has two code screenshots for explaining A's work. B–F do not need code screenshots; submit source/test files and a brief explanation in Markdown. Each member uses their own task package and captures.
 
 ## Your supplied UI references
 

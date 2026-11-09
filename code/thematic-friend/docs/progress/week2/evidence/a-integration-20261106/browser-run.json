@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-11-06T06:27:41.853Z",
+  "jarSha256": "826e62b9b93e938cf64905e12ad7b7d76c38f165c37d41585e345da0fe1ca153",
+  "java": "D:\\kaifagongju\\Java\\jdk-21.0.12.1-hotspot\\bin\\java.exe",
+  "node": "v24.16.0",
+  "base": "http://127.0.0.1:51197",
+  "output": "D:\\课程资料\\01_本学期课程\\专题项目\\code\\thematic-friend\\.local\\a-integration-20261106\\discovery-9xMh9P",
+  "command": "node scripts/browser/run-discovery-check.mjs",
+  "finishedAt": "2026-11-06T06:28:17.544Z",
+  "exitCode": 0
+}

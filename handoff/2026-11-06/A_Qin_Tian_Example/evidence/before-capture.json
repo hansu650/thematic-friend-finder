@@ -1,0 +1,11 @@
+{
+  "capturedAt": "2026-11-06T04:37:34.358Z",
+  "baselineCommit": "0d2ea54d04311b7c45ed5515b0be0266f8576226",
+  "jarSha256": "1df66cd00cdc4550b74c3005873da7cae378a82befdeb0fa25ed99774b0ef248",
+  "route": "/discover?interest=Coffee&goal=New%20friends",
+  "fixture": "demo_zhou",
+  "viewport": {
+    "width": 1440,
+    "height": 1080
+  }
+}

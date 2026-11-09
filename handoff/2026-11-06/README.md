@@ -2,6 +2,10 @@
 
 Prepared for the six-person team on 6 November 2026. **Use the named MD/ZIP packages to do the work.** Each ZIP includes the same clean Spring Boot baseline, its owner's task, six test scenarios, screenshots/photo requirements and the relevant supplied UI references. Fully extract the ZIP and begin with START_HERE.md.
 
+**Revised task instructions:** every named package now includes CAPTURE.md, SUBMIT.md and FINISH_LINE.md. The application source inside remains the merged baseline snapshot. Start from current main for ongoing Git development.
+
+[A's actual terminal and code screenshots](../../code/thematic-friend/docs/progress/week2/A_progress.md) are published as individual evidence. Qin Tian may send selected photos separately; teammates only need their own named task package. Code screenshots are optional for B–F.
+
 | Owner | Assignment | Task MD | Individual ZIP | Reference images |
 |---|---|---|---|---|
 | A Qin Tian | Discovery Cards, Match Feedback and Integration | [Open task](./A_Qin_Tian/A_Qin_Tian_TASK.md) | [Download package](./A_Qin_Tian.zip) | 3, 4, 5 |
@@ -13,8 +17,10 @@ Prepared for the six-person team on 6 November 2026. **Use the named MD/ZIP pack
 
 All packages contain source, not a preinstalled Java/Maven runtime. Use JDK 21; the first Maven build needs network access. No Node.js frontend build is required. Follow the included RUN.md. B–F's new increments remain for them to implement.
 
-Each member delivers code, executable tests, normal/boundary/test-result screenshots and a progress MD. The team keeps about three useful discussion/work/review photos per week and one full-board screenshot after updating actual progress. Detailed instructions are included in every EVIDENCE.md.
+Each member delivers code, executable tests, real normal/boundary/test-result captures, an actual PR/check and personal Trello record, and a progress MD. The team keeps about three useful discussion/work/review photos per week and one full-board screenshot after updating actual progress. Detailed instructions are included in every EVIDENCE.md.
 
 [Trello](https://trello.com/b/j4LiifAK) is compact: five columns, six member cards and one weekly review card. [Gantt workbook](./project-management/six-person-gantt.xlsx) · [Editable critical paths](./project-management/critical-paths.drawio) · [Diagram preview](./project-management/critical-paths.png).
 
-[Handoff validation](./VALIDATION.md). The Java baseline is delivered through branch **w2/a-baseline** in the [GitHub repository](https://github.com/hansu650/thematic-friend-finder/tree/w2/a-baseline). Members can start from these packages now; create their task branches from the updated main after the baseline PR is reviewed and merged.
+[Handoff validation](./VALIDATION.md). The Java baseline was merged through [PR #8](https://github.com/hansu650/thematic-friend-finder/pull/8). Create each W2 task branch from current **main** in the [GitHub repository](https://github.com/hansu650/thematic-friend-finder). The baseline merge does not establish that independent peer review occurred.
+
+[Core-flow acceptance and highest-band assessment evidence](../../team-plan/14_final_acceptance_and_assessment.md). A retains the largest individual allocation: 42 planned hours versus 28 per teammate. Feature completion is followed by integration, observation, improvement, reproduction, demonstration and individual reflection.
