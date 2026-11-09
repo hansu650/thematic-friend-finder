@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-11-09T00:33:38.227Z",
+  "jarSha256": "74140ec22de8289f66410acb1b5016987333d4182b942bf5ba790f0df2b24f3b",
+  "java": "java",
+  "node": "v24.20.0",
+  "base": "http://127.0.0.1:63190",
+  "output": "/Users/yue/Documents/ChatGPT/专题项目/thematic-friend-finder/code/thematic-friend/.local/browser-verification/conversation-7K0eH6",
+  "browserPath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "command": "node scripts/conversation-browser/run-conversation-check.mjs",
+  "finishedAt": "2026-11-09T00:33:52.417Z",
+  "exitCode": 0
+}

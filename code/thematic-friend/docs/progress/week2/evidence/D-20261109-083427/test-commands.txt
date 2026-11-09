@@ -1,0 +1,8 @@
+Java:
+  cd code/thematic-friend
+  bash mvnw --batch-mode --no-transfer-progress package
+
+Browser:
+  cd code/thematic-friend/scripts/conversation-browser
+  npm install --no-audit --no-fund
+  npm test
