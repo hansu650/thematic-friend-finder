@@ -16,16 +16,28 @@ public class DiscoveryService {
     public DiscoveryService(AccountService accounts,MemberRepository members,DecisionRepository decisions,ConnectionRepository connections,PairGuard guard) {
         this.accounts=accounts; this.members=members; this.decisions=decisions; this.connections=connections; this.guard=guard;
     }
-    public static String validInterest(String value) { return AccountService.INTERESTS.contains(value)?value:""; }
-    public static String validGoal(String value) { return AccountService.GOALS.contains(value)?value:""; }
+    public static String validInterest(String value) { return value!=null&&AccountService.INTERESTS.contains(value)?value:""; }
+    public static String validGoal(String value) { return value!=null&&AccountService.GOALS.contains(value)?value:""; }
     public List<Candidate> discover(String username,String interest,String goal) {
+        return candidates(username,interest,goal,false);
+    }
+    /** Only count skipped people who could actually reappear under these filters. */
+    public int revisitableSkips(String username,String interest,String goal) {
+        return candidates(username,interest,goal,true).size();
+    }
+    private List<Candidate> candidates(String username,String interest,String goal,boolean skippedOnly) {
         Member actor=accounts.current(username);
         Set<Long> excluded=new HashSet<>();
+        Set<Long> skipped=new HashSet<>();
         excluded.add(actor.getId());
-        decisions.findByActorId(actor.getId()).forEach(d -> excluded.add(d.getTargetId()));
+        decisions.findByActorId(actor.getId()).forEach(d -> {
+            if (d.getChoice()==Decision.Choice.SKIP) skipped.add(d.getTargetId());
+            if (!skippedOnly || d.getChoice()==Decision.Choice.LIKE) excluded.add(d.getTargetId());
+        });
         connections.findByLowIdOrHighIdOrderByCreatedAtDesc(actor.getId(),actor.getId()).forEach(c -> excluded.add(c.other(actor.getId())));
         String selectedInterest=validInterest(interest),selectedGoal=validGoal(goal);
         return members.findAll().stream().filter(Member::isDiscoverable).filter(m -> !excluded.contains(m.getId()))
+                .filter(m -> !skippedOnly || skipped.contains(m.getId()))
                 .filter(m -> !guard.blocked(actor.getId(),m.getId()))
                 .filter(m -> selectedInterest.isBlank()||m.getInterests().contains(selectedInterest))
                 .filter(m -> selectedGoal.isBlank()||m.getGoal().equals(selectedGoal))

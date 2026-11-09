@@ -1,6 +1,7 @@
 package com.example.thematicfriend.config;
 
 import com.example.thematicfriend.account.*;
+import com.example.thematicfriend.discovery.DiscoveryService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,17 @@ public class PageAdvice {
         view.setStatus(error.getStatusCode());
         view.addObject("status",error.getStatusCode().value());
         view.addObject("explanation",message);
+        // Recovery is always a local GET. Retain only the same allowlisted filters
+        // accepted by discovery, never a submitted next/return URL or POST body.
+        String interest=DiscoveryService.validInterest(request.getParameter("interest"));
+        String goal=DiscoveryService.validGoal(request.getParameter("goal"));
+        boolean hasFilters=!interest.isEmpty()||!goal.isEmpty();
+        String recovery=hasFilters?UriComponentsBuilder.fromPath("/discover")
+                .queryParam("interest",interest).queryParam("goal",goal).build().encode().toUriString():"/discover";
+        view.addObject("recoveryInterest",interest);
+        view.addObject("recoveryGoal",goal);
+        view.addObject("hasRecoveryFilters",hasFilters);
+        view.addObject("recoveryDiscoverUrl",recovery);
         return view;
     }
 }

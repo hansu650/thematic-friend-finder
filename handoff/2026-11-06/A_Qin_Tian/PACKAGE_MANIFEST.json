@@ -7,27 +7,43 @@
   "files": [
     {
       "path": "A_Qin_Tian_TASK.md",
-      "sha256": "5320f080e67df0b9b962c71fa14b80b150884f12340358896022672a9cfee075"
+      "sha256": "d0b244381bff2b061ab5a89cdcb7246b8c58a0c834ba6693a82b98a31c40d429"
+    },
+    {
+      "path": "CAPTURE.md",
+      "sha256": "c3054f9e18658c0976a120a864934459d77fd35beb8b8b4450282a3521ea7ead"
     },
     {
       "path": "EVIDENCE.md",
-      "sha256": "e9f91eac5d23fc2ed63b6c757268d3036d23dd161c692dd6a789aab3bba9be1c"
+      "sha256": "eed3433c38846cfbdb26f16c33748d4b191fe434a93cc2e44ad7f2e041d1f6a8"
+    },
+    {
+      "path": "FINISH_LINE.md",
+      "sha256": "da9726cdf21a12eb20ddf47dbfbfa3521945b9fea72bd621f978f7d76d72706f"
+    },
+    {
+      "path": "README.html",
+      "sha256": "b5cfd5d8f34bb8b81c7d6d40bd98adc3f7e369713b46702029490f2b8770853f"
     },
     {
       "path": "RUN.md",
-      "sha256": "be4cf94ee6ddbf1d053505b05532b8e811afb73211076e773a79ceed0f945897"
+      "sha256": "367256c99c3cb805aaf8cec34534fa9996507823e523f24cc40b629a51c22538"
     },
     {
       "path": "START_HERE.md",
-      "sha256": "c478476c47e3214ea468c8e763b04f63f16c3252dd99212ca080917d7cd1cb74"
+      "sha256": "440b456e52560b6588627002995aab335bdc3ad1c4980717b356719dab3dca34"
+    },
+    {
+      "path": "SUBMIT.md",
+      "sha256": "b8ecb06f159858501d72e9c55f80e0016fa9b3d61313a5b77739c7d28810732f"
     },
     {
       "path": "TEAM.md",
-      "sha256": "351474ec30ef8ed28c1f60457f7c7e52ce2908dda7ba45d5bf9cd30907520bc8"
+      "sha256": "215d0f67e578eda062661670d6bee4bfa0110547b2d8278e1e53cdb1d66a3943"
     },
     {
       "path": "TESTS.md",
-      "sha256": "911f756bc6fdc23a6fbd4421a918fcd8ae6cf05f70c89504ac71f24e8e55c5b1"
+      "sha256": "3b1cb098d536a42b7e8db3f81e8e2cd57574fad5391f371b602c31883cf34d3d"
     },
     {
       "path": "code/thematic-friend/.gitattributes",
@@ -83,7 +99,7 @@
     },
     {
       "path": "code/thematic-friend/docs/progress/week2/A_progress.md",
-      "sha256": "5bfe63b3e61bf5dde4794db4c8fc925605e4370257d652f81a2ad4372984534f"
+      "sha256": "4005fb37faea495cc8716b582c69141a59ec09b629d15be055efeb07e78d5fae"
     },
     {
       "path": "code/thematic-friend/mvnw",
@@ -321,5 +337,7 @@
       "path": "images/momo-05.jpg",
       "sha256": "67e11b2be0fcc8ad352598e325bb88977e647c6e765177ac51273bc129090ffe"
     }
-  ]
+  ],
+  "instructionsUpdated": "2026-11-06",
+  "sourceSnapshot": "Merged Java baseline; application/test/script bytes unchanged by instruction refresh"
 }

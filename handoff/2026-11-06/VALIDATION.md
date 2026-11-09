@@ -1,5 +1,13 @@
 # Mingle Handoff Validation
 
+## Instruction and screenshot update on 6 November
+
+The six named task packages now contain CAPTURE.md, SUBMIT.md, FINISH_LINE.md and a combined README.html. Instructions use the already-merged baseline, the correct member branch, real test output and personal PR/Trello evidence. Code screenshots are optional for B–F. A's six original screenshots are published separately in the canonical progress record; members do not need an example ZIP.
+
+All 60 application/test/script/build-input files in each package matched their pre-update hashes. No new feature implementation or new application-test run is claimed by this documentation pass. All six ZIPs reopened with byte-for-byte matches to their manifests, 296 local Markdown links resolved, all 17 supplied reference-image occurrences loaded across the six Edge previews, and all six A screenshot occurrences loaded in A's progress preview. Exact package hashes and counts are in [INSTRUCTION_UPDATE.json](./INSTRUCTION_UPDATE.json).
+
+## Original baseline verification
+
 Validated locally on 6 November 2026. This is A's AI-assisted baseline handoff, not a claim that B–F have completed their increments or independently reproduced the result.
 
 | Check | Result and scope |

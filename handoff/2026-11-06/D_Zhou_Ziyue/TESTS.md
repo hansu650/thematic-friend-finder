@@ -11,8 +11,12 @@ Owner: **Zhou Ziyue**. Reviewer: **E Wu Zhuoda**. All six groups start **Not run
 | D-05 | Access boundaries | Integration | Unrelated, blocked and ended participants cannot read/write history or read markers contrary to the agreed policy. | Not run |
 | D-06 | List and conversation states | Browser | Unread/empty/error states, long messages and keyboard send remain usable at 390 px and desktop. | Not run |
 
-Use JUnit/Spring integration tests for server rules, browser automation for UI and isolated PowerShell/process tests for backup/restore. Agree a browser-test dependency/command with A/F before introducing it; the baseline includes Maven tests but no shared browser-test runner yet. Parameterise useful boundaries; do not duplicate tests just to reach a count.
+Use JUnit/Spring integration tests for server rules, browser automation for UI and isolated PowerShell/process tests for backup/restore. This ZIP retains the merged Maven baseline. A has an optional discovery browser runner on PR #9; reuse it as a regression after integration and add checks for your own feature. Agree and document any new browser/process test command with A/F. Parameterise useful boundaries; do not duplicate tests just to reach a count.
 
 Deliver test source and fixtures with the feature, exact commands, exit code, version and readable output. Keep a real failing/retest pair when a defect occurs. Link the relevant screenshots from your own progress MD with relative paths.
 
 First checkpoint: three relevant scenarios with the feature. By 22 Nov: all six groups and two independently run checks from the member whose work you review. During W4, retest changed areas and one cross-module flow. See [your task](./D_Zhou_Ziyue_TASK.md).
+
+## Capture and submission
+
+Use [CAPTURE.md](./CAPTURE.md) for live output and [SUBMIT.md](./SUBMIT.md) for branch/PR steps. Submit executable source, not a picture of test code. Code screenshots are optional for B–F.

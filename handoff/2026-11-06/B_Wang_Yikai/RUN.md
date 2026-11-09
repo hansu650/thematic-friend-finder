@@ -1,30 +1,38 @@
-# Run the Included Baseline
+# Run the Mingle Source
 
-This is a source package, with Java, Thymeleaf, CSS and JavaScript together. Install/use JDK 21 and an IDE such as IntelliJ IDEA. The first Maven build needs network access; caches and databases are deliberately not bundled. No Node.js frontend build is needed.
+Use JDK 21 and a complete extracted source tree or Git checkout. The first Maven build needs network access. The website runs with Java, Thymeleaf, CSS and JavaScript together; Node.js is not needed to start it.
 
-1. Fully extract the ZIP. Open **code/thematic-friend** as a Maven project.
-2. Select your installed JDK 21 and let Maven resolve the dependencies.
-3. Run **com.example.thematicfriend.ThematicFriendApplication**, with the working directory set to **code/thematic-friend**.
-4. Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/). Create fictional accounts.
+1. Open code/thematic-friend as a Maven project in IntelliJ IDEA. Select your JDK 21.
+2. Run com.example.thematicfriend.ThematicFriendApplication with that project directory as the working directory.
+3. Open http://127.0.0.1:8080/, or the actual console address. Create fictional accounts.
 
 ## Windows command line
 
-From **code/thematic-friend**, set JAVA_HOME to your own installed JDK 21 if it is not already set. Then run:
+Open PowerShell in code/thematic-friend. In IntelliJ IDEA, Project Structure shows the selected JDK home (the folder containing bin/java.exe). If JAVA_HOME is not configured, set it for this terminal using your own installed JDK path. The path below is an example to replace:
 
-```powershell
-.\mvnw.cmd --batch-mode --no-transfer-progress test
-.\mvnw.cmd --batch-mode --no-transfer-progress package
-& "$env:JAVA_HOME\bin\java.exe" -jar target\thematic-friend-0.0.1-SNAPSHOT.jar
-```
+~~~powershell
+$env:JAVA_HOME = 'D:\Tools\jdk-21'
+~~~
 
-The existing **scripts/build.ps1** helper combines tests and packaging. **scripts/run-demo.ps1** builds if needed, prompts for a local demo password and starts fictional demo users. Use demo_zhou and demo_lin in separate browser sessions; existing demo users retain their initial password.
+Verify the selected Java version before building:
 
-To use another port, append **--server.port=8081** to the JAR command. Stop your running app before rebuilding its JAR on Windows. Data is created under **.local/data** in the project; restart from the same directory to keep it.
+~~~powershell
+& "$env:JAVA_HOME\bin\java.exe" --version
+$env:MAVEN_USER_HOME = Join-Path $PWD '.cache/maven'
+$mavenRepo = Join-Path $env:MAVEN_USER_HOME 'repository'
+.\mvnw.cmd --batch-mode --no-transfer-progress "-Dmaven.repo.local=$mavenRepo" package
+~~~
 
-English is the default. The temporary EN/Chinese switch remains during development. Final English-only operation is available with **TONGPIN_CHINESE_ENABLED=false**.
+Continue only when Maven exits 0. The package goal includes tests. Start the built application:
 
-See the included [baseline README](./code/thematic-friend/README.md), [contracts](./code/thematic-friend/docs/CONTRACTS.md) and [verification scope](./code/thematic-friend/docs/VERIFICATION.md). B–F features listed in the task are planned additions, so their screens/scripts will not exist until you implement them.
+~~~powershell
+& "$env:JAVA_HOME\bin\java.exe" -jar .\target\thematic-friend-0.0.1-SNAPSHOT.jar
+~~~
 
-## Which address should I open?
+Keep the terminal open; Ctrl+C stops that application. A second process needs a different port and data directory. Stop the application before rebuilding its JAR on Windows. Default data is .local/data; use the same working directory to retain it. Each person's localhost address and H2 data are separate.
 
-Open **http://127.0.0.1:8080/** after startup. The last console lines print the actual browser address. The same address on six computers opens six separate local copies: accounts, messages and H2 files are not shared. On one computer, a second process needs a different port, such as **--server.port=8081**, plus its own working/data directory. Sharing source code is not a shared public deployment.
+The included scripts/run-demo.ps1 prompts for a local fictional-account password. Existing demo accounts retain their initial password. Avoid including passwords in screenshots or commits. Use demo_zhou and demo_lin in separate sessions for matching/chat checks.
+
+English is the default; the development switch is temporary. At final freeze, English-only operation is selected with TONGPIN_CHINESE_ENABLED=false and verified.
+
+This ZIP's Java source is the merged 19-test baseline. A's later 31-test discovery increment and optional Playwright checks are on PR #9; use the canonical Git checkout after accepted changes reach main. Reusing A's smoke checks does not replace your new feature tests. See [CAPTURE.md](./CAPTURE.md), [baseline README](./code/thematic-friend/README.md) and [contracts](./code/thematic-friend/docs/CONTRACTS.md).
