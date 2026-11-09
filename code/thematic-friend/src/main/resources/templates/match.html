@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(#{match.title})}"></head>
+<body>
+<aside th:replace="~{fragments/layout :: sidebar('connections')}"></aside>
+<div class="app-language"><nav th:replace="~{fragments/layout :: language}"></nav></div>
+<main class="app-main match-main">
+  <section class="panel match-panel" aria-labelledby="match-title">
+    <p class="eyebrow" th:text="#{match.eyebrow}">A NEW CONNECTION</p>
+    <div class="match-pair" aria-hidden="true">
+      <span class="avatar match-avatar" th:classappend="'palette-' + ${me.palette}" th:text="${me.initial}"></span>
+      <span class="match-heart">♡</span>
+      <span class="avatar match-avatar" th:classappend="'palette-' + ${partner.palette}" th:text="${partner.initial}"></span>
+    </div>
+    <h1 id="match-title" th:text="#{match.title}">It's a match.</h1>
+    <p class="match-confirmation" role="status" th:text="#{match.confirmation(${partner.nickname})}">You both chose to connect.</p>
+    <div class="match-common" th:if="${!shared.isEmpty()}">
+      <p th:text="#{ui.you_both_enjoy}">You both enjoy</p>
+      <div class="tags" id="match-shared"><span th:each="interest : ${shared}" th:text="${@i18n.option(interest)}"></span></div>
+      <p class="fine" th:text="#{match.opener}">A shared interest is a good place to start.</p>
+    </div>
+    <p class="match-common" id="match-no-shared" th:if="${shared.isEmpty()}" th:text="#{match.no_shared}">Different interests can start a new conversation, too.</p>
+    <div class="match-actions">
+      <a id="open-conversation" class="button" th:href="@{/conversations/{id}(id=${connection.id})}" th:text="#{match.say_hello(${partner.nickname})}">Say hello</a>
+      <a id="keep-discovering" class="button secondary" th:href="@{/discover(interest=${selectedInterest},goal=${selectedGoal})}" th:text="#{match.keep_discovering}">Keep discovering</a>
+    </div>
+    <p class="fine match-boundary" th:text="#{match.at_your_pace}">Take it at your own pace. You can end contact, block or report from the conversation.</p>
+  </section>
+</main>
+</body>
+</html>

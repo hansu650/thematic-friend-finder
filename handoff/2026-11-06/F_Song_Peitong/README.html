@@ -1,0 +1,490 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>F Song Peitong Mingle handoff</title><style>body{font:16px/1.6 Segoe UI,Arial,sans-serif;color:#27303b;max-width:1100px;margin:36px auto;padding:0 24px}h1{font-size:29px}h2{margin-top:32px}a{color:#a84f43}table{border-collapse:collapse;width:100%}th,td{padding:9px 11px;border:1px solid #ddd;text-align:left;vertical-align:top}th{background:#f1f2f4}img{display:block;max-width:100%;height:auto;max-height:820px;object-fit:contain;margin:20px 0}pre{background:#f5f5f5;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}hr{border:0;border-top:1px solid #ddd;margin:36px 0}</style></head><body><h1>F Song Peitong Start Here</h1>
+<p>Your task is <strong>Backup/restore, independent reproduction and runtime handover</strong>. Planned allocation: <strong>28 hours</strong>, including tests, review and reflection preparation. The task is assigned; it is not a completed contribution.</p>
+<ol>
+<li>Read <a href="./F_Song_Peitong_TASK.md">your task</a> and <a href="./FINISH_LINE.md">the shared finish line</a>. Agree dependencies and confirm capacity with A.</li>
+<li>Use <a href="./SUBMIT.md">SUBMIT.md</a> to start from current main on <strong>w2/f-runtime</strong>, or preserve and continue an existing branch. The code inside this ZIP is the dated merged baseline snapshot.</li>
+<li>Follow <a href="./RUN.md">RUN.md</a> to start the website. Default address: <a href="http://127.0.0.1:8080/">http://127.0.0.1:8080/</a> on your own computer.</li>
+<li>Implement your increment and the meaningful checks in <a href="./TESTS.md">TESTS.md</a>. <a href="./CAPTURE.md">CAPTURE.md</a> gives real terminal and PR capture instructions.</li>
+<li>Fill <a href="./code/thematic-friend/docs/progress/week2/F_progress.md">your progress record</a>, save normal/boundary/test and process evidence, then submit the PR for review.</li>
+</ol>
+<p>The supplied images under images/ are UI references. Your own captures belong beside your progress Markdown in code/thematic-friend/docs/progress/week2/images/. Qin Tian may send selected photos separately; you do not need an example ZIP. Code screenshots are optional for B–F, with no required filename or quota.</p>
+<p>For a combined browser view of these instructions, open <a href="./README.html">README.html</a>.</p>
+<hr><h1>F Song Peitong: Backup, Restore and Clean-Copy Reproduction</h1>
+<p>Owner: <strong>Song Peitong (F)</strong> · Reviewer: <strong>A Qin Tian</strong> · First feature target: <strong>11 November 2026</strong>. Internal dates are estimates. Use the merged baseline on current main, or this dated source snapshot; confirm shared contracts before overlapping edits.</p>
+<p><a href="./RUN.md">Run the project</a> · <a href="./TESTS.md">Six test scenarios</a> · <a href="./TEAM.md">Team map</a> · <a href="./EVIDENCE.md">Photo and evidence plan</a></p>
+<h2>What is already there</h2>
+<p>Maven Wrapper, build/run helpers, file H2 and optional fictional demo users exist. Backup/restore tooling is not implemented. The included code is A&#39;s AI-assisted baseline. Your contribution is the increment below.</p>
+<h2>Build this</h2>
+<ol>
+<li>Implement a stopped-database backup with a timestamped destination, manifest and checksum.</li>
+<li>Implement validation and restore into a fresh isolated destination; refuse unsafe paths, corrupt input and accidental overwrites.</li>
+<li>Improve actionable startup/backup errors and document exact commands for Java 21 and Maven Wrapper.</li>
+<li>Verify fixture data survives restart/restore, then ask another member to reproduce selected A–E checks.</li>
+</ol>
+<p><strong>First small change:</strong> Build this clean source package, record the command/environment, then create the backup manifest/checksum path on disposable fixtures.</p>
+<p>These images identify existing screens to reproduce; they do not add a UI implementation assignment. Your contribution is runtime tools, executable failure-path checks and independent reproduction.</p>
+<h2>Start in these files</h2>
+<p>All paths below are inside the included project.</p>
+<ul>
+<li><a href="./code/thematic-friend/scripts/build.ps1">scripts/build.ps1</a></li>
+<li><a href="./code/thematic-friend/scripts/run-demo.ps1">scripts/run-demo.ps1</a></li>
+<li><a href="./code/thematic-friend/src/main/resources/application.properties">src/main/resources/application.properties</a></li>
+<li><a href="./code/thematic-friend/README.md">README.md</a></li>
+</ul>
+<p>Suggested new files (not implemented yet):</p>
+<ul>
+<li><code>scripts/backup.ps1</code></li>
+<li><code>scripts/restore.ps1</code></li>
+<li><code>scripts/tests/BackupRestore.Tests.ps1</code></li>
+</ul>
+<h2>Tests and screenshots to submit</h2>
+<p>Implement the six distinct behavior groups in <a href="./TESTS.md">TESTS.md</a>. Include the first three relevant scenarios with your first feature PR; complete the six groups and independently reproduce two peer checks by <strong>22 November</strong>. Reuse existing checks openly and identify your new assertions.</p>
+<table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>What to show</th>
+<th>Example filename</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal result</td>
+<td>Backup/restore command output and recovered fictional connection/message</td>
+<td>F_normal.png</td>
+</tr>
+<tr>
+<td>Boundary/error</td>
+<td>Corrupt backup or occupied destination rejected without overwriting data</td>
+<td>F_boundary.png</td>
+</tr>
+<tr>
+<td>Executable test result</td>
+<td>Readable test names/results, command and source version</td>
+<td>F_tests.png</td>
+</tr>
+</tbody></table>
+<p>Use fictional data. Capture desktop and 390 px where a UI assertion requires it. Terminal/process outputs count as relevant runtime evidence; pair them with the recovered fixture screen. Record expected/actual results and any remaining limitation in your own progress MD.</p>
+<h2>Hand in</h2>
+<p>Submit your changed source and tests, real output, normal/boundary screenshots, a PR/check capture, an updated personal Trello card and <strong>F_progress.md</strong>. Follow <a href="./SUBMIT.md">SUBMIT.md</a> for branch <strong>w2/f-runtime</strong>, <a href="./CAPTURE.md">CAPTURE.md</a> for actual terminal commands and <a href="./FINISH_LINE.md">FINISH_LINE.md</a> for final acceptance. The baseline was merged in PR #8; create a new task branch from current main, or continue your existing task branch without overwriting work.</p>
+<p>Qin Tian has two code screenshots for explaining A&#39;s work. B–F do not need code screenshots; submit source/test files and a brief explanation in Markdown. Each member uses their own task package and captures.</p>
+<h2>Your supplied UI references</h2>
+<p>These are the user&#39;s supplied reference screenshots, not screenshots of the implemented project. Some show Soul branding. Use layout/interaction ideas with the project&#39;s warm-white/coral style, English default and temporary language switch. Keep initials/gradients; profile photos remain deferred.</p>
+<h3>Reference 2</h3>
+<p>Conversation header, context and text composer.</p>
+<p><img src="./images/momo-02.jpg" alt="Reference 2: Conversation header, context and text composer."></p>
+<h3>Reference 4</h3>
+<p>Large discovery card, visible filters and decision buttons.</p>
+<p><img src="./images/momo-04.jpg" alt="Reference 4: Large discovery card, visible filters and decision buttons."></p>
+<h3>Reference 8</h3>
+<p>Message preview, time and unread marker.</p>
+<p><img src="./images/momo-08.jpg" alt="Reference 8: Message preview, time and unread marker."></p>
+<hr><h1>Run the Mingle Source</h1>
+<p>Use JDK 21 and a complete extracted source tree or Git checkout. The first Maven build needs network access. The website runs with Java, Thymeleaf, CSS and JavaScript together; Node.js is not needed to start it.</p>
+<ol>
+<li>Open code/thematic-friend as a Maven project in IntelliJ IDEA. Select your JDK 21.</li>
+<li>Run com.example.thematicfriend.ThematicFriendApplication with that project directory as the working directory.</li>
+<li>Open <a href="http://127.0.0.1:8080/">http://127.0.0.1:8080/</a>, or the actual console address. Create fictional accounts.</li>
+</ol>
+<h2>Windows command line</h2>
+<p>Open PowerShell in code/thematic-friend. In IntelliJ IDEA, Project Structure shows the selected JDK home (the folder containing bin/java.exe). If JAVA_HOME is not configured, set it for this terminal using your own installed JDK path. The path below is an example to replace:</p>
+<pre><code class="language-powershell">$env:JAVA_HOME = &#39;D:\Tools\jdk-21&#39;
+</code></pre>
+<p>Verify the selected Java version before building:</p>
+<pre><code class="language-powershell">&amp; &quot;$env:JAVA_HOME\bin\java.exe&quot; --version
+$env:MAVEN_USER_HOME = Join-Path $PWD &#39;.cache/maven&#39;
+$mavenRepo = Join-Path $env:MAVEN_USER_HOME &#39;repository&#39;
+.\mvnw.cmd --batch-mode --no-transfer-progress &quot;-Dmaven.repo.local=$mavenRepo&quot; package
+</code></pre>
+<p>Continue only when Maven exits 0. The package goal includes tests. Start the built application:</p>
+<pre><code class="language-powershell">&amp; &quot;$env:JAVA_HOME\bin\java.exe&quot; -jar .\target\thematic-friend-0.0.1-SNAPSHOT.jar
+</code></pre>
+<p>Keep the terminal open; Ctrl+C stops that application. A second process needs a different port and data directory. Stop the application before rebuilding its JAR on Windows. Default data is .local/data; use the same working directory to retain it. Each person&#39;s localhost address and H2 data are separate.</p>
+<p>The included scripts/run-demo.ps1 prompts for a local fictional-account password. Existing demo accounts retain their initial password. Avoid including passwords in screenshots or commits. Use demo_zhou and demo_lin in separate sessions for matching/chat checks.</p>
+<p>English is the default; the development switch is temporary. At final freeze, English-only operation is selected with TONGPIN_CHINESE_ENABLED=false and verified.</p>
+<p>This ZIP&#39;s Java source is the merged 19-test baseline. A&#39;s later 31-test discovery increment and optional Playwright checks are on PR #9; use the canonical Git checkout after accepted changes reach main. Reusing A&#39;s smoke checks does not replace your new feature tests. See <a href="./CAPTURE.md">CAPTURE.md</a>, <a href="./code/thematic-friend/README.md">baseline README</a> and <a href="./code/thematic-friend/docs/CONTRACTS.md">contracts</a>.</p>
+<hr><h1>F Song Peitong: Executable Test Tasks</h1>
+<p>Owner: <strong>Song Peitong</strong>. Reviewer: <strong>A Qin Tian</strong>. All six groups start <strong>Not run</strong>. Implement these with your increment; the baseline&#39;s existing 19 Java tests are not your new work.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Scenario</th>
+<th>Test level</th>
+<th>Assertion</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F-01</td>
+<td>Clean-copy startup</td>
+<td>PowerShell/process smoke</td>
+<td>A source-only copy builds and starts using documented Java 21 and Maven commands without IDE state.</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>Backup correctness</td>
+<td>PowerShell/process test</td>
+<td>A stopped test database is backed up with a manifest/checksum; the source remains unchanged.</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>Restore correctness</td>
+<td>PowerShell/process test</td>
+<td>Restore to a fresh isolated test directory recovers known fictional profiles, a connection and a message.</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>Failure handling</td>
+<td>PowerShell/process test</td>
+<td>Missing input, corrupt backup and an occupied destination fail clearly without overwriting existing data.</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>Restart persistence</td>
+<td>Process/browser</td>
+<td>Stop/restart against the same test database preserves the expected fixture records.</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>Independent reproduction</td>
+<td>Process/browser</td>
+<td>Another member follows the README, runs selected A–E checks and records environment, commands, output and limitations.</td>
+<td>Not run</td>
+</tr>
+</tbody></table>
+<p>Use JUnit/Spring integration tests for server rules, browser automation for UI and isolated PowerShell/process tests for backup/restore. This ZIP retains the merged Maven baseline. A has an optional discovery browser runner on PR #9; reuse it as a regression after integration and add checks for your own feature. Agree and document any new browser/process test command with A/F. Parameterise useful boundaries; do not duplicate tests just to reach a count.</p>
+<p>Deliver test source and fixtures with the feature, exact commands, exit code, version and readable output. Keep a real failing/retest pair when a defect occurs. Link the relevant screenshots from your own progress MD with relative paths.</p>
+<p>First checkpoint: three relevant scenarios with the feature. By 22 Nov: all six groups and two independently run checks from the member whose work you review. During W4, retest changed areas and one cross-module flow. See <a href="./F_Song_Peitong_TASK.md">your task</a>.</p>
+<h2>Capture and submission</h2>
+<p>Use <a href="./CAPTURE.md">CAPTURE.md</a> for live output and <a href="./SUBMIT.md">SUBMIT.md</a> for branch/PR steps. Submit executable source, not a picture of test code. Code screenshots are optional for B–F.</p>
+<hr><h1>F Song Peitong Capture Real Evidence</h1>
+<p>Keep the visible terminal/editor context and actual results. These instructions do not predeclare a passing result. Use fictional accounts and save your screenshots under code/thematic-friend/docs/progress/week2/images/. <a href="./EVIDENCE.md">EVIDENCE.md</a> describes process evidence.</p>
+<h2>Java tests</h2>
+<p>After following RUN.md, run this in code/thematic-friend in PowerShell. Use your own JDK 21. If working in Git, commit the feature/tests before the final run or record any uncommitted changes explicitly.</p>
+<pre><code class="language-powershell">$stamp = Get-Date -Format &#39;yyyyMMdd-HHmmss&#39;
+$evidenceDir = Join-Path $PWD (&quot;docs/progress/week2/evidence/F-&quot; + $stamp)
+New-Item -ItemType Directory -Path $evidenceDir -Force | Out-Null
+New-Item -ItemType Directory -Path &#39;docs/progress/week2/images&#39; -Force | Out-Null
+Get-Date -Format &#39;yyyy-MM-dd HH:mm:ss zzz&#39;
+&amp; &quot;$env:JAVA_HOME\bin\java.exe&quot; --version
+$env:MAVEN_USER_HOME = Join-Path $PWD &#39;.cache/maven&#39;
+$mavenRepo = Join-Path $env:MAVEN_USER_HOME &#39;repository&#39;
+.\mvnw.cmd --batch-mode --no-transfer-progress &quot;-Dmaven.repo.local=$mavenRepo&quot; package 2&gt;&amp;1 | Tee-Object -FilePath (Join-Path $evidenceDir &#39;java-output.txt&#39;)
+$javaExit = $LASTEXITCODE
+&quot;Java exit code: $javaExit&quot; | Tee-Object -FilePath (Join-Path $evidenceDir &#39;java-exit.txt&#39;)
+Read-Host &#39;Capture the real result with Win+Shift+S, then press Enter&#39;
+</code></pre>
+<p>Keep Tests run, BUILD SUCCESS/FAILURE and the exit code visible. Save as <strong>F_java_terminal.png</strong>. A second capture of the command/source is useful if they do not fit. In a Git checkout, record git rev-parse HEAD and git status --short in the progress report; in this ZIP, identify the package manifest instead.</p>
+<p>The untouched ZIP has 19 existing Java tests. New checks may change that number. A&#39;s 31-test screenshot is an example of A&#39;s run, not an expected result to copy. Preserve an actual failure and successful retest if a defect occurs.</p>
+<h2>Feature-specific checks</h2>
+<p>Run the tests you add for <a href="./TESTS.md">your six scenario groups</a> and record their exact command, dependency versions and exit code. B/D need browser or two-session coverage; C/E need negative permission cases; F needs disposable backup/restore process checks. Add runnable test code with the feature. Existing A discovery checks cover discovery only. Agree an optional browser-test setup with A/F and document it before asking someone else to run it.</p>
+<p>Capture the normal result and a meaningful boundary/error result as <strong>F_normal.png</strong> and <strong>F_boundary.png</strong>. Add browser/process output when the Java suite does not exercise the assertion. Use the current behaviour, not staged success text.</p>
+<h2>Your PR and checks</h2>
+<p>After pushing, open your own PR in GitHub. Capture its branch, current revision and Checks state. If GitHub CLI is already installed and signed in, this optional command reads your PR:</p>
+<pre><code class="language-powershell">$prNumber = [int](Read-Host &#39;Enter YOUR feature PR number&#39;)
+gh pr view $prNumber --repo hansu650/thematic-friend-finder --json url,headRefName,headRefOid,state,isDraft
+gh pr checks $prNumber --repo hansu650/thematic-friend-finder
+$checksExit = $LASTEXITCODE
+&quot;Checks command exit code: $checksExit&quot;
+Read-Host &#39;Capture the actual status, then press Enter&#39;
+</code></pre>
+<p>Use <strong>F_github_checks.png</strong>. Read the displayed status: pending/failed checks stay pending/failed. Do not substitute A&#39;s PR number. A screenshot of passing CI is not independent review.</p>
+<h2>Trello and code explanation</h2>
+<p>Capture your own card when work starts and when you submit for review, with its actual status and PR link. Team weekly photos and a full-board capture are shared process evidence.</p>
+<p>Qin Tian has two editor screenshots for A&#39;s explanation. <strong>B–F do not need code screenshots.</strong> Link your changed files and explain the important behaviour in your progress MD. Code and executable tests must still be committed. Use relative image links, for example <code>![F test result](./images/F_java_terminal.png)</code>, only after the real file exists in your progress directory.</p>
+<hr><h1>F Song Peitong Branch and Submission</h1>
+<p>Your branch is <strong>w2/f-runtime</strong>. The Java baseline was merged in PR #8. The included ZIP is a dated starting snapshot; current main is the shared integration source. Keep the original W1 research branches as history.</p>
+<h2>First Git checkout</h2>
+<p>In your chosen development folder, outside this extracted ZIP:</p>
+<pre><code class="language-powershell">git clone https://github.com/hansu650/thematic-friend-finder.git
+cd thematic-friend-finder
+git switch main
+git pull --ff-only origin main
+git switch -c w2/f-runtime
+</code></pre>
+<p>If the repository or your branch already exists, continue that checkout instead of cloning or creating the branch again. Run git status first and preserve uncommitted work. Do not replace an existing working tree with this ZIP. If you began from the ZIP, copy only your own changed source/test/evidence files into your branch after comparing with current main.</p>
+<p>A&#39;s discovery PR #9 remains a separate reviewable increment until merged. After accepted work reaches main, use git fetch origin and merge origin/main into your own branch, resolving any conflicts with the affected owner. An example screenshot or package is not a request to merge unreviewed code.</p>
+<h2>Commit and open a PR</h2>
+<p>Use the canonical code/thematic-friend directory. Stage your changed source/test files and your progress/evidence files explicitly. Inspect git diff --cached before committing. Exclude target, .cache, .local, node_modules, runtime databases and credentials. Then:</p>
+<pre><code class="language-powershell">git commit -m &quot;[W2][F] Describe the implemented change&quot;
+git push -u origin w2/f-runtime
+</code></pre>
+<p>Open a PR to main in GitHub. Its description should state the previous behaviour, your actual change, test commands/results, relevant screenshots and any remaining limitation. Mark it Ready for review when implementation and necessary checks are complete. Reviewer: <strong>A Qin Tian</strong>; A coordinates integration.</p>
+<h2>Send to A</h2>
+<ul>
+<li>PR URL and exact tested revision.</li>
+<li>Changed source and executable tests in the PR.</li>
+<li>F_progress.md with expected/actual results, command and exit codes, defect/fix if one occurred, references/AI assistance and review status.</li>
+<li>Normal/boundary, real test output and actual GitHub/Trello status captures. Code screenshots are optional for B–F.</li>
+<li>The shared-interface changes, unresolved issue and next owner, if any.</li>
+</ul>
+<p>Put screenshots in the images folder beside your progress MD and logs in its evidence folder. Preview the Markdown. Move Trello to Review when ready; move to Done after acceptance/merge. Each person writes their own reflection from actual work. See <a href="./FINISH_LINE.md">FINISH_LINE.md</a> for the remaining team evaluation and submission work.</p>
+<hr><h1>Evidence and Weekly Photos</h1>
+<p>Each completed increment should have three useful captures: a normal result, one meaningful boundary/error result and the actual test-run summary. Record the test ID, source version, environment, command, expected/actual outcome and exit code. Source and executable tests are required in Git; editor screenshots are optional for B–F. Qin Tian retains two code screenshots for explaining A&#39;s work.</p>
+<p>Save your progress Markdown under <strong>code/thematic-friend/docs/progress/week2/</strong> and its images in the adjacent <strong>images/</strong> folder. Use relative image paths such as <strong>./images/B-02_interest-limit.png</strong>. Preserve real failures and retests; do not claim future tests as passed.</p>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Meetings</th>
+<th>Three useful team photos</th>
+<th>Recorder</th>
+<th>Individual evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W1 (2–8 Nov)</td>
+<td>Kick-off plus UI/contract review</td>
+<td>Team discussion, reference comparison, agreed task map</td>
+<td>B Wang Yikai</td>
+<td>Each: one source comparison and six test scenarios; do not backfill earlier events.</td>
+</tr>
+<tr>
+<td>W2 (9–15 Nov)</td>
+<td>Sprint Planning plus code/test checkpoint</td>
+<td>Planning, pair implementation/testing, decision or defect discussion</td>
+<td>C Tao Jiacheng</td>
+<td>Each: first 3 relevant automated scenarios; 2 UI/result captures and 1 test-output capture.</td>
+</tr>
+<tr>
+<td>W3 (16–22 Nov)</td>
+<td>Integration check plus Review/Retrospective</td>
+<td>Integration discussion, observed task test, review decisions</td>
+<td>D Zhou Ziyue</td>
+<td>Each: complete 6 relevant scenario groups; independently run 2 peer checks; keep real defect/retest pairs.</td>
+</tr>
+<tr>
+<td>W4 (23–29 Nov)</td>
+<td>Sprint Planning plus reproduction checkpoint</td>
+<td>Prioritisation, restore/retest activity, freeze decision</td>
+<td>F Song Peitong</td>
+<td>Each: retest changed areas and one cross-module flow; F coordinates clean-copy reproduction.</td>
+</tr>
+<tr>
+<td>W5 (30 Nov–6 Dec)</td>
+<td>Rehearsal plus final Review/Retrospective</td>
+<td>Rehearsal, evidence review, final decision discussion</td>
+<td>E Wu Zhuoda</td>
+<td>Each: final version/test summary and individual reflection; team demo stays within the course 15-minute limit.</td>
+</tr>
+</tbody></table>
+<p>Aim for three useful team photos per week, not three per person. This is an evidence plan, not an assessment quota. Keep fewer if fewer useful moments occur. Use actual dates, actual attendees and consented participants; do not stage or backdate discussions.</p>
+<p>Take a landscape view of the discussion and agenda, a closer view of real pair work/testing, then a review/decision view. Save a direct screenshot of the board or result as well, because photographed screens can be unreadable. Caption each with date, participants, activity, decision and next owner.</p>
+<p>Save <strong>one full-board screenshot after the weekly progress update</strong>. The compact five-column board fits one view; preserve truthful task states. The team demo has a 15-minute course maximum.</p>
+<h2>Current hand-in instructions</h2>
+<p>Follow <a href="./CAPTURE.md">CAPTURE.md</a> for real terminal results and your own PR/check identity. Also retain your personal Trello card when starting and submitting for review. Use <a href="./SUBMIT.md">SUBMIT.md</a> to submit the actual source/test changes and evidence. The named package contains your complete task instructions; no example ZIP is needed. Selected photos sent by A illustrate the format, not your own contribution.</p>
+<hr><h1>Mingle Team and Current Responsibilities</h1>
+<p>Updated 6 November 2026. Complete the agreed profile–discovery–mutual-match–chat–account–safety flow. Each member develops their own assigned increment and submits real evidence.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Work</th>
+<th>Reviewer</th>
+<th>Planned five-week hours</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A Qin Tian</td>
+<td>Baseline, discovery, contracts, integration, final acceptance and demonstration organisation</td>
+<td>B Wang Yikai</td>
+<td>42</td>
+</tr>
+<tr>
+<td>B Wang Yikai</td>
+<td>Live profile preview, interest counter, accessibility and usability observation</td>
+<td>C Tao Jiacheng</td>
+<td>28</td>
+</tr>
+<tr>
+<td>C Tao Jiacheng</td>
+<td>Password change, session policy and account contracts</td>
+<td>D Zhou Ziyue</td>
+<td>28</td>
+</tr>
+<tr>
+<td>D Zhou Ziyue</td>
+<td>Unread state, older-message history and conversation integration</td>
+<td>E Wu Zhuoda</td>
+<td>28</td>
+</tr>
+<tr>
+<td>E Wu Zhuoda</td>
+<td>Restricted report review, permission tests and process facilitation</td>
+<td>F Song Peitong</td>
+<td>28</td>
+</tr>
+<tr>
+<td>F Song Peitong</td>
+<td>Backup/restore, independent reproduction and runtime handover</td>
+<td>A Qin Tian</td>
+<td>28</td>
+</tr>
+</tbody></table>
+<p>A has the largest individual scope and budget: 42 hours versus 28 for each teammate. A also owns shared contracts, PR integration, final cross-module testing and demonstration organisation. Module owners fix their own defects and explain their code. Estimates include testing, peer review, coordination and reflection; they are not a record of actual hours.</p>
+<p>Start with an agreed 1–3 hour slice, then complete the six relevant scenario groups. The existing internal targets remain estimates pending member capacity: first increments during 9–15 Nov, integration/review through 22 Nov, feedback and reproduction during 23–29 Nov, and final demonstration/reflection preparation by 4 Dec with 5–6 Dec buffer. Confirm the official deadline through Moodle/the teacher.</p>
+<p>Use <a href="https://trello.com/b/j4LiifAK">Trello</a> for actual status. Move to Review when code, tests and evidence are ready; Done needs acceptance and merge. B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. Each review records what was actually rerun.</p>
+<p>Read <a href="./FINISH_LINE.md">FINISH_LINE.md</a> for the shared product checks and the distinction between feature completion and assessment completion.</p>
+<hr><h1>Mingle Core Flow and Final Acceptance</h1>
+<p>Scope confirmed by Qin Tian on 6 November 2026: complete the friendship flow through profiles, discovery filters, mutual likes, conversations, account controls and safety. The supplied Momo/Soul images guide interaction and layout. The current round focuses on this coherent website; feed, location and photo-upload expansion are outside this agreed round.</p>
+<h2>What this round achieves</h2>
+<p>When the six increments have been reviewed, integrated and tested together, the core product can be feature-complete for the agreed coursework scope. Completing a feature PR or collecting screenshots alone does not complete the assessment. User observation, improvements, reproducible handover, the team demonstration and six individual reflections follow.</p>
+<p>The current source already has A&#39;s AI-assisted account/profile, discovery, mutual-match, basic chat and block/report baseline. A&#39;s first discovery refinement is implemented on w2/a-discovery and awaits independent review. B–F&#39;s increments below remain assigned work, not completed features.</p>
+<table>
+<thead>
+<tr>
+<th>Owner</th>
+<th>Assigned result</th>
+<th>Completion evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A Qin Tian</td>
+<td>Own and explain the baseline; refine discovery and match feedback; agree shared contracts; review and integrate all modules; lead final acceptance and demonstration organisation</td>
+<td>Discovery regressions, real screenshots, contract decisions, reviewed PRs, integrated flow results and release/handover record</td>
+</tr>
+<tr>
+<td>B Wang Yikai</td>
+<td>Live unsaved profile preview, interest counter and accessible responsive interaction; coordinate usability observation</td>
+<td>Preview/refresh and five-interest boundary tests, keyboard/390 px results, observed issues and one justified improvement</td>
+</tr>
+<tr>
+<td>C Tao Jiacheng</td>
+<td>Password change and explicit account/session contracts</td>
+<td>Invalid requests leave credentials unchanged; old/new login behaviour, agreed session invalidation and persistence verified</td>
+</tr>
+<tr>
+<td>D Zhou Ziyue</td>
+<td>Per-participant unread state and bounded older-message loading</td>
+<td>Two-session unread tests, history beyond 100 messages, ordering/duplicate checks and permission rejection</td>
+</tr>
+<tr>
+<td>E Wu Zhuoda</td>
+<td>Restricted report review and meaningful safety permissions; facilitate process reviews</td>
+<td>Staff/ordinary/anonymous tests, private notes, valid status/handler/time and real process decisions</td>
+</tr>
+<tr>
+<td>F Song Peitong</td>
+<td>Stopped-database backup/restore and independent reproduction</td>
+<td>Checksums, safe disposable restore, rejection of unsafe/corrupt/occupied targets and another person&#39;s clean-copy run</td>
+</tr>
+</tbody></table>
+<p>A has the largest individual allocation: <strong>42 planned hours</strong>, compared with <strong>28 each for B–F</strong>. These include development, testing, review, coordination, demonstration and reflection preparation. They are capacity estimates, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own implementation and tests.</p>
+<h2>Integrated product acceptance</h2>
+<p>Run these checks on one recorded integrated commit. Record expected and actual results, environment, tester and evidence links. A coordinates; the indicated member supplies their module&#39;s checks.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>End-to-end behaviour</th>
+<th>Owners</th>
+<th>Current final-acceptance state</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CORE-01</td>
+<td>Create fictional accounts, sign in, edit a profile and reload; unsaved preview stays local and saved values persist</td>
+<td>A/B/C</td>
+<td>Baseline exists; B/C increments and final retest pending</td>
+</tr>
+<tr>
+<td>CORE-02</td>
+<td>Apply both filters; see genuine shared interests; clear a single condition; recover from empty results; hidden/self/blocked profiles are excluded</td>
+<td>A/B</td>
+<td>A&#39;s local increment passes; independent and integrated retest pending</td>
+</tr>
+<tr>
+<td>CORE-03</td>
+<td>One-sided like cannot create chat; reciprocal/repeated decisions create one connection and open the correct match/conversation</td>
+<td>A/D</td>
+<td>A&#39;s local increment passes; final integrated retest pending</td>
+</tr>
+<tr>
+<td>CORE-04</td>
+<td>Two sessions exchange persisted messages; unread state belongs to the recipient; older history loads without gaps or duplicates</td>
+<td>D/C/A</td>
+<td>Basic chat exists; unread/history pending</td>
+</tr>
+<tr>
+<td>CORE-05</td>
+<td>Change password using the current credential; invalid/anonymous/CSRF requests are rejected; session policy is explicit and tested</td>
+<td>C/A</td>
+<td>Pending C&#39;s increment</td>
+</tr>
+<tr>
+<td>CORE-06</td>
+<td>End/block contact, deny further access as specified, submit a private report and let authorised staff handle it; unrelated users cannot read it</td>
+<td>E/D/C/A</td>
+<td>Baseline actions exist; staff workflow and integration pending</td>
+</tr>
+<tr>
+<td>CORE-07</td>
+<td>Use the core flow at desktop and 390 px with keyboard/buttons and reduced motion; validation, loading, empty and failure states remain understandable</td>
+<td>B/A with module owners</td>
+<td>A&#39;s selected flows pass; whole-product check pending</td>
+</tr>
+<tr>
+<td>CORE-08</td>
+<td>Build from a clean source copy, restart using the same data, back up a stopped fixture database, restore to a fresh destination and verify known records</td>
+<td>F/A</td>
+<td>Baseline restart exists; backup/restore and independent run pending</td>
+</tr>
+</tbody></table>
+<p>The final submitted interface is English. The temporary development language switch is removed or disabled and verified at the final freeze. If a physical phone is tested, record the real device; an emulated 390 px check remains labelled emulated.</p>
+<h2>From development to submission</h2>
+<ol>
+<li><strong>Assign and agree:</strong> distribute each named package, confirm capacity, and record account/session, read-state, staff-role and data-path agreements before overlapping edits. Current preparation stops at task and instruction updates.</li>
+<li><strong>Build and review:</strong> each owner delivers a focused feature, meaningful executable tests and their own evidence. B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. Completed PRs are Ready for review.</li>
+<li><strong>Integrate and observe:</strong> A integrates accepted work and runs CORE-01–08. B coordinates real, consented task observation; record the task, outcome, difficulty and changes made. Each owner fixes issues in their area. Do not manufacture participants, feedback or failed tests.</li>
+<li><strong>Evaluate and reproduce:</strong> compare the final outcome with the brief and original plan; explain supported strengths, remaining weaknesses, changed priorities and what the team learned. F coordinates a second person&#39;s reproduction. A records the final revision and known limits.</li>
+<li><strong>Demonstrate and reflect:</strong> produce one team video of at most 15 minutes and one completed reflection per person. Verify the video URL and uploaded files. Confirm the actual university deadline in Moodle or with the teacher; the local assessment retains conflicting dates.</li>
+</ol>
+<h2>Evidence for the highest assessment band</h2>
+<p>The assessment&#39;s highest band is <strong>86–100%</strong>. This is a target for the quality of the work and reasoning, not a checklist that guarantees 100. The assessment allocates <strong>25% to the group demonstration and 75% to each individual&#39;s reflection</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Assessment requirement</th>
+<th>Evidence to prepare</th>
+<th>Responsible people</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A thoroughly designed, innovative working MVP and a detailed account of its lifecycle (p. 7)</td>
+<td>Explain the user problem, alternatives and references, requirements, design choices, implementation, validation, iteration and handover. Justify Mingle&#39;s interest-based, mutual-choice flow with actual design decisions and feedback; do not claim copying a reference screen is innovation.</td>
+<td>A leads; all owners explain their changes</td>
+</tr>
+<tr>
+<td>Insightful evaluation of both product and project (p. 8)</td>
+<td>Compare outcomes with objectives; analyse useful and weak choices, defects, scope changes, teamwork and tradeoffs. Link claims to real results and decisions, and explain what should change next.</td>
+<td>Whole team, coordinated by A/E</td>
+</tr>
+<tr>
+<td>Thorough, creative professional goals and action plans (p. 9)</td>
+<td>Each person connects actual learning and evidence to their PDP and sets a specific next action, method and way to judge improvement.</td>
+<td>Every member individually</td>
+</tr>
+<tr>
+<td>Significant contribution, teamwork/leadership and critical reflection (p. 9)</td>
+<td>Show a useful contribution to the shared outcome as well as the assigned module: peer testing, resolving an integration issue, helping a decision or improving a process. Analyse the effect, different perspectives and remaining weakness.</td>
+<td>Every member individually</td>
+</tr>
+</tbody></table>
+<p>The official reflection template asks about <strong>Your Project; Your Team; Your Project Management Approach; Ethical and Legal Considerations; Your Professional Development</strong>. Use real incidents and your own judgement in every section. For ethics/legal/sustainability, document what was researched, what design/data choices followed and what remains limited; a generic compliance sentence is insufficient. Keep sources and AI assistance explicit.</p>
+<p>The video should cover requirements, design, the product in use, each person&#39;s responsibility, evaluation and continuation/handover. Production polish is not a separate marking category in the specification. Each member must include the shared MMUTube URL in their own reflection, and submit the reflection using the provided template.</p>
+<h2>Screenshots and contribution evidence</h2>
+<p>Every member submits their source and executable tests, readable real test output, normal/boundary results, an actual PR/check status and an updated personal Trello card, plus a short progress record. Capture only enough images to explain the result; screenshot counts are not a grading quota.</p>
+<p>Qin Tian has retained two editor screenshots to explain A&#39;s implementation and test. <strong>B–F are not required to submit code screenshots</strong>; a brief code explanation and links to their changed source/test files are sufficient. Each named package is self-contained for the member&#39;s task. A may send selected photos separately; members do not need an example ZIP.</p>
+<h2>Source basis</h2>
+<ul>
+<li>Thematic Project 1CWK100 Assessment Specification, unit 6G5Z0046_2627_9FHU: p. 4 weights; p. 5 demonstration format and 15-minute maximum; p. 6 individual reflection and submission; pp. 7–9 highest-band criteria.</li>
+<li>Thematic Project 1CWK100 Reflection Template: the five sections named above, personal details and demonstration URL.</li>
+<li>List of Projects, topic 2, Friend Finding App: a website/mobile product supporting social contact, with ethical and legal considerations; a matching algorithm is an optional extension.</li>
+<li>Qin Tian&#39;s confirmed scope and distribution decisions on 6 November 2026. Internal milestones and recommended evidence practices are team planning choices, not additional university rules.</li>
+</ul>
+</body></html>

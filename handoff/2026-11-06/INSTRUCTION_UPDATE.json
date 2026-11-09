@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-06",
+  "scope": "Named task/capture/submission instructions and A evidence; no new feature implementation",
+  "powershellSnippetSyntaxChecks": 42,
+  "packages": [
+    {
+      "member": "A",
+      "package": "A_Qin_Tian",
+      "sourceFilesUnchanged": 60,
+      "files": 84,
+      "localLinksChecked": 50,
+      "imagesLoaded": 3,
+      "zipBytes": 2040000,
+      "zipSha256": "df046a7c6f7844285bbda9307c98de59e9ce0f0378191824e4428cb039cad7aa"
+    },
+    {
+      "member": "B",
+      "package": "B_Wang_Yikai",
+      "sourceFilesUnchanged": 60,
+      "files": 84,
+      "localLinksChecked": 49,
+      "imagesLoaded": 3,
+      "zipBytes": 2096034,
+      "zipSha256": "35067c7c214cc466d1d3a59dee663569136069f8124fcf21e47e59e9878a573b"
+    },
+    {
+      "member": "C",
+      "package": "C_Tao_Jiacheng",
+      "sourceFilesUnchanged": 60,
+      "files": 83,
+      "localLinksChecked": 48,
+      "imagesLoaded": 2,
+      "zipBytes": 1693952,
+      "zipSha256": "51ff4b05e087d9f15658097d6a72059b8bb35ffeb9fc54f54eab14c5c77c6d2a"
+    },
+    {
+      "member": "D",
+      "package": "D_Zhou_Ziyue",
+      "sourceFilesUnchanged": 60,
+      "files": 85,
+      "localLinksChecked": 52,
+      "imagesLoaded": 4,
+      "zipBytes": 1793177,
+      "zipSha256": "938776a20b37632bde2f69df927ecd96841a9d49c81ac7cf6e3725457432d35f"
+    },
+    {
+      "member": "E",
+      "package": "E_Wu_Zhuoda",
+      "sourceFilesUnchanged": 60,
+      "files": 83,
+      "localLinksChecked": 49,
+      "imagesLoaded": 2,
+      "zipBytes": 1101518,
+      "zipSha256": "1a2507d75a409646815ace0ce05a7686fd1d99662461c58284aa9c6113a4ace7"
+    },
+    {
+      "member": "F",
+      "package": "F_Song_Peitong",
+      "sourceFilesUnchanged": 60,
+      "files": 84,
+      "localLinksChecked": 48,
+      "imagesLoaded": 3,
+      "zipBytes": 1608021,
+      "zipSha256": "c5db8ef0631f8a4ce49a458458886de2802e6ec9556c6e1d1ea38a3dc222e445"
+    }
+  ]
+}

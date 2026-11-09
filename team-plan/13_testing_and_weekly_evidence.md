@@ -13,9 +13,9 @@ Every member owns implementation, executable tests, screenshots and an independe
 
 There are 36 planned scenario groups, not 36 completed tests or a code-volume target. Split or parameterise tests where it improves diagnosis. Reuse existing baseline checks where they already cover a behavior, and identify the new assertions/fixtures contributed by the member. Do not copy one test six times or claim A's 19 baseline Java tests as a teammate's work.
 
-Use JUnit/Spring integration tests for server rules, browser automation for observable interaction, and isolated PowerShell/process tests for backup/reproduction. A screenshot of source code does not replace an assertion or test output. The implementation and tests should be committed together; reviewers rerun relevant checks.
+Use JUnit/Spring integration tests for server rules, browser automation for observable interaction, and isolated PowerShell/process tests for backup/reproduction. Qin Tian has retained two editor screenshots. Code screenshots are optional for B–F; changed source and executable tests must be in Git. The implementation and tests should be committed together; reviewers rerun relevant checks.
 
-The Java project currently provides Maven tests and documented local run scripts. B/D can add a browser test setup to the project with F/A after agreeing the dependency and command; suggested test file names below are planned files, not existing test infrastructure.
+The merged starting ZIPs provide 19 Maven tests and documented local run scripts. A's PR #9 adds 12 discovery regressions and an optional isolated browser runner. Member branches reuse accepted regressions after integration and add meaningful assertions for their own increment. Each named package now contains CAPTURE.md and SUBMIT.md with real output and PR instructions.
 
 ## Five-week evidence rhythm
 

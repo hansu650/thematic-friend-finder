@@ -21,6 +21,8 @@ public class DiscoveryController {
         model.addAttribute("selectedGoal",DiscoveryService.validGoal(goal));
         model.addAttribute("candidate",candidates.isEmpty()?null:candidates.getFirst());
         model.addAttribute("remaining",candidates.size());
+        model.addAttribute("hasFilters",!DiscoveryService.validInterest(interest).isEmpty() || !DiscoveryService.validGoal(goal).isEmpty());
+        model.addAttribute("revisitableSkips",candidates.isEmpty()?discovery.revisitableSkips(principal.getName(),interest,goal):0);
         model.addAttribute("upNext",candidates.stream().skip(1).limit(3).toList());
         model.addAttribute("activePage","discover");
         return "discover";
@@ -29,7 +31,7 @@ public class DiscoveryController {
     public String decide(Principal principal,@PathVariable Long target,@RequestParam Decision.Choice choice,
                          @RequestParam(defaultValue="") String interest,@RequestParam(defaultValue="") String goal,RedirectAttributes redirect) {
         var match=connections.decide(principal.getName(),target,choice);
-        if(match.isPresent()) { redirect.addFlashAttribute("notice","ui.it_is_a_mutual_like_start_with_a_shared_interest"); return "redirect:/conversations/"+match.get().getId(); }
+        if(match.isPresent()) return location("/matches/"+match.get().getId(),interest,goal);
         redirect.addFlashAttribute("notice",choice==Decision.Choice.LIKE?"ui.like_saved_you_can_chat_when_you_both_like_each_other":"ui.on_to_the_next_person_you_can_revisit_skipped_profiles_later");
         return back(interest,goal);
     }
@@ -38,7 +40,10 @@ public class DiscoveryController {
         connections.resetSkips(principal.getName()); return back(interest,goal);
     }
     private String back(String interest,String goal) {
-        return "redirect:"+UriComponentsBuilder.fromPath("/discover").queryParam("interest",DiscoveryService.validInterest(interest))
+        return location("/discover",interest,goal);
+    }
+    private String location(String route,String interest,String goal) {
+        return "redirect:"+UriComponentsBuilder.fromPath(route).queryParam("interest",DiscoveryService.validInterest(interest))
                 .queryParam("goal",DiscoveryService.validGoal(goal)).build().encode().toUriString();
     }
 }

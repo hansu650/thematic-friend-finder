@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-11-06T04:36:04.096Z",
+  "browser": "156.0.4314.58",
+  "checks": [
+    {
+      "id": "A-01",
+      "assertion": "Visible filters, eligible count and actual shared interests; removing one filter preserves the other.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04a",
+      "assertion": "Short mouse drag returns the same card and sends zero decisions.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-05a",
+      "assertion": "Empty results offer working clear/revisit actions; revisiting keeps filters.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04b",
+      "assertion": "Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-03/A-05b",
+      "assertion": "Reciprocal button like opens real feedback, correct chat and a message received by the other participant.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04c",
+      "assertion": "Repeated arrow-key events during commitment submit one decision.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04d",
+      "assertion": "390 px emulated touch: short drag returns; committed swipe submits once.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06a",
+      "assertion": "390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06b",
+      "assertion": "390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06c",
+      "assertion": "Reduced-motion button decision submits once.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "assertion": "No browser exceptions or HTTP 5xx responses during these flows.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [],
+  "screenshots": [
+    "03-after-filters.png",
+    "04-short-drag-return.png",
+    "05-empty-revisit.png",
+    "06-empty-no-match.png",
+    "07-match-success.png",
+    "08-correct-conversation.png",
+    "09-mobile-discover.png",
+    "11-mobile-chinese.png",
+    "10-mobile-match.png",
+    "12-reduced-motion.png"
+  ],
+  "exitCode": 0
+}

@@ -1,26 +1,30 @@
-# F Song Peitong: Progress
+# F Song Peitong Progress
 
-Task: Backup, Restore and Clean-Copy Reproduction
+Task: Backup/restore, independent reproduction and runtime handover
 Date: [actual date]
-Version / PR: [actual reference]
-Status: Not started
+Tested source / PR: [actual reference, including uncommitted changes if any]
+Status: Assigned; implementation and checks not yet recorded.
 
-## Changes
+## Actual change
 
-[Explain your own change and the existing baseline reused.]
+[Describe your own change and the existing baseline reused. Link the changed source and tests. Code screenshots are optional.]
 
-## Tests
+## Verification
 
-[Command, environment, test IDs, expected/actual result, exit code and limitations.]
+[For each relevant test ID: expected/actual result, exact command, environment, exit code and evidence link. Distinguish baseline tests from new assertions.]
 
-## Screenshots
+## Screenshots and process
 
-[Add real captures to ./images/ and use relative image links after capture.]
+[Save real normal/boundary, terminal and GitHub/Trello captures under ./images/. Add relative links only after the files exist.]
 
-## Peer review and next action
+## Review and integration
 
-[Actual reviewer and result, or Pending. Record the next owner.]
+[Actual reviewer, checks rerun, findings and fixes, or Pending. Record shared contracts and the next owner.]
+
+## Reflection notes and next action
+
+[One real decision, difficulty or collaboration incident: what happened, your action, effect, weakness and what you would change. Link evidence and connect it to a specific PDP next action.]
 
 ## References and assistance
 
-[References, AI assistance and what you verified yourself.]
+[References, AI assistance and what you understood and verified personally.]
