@@ -69,15 +69,15 @@ class ConversationReadStateTests {
         connectionRepo.deleteAll();
         decisions.deleteAll();
         members.deleteAll();
-        sender = create("reader_sender", "虚构发送者");
-        recipient = create("reader_recipient", "虚构接收者");
+        sender = create("reader_sender", "Fictional Sender");
+        recipient = create("reader_recipient", "Fictional Recipient");
     }
 
     @Test
     void d01IncomingMessagesIncreaseOnlyTheRecipientsUnreadCount() throws Exception {
         Connection link = match(sender, recipient);
 
-        chat.send(sender.getUsername(), link.getId(), "来自发送者的第一条消息");
+        chat.send(sender.getUsername(), link.getId(), "First message from the sender");
 
         assertThat(chat.unreadCount(recipient.getUsername(), link.getId())).isEqualTo(1);
         assertThat(chat.unreadCount(sender.getUsername(), link.getId())).isZero();
@@ -88,7 +88,7 @@ class ConversationReadStateTests {
                 .andExpect(status().isOk())
                 .andExpect(content().string(not(containsString("data-unread-count=\"1\""))));
 
-        chat.send(recipient.getUsername(), link.getId(), "接收者回复");
+        chat.send(recipient.getUsername(), link.getId(), "Reply from the recipient");
 
         assertThat(chat.unreadCount(recipient.getUsername(), link.getId())).isEqualTo(1);
         assertThat(chat.unreadCount(sender.getUsername(), link.getId())).isEqualTo(1);
@@ -100,7 +100,7 @@ class ConversationReadStateTests {
         Connection link = match(sender, recipient);
         List<Long> sentIds = new ArrayList<>();
         for (int index = 0; index < messageCount; index++) {
-            chat.send(sender.getUsername(), link.getId(), "消息 " + (index + 1));
+            chat.send(sender.getUsername(), link.getId(), "History message " + (index + 1));
             sentIds.add(latestMessageId(link));
         }
 
@@ -135,9 +135,9 @@ class ConversationReadStateTests {
     @Test
     void d02ReadAcknowledgementClearsOnlyCurrentParticipantAndLaterMessagesBecomeUnread() throws Exception {
         Connection link = match(sender, recipient);
-        chat.send(sender.getUsername(), link.getId(), "接收者需要确认的第一条消息");
+        chat.send(sender.getUsername(), link.getId(), "First message requiring acknowledgement");
         Long firstMessageId = latestMessageId(link);
-        chat.send(recipient.getUsername(), link.getId(), "发送者也收到一条消息");
+        chat.send(recipient.getUsername(), link.getId(), "Message received by the sender");
         Long latestMessageId = latestMessageId(link);
 
         assertThat(chat.unreadCount(recipient.getUsername(), link.getId())).isEqualTo(1);
@@ -154,7 +154,7 @@ class ConversationReadStateTests {
         assertThat(chat.unreadCount(recipient.getUsername(), link.getId())).isZero();
         assertThat(chat.unreadCount(sender.getUsername(), link.getId())).isEqualTo(1);
 
-        chat.send(sender.getUsername(), link.getId(), "已读确认之后的新消息");
+        chat.send(sender.getUsername(), link.getId(), "New message after acknowledgement");
         Long laterMessageId = latestMessageId(link);
         assertThat(chat.unreadCount(recipient.getUsername(), link.getId())).isEqualTo(1);
 
@@ -183,7 +183,7 @@ class ConversationReadStateTests {
         Instant sameTimestamp = Instant.parse("2026-11-09T00:00:00Z");
         List<Long> sentIds = new ArrayList<>();
         for (int index = 1; index <= 250; index++) {
-            Message message = new Message(link.getId(), sender.getId(), "相同时间戳消息 " + index);
+            Message message = new Message(link.getId(), sender.getId(), "Equal timestamp message " + index);
             ReflectionTestUtils.setField(message, "sentAt", sameTimestamp);
             sentIds.add(messages.saveAndFlush(message).getId());
         }
@@ -216,9 +216,9 @@ class ConversationReadStateTests {
 
     @Test
     void d05HistoryAndReadStateRejectUnrelatedClosedBlockedAndCsrfMissingRequests() throws Exception {
-        Member outsider = create("reader_outsider", "虚构第三人");
+        Member outsider = create("reader_outsider", "Fictional Outsider");
         Connection link = match(sender, recipient);
-        chat.send(sender.getUsername(), link.getId(), "权限测试消息");
+        chat.send(sender.getUsername(), link.getId(), "Access boundary message");
         Long messageId = latestMessageId(link);
 
         mvc.perform(get("/api/conversations/" + link.getId() + "/history").param("before", messageId.toString()))
@@ -238,7 +238,7 @@ class ConversationReadStateTests {
                 .andExpect(status().isNotFound());
 
         Connection otherLink = match(sender, outsider);
-        chat.send(sender.getUsername(), otherLink.getId(), "另一会话消息");
+        chat.send(sender.getUsername(), otherLink.getId(), "Message from another conversation");
         Long otherMessageId = latestMessageId(otherLink);
         mvc.perform(post("/api/conversations/" + link.getId() + "/read")
                         .with(user(recipient.getUsername())).with(csrf())
@@ -259,7 +259,7 @@ class ConversationReadStateTests {
 
     Member create(String username, String nickname) {
         Member member = new Member(username, encoder.encode("Synthetic-Test-2026"), nickname);
-        member.updateProfile(nickname, "虚构测试资料", List.of("Coffee"), "New friends", true);
+        member.updateProfile(nickname, "Fictional test profile", List.of("Coffee"), "New friends", true);
         return members.saveAndFlush(member);
     }
 

@@ -68,8 +68,9 @@ async function screenshot(session, name, fullPage = false) {
 
 async function postForm(page, action, fields) {
   return page.evaluate(async ({ action, fields }) => {
-    const token = document.querySelector('meta[name="_csrf"]').content;
-    const header = document.querySelector('meta[name="_csrf_header"]').content;
+    const messages = document.querySelector('#messages');
+    const token = messages.dataset.csrf;
+    const header = messages.dataset.csrfHeader;
     const response = await fetch(action, {
       method: 'POST',
       headers: {

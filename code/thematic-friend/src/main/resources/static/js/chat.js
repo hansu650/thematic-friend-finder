@@ -6,8 +6,8 @@
   const form = document.getElementById('message-form');
   const loadOlder = document.getElementById('load-older');
   const loadOlderLabel = loadOlder ? loadOlder.textContent.trim() : '';
-  const csrf = document.querySelector('meta[name="_csrf"]');
-  const csrfHeader = document.querySelector('meta[name="_csrf_header"]');
+  const csrfToken = list.dataset.csrf;
+  const csrfHeader = list.dataset.csrfHeader;
   let cursor = Number(list.dataset.cursor || 0), stopped = false, loadingOlder = false;
   let acknowledged = 0, acknowledging = false, scrollTimer = 0;
 
@@ -58,7 +58,7 @@
   }
 
   async function acknowledge(id) {
-    if (!list.dataset.readUrl || !id || id <= acknowledged || acknowledging || document.hidden || !csrf || !csrfHeader) return;
+    if (!list.dataset.readUrl || !id || id <= acknowledged || acknowledging || document.hidden || !csrfToken || !csrfHeader) return;
     acknowledging = true;
     try {
       const response = await fetch(list.dataset.readUrl, {
@@ -66,7 +66,7 @@
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-          [csrfHeader.content]: csrf.content
+          [csrfHeader]: csrfToken
         },
         body: new URLSearchParams({throughMessageId: String(id)})
       });
