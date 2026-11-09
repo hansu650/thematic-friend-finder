@@ -1,6 +1,6 @@
 # C account work — local draft
 
-Date: 2026-11-09. Source base: remote main `d2ad598` fetched on 2026-11-09, plus uncommitted local changes in this extracted working copy. The dated task package claims PR #8; the fetched main head was PR #7, so reconcile the baseline with A before integration. This directory is not a Git checkout.
+Date: 2026-11-09. Initial source base: `d2ad598`. The feature branch was subsequently merged with remote `main` at `c9d1b78` (including PR #9); the integrated code revision tested was `a44f076`.
 
 ## Changes and provisional session policy
 
@@ -23,3 +23,7 @@ The temporary settings file mirrored Maven repositories to `https://repo.maven.a
 - C-06: current-session invalidation tested, existing automated suite passes. A two-session integration test confirms that the second session remains signed in. Persistence after restart and browser verification remain pending.
 
 Java 21, desktop/mobile UI captures, real PR and Trello status, B review and team integration have not been verified. The test output is not a substitute for screenshots or personal review. No meeting, agreement, PR or contribution by a person is asserted here.
+
+## Integrated verification
+
+On 2026-11-09, after merging `main` at `c9d1b78`, the integrated source at `a44f076` was tested on OpenJDK 25.0.1 using Maven with a temporary central-only settings file and the local dependency cache. Exit code 0: 44 tests passed, zero failures, errors or skips. See [integrated test output](./evidence/C_integrated_maven_2026-11-09.log). Java 21 and browser/device checks remain pending.
