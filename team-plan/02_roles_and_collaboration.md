@@ -1,19 +1,27 @@
 # Six-Person Roles and Collaboration
 
-A is the user and team leader. B–F are the other five members. These are proposed responsibilities; each person confirms their name, availability and final commitment.
+A is the user and team leader. B–F are the other five members. On 9 November 2026, Qin Tian requested both Product Owner and Scrum Master responsibilities. This table reflects that role decision; each member still confirms availability and capacity.
 
 | Member | Role | Code ownership | Initial reviewer |
 |---|---|---|---|
-| A Qin Tian | Team Leader, Product Owner and Developer | config/, discovery/, shared contracts and integration | B, with C/F for backend and runtime changes |
+| A Qin Tian | Team Leader, Product Owner, Scrum Master and Developer | config/, discovery/, shared contracts and integration | B, with C/F for backend and runtime changes |
 | B Wang Yikai | Developer and Usability Lead | live profile preview, interest counter and accessible interaction | C Tao Jiacheng |
 | C Tao Jiacheng | Developer and Data Lead | password change, account/session contracts and validation | D Zhou Ziyue |
 | D Zhou Ziyue | Developer and Integration Lead for Communication | unread tracking and older-message paging | E Wu Zhuoda |
-| E Wu Zhuoda | Scrum Master, Developer and Test Coordinator | staff-only report review and permission tests | F Song Peitong |
+| E Wu Zhuoda | Developer and Test Coordinator | staff-only report review and permission tests | F Song Peitong |
 | F Song Peitong | Developer and Runtime Lead | backup/restore tools, clean-copy reproduction and handover | A Qin Tian |
 
 A reviews and merges all PRs, with technical review distributed across the team. A owns the existing AI-assisted baseline as well as discovery and integration. B–F implement the new features in [the agreed increment map](./10_baseline_and_member_increments.md). Planned hours are estimates, not contribution records.
 
 Team Leader is a local coordination title. Scrum uses Product Owner, Scrum Master and Developers; coordination time counts towards capacity when roles are combined. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+
+## Combined Product Owner and Scrum Master responsibilities
+
+- As Product Owner, A maintains the product goal, orders the backlog and clarifies acceptance expectations.
+- As Scrum Master, A supports Sprint Planning, brief working-day coordination, Reviews and Retrospectives, follows up impediments and helps the team improve its workflow.
+- Developers estimate and organise their own work. E coordinates cross-module regression evidence while each owner remains responsible for their implementation and tests.
+- Record product decisions separately from process improvements. Note-taking keeps its existing rotation, and B remains A's independent reviewer.
+- Count both responsibilities inside A's planned capacity; the workload table and workbook include the revised allocation. These are assigned duties, not evidence that meetings or reviews have occurred.
 
 ## Shared changes
 
@@ -22,7 +30,7 @@ Team Leader is a local coordination title. Scrum uses Product Owner, Scrum Maste
 - F coordinates runtime scripts and fictional seed data. Seed code must respect password hashing and business rules.
 - Each card names affected classes, pages and interfaces before work starts. Split overlapping work into small PRs and integrate early.
 
-Review rotation: A → B, B → C, C → D, D → E, E → F, F → A. Add a relevant specialist when the change crosses boundaries. Meeting notes rotate: W1 B, W2 C, W3 D, W4 F, W5 E. A facilitates product reviews; E facilitates process retrospectives.
+Review rotation: A → B, B → C, C → D, D → E, E → F, F → A. Add a relevant specialist when the change crosses boundaries. Meeting notes rotate: W1 B, W2 C, W3 D, W4 F, W5 E. A facilitates product reviews and process retrospectives; E coordinates regression results and defect/retest evidence.
 
 Start development branches from the latest `main` after the Java baseline has been merged. Keep the old `w1/a-research` branch; it is not the Java development starting point. Completed, verified PRs become Ready for review. Unfinished work may remain Draft with a clear explanation.
 
@@ -41,7 +49,7 @@ Continue the W1 example (`w1/a-research` through `w1/f-research`) in later weeks
 
 The shared Java baseline uses `w2/a-baseline`. Wait for its peer review and merge before branching new integrated work from `main`; members can use their runnable ZIP in the meantime. Do not overwrite a teammate's branch or force-push shared history. A's own PR also needs peer review.
 
-Keep the branch/PR view, updated Kanban, actual test results and useful discussion photos as dated evidence. Save images beside their Markdown under `images/`; the first-day archive is `photo/2026-11-06/` in the local coursework workspace.
+Keep the branch/PR view, updated Kanban, actual test results and useful discussion photos as dated evidence. The local report archive is `photo/A_progress.md`, with `photo/code/`, `photo/terminal/`, `photo/human/` and `photo/web/`. Numbered captions record the dates; the primary archive no longer uses date folders. Use relative image paths in Markdown.
 
 Workload target: A 42 hours; B–F 28 hours each, including coordination and evidence. See [workload balance](./11_workload_balance.md) for the allocation and adjustment rule.
 

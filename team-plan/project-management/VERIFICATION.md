@@ -13,3 +13,9 @@ Draw.io source is editable, uses Comic Sans MS for ordinary diagram text and ena
 The Mingle title was patched in the existing Draw.io source without changing the routed layout. The Windows sandbox could not start the installed Draw.io exporter; the approved run outside that sandbox exported both SVG and PNG with exit code 0. The resulting title, Comic Sans MS labels and rendered mathematical formula were checked.
 
 These are planning checks, not actual team progress or confirmed member capacity. See [workload balance](../11_workload_balance.md).
+
+## Role and effort update — 9 November 2026
+
+The Team effort sheet now identifies A as Product Owner, Scrum Master and Developer, and E as Developer and Test Coordinator. T11 allocation changed from A 2 h / E 2 h to A 3 h / E 1 h; T13 changed from A 2 h / E 2 h to A 1 h / E 3 h. Only these four numeric inputs and the role note changed inside the workbook.
+
+The edited workbook was reopened and its XML/cell data checked. All existing formula expressions and cached formula values were retained. Recomputed member totals remain 42/28/28/28/28/28 hours and all task totals are unchanged. Scheduling inputs and dependencies remain unchanged. This update checked workbook structure and data; no new spreadsheet visual-rendering check or application test run was performed.

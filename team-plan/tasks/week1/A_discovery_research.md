@@ -2,7 +2,9 @@
 
 Named owner: **Qin Tian (A)**. Reviewer: **B Wang Yikai**.
 
-Role: **Team Leader, Product Owner and Developer**. Investigate two relevant products and propose a small improvement for the next iteration. The selected implementation is a Spring Boot website; an observed mobile app can still inform a web interaction.
+**Role revision effective 9 November:** Product Owner, Scrum Master, Team Leader and Developer. The Week 1 brief below retains its original allocation; later work follows the current [role plan](../../02_roles_and_collaboration.md).
+
+Role in the original Week 1 brief: **Team Leader, Product Owner and Developer**. Investigate two relevant products and propose a small improvement for the next iteration. The selected implementation is a Spring Boot website; an observed mobile app can still inform a web interaction.
 
 ## Research focus
 

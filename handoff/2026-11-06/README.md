@@ -1,5 +1,7 @@
 # Mingle Development Handoff
 
+**Role update effective 9 November 2026:** Qin Tian (A) now holds both Product Owner and Scrum Master responsibilities; Wu Zhuoda (E) is Developer and Test Coordinator. The dated ZIPs and extracted packages below remain 6 November snapshots and contain the earlier process allocation. For current duties, use the [revised role plan](../../team-plan/02_roles_and_collaboration.md), [A's current task](../../team-plan/tasks/week2/A_discovery.md), [E's current task](../../team-plan/tasks/week2/E_safety.md) and [workload allocation](../../team-plan/11_workload_balance.md). The development features and baseline code in the packages are still applicable.
+
 Prepared for the six-person team on 6 November 2026. **Use the named MD/ZIP packages to do the work.** Each ZIP includes the same clean Spring Boot baseline, its owner's task, six test scenarios, screenshots/photo requirements and the relevant supplied UI references. Fully extract the ZIP and begin with START_HERE.md.
 
 **Revised task instructions:** every named package now includes CAPTURE.md, SUBMIT.md and FINISH_LINE.md. The application source inside remains the merged baseline snapshot. Start from current main for ongoing Git development.
@@ -19,7 +21,7 @@ All packages contain source, not a preinstalled Java/Maven runtime. Use JDK 21; 
 
 Each member delivers code, executable tests, real normal/boundary/test-result captures, an actual PR/check and personal Trello record, and a progress MD. The team keeps about three useful discussion/work/review photos per week and one full-board screenshot after updating actual progress. Detailed instructions are included in every EVIDENCE.md.
 
-[Trello](https://trello.com/b/j4LiifAK) is compact: five columns, six member cards and one weekly review card. [Gantt workbook](./project-management/six-person-gantt.xlsx) · [Editable critical paths](./project-management/critical-paths.drawio) · [Diagram preview](./project-management/critical-paths.png).
+[Trello](https://trello.com/b/j4LiifAK) is compact: five columns, six member cards and one weekly review card. [Current Gantt workbook](../../team-plan/project-management/six-person-gantt.xlsx) · [Editable critical paths](./project-management/critical-paths.drawio) · [Diagram preview](./project-management/critical-paths.png).
 
 [Handoff validation](./VALIDATION.md). The Java baseline was merged through [PR #8](https://github.com/hansu650/thematic-friend-finder/pull/8). Create each W2 task branch from current **main** in the [GitHub repository](https://github.com/hansu650/thematic-friend-finder). The baseline merge does not establish that independent peer review occurred.
 

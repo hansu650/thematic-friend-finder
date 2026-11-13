@@ -1,0 +1,322 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24411 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO]
+[INFO] --------------------< com.example:thematic-friend >---------------------
+[INFO] Building thematic-friend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.5.0:resources (default-resources) @ thematic-friend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 18 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.15.0:compile (default-compile) @ thematic-friend ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 33 source files with javac [debug parameters release 21] to target/classes
+[INFO]
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ thematic-friend ---
+[INFO] skip non existing resourceDirectory <PROJECT_ROOT>/src/test/resources
+[INFO]
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ thematic-friend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.6:test (default-test) @ thematic-friend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.thematicfriend.ThematicFriendApplicationTests
+09:00:14.499 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.thematicfriend.ThematicFriendApplicationTests]: ThematicFriendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:00:14.541 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.ThematicFriendApplicationTests
+09:00:14.575 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.thematicfriend.ThematicFriendApplicationTests]: ThematicFriendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:00:14.575 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.ThematicFriendApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:14.696+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ThematicFriendApplicationTests     : Starting ThematicFriendApplicationTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:14.697+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ThematicFriendApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:14.948+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:14.980+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:15.235+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:15.271+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-09T09:00:15.459+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:15.471+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-09T09:00:15.541+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:context-test user=SA
+2026-11-09T09:00:15.541+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-09T09:00:15.565+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:context-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: CONTEXT-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:15.892+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:15.907+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:15.941+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-09T09:00:16.261+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:16.451+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ThematicFriendApplicationTests     : Started ThematicFriendApplicationTests in 1.852 seconds (process running for 2.276)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (<PROJECT_ROOT>/.cache/maven/repository/net/bytebuddy/byte-buddy-agent/1.18.15/byte-buddy-agent-1.18.15.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.246 s -- in com.example.thematicfriend.ThematicFriendApplicationTests
+[INFO] Running com.example.thematicfriend.PrototypeFlowTests
+2026-11-09T09:00:16.680+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.PrototypeFlowTests]: PrototypeFlowTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:16.685+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.PrototypeFlowTests
+2026-11-09T09:00:16.686+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.PrototypeFlowTests]: PrototypeFlowTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:16.687+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.PrototypeFlowTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:16.699+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.PrototypeFlowTests    : Starting PrototypeFlowTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:16.700+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.PrototypeFlowTests    : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:16.755+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:16.759+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:16.786+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:16.793+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:16.793+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-11-09T09:00:16.794+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:flow-test user=SA
+2026-11-09T09:00:16.795+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-11-09T09:00:16.795+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:flow-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: FLOW-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:16.821+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:16.825+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:16.865+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:16.906+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-09T09:00:16.907+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-09T09:00:16.907+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-09T09:00:16.918+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.PrototypeFlowTests    : Started PrototypeFlowTests in 0.229 seconds (process running for 2.743)
+WARNING: Final field securityContextRepository in class org.springframework.security.web.context.SecurityContextHolderFilter has been mutated reflectively by class org.springframework.util.ReflectionUtils in unnamed module @1356d4d4 (file:/Users/yue/Documents/ChatGPT/%e4%b8%93%e9%a2%98%e9%a1%b9%e7%9b%ae/thematic-friend-finder/code/thematic-friend/.cache/maven/repository/org/springframework/spring-core/7.0.10/spring-core-7.0.10.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+2026-11-09T09:00:19.750+08:00  WARN 32800 --- [thematic-friend] [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.273 s -- in com.example.thematicfriend.PrototypeFlowTests
+[INFO] Running com.example.thematicfriend.LanguageTests
+2026-11-09T09:00:19.954+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.LanguageTests]: LanguageTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:19.955+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.LanguageTests
+2026-11-09T09:00:19.955+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.LanguageTests]: LanguageTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:19.955+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.LanguageTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:19.964+08:00  INFO 32800 --- [thematic-friend] [           main] c.example.thematicfriend.LanguageTests   : Starting LanguageTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:19.964+08:00  INFO 32800 --- [thematic-friend] [           main] c.example.thematicfriend.LanguageTests   : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:20.007+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:20.011+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:20.028+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:20.034+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:20.035+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-11-09T09:00:20.035+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:language-tests user=SA
+2026-11-09T09:00:20.035+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-11-09T09:00:20.036+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:language-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: LANGUAGE-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:20.058+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:20.062+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:20.094+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:20.115+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-09T09:00:20.115+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-09T09:00:20.116+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-09T09:00:20.124+08:00  INFO 32800 --- [thematic-friend] [           main] c.example.thematicfriend.LanguageTests   : Started LanguageTests in 0.167 seconds (process running for 5.949)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s -- in com.example.thematicfriend.LanguageTests
+[INFO] Running com.example.thematicfriend.ConversationReadStateTests
+2026-11-09T09:00:20.166+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.ConversationReadStateTests]: ConversationReadStateTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:20.166+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.ConversationReadStateTests
+2026-11-09T09:00:20.166+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.ConversationReadStateTests]: ConversationReadStateTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:20.167+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.ConversationReadStateTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:20.172+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ConversationReadStateTests         : Starting ConversationReadStateTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:20.172+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ConversationReadStateTests         : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:20.208+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:20.212+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:20.228+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:20.234+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:20.234+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-11-09T09:00:20.235+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn24: url=jdbc:h2:mem:conversation-read-tests user=SA
+2026-11-09T09:00:20.235+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-11-09T09:00:20.235+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:conversation-read-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: CONVERSATION-READ-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:20.257+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:20.259+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:20.283+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:20.301+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-09T09:00:20.301+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-09T09:00:20.301+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-09T09:00:20.306+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.ConversationReadStateTests         : Started ConversationReadStateTests in 0.138 seconds (process running for 6.131)
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.470 s -- in com.example.thematicfriend.ConversationReadStateTests
+[INFO] Running com.example.thematicfriend.DiscoveryRegressionTests
+2026-11-09T09:00:21.636+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.DiscoveryRegressionTests]: DiscoveryRegressionTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:21.637+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.DiscoveryRegressionTests
+2026-11-09T09:00:21.638+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.DiscoveryRegressionTests]: DiscoveryRegressionTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:21.638+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.DiscoveryRegressionTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:21.645+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.DiscoveryRegressionTests           : Starting DiscoveryRegressionTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:21.646+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.DiscoveryRegressionTests           : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:21.676+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:21.679+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:21.694+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:21.699+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:21.700+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-11-09T09:00:21.700+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:discovery-regression user=SA
+2026-11-09T09:00:21.700+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-11-09T09:00:21.701+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:discovery-regression]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DISCOVERY-REGRESSION/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:21.722+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:21.725+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:21.746+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:21.764+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-09T09:00:21.765+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-09T09:00:21.765+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-09T09:00:21.770+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.t.DiscoveryRegressionTests           : Started DiscoveryRegressionTests in 0.13 seconds (process running for 7.595)
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 s -- in com.example.thematicfriend.DiscoveryRegressionTests
+[INFO] Running com.example.thematicfriend.AIntegrationTests
+2026-11-09T09:00:21.883+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.AIntegrationTests]: AIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:21.883+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.AIntegrationTests
+2026-11-09T09:00:21.884+08:00  INFO 32800 --- [thematic-friend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.thematicfriend.AIntegrationTests]: AIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-09T09:00:21.884+08:00  INFO 32800 --- [thematic-friend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.thematicfriend.ThematicFriendApplication for test class com.example.thematicfriend.AIntegrationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-09T09:00:21.889+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : Starting AIntegrationTests using Java 26.0.2.1 with PID 32800 (started by yue in <PROJECT_ROOT>)
+2026-11-09T09:00:21.889+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T09:00:21.919+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-09T09:00:21.923+08:00  INFO 32800 --- [thematic-friend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 7 JPA repository interfaces.
+2026-11-09T09:00:21.937+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-09T09:00:21.943+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-09T09:00:21.943+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-11-09T09:00:21.943+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection conn46: url=jdbc:h2:mem:a-integration user=SA
+2026-11-09T09:00:21.944+08:00  INFO 32800 --- [thematic-friend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-11-09T09:00:21.944+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:a-integration]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: A-INTEGRATION/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-09T09:00:21.962+08:00  INFO 32800 --- [thematic-friend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-09T09:00:21.964+08:00  INFO 32800 --- [thematic-friend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-09T09:00:21.984+08:00  INFO 32800 --- [thematic-friend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-11-09T09:00:22.001+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-09T09:00:22.001+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-09T09:00:22.001+08:00  INFO 32800 --- [thematic-friend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-09T09:00:22.006+08:00  INFO 32800 --- [thematic-friend] [           main] c.e.thematicfriend.AIntegrationTests     : Started AIntegrationTests in 0.121 seconds (process running for 7.831)
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s -- in com.example.thematicfriend.AIntegrationTests
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ thematic-friend ---
+[INFO] Building jar: <PROJECT_ROOT>/target/thematic-friend-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- spring-boot:4.1.2:repackage (repackage) @ thematic-friend ---
+[INFO] Loaded 50 auto-discovered prefixes for remote repository ow2-snapshot (prefixes-ow2-snapshot.txt)
+[INFO] Replacing main artifact <PROJECT_ROOT>/target/thematic-friend-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to <PROJECT_ROOT>/target/thematic-friend-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.108 s
+[INFO] Finished at: 2026-11-09T09:00:22+08:00
+[INFO] ------------------------------------------------------------------------

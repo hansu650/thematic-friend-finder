@@ -4,7 +4,7 @@ Internal window: **9–15 Nov 2026**.
 
 Agree Sprint 1 goal, select US10–US14 increments and A discovery/integration work and confirm capacity. Use the six personal task files. Demonstrate two fictional users moving from profile to a persisted conversation by 15 Nov.
 
-A owns the AI-assisted baseline/discovery/integration; B live preview; C password changes; D unread/history; E restricted report handling; F backup/restore and reproduction. Start small PRs around 10 Nov. C records planning notes.
+A owns the AI-assisted baseline/discovery/integration; B live preview; C password changes; D unread/history; E restricted report handling; F backup/restore and reproduction. Start small PRs around 10 Nov. A acts as Product Owner and Scrum Master, facilitates planning and follows up impediments; E coordinates test evidence. C records planning notes.
 
 Use [Trello policies](../03_trello_kanban.md) for actual flow and the [schedule](../08_schedule_and_critical_paths.md) for dependencies. Record actual results, issues, decisions and next actions in the [meeting template](../meetings/meeting_template.md) and [individual progress template](../templates/weekly_progress.md). A plan is not a completed event.
 

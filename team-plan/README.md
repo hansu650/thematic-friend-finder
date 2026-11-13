@@ -1,6 +1,8 @@
 # Mingle Six-Person Project Plan
 
-Updated 6 November 2026. This is the English working pack for a browser-based friendship website using **Java 21, Spring Boot, Thymeleaf, HTML/CSS/JavaScript and file-based H2**. A owns the existing AI-assisted baseline, discovery and integration. B–F each own a new increment that is not yet implemented. See [baseline ownership and new increments](./10_baseline_and_member_increments.md).
+Updated 9 November 2026. This is the English working pack for a browser-based friendship website using **Java 21, Spring Boot, Thymeleaf, HTML/CSS/JavaScript and file-based H2**. A owns the existing AI-assisted baseline, discovery and integration. B–F each own a new increment that is not yet implemented. See [baseline ownership and new increments](./10_baseline_and_member_increments.md).
+
+**Role revision, 9 November:** Qin Tian (A) combines Product Owner, Scrum Master and Developer; Wu Zhuoda (E) is Developer and Test Coordinator. See the [current roles](./02_roles_and_collaboration.md) and [revised effort allocation](./11_workload_balance.md). Earlier Week 1 briefs and dated handoff packages retain their original history; use this plan for current responsibilities.
 
 ## Start here
 

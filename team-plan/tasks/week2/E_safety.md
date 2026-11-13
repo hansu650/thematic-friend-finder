@@ -2,7 +2,7 @@
 
 Named owner: **Wu Zhuoda (E)**. Reviewer: **F Song Peitong**.
 
-Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Scrum Master + Developer; test coordinator**. Reviewer: **F, with A for security configuration**. A reviews and merges PRs.
+Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer; Test Coordinator** (revised 9 November; A holds Product Owner and Scrum Master). Reviewer: **F, with A for security configuration**. A reviews and merges PRs.
 
 ## Starting point
 
@@ -13,7 +13,8 @@ The baseline stores reports and displays private receipts. It does not include s
 1. Add a local staff-only report queue and detail page with a minimal status update workflow.
 2. Store handling status, authorised handler and time; keep internal notes private from ordinary accounts.
 3. Agree a controlled staff-account setup with A/C; ordinary sign-up must not be able to grant a staff role.
-4. Test unauthenticated, ordinary-user and staff access; facilitate the board, blockers and Sprint retrospective alongside development.
+4. Test unauthenticated, ordinary-user and staff access.
+5. Coordinate cross-module regression results and any actual defects/retests with the owners; review D's work. A facilitates the board process, impediment follow-up and Sprint retrospective.
 
 Code area: safety/, staff-only templates, role checks and permission tests. Coordinate shared fields, interfaces and migrations before editing.
 
@@ -27,7 +28,7 @@ Code area: safety/, staff-only templates, role checks and permission tests. Coor
 
 ## Deliverable and submission
 
-Restricted review workflow, negative permission tests, and actual process/retrospective records.
+Restricted review workflow, negative permission tests, and actual regression results with any defect/retest records.
 
 The Java baseline is merged. Create branch w2/e-safety from the latest main in [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder). Do not develop from the preserved historical research branch. Split work into 1–3 hour cards; aim for a small initial PR around 10 Nov and integration/review on 13–15 Nov.
 

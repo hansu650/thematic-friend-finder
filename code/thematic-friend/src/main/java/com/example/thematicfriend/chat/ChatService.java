@@ -16,13 +16,18 @@ import java.util.*;
 public class ChatService {
     @PersistenceContext private EntityManager entityManager;
     public record MessageView(Long id,String body,String time,boolean mine) { }
+    public record ReadReceipt(Long lastReadMessageId,long unreadCount) { }
+    public record HistoryPage(List<MessageView> messages,boolean hasOlder,Long nextBefore) { }
     private static final DateTimeFormatter CLOCK=DateTimeFormatter.ofPattern("MM-dd HH:mm").withZone(ZoneId.of("Asia/Shanghai"));
     private final AccountService accounts;
     private final ConnectionService connections;
     private final MessageRepository messages;
+    private final ConversationReadStateRepository readStates;
     private final PairGuard guard;
-    public ChatService(AccountService accounts,ConnectionService connections,MessageRepository messages,PairGuard guard) {
-        this.accounts=accounts; this.connections=connections; this.messages=messages; this.guard=guard;
+    public ChatService(AccountService accounts,ConnectionService connections,MessageRepository messages,
+                       ConversationReadStateRepository readStates,PairGuard guard) {
+        this.accounts=accounts; this.connections=connections; this.messages=messages;
+        this.readStates=readStates; this.guard=guard;
     }
     @Transactional
     public void send(String username,Long id,String body) {
@@ -48,5 +53,41 @@ public class ChatService {
         }
         return found.stream().map(m -> new MessageView(m.getId(),m.getBody(),CLOCK.format(m.getSentAt()),m.getSenderId().equals(actor))).toList();
     }
+    public HistoryPage history(String username,Long id,Long before) {
+        Long actor=accounts.current(username).getId();
+        connections.require(id,actor);
+        if (before==null||before<1) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        List<Message> found=new ArrayList<>(messages.findTop101ByConnectionIdAndIdLessThanOrderByIdDesc(id,before));
+        boolean hasOlder=found.size()>100;
+        if (hasOlder) found.removeLast();
+        Collections.reverse(found);
+        List<MessageView> views=found.stream().map(m -> new MessageView(m.getId(),m.getBody(),CLOCK.format(m.getSentAt()),m.getSenderId().equals(actor))).toList();
+        Long nextBefore=hasOlder&&!found.isEmpty()?found.getFirst().getId():null;
+        return new HistoryPage(views,hasOlder,nextBefore);
+    }
     public String preview(Long id) { return messages.findTopByConnectionIdOrderByIdDesc(id).map(Message::getBody).orElse(""); }
+    @Transactional
+    public ReadReceipt acknowledgeRead(String username,Long id,Long throughMessageId) {
+        Long actor=accounts.current(username).getId();
+        Connection link=connections.require(id,actor);
+        guard.lock(link.getLowId(),link.getHighId());
+        entityManager.refresh(link);
+        connections.require(id,actor);
+        if (throughMessageId==null||throughMessageId<1||messages.findByIdAndConnectionId(throughMessageId,id).isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"ui.message_not_found_for_this_conversation");
+        }
+        ConversationReadState state=readStates.findByConnectionIdAndParticipantId(id,actor)
+                .orElseGet(() -> new ConversationReadState(id,actor));
+        state.advanceTo(throughMessageId);
+        readStates.saveAndFlush(state);
+        long unread=messages.countByConnectionIdAndSenderIdNotAndIdGreaterThan(id,actor,state.getLastReadMessageId());
+        return new ReadReceipt(state.getLastReadMessageId(),unread);
+    }
+    public long unreadCount(String username,Long id) {
+        Long actor=accounts.current(username).getId();
+        connections.require(id,actor);
+        long lastRead=readStates.findByConnectionIdAndParticipantId(id,actor)
+                .map(ConversationReadState::getLastReadMessageId).orElse(0L);
+        return messages.countByConnectionIdAndSenderIdNotAndIdGreaterThan(id,actor,lastRead);
+    }
 }

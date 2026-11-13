@@ -1,0 +1,51 @@
+{
+  "capturedAt": "2026-11-09T00:31:39.944Z",
+  "browser": "156.0.8078.80",
+  "checks": [
+    {
+      "id": "D-01/D-02",
+      "assertion": "Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-02",
+      "assertion": "A later incoming message becomes unread again and a new acknowledgement clears it.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-03",
+      "assertion": "More than 100 messages load in a bounded page, remain ascending and contain no duplicates.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-04",
+      "assertion": "A polling result arriving after older-history paging merges by ID without duplicates or reordering.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06a",
+      "assertion": "A 1,000-character message remains readable without horizontal page overflow.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06b",
+      "assertion": "Keyboard navigation reaches the send control and Enter submits the message.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-06c",
+      "assertion": "An empty conversation shows a usable composer without a misleading load-history control.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [
+    "AssertionError [ERR_ASSERTION]: Send button overlaps mobile navigation: {\"sendBottom\":808.4375,\"navTop\":772}\n    at file:///Users/yue/Documents/ChatGPT/%E4%B8%93%E9%A2%98%E9%A1%B9%E7%9B%AE/thematic-friend-finder/code/thematic-friend/scripts/conversation-browser/conversation-check.mjs:233:10"
+  ],
+  "screenshots": [
+    "D_normal_connections.png",
+    "D_normal_conversation.png",
+    "D_boundary_history.png",
+    "D_empty_conversation.png"
+  ],
+  "exitCode": 1
+}
