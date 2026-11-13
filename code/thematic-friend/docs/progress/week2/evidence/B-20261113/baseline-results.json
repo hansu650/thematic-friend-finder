@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-11-13T08:12:40.991Z",
+  "baseRevision": "e8d14813b8cef985f9e6cef8976d3395ff59e221",
+  "method": "Original templates loaded through the Spring Thymeleaf prefix on the current JAR. Java backend and original shared CSS are unchanged. This is a template-baseline comparison, not an old binary run.",
+  "jarSha256": "890f0fca4a9f7416afa109d5d5a5d6f0df696741832ee92301cfcbd4e765296c",
+  "templateSha256": {
+    "code/thematic-friend/src/main/resources/templates/change-password.html": "2a11d3a99eb847d89970640e7eaf0e1fc3a3ef94444ae22faef38c4a48e53c01",
+    "code/thematic-friend/src/main/resources/templates/connections.html": "6cfb9903dbe905d6fa730dd92421b3fa2467df6688f007ae4fe3ccd6188ff05b",
+    "code/thematic-friend/src/main/resources/templates/conversation.html": "cd39c73062eb86bfb0022d8b02348131418053ecaf7c81f8d793c8d25e1c71ee",
+    "code/thematic-friend/src/main/resources/templates/discover.html": "b4e25d79aa05dd5efb12679294891491478b569f6b4744d155229c258ad53e62",
+    "code/thematic-friend/src/main/resources/templates/error.html": "850105b214f3960d66a9702d114dc3d27d2f87365f3d6985af81271e421dabe3",
+    "code/thematic-friend/src/main/resources/templates/fragments/layout.html": "e7fd76d4452cdb3896ab4837c848ca5f1deb9437a8a33431abc5330c3088b42d",
+    "code/thematic-friend/src/main/resources/templates/login.html": "8c3db22f2ac57f062eb3f268250bff0dd4178c9835fecb6331b28a7bbcd73a70",
+    "code/thematic-friend/src/main/resources/templates/match.html": "9f59ccaf48d5dadd014118e3eb6b8e577ef1af0c89adf67410ec99b275f6c8b1",
+    "code/thematic-friend/src/main/resources/templates/privacy.html": "468bdeef92c81951985cb4c4d5f703984b21bcdaa88c3a29b7f7f6b4a7f1c3d2",
+    "code/thematic-friend/src/main/resources/templates/profile.html": "1058f13ec12bf32ff11e3b53da9c01a9ebc06bd0fc235e0ca4de9307daec9e96",
+    "code/thematic-friend/src/main/resources/templates/report-review.html": "7559e215e0bd5336b8bd040950760df2b688c96c9f20c4d4bde8c6faf21b4879",
+    "code/thematic-friend/src/main/resources/templates/report.html": "ee40467912c3b1b505c3e0763852f3b414683887459c25ec5bf6f359c430210a",
+    "code/thematic-friend/src/main/resources/templates/safety.html": "5d12283532c747da5a5ed8f5be2a8a4e37a2f21b1c879bf57ffc5c86fcb707dc",
+    "code/thematic-friend/src/main/resources/templates/signup.html": "e15b57d29d6388c33ba393f96363baffd868333b1ce2cd0fb81b4ef12dfb821e",
+    "code/thematic-friend/src/main/resources/templates/welcome.html": "8afb349683e33e96376d1dc02e6ca04649815857a05028c3cd9053ca5ff1c3ff"
+  },
+  "checks": [
+    "Original static card still displays saved Jamie Zhou while the unsaved form contains Morgan Example."
+  ],
+  "exitCode": 0,
+  "browser": "157.0.4341.42"
+}
