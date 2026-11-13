@@ -35,6 +35,14 @@ Taken on 13 November 2026 from a local instance started with `--spring.profiles.
 - Staff rights in these captures come only from the local `app.review.staff-member-id=1` setting; no account is staff in the default configuration.
 - The re-run and captures used JDK 26.0.2.1 because the JDK 21 path referenced by `scripts/build.ps1` is not installed on this machine. Compilation still targets release 21 and the 54-test result matches the earlier run. Framework startup logs were suppressed with `LOGGING_LEVEL_ROOT=WARN` and `SPRING_MAIN_BANNER_MODE=off` so one screen shows the command and the result; the command, the tests and the result lines are unmodified.
 
+## Screenshots supplied by the contributor
+
+- [Staff queue](./images/E_queue.png) shows report #1 pending.
+- [Saved resolution](./images/E_normal.png) shows report #1 reviewed with the handler ID, timestamp and internal note.
+- [Access denied](./images/E_boundary.png) shows the 403 page from the permission check.
+- [Reporter receipt](./images/E_receipt.png) shows the receipt without the internal note. The receipt displays the original pending label, so this capture does not demonstrate a reporter-facing status update.
+- [Local test result](./images/E_tests.png) shows 54 tests passing, BUILD SUCCESS and exit code 0.
+
 ## Pending
 
 Peer review by F after the account provisioning is confirmed with A and C, Trello update, and the two follow-ups listed above. Codex assisted with implementation, automated tests, captures and this record.
