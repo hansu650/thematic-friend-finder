@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Original Mingle little-cloud sticker pack. No external assets or fonts. -->
+  <defs>
+    <radialGradient id="mint" cx="30%" cy="20%" r="90%"><stop stop-color="#f0fffb"/><stop offset=".5" stop-color="#b6ebe4"/><stop offset="1" stop-color="#83bbce"/></radialGradient>
+    <radialGradient id="lilac" cx="30%" cy="20%" r="90%"><stop stop-color="#fff5ff"/><stop offset=".5" stop-color="#d9c8f5"/><stop offset="1" stop-color="#af9bdc"/></radialGradient>
+    <radialGradient id="peach" cx="30%" cy="20%" r="90%"><stop stop-color="#fff9ef"/><stop offset=".5" stop-color="#f7d6d6"/><stop offset="1" stop-color="#dfa5bd"/></radialGradient>
+    <linearGradient id="pink" x2="0" y2="1"><stop stop-color="#f7a5c3"/><stop offset="1" stop-color="#d973a3"/></linearGradient>
+    <path id="cloud" d="M35 111C18 91 26 70 39 61C39 40 56 28 74 34C88 19 112 29 117 48C139 52 143 75 134 91C145 113 122 132 103 128C90 141 68 140 57 127C46 129 38 121 35 111Z"/>
+    <g id="blush"><ellipse cx="51" cy="86" rx="9" ry="5" fill="#efa8bf" opacity=".6"/><ellipse cx="113" cy="86" rx="9" ry="5" fill="#efa8bf" opacity=".6"/></g>
+    <g id="eyes"><ellipse cx="65" cy="73" rx="4.5" ry="7" fill="#504d76"/><ellipse cx="99" cy="73" rx="4.5" ry="7" fill="#504d76"/><circle cx="66" cy="70" r="1.3" fill="#fff"/><circle cx="100" cy="70" r="1.3" fill="#fff"/></g>
+    <path id="sparkle" d="M0-9C1-2 2-1 9 0C2 1 1 2 0 9C-1 2-2 1-9 0C-2-1-1-2 0-9Z"/>
+  </defs>
+  <symbol id="hello" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="142" rx="40" ry="6" fill="#bacfdc" opacity=".25"/><use href="#cloud" fill="url(#mint)" stroke="#fff" stroke-width="2"/><use href="#blush"/><use href="#eyes"/>
+    <path d="M74 87Q82 98 91 87" fill="none" stroke="#675f88" stroke-width="3" stroke-linecap="round"/>
+    <path d="M115 109C126 102 137 86 134 76C132 68 128 72 126 81C121 74 117 78 119 86C110 91 108 102 115 109Z" fill="url(#mint)" stroke="#a2ced5" stroke-width="1.5"/>
+    <path d="M140 68L145 62M146 80L153 78" fill="none" stroke="#ba9ada" stroke-width="3" stroke-linecap="round"/><use href="#sparkle" transform="translate(26 36) scale(.8)" fill="#c6adf1"/>
+  </symbol>
+  <symbol id="happy" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="142" rx="40" ry="6" fill="#c7badc" opacity=".25"/><use href="#cloud" fill="url(#lilac)" stroke="#fff" stroke-width="2"/><use href="#blush"/>
+    <path d="M58 75Q65 64 72 75M92 75Q99 64 106 75" fill="none" stroke="#635579" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M68 86Q81 112 95 86Z" fill="#76628f"/><path d="M74 97Q82 91 90 97Q81 106 74 97Z" fill="#ecadc5"/>
+    <use href="#sparkle" transform="translate(27 47)" fill="#e4b68c"/><use href="#sparkle" transform="translate(139 43) scale(.8)" fill="#b59bdf"/><circle cx="130" cy="25" r="3" fill="#e4bfdc"/>
+  </symbol>
+  <symbol id="heart" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="142" rx="40" ry="6" fill="#d9bbc9" opacity=".25"/><use href="#cloud" fill="url(#peach)" stroke="#fff" stroke-width="2"/><use href="#blush"/><use href="#eyes"/>
+    <path d="M75 87Q82 93 89 87" fill="none" stroke="#926c88" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M81 107C62 83 39 111 81 139C124 111 99 83 81 107Z" fill="url(#pink)" stroke="#fff0f7" stroke-width="2"/>
+    <ellipse cx="51" cy="110" rx="13" ry="8" transform="rotate(-25 51 110)" fill="#f6d7e1"/><ellipse cx="112" cy="110" rx="13" ry="8" transform="rotate(25 112 110)" fill="#efc6d6"/>
+    <path d="M132 33C124 23 115 35 132 46C149 35 139 23 132 33Z" fill="#e4a5c5"/><path d="M26 58C21 52 16 58 26 65C36 58 31 52 26 58Z" fill="#d5bbeb"/>
+  </symbol>
+  <symbol id="coffee" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="143" rx="42" ry="6" fill="#bccbd6" opacity=".25"/><use href="#cloud" fill="url(#mint)" stroke="#fff" stroke-width="2"/><use href="#blush"/><use href="#eyes"/>
+    <path d="M76 86Q82 91 88 86" fill="none" stroke="#675f88" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M106 105H113C126 105 127 124 109 124" fill="none" stroke="#fff6eb" stroke-width="7"/>
+    <path d="M56 102H109L105 130Q82 144 60 130Z" fill="#fff2e0" stroke="#e5cbb4" stroke-width="1.5"/><ellipse cx="82" cy="102" rx="26" ry="5.5" fill="#d8baa9"/><ellipse cx="82" cy="101" rx="21" ry="3.5" fill="#947b72"/>
+    <path d="M70 117Q81 127 93 117" fill="none" stroke="#d0a794" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M77 24C69 15 83 13 76 5M90 27C84 20 95 17 90 11" fill="none" stroke="#d5c5e8" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="cheer" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="142" rx="40" ry="6" fill="#c4bddc" opacity=".25"/><use href="#cloud" fill="url(#lilac)" stroke="#fff" stroke-width="2"/><use href="#blush"/>
+    <path d="M60 76L67 70L73 75M91 75L98 70L105 76" fill="none" stroke="#625377" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M72 88Q82 105 93 88Z" fill="#9a739d"/>
+    <path d="M63 125C54 118 60 109 68 107L77 103C76 94 83 92 86 101L91 116C88 129 73 135 63 125Z" fill="#eadcf8" stroke="#c6addd" stroke-width="1.5"/>
+    <path d="M103 123C115 114 108 107 102 105L90 101C91 92 85 91 82 100L78 116C81 130 94 131 103 123Z" fill="#d8c1ed" stroke="#c0a3d9" stroke-width="1.5"/>
+    <use href="#sparkle" transform="translate(23 72) scale(.8)" fill="#c6b7eb"/><use href="#sparkle" transform="translate(137 59)" fill="#e5c59d"/><path d="M31 30L36 37M124 26L120 35" stroke="#dab0cf" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="night" viewBox="0 0 160 160">
+    <ellipse cx="80" cy="142" rx="40" ry="6" fill="#bac0dc" opacity=".25"/><use href="#cloud" fill="url(#lilac)" stroke="#fff" stroke-width="2"/><use href="#blush"/>
+    <path d="M58 75Q65 82 73 75M91 75Q99 82 107 75" fill="none" stroke="#6c5d83" stroke-width="3" stroke-linecap="round"/><ellipse cx="82" cy="90" rx="4" ry="3" fill="#967d9c"/>
+    <path d="M33 106Q80 125 132 106L125 130Q80 150 39 131Z" fill="#b2bce2" stroke="#c8d2ef" stroke-width="2"/><use href="#sparkle" transform="translate(70 128) scale(.6)" fill="#eaf1ff"/>
+    <path d="M128 15A19 19 0 1 0 148 42C129 47 117 30 128 15Z" fill="#f2dca8"/><use href="#sparkle" transform="translate(27 29) scale(.7)" fill="#ddd0f3"/><circle cx="139" cy="61" r="2.5" fill="#ddc9ee"/>
+  </symbol>
+</svg>

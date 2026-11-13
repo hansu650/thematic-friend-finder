@@ -1,14 +1,14 @@
 {
   "confirmed": "2026-11-06",
-  "roles_updated": "2026-11-09",
+  "roles_updated": "2026-11-13",
   "order": "1–6 maps to A–F",
   "members": [
     {
       "id": "A",
       "name": "Qin Tian",
       "zh": "秦天",
-      "role": "Product Owner, Scrum Master, Team Leader and Developer",
-      "area": "Discovery, matching feedback and integration",
+      "role": "Scrum Master and Lead Developer",
+      "area": "Core code, shared UI, discovery, activities, contracts and integration",
       "refs": "3, 4, 5",
       "reviewer": "B Wang Yikai",
       "file": "A_discovery",
@@ -18,7 +18,7 @@
       "id": "B",
       "name": "Wang Yikai",
       "zh": "王艺凯",
-      "role": "Developer and Usability Lead",
+      "role": "Developer",
       "area": "Shared UI, live profile preview and accessibility",
       "refs": "4, 7, 9 (layout only)",
       "reviewer": "C Tao Jiacheng",
@@ -29,8 +29,8 @@
       "id": "C",
       "name": "Tao Jiacheng",
       "zh": "陶嘉成",
-      "role": "Developer and Data Lead",
-      "area": "Account settings, password change and data contracts",
+      "role": "Product Owner",
+      "area": "Product goal, backlog order, acceptance criteria, scope and account/data clarification",
       "refs": "Cross-page consistency; no account screen was supplied",
       "reviewer": "D Zhou Ziyue",
       "file": "C_accounts",
@@ -40,18 +40,19 @@
       "id": "D",
       "name": "Zhou Ziyue",
       "zh": "周子越",
-      "role": "Developer and Communication Lead",
-      "area": "Conversation list, unread state and older messages",
+      "role": "Developer",
+      "area": "Messaging, unread/history behavior, delivery reliability and two-account regression",
       "refs": "1, 2, 7, 8",
       "reviewer": "E Wu Zhuoda",
       "file": "D_connections",
-      "hours": 28
+      "hours": 34,
+      "follow_up": "tasks/week3/D_chat_reliability.md"
     },
     {
       "id": "E",
       "name": "Wu Zhuoda",
       "zh": "邬卓达",
-      "role": "Developer and Test Coordinator",
+      "role": "Developer",
       "area": "Safety actions, restricted report review and permission tests",
       "refs": "2, 7 (entry placement); review screen is a project design",
       "reviewer": "F Song Peitong",
@@ -62,12 +63,17 @@
       "id": "F",
       "name": "Song Peitong",
       "zh": "宋沛桐",
-      "role": "Developer and Runtime Lead",
+      "role": "Developer",
       "area": "Backup and restore, clean-copy setup and reproduction",
       "refs": "All implemented screens as reproduction targets",
       "reviewer": "A Qin Tian",
       "file": "F_runtime",
       "hours": 28
     }
-  ]
+  ],
+  "selection_contributors": [
+    "Qin Tian",
+    "Tao Jiacheng"
+  ],
+  "primary_developer": "Qin Tian"
 }

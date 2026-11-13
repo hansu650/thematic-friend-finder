@@ -1,56 +1,47 @@
-# Six-Person Roles and Collaboration
+# Roles and Collaboration
 
-A is the user and team leader. B–F are the other five members. On 9 November 2026, Qin Tian requested both Product Owner and Scrum Master responsibilities. This table reflects that role decision; each member still confirms availability and capacity.
+Current revision: 13 November 2026. Qin Tian is the Scrum Master and Lead Developer. Tao Jiacheng is the Product Owner. Wang Yikai, Zhou Ziyue, Wu Zhuoda and Song Peitong are Developers with the focuses below.
 
-| Member | Role | Code ownership | Initial reviewer |
+| Member | Role | Ownership | Initial reviewer |
 |---|---|---|---|
-| A Qin Tian | Team Leader, Product Owner, Scrum Master and Developer | config/, discovery/, shared contracts and integration | B, with C/F for backend and runtime changes |
-| B Wang Yikai | Developer and Usability Lead | live profile preview, interest counter and accessible interaction | C Tao Jiacheng |
-| C Tao Jiacheng | Developer and Data Lead | password change, account/session contracts and validation | D Zhou Ziyue |
-| D Zhou Ziyue | Developer and Integration Lead for Communication | unread tracking and older-message paging | E Wu Zhuoda |
-| E Wu Zhuoda | Developer and Test Coordinator | staff-only report review and permission tests | F Song Peitong |
-| F Song Peitong | Developer and Runtime Lead | backup/restore tools, clean-copy reproduction and handover | A Qin Tian |
+| A Qin Tian | Scrum Master and Lead Developer | Core code, shared UI, discovery/activities, architecture, integration and release verification | B, with C/F for account and runtime contracts |
+| B Wang Yikai | Developer | Profile interaction, accessible controls and usability checks | C Tao Jiacheng |
+| C Tao Jiacheng | Product Owner | Product goal, backlog ordering, acceptance criteria and scope; retained account/data contribution | D Zhou Ziyue |
+| D Zhou Ziyue | Developer | Chat, unread/history behavior, delivery/retry reliability and two-account regression | E Wu Zhuoda |
+| E Wu Zhuoda | Developer | Safety, restricted report review and cross-module regression coordination | F Song Peitong |
+| F Song Peitong | Developer | Backup/restore, startup tools and independent reproduction | A Qin Tian |
 
-A reviews and merges all PRs, with technical review distributed across the team. A owns the existing AI-assisted baseline as well as discovery and integration. B–F implement the new features in [the agreed increment map](./10_baseline_and_member_increments.md). Planned hours are estimates, not contribution records.
+## Product, process and technical decisions
 
-Team Leader is a local coordination title. Scrum uses Product Owner, Scrum Master and Developers; coordination time counts towards capacity when roles are combined. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+- C owns product priorities, clarifies acceptance criteria, records scope decisions and presents product outcomes at Sprint Reviews.
+- A facilitates Scrum events, follows up impediments and supports process improvements. A also leads the core implementation, technical integration and release checks.
+- Developers estimate and organise their work, maintain their own tests and record actual progress. E coordinates regression evidence; F coordinates reproducibility.
+- Product acceptance and technical review are separate records. A integrates changes; C assesses the agreed product outcomes. Neither an assignment nor a merge proves that an independent review took place.
 
-## Combined Product Owner and Scrum Master responsibilities
-
-- As Product Owner, A maintains the product goal, orders the backlog and clarifies acceptance expectations.
-- As Scrum Master, A supports Sprint Planning, brief working-day coordination, Reviews and Retrospectives, follows up impediments and helps the team improve its workflow.
-- Developers estimate and organise their own work. E coordinates cross-module regression evidence while each owner remains responsible for their implementation and tests.
-- Record product decisions separately from process improvements. Note-taking keeps its existing rotation, and B remains A's independent reviewer.
-- Count both responsibilities inside A's planned capacity; the workload table and workbook include the revised allocation. These are assigned duties, not evidence that meetings or reviews have occurred.
+Qin Tian is the primary developer and technical lead. Project selection and initial direction were shared with Tao Jiacheng. A's baseline and current UI work are explicitly AI-assisted; ownership is not a claim of unaided authorship.
 
 ## Shared changes
 
-- A coordinates `pom.xml`, security configuration and shared contracts. C owns account fields; D and E coordinate data changes with C.
-- B coordinates common CSS and navigation. Other developers maintain their feature behaviour and avoid formatting entire shared files in unrelated PRs.
-- F coordinates runtime scripts and fictional seed data. Seed code must respect password hashing and business rules.
-- Each card names affected classes, pages and interfaces before work starts. Split overlapping work into small PRs and integrate early.
+- A coordinates shared configuration, security integration, navigation and application contracts. C clarifies account and product requirements with the relevant developer.
+- D owns the chat follow-up in [D's reliability task](./tasks/week3/D_chat_reliability.md). Agree any message identity/schema change with A/C before implementation.
+- B coordinates accessibility checks with A's shared UI work. E preserves staff-only report permissions. F's runtime tools must keep existing databases and reject unsafe destinations.
+- Each task identifies affected classes, routes and tests. Keep PRs focused and retain other members' changes during integration.
 
-Review rotation: A → B, B → C, C → D, D → E, E → F, F → A. Add a relevant specialist when the change crosses boundaries. Meeting notes rotate: W1 B, W2 C, W3 D, W4 F, W5 E. A facilitates product reviews and process retrospectives; E coordinates regression results and defect/retest evidence.
+Review rotation: A to B, B to C, C to D, D to E, E to F, F to A. Meeting notes rotate: W1 B, W2 C, W3 D, W4 F, W5 E. C leads product discussion; A facilitates the process; D presents the messaging walkthrough and its reliability evidence.
 
-Start development branches from the latest `main` after the Java baseline has been merged. Keep the old `w1/a-research` branch; it is not the Java development starting point. Completed, verified PRs become Ready for review. Unfinished work may remain Draft with a clear explanation.
+## Branches and review
 
-## Branch convention
+Use lowercase task branches named w<week>/<member-letter>-<task>. Start from current main and preserve the W1 research branches. Complete implementation and relevant checks before marking a PR Ready for review. Record actual review separately from automated verification.
 
-Continue the W1 example (`w1/a-research` through `w1/f-research`) in later weeks: **`w<week>/<member-letter>-<task>`**, all lowercase. Use a separate branch for a coherent task; submit a PR with the actual test results and evidence. Preserve the W1 research branches and their history.
-
-| Owner | W2 development branch |
+| Member | Current or next task branch |
 |---|---|
-| A Qin Tian | `w2/a-discovery` |
-| B Wang Yikai | `w2/b-interface` |
-| C Tao Jiacheng | `w2/c-accounts` |
-| D Zhou Ziyue | `w2/d-connections` |
-| E Wu Zhuoda | `w2/e-safety` |
-| F Song Peitong | `w2/f-runtime` |
+| A | w2/a-reference-polish |
+| B | w2/b-interface |
+| C | w2/c-accounts; product decisions belong in the current backlog |
+| D | w3/d-chat-reliability after the merged w2/d-connections increment |
+| E | w2/e-safety; use a fresh task branch for follow-up work |
+| F | w2/f-runtime; use a fresh task branch for follow-up work |
 
-The shared Java baseline uses `w2/a-baseline`. Wait for its peer review and merge before branching new integrated work from `main`; members can use their runnable ZIP in the meantime. Do not overwrite a teammate's branch or force-push shared history. A's own PR also needs peer review.
+The user authorised A's current UI/role revision to merge after verification. This does not manufacture a peer approval or change the team's ordinary review responsibilities.
 
-Keep the branch/PR view, updated Kanban, actual test results and useful discussion photos as dated evidence. The local report archive is `photo/A_progress.md`, with `photo/code/`, `photo/terminal/`, `photo/human/` and `photo/web/`. Numbered captions record the dates; the primary archive no longer uses date folders. Use relative image paths in Markdown.
-
-Workload target: A 42 hours; B–F 28 hours each, including coordination and evidence. See [workload balance](./11_workload_balance.md) for the allocation and adjustment rule.
-
-Use the confirmed [team roster](./00_team_roster.md) on every task publication. Follow the [UI map](./12_ui_reference_map.md) and [test/evidence plan](./13_testing_and_weekly_evidence.md).
+Planned effort: A 42 hours; D 34 hours; B, C, E and F 28 hours each, including development, coordination and evidence. See [workload](./11_workload_balance.md), [roster](./00_team_roster.md) and [contributions](./15_contribution_and_ownership.md).

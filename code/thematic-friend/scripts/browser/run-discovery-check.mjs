@@ -31,7 +31,7 @@ fsSync.closeSync(serverLog);
 let launchError;
 server.on('error', error => { launchError = error; });
 const metadata = {
-  startedAt: new Date().toISOString(), jarSha256: crypto.createHash('sha256').update(await fs.readFile(jar)).digest('hex'),
+  startedAt: new Date().toISOString(), jar,
   java, node: process.version, base, output, command: 'node scripts/browser/run-discovery-check.mjs'
 };
 let exitCode = 1;

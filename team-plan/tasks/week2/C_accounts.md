@@ -2,11 +2,13 @@
 
 Named owner: **Tao Jiacheng (C)**. Reviewer: **D Zhou Ziyue**.
 
-Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer; account and data lead**. Reviewer: **D**. A reviews and merges PRs.
+Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Product Owner**, retaining the documented account/data contribution. Reviewer: **D**. A reviews and merges PRs.
 
-## Starting point
+## Current status
 
-The baseline provides registration, login, profile editing and validation. It has no password-change workflow. Do not re-submit registration as your new feature.
+The password-change increment was merged through PR #11. Preserve its actual authorship and evidence. From 13 November, Tao Jiacheng is Product Owner and shares credit with Qin Tian for project selection and initial direction.
+
+Current product duties: maintain the product goal and ordered backlog; clarify acceptance criteria; record scope decisions; inspect Sprint outcomes; and agree the chat-reliability acceptance contract with D/A. The original technical work below remains the record of the account increment.
 
 ## Your actual work
 

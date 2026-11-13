@@ -38,9 +38,10 @@ async function login(session, username) {
   await session.page.locator('#username').fill(username);
   await session.page.locator('#password').fill(password);
   await Promise.all([
-    session.page.waitForURL('**/discover'),
+    session.page.waitForURL('**/explore'),
     session.page.locator('form button[type=submit]').click()
   ]);
+  await session.page.goto(base + '/discover');
 }
 
 async function filters(session, interest, goal) {
@@ -51,7 +52,7 @@ async function likeProfileNamed(session, name) {
   for (let attempt = 0; attempt < 12; attempt++) {
     const card = session.page.locator('#swipe-card');
     if (await card.count() === 0) throw new Error(`No eligible card found before ${name}.`);
-    if (await session.page.locator('#swipe-card h2').innerText() === name) {
+    if (await session.page.locator('.detail-copy>h1').innerText() === name) {
       await Promise.all([session.page.waitForNavigation(), session.page.locator('#like-form button').click()]);
       return;
     }
@@ -101,7 +102,7 @@ try {
   const jamie = await setup();
   await login(jamie, 'demo_zhou');
   await filters(jamie, 'Coffee', 'New friends');
-  assert.equal(await jamie.page.locator('#swipe-card h2').innerText(), 'Alex Lin');
+  assert.equal(await jamie.page.locator('.detail-copy>h1').innerText(), 'Alex Lin');
   await Promise.all([jamie.page.waitForNavigation(), jamie.page.locator('#like-form button').click()]);
 
   const alex = await setup();
@@ -181,7 +182,7 @@ try {
 
   const longMessage = 'Long message ' + 'x'.repeat(987);
   assert.equal(await sendMessage(alex.page, chatAction, longMessage), 200);
-  await jamie.page.getByText(longMessage, { exact: true }).waitFor({ timeout: 10000 });
+  await jamie.page.locator('#messages .message>p').filter({hasText:longMessage}).waitFor({ timeout: 10000 });
   assert.equal(await noHorizontalOverflow(jamie.page), true);
   ok('D-06a', 'A 1,000-character message remains readable without horizontal page overflow.');
 
@@ -189,8 +190,8 @@ try {
   await jamie.page.locator('#body').focus();
   await jamie.page.keyboard.press('Tab');
   assert.equal(await jamie.page.evaluate(() => document.activeElement?.closest('form')?.id), 'message-form');
-  await Promise.all([jamie.page.waitForNavigation(), jamie.page.keyboard.press('Enter')]);
-  await jamie.page.getByText('Keyboard send check', { exact: true }).waitFor();
+  await jamie.page.keyboard.press('Enter');
+  await jamie.page.locator('#messages .message.mine>p').filter({hasText:'Keyboard send check'}).waitFor();
   ok('D-06b', 'Keyboard navigation reaches the send control and Enter submits the message.');
 
   const sam = await setup();
@@ -202,7 +203,7 @@ try {
     jamie.page.waitForURL(url => /\/(matches|conversations)\/\d+$/.test(url.pathname)),
     (async () => {
       for (let attempt = 0; attempt < 12; attempt++) {
-        if (await jamie.page.locator('#swipe-card h2').innerText() === 'Sam Su') {
+        if (await jamie.page.locator('.detail-copy>h1').innerText() === 'Sam Su') {
           await jamie.page.locator('#like-form button').click();
           return;
         }
@@ -228,10 +229,13 @@ try {
   assert.equal(await mobile.page.locator('#messages .message').count() > 0, true);
   const mobileLayout = await mobile.page.evaluate(() => {
     const send = document.querySelector('#message-form button').getBoundingClientRect();
-    const nav = document.querySelector('.sidebar').getBoundingClientRect();
-    return { sendBottom: send.bottom, navTop: nav.top };
+    const nav = document.querySelector('.sidebar');
+    const navVisible = nav && getComputedStyle(nav).display !== 'none';
+    return { sendBottom: send.bottom, limit: navVisible ? nav.getBoundingClientRect().top : innerHeight, navVisible };
   });
-  assert.ok(mobileLayout.sendBottom <= mobileLayout.navTop, `Send button overlaps mobile navigation: ${JSON.stringify(mobileLayout)}`);
+  assert.ok(mobileLayout.sendBottom <= mobileLayout.limit, `Send button must fit the unobscured viewport: ${JSON.stringify(mobileLayout)}`);
+  assert.equal(await mobile.page.locator('.chat-back').getAttribute('href'), '/connections');
+  assert.ok(await mobile.page.locator('.chat-back').isVisible());
   await screenshot(mobile, 'D_mobile_conversation.png', true);
   ok('D-06d', 'The desktop conversation remains usable at 390 px without horizontal overflow.');
 

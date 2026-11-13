@@ -257,6 +257,51 @@ class ConversationReadStateTests {
                 .andExpect(status().isForbidden());
     }
 
+    @Test
+    void asyncSendPersistsTextAndStickersAndKeepsUserContentEscaped() throws Exception {
+        Connection link = match(sender, recipient);
+        String api = "/api/conversations/" + link.getId() + "/messages";
+        mvc.perform(post(api).with(user(sender.getUsername())).with(csrf()).param("body", "Hello 😊"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.body").value("Hello 😊"))
+                .andExpect(jsonPath("$.mine").value(true)).andExpect(jsonPath("$.id").isNumber());
+        mvc.perform(post(api).with(user(recipient.getUsername())).with(csrf()).param("body", "[[sticker:coffee]]"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.body").value("[[sticker:coffee]]"));
+        assertThat(chat.read(sender.getUsername(), link.getId(), null)).hasSize(2);
+        assertThat(chat.unreadCount(sender.getUsername(), link.getId())).isEqualTo(1);
+        chat.send(sender.getUsername(), link.getId(), "[[sticker:<img src=x onerror=alert(1)>]]");
+        mvc.perform(get("/conversations/" + link.getId()).with(user(recipient.getUsername())))
+                .andExpect(status().isOk()).andExpect(content().string(containsString("data-sticker=\"coffee\"")))
+                .andExpect(content().string(containsString("&lt;img src=x onerror=alert(1)&gt;")))
+                .andExpect(content().string(not(containsString("<img src=x"))));
+        mvc.perform(get("/connections").with(user(sender.getUsername()))).andExpect(status().isOk());
+    }
+
+    @Test
+    void asyncSendRejectsInvalidBodiesAndRespectsAuthenticationCsrfAndConversationBoundaries() throws Exception {
+        Member outsider = create("async_outsider", "Outsider");
+        Connection link = match(sender, recipient);
+        String api = "/api/conversations/" + link.getId() + "/messages";
+        mvc.perform(post(api).with(csrf()).param("body", "Hello")).andExpect(status().isUnauthorized());
+        mvc.perform(post(api).with(user(sender.getUsername())).param("body", "Hello")).andExpect(status().isForbidden());
+        mvc.perform(post(api).with(user(outsider.getUsername())).with(csrf()).param("body", "Hello")).andExpect(status().isNotFound());
+        for (String invalid : List.of("   ", "x".repeat(1001))) {
+            mvc.perform(post(api).with(user(sender.getUsername())).with(csrf()).param("body", invalid))
+                    .andExpect(status().isBadRequest()).andExpect(jsonPath("$.error").isString());
+        }
+        assertThat(messages.count()).isZero();
+        mvc.perform(post(api).with(user(sender.getUsername())).with(csrf()).param("body", "x".repeat(1000)))
+                .andExpect(status().isOk());
+        connections.end(sender.getUsername(), link.getId());
+        mvc.perform(post(api).with(user(recipient.getUsername())).with(csrf()).param("body", "After closing"))
+                .andExpect(status().isForbidden());
+        assertThat(messages.count()).isEqualTo(1);
+        Connection other = match(recipient, outsider);
+        blocks.saveAndFlush(new com.example.thematicfriend.safety.Block(outsider.getId(),recipient.getId()));
+        mvc.perform(post("/api/conversations/" + other.getId() + "/messages").with(user(recipient.getUsername())).with(csrf()).param("body", "Blocked"))
+                .andExpect(status().isForbidden());
+        assertThat(messages.count()).isEqualTo(1);
+    }
+
     Member create(String username, String nickname) {
         Member member = new Member(username, encoder.encode("Synthetic-Test-2026"), nickname);
         member.updateProfile(nickname, "Fictional test profile", List.of("Coffee"), "New friends", true);

@@ -1,0 +1,26 @@
+/* Free Preline UI component adaptations. See docs/THIRD_PARTY.md and
+   docs/licenses/Preline-LICENSE.txt. Page composition is specific to Mingle. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+/* Existing application base styles remain in app.css; do not reset them. */
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "../../src/main/resources/templates";
+@source "../../src/main/resources/static/js";
+
+@theme {
+  --color-primary: #e74568;
+  --color-primary-foreground: #ffffff;
+  --color-layer: #ffffff;
+  --color-layer-line: #e3e7ee;
+  --color-foreground: #283344;
+  --color-muted-foreground: #697586;
+}
+
+/* Adapted from Preline's documented basic Card, Buttons, Input and
+   Conversation examples. Semantic selectors also style rows inserted by chat.js. */
+.pl-card { @apply bg-layer border border-layer-line rounded-xl shadow-2xs; }
+.pl-button { @apply inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-primary text-primary-foreground text-sm font-medium disabled:opacity-50 disabled:pointer-events-none; }
+.pl-input { @apply py-3 px-4 block w-full border border-layer-line rounded-lg text-sm focus:border-primary focus:ring-primary; }
+.pl-badge { @apply inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium; }
+.pl-messages .message > p { @apply bg-layer border border-layer-line rounded-2xl p-4 text-sm text-foreground; }
+.pl-messages .message.mine > p { @apply inline-block bg-primary border-transparent rounded-2xl p-4 text-primary-foreground shadow-2xs; }

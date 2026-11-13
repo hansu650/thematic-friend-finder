@@ -1,16 +1,16 @@
 # Team Roster
 
-Confirmed by Qin Tian on 6 November 2026. Screenshot positions 1–6 map to A–F in this order. Use these names on task publication pages, board cards and schedules. The account display name for A is Tian Qin; the project uses Qin Tian as requested.
+The A-F mapping was confirmed by Qin Tian on 6 November 2026. The current responsibilities below follow the 13 November revision. The project uses Qin Tian; the account display name may appear as Tian Qin.
 
-**Role revision, 9 November 2026:** Qin Tian (A) now holds both Product Owner and Scrum Master responsibilities, alongside development. Wu Zhuoda (E) focuses on development and test coordination.
-
-| ID | Project name | Chinese name | Responsibility | Reviewer |
+| ID | Name | Role | Main responsibility | Reviewer |
 |---|---|---|---|---|
-| A | Qin Tian | 秦天 | Product Owner, Scrum Master, Team Leader and Developer | B Wang Yikai |
-| B | Wang Yikai | 王艺凯 | Developer and Usability Lead | C Tao Jiacheng |
-| C | Tao Jiacheng | 陶嘉成 | Developer and Data Lead | D Zhou Ziyue |
-| D | Zhou Ziyue | 周子越 | Developer and Communication Lead | E Wu Zhuoda |
-| E | Wu Zhuoda | 邬卓达 | Developer and Test Coordinator | F Song Peitong |
-| F | Song Peitong | 宋沛桐 | Developer and Runtime Lead | A Qin Tian |
+| A | Qin Tian | Scrum Master and Lead Developer | Core implementation, shared UI, discovery, activities, architecture, integration and release checks | B Wang Yikai |
+| B | Wang Yikai | Developer | Profile interaction, accessibility and usability checks | C Tao Jiacheng |
+| C | Tao Jiacheng | Product Owner | Product goal, backlog order, acceptance criteria, scope decisions and account/data clarification | D Zhou Ziyue |
+| D | Zhou Ziyue | Developer | Messaging, unread/history behavior, delivery reliability and two-account regression | E Wu Zhuoda |
+| E | Wu Zhuoda | Developer | Safety, staff report review and regression coordination | F Song Peitong |
+| F | Song Peitong | Developer | Runtime, backup/restore and reproducible handover | A Qin Tian |
 
-Romanised names for B–F are pinyin labels based on the supplied names. Their Trello account handles have not been confirmed. A display name or chat avatar alone is not an account match.
+Qin Tian is the primary developer and technical lead, with the largest individual planned contribution. Qin Tian and Tao Jiacheng both contributed to project selection and initial direction, as clarified by Qin Tian on 13 November. See the [contribution and ownership record](./15_contribution_and_ownership.md).
+
+Lead Developer describes A's technical responsibility. The Scrum accountabilities remain Product Owner, Scrum Master and Developers. Names, duties and planned hours do not establish that a task, meeting or review has been completed. Historical research and dated handoff packages retain their original context.

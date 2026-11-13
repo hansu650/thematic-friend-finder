@@ -1,5 +1,7 @@
 # Product Backlog
 
+Product Owner: **C Tao Jiacheng**. Scrum Master and Lead Developer: **A Qin Tian**.
+
 Product goal: help people find friends through interests and activities, connect by mutual choice and control future contact. Acceptance conditions below are a baseline; implementation status belongs to the Java version, PR and verification record.
 
 | ID | User story | Priority | Minimum acceptance | Owner |
@@ -27,7 +29,7 @@ Deferred: payments, precise location, complex machine learning, a native app, la
 
 ## New increments assigned after the baseline
 
-The user assigned the implemented AI-assisted baseline to A on 6 November. US01–US07 describe baseline acceptance; B–F now own the following unimplemented increments.
+The user assigned the implemented AI-assisted baseline to A on 6 November. US01–US07 describe baseline acceptance; The table retains the initial member increments. C/D/E/F have merged their first increments through PRs #11/#10/#14/#13; current results belong to those PRs and the integrated checks.
 
 | ID | Increment | Owner | Acceptance focus |
 |---|---|---|---|
@@ -37,4 +39,12 @@ The user assigned the implemented AI-assisted baseline to A on 6 November. US01�
 | US13 | Restricted report review | E | Staff-only queue/actions, private notes, handler/time, negative access tests |
 | US14 | Backup/restore and independent reproduction | F | Validated paths, stopped database, no silent overwrite, disposable restore evidence |
 
-These are the selected Sprint 1 member increments, subject to capacity confirmation. US13 is the scoped local implementation of the earlier US09 candidate. A owns discovery refinement, contracts and integration; the assistant will not implement B–F's reserved work.
+These are the selected Sprint 1 member increments, subject to capacity confirmation. US13 is the scoped local implementation of the earlier US09 candidate. A owns discovery refinement, contracts and integration; each member retains responsibility for their next assigned increment.
+
+## Follow-up assigned on 13 November
+
+| ID | Increment | Owner | Acceptance | State |
+|---|---|---|---|---|
+| US15 | Reliable message retry after a lost response | D Zhou Ziyue | One stored message per logical send, retained draft, correct permissions and two-account recovery evidence | Assigned; not implemented |
+
+C orders this work against the product goal. A coordinates shared integration. See [D's six-hour task](./tasks/week3/D_chat_reliability.md) and the [revised workload](./11_workload_balance.md). Qin Tian and Tao Jiacheng both contributed to project selection; Qin Tian remains the primary technical contributor.

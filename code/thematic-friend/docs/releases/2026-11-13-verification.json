@@ -1,0 +1,204 @@
+{
+  "verifiedOn": "2026-11-13",
+  "sourceBranch": "w2/a-reference-polish",
+  "integratedMainBase": "e8d14813b8cef985f9e6cef8976d3395ff59e221",
+  "scope": "Final integrated application code in this change; local automated verification, not an independent teammate review.",
+  "java": {
+    "command": "mvnw.cmd --offline --batch-mode --no-transfer-progress package",
+    "jdk": 21,
+    "exitCode": 0,
+    "tests": 66,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "com.example.thematicfriend.AIntegrationTests",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.ChangePasswordTests",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.ConversationReadStateTests",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.DemoConversationTests",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.DiscoveryRegressionTests",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.EventFlowTests",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.LanguageTests",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.PrototypeFlowTests",
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.example.thematicfriend.ThematicFriendApplicationTests",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "referenceBrowser": {
+    "capturedAt": "2026-11-13T06:53:57.303Z",
+    "command": "node scripts/reference-browser/run-reference-check.mjs",
+    "exitCode": 0,
+    "checks": [
+      {
+        "id": "HOME",
+        "detail": "Reference fonts/media, video pause, mobile menu at 320/390/768 px.",
+        "result": "PASS"
+      },
+      {
+        "id": "EVENTS",
+        "detail": "Search/city/topic filters, personal bookmarks, two-account RSVP/cancel and persistence.",
+        "result": "PASS"
+      },
+      {
+        "id": "NATIVE",
+        "detail": "Saved login destination and event actions work without JavaScript.",
+        "result": "PASS"
+      },
+      {
+        "id": "CREATE",
+        "detail": "Published event persists with the authenticated host.",
+        "result": "PASS"
+      },
+      {
+        "id": "CHAT",
+        "detail": "Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.",
+        "result": "PASS"
+      },
+      {
+        "id": "ACCOUNT",
+        "detail": "Shared styling, Chinese strings, 320 px account/safety layouts and persistent reduced motion.",
+        "result": "PASS"
+      },
+      {
+        "id": "RUNTIME",
+        "detail": "No browser exceptions, failed assets or HTTP 5xx.",
+        "result": "PASS"
+      }
+    ],
+    "issues": []
+  },
+  "conversationBrowser": {
+    "capturedAt": "2026-11-13T06:58:55.181Z",
+    "browser": "157.0.4341.46",
+    "command": "node scripts/conversation-browser/run-conversation-check.mjs",
+    "exitCode": 0,
+    "checks": [
+      {
+        "id": "D-01/D-02",
+        "assertion": "Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-02",
+        "assertion": "A later incoming message becomes unread again and a new acknowledgement clears it.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-03",
+        "assertion": "More than 100 messages load in a bounded page, remain ascending and contain no duplicates.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-04",
+        "assertion": "A polling result arriving after older-history paging merges by ID without duplicates or reordering.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06a",
+        "assertion": "A 1,000-character message remains readable without horizontal page overflow.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06b",
+        "assertion": "Keyboard navigation reaches the send control and Enter submits the message.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06c",
+        "assertion": "An empty conversation shows a usable composer without a misleading load-history control.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06d",
+        "assertion": "The desktop conversation remains usable at 390 px without horizontal overflow.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-05/D-06e",
+        "assertion": "An ended conversation returns a real 403 error state that remains readable at 390 px.",
+        "result": "PASS"
+      },
+      {
+        "id": "RUNTIME",
+        "assertion": "No browser exceptions or HTTP 5xx responses during the checked flows.",
+        "result": "PASS"
+      }
+    ],
+    "issues": []
+  },
+  "runtime": {
+    "command": "scripts/tests/BackupRestore.Tests.ps1 -SkipBuild -KeepArtifacts",
+    "exitCode": 0,
+    "executedGroups": [
+      "F-01",
+      "F-02",
+      "F-03",
+      "F-04",
+      "F-06"
+    ],
+    "result": "PASS",
+    "skippedStep": "F-05 Maven invocation was skipped because the separate 66-test package run had passed.",
+    "scope": "PowerShell syntax, stopped-file fixture backup/restore, invalid inputs and documented reproduction. The fixture uses fictional text records, not a newly opened real H2 database."
+  },
+  "screenshots": [
+    "images/2026-11-13-explore.png"
+  ],
+  "limitations": [
+    "Independent teammate review is not claimed.",
+    "No public deployment is performed.",
+    "The additional D chat reliability tasks are assigned, not implemented."
+  ]
+}

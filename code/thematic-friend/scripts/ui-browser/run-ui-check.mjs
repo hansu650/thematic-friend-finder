@@ -70,7 +70,12 @@ try {
   await shot(jamie.page, '01-login-desktop');
   await login(jamie.page, 'demo_zhou');
   assert.equal(await jamie.page.locator('.person-name h2').innerText(), 'Alex Lin');
-  assert.ok((await jamie.page.locator('.person-portrait').evaluate(el => getComputedStyle(el).backgroundImage)).includes('avatar-'));
+  assert.ok((await jamie.page.locator('.person-portrait').evaluate(el => getComputedStyle(el).backgroundImage)).includes('demo-portraits/portrait-02.jpg'));
+  await jamie.page.locator('[data-open-profile]').click();
+  assert.ok(await jamie.page.locator('#profile-details').isVisible());
+  assert.equal(await jamie.page.locator('#profile-details-title').innerText(), 'Alex Lin');
+  await jamie.page.keyboard.press('Escape');
+  await jamie.page.locator('#profile-details').waitFor({state:'hidden'});
   await noOverflow(jamie.page, 'Desktop discovery');
   await shot(jamie.page, '02-discover-desktop');
   await jamie.page.locator('.filter-panel summary').click();
@@ -116,6 +121,15 @@ try {
   await jamie.page.goto(base + '/connections');
   current = jamie.page;
   assert.equal(await jamie.page.locator('.unread-badge').innerText(), '1');
+  await jamie.page.locator('[data-inbox-filter="unread"]').click();
+  assert.ok(await jamie.page.locator('.contact-row').isVisible());
+  await jamie.page.locator('#contact-search').fill('Not a connection');
+  assert.equal(await jamie.page.locator('.contact-row').isVisible(), false);
+  assert.ok(await jamie.page.locator('#contact-no-results').isVisible());
+  await jamie.page.locator('#contact-search').fill('Alex');
+  assert.ok(await jamie.page.locator('.contact-row').isVisible());
+  await jamie.page.locator('[data-inbox-filter="all"]').click();
+  await jamie.page.locator('#contact-search').clear();
   await noOverflow(jamie.page, 'Mobile inbox');
   await shot(jamie.page, '06-inbox-mobile');
   await jamie.page.locator('.contact-row').click();
@@ -125,7 +139,7 @@ try {
   await jamie.page.waitForFunction(()=>document.querySelectorAll('.message').length===2);
   await noOverflow(jamie.page, 'Mobile conversation');
   await shot(jamie.page, '07-chat-mobile');
-  record('Two real demo sessions match, send messages and show the actual unread count.');
+  record('Two real demo sessions match, search/filter real contacts, send messages and show the actual unread count.');
   await jamie.page.goto(base + '/profile');
   assert.ok(await jamie.page.locator('.profile-preview').isVisible());
   assert.ok(await jamie.page.locator('.mobile-signout button').isVisible());
@@ -156,7 +170,7 @@ try {
   if (browser) await browser.close();
   server.kill();
   await Promise.race([new Promise(resolve=>server.once('exit',resolve)),new Promise(resolve=>setTimeout(resolve,3000))]);
-  const result = { date:new Date().toISOString(), mode:'packaged-jar', jarSha256:crypto.createHash('sha256').update(await fs.readFile(jar)).digest('hex'), output, checks, errors, images, exitCode:process.exitCode||0 };
+  const result = { date:new Date().toISOString(), mode:'packaged-jar', jar, output, checks, errors, images, exitCode:process.exitCode||0 };
   await fs.writeFile(path.join(output,'results.json'),JSON.stringify(result,null,2)+'\n');
   await fs.writeFile(path.join(parent,'latest.json'),JSON.stringify({output},null,2)+'\n');
   console.log(JSON.stringify(result,null,2));

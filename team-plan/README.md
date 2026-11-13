@@ -1,8 +1,8 @@
 # Mingle Six-Person Project Plan
 
-Updated 9 November 2026. This is the English working pack for a browser-based friendship website using **Java 21, Spring Boot, Thymeleaf, HTML/CSS/JavaScript and file-based H2**. A owns the existing AI-assisted baseline, discovery and integration. B–F each own a new increment that is not yet implemented. See [baseline ownership and new increments](./10_baseline_and_member_increments.md).
+Updated 13 November 2026. This is the English working pack for a browser-based friendship website using **Java 21, Spring Boot, Thymeleaf, HTML/CSS/JavaScript and file-based H2**. A owns the existing AI-assisted baseline, discovery and integration. C, D, E and F have merged their initial increments; B retains the assigned interface work and D has a new reliability follow-up. See [baseline ownership and new increments](./10_baseline_and_member_increments.md).
 
-**Role revision, 9 November:** Qin Tian (A) combines Product Owner, Scrum Master and Developer; Wu Zhuoda (E) is Developer and Test Coordinator. See the [current roles](./02_roles_and_collaboration.md) and [revised effort allocation](./11_workload_balance.md). Earlier Week 1 briefs and dated handoff packages retain their original history; use this plan for current responsibilities.
+**Current roles:** Qin Tian (A) is Scrum Master and Lead Developer; Tao Jiacheng (C) is Product Owner; B, D, E and F are Developers. Qin Tian is the primary technical contributor, and Qin Tian and Tao Jiacheng shared project-selection work. See the [contribution record](./15_contribution_and_ownership.md). See the [current roles](./02_roles_and_collaboration.md) and [revised effort allocation](./11_workload_balance.md). Earlier Week 1 briefs and dated handoff packages retain their original history; use this plan for current responsibilities.
 
 ## Start here
 
@@ -24,8 +24,8 @@ A's earlier research is available as an [English translation with its original p
 |---|---|---|---|
 | A Qin Tian | Baseline, discovery and integration | [Research](./tasks/week1/A_discovery_research.md) | [Development](./tasks/week2/A_discovery.md) |
 | B Wang Yikai | Live preview and accessibility | [Research](./tasks/week1/B_interface_research.md) | [Development](./tasks/week2/B_interface.md) |
-| C Tao Jiacheng | Password change and data contracts | [Research](./tasks/week1/C_accounts_research.md) | [Development](./tasks/week2/C_accounts.md) |
-| D Zhou Ziyue | Unread indicators and chat history | [Research](./tasks/week1/D_connections_research.md) | [Development](./tasks/week2/D_connections.md) |
+| C Tao Jiacheng | Product Owner; account/data contribution | [Research](./tasks/week1/C_accounts_research.md) | [Development](./tasks/week2/C_accounts.md) |
+| D Zhou Ziyue | Chat, unread/history and [reliability follow-up](./tasks/week3/D_chat_reliability.md) | [Research](./tasks/week1/D_connections_research.md) | [Development](./tasks/week2/D_connections.md) |
 | E Wu Zhuoda | Restricted report review | [Research](./tasks/week1/E_safety_research.md) | [Development](./tasks/week2/E_safety.md) |
 | F Song Peitong | Backup/restore and reproduction | [Research](./tasks/week1/F_runtime_research.md) | [Development](./tasks/week2/F_runtime.md) |
 
@@ -41,6 +41,6 @@ A's earlier research is available as an [English translation with its original p
 
 These are proposed internal dates, not the university deadline. Both Sprints last two weeks. Names and A–F mapping are confirmed in the roster. Capacity and final commitments still need confirmation by the members. Meeting and contribution templates are not records of work already performed.
 
-The [GitHub repository](https://github.com/hansu650/thematic-friend-finder) is public. The Java baseline was merged through PR #8. Start a new development branch from current `main`, or preserve and continue an existing task branch. The named ZIPs retain that baseline with revised task/capture/submission instructions; A's discovery increment remains a separate reviewable PR. Existing research branches and historical planning remain as evidence. The website has a temporary EN/Chinese switch and defaults to English.
+The [GitHub repository](https://github.com/hansu650/thematic-friend-finder) is public. The Java baseline was merged through PR #8. Start a new development branch from current `main`, or preserve and continue an existing task branch. The named ZIPs retain that baseline with revised task/capture/submission instructions; Current work and merged increments are recorded in the contribution map; the old ZIPs remain dated snapshots. Existing research branches and historical planning remain as evidence. The website has a temporary EN/Chinese switch and defaults to English.
 
-Workload target: A 42 hours; B–F 28 hours each, including coordination and evidence. See [workload balance](./11_workload_balance.md) for the allocation and adjustment rule.
+Workload target: A 42 hours; D 34 hours; B, C, E and F 28 hours each, including coordination and evidence. See [workload balance](./11_workload_balance.md) for the allocation and adjustment rule.

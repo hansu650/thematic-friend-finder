@@ -4,7 +4,7 @@ Live private board: [Mingle Team Kanban](https://trello.com/b/j4LiifAK), created
 
 The Product Backlog orders possible work. Sprint Planning selects a goal and a feasible subset. Trello shows actual task state, Excel shows dates/dependencies and Draw.io explains the critical paths. Use the same IDs across these artifacts.
 
-Role update, 9 November: A combines Product Owner and Scrum Master, maintains backlog priorities and facilitates planning, blocker follow-up and retrospectives. Each member updates their own cards. E coordinates regression results and defect/retest evidence as Test Coordinator.
+Role update, 13 November: C is Product Owner and maintains backlog priorities and acceptance criteria. A is Scrum Master and Lead Developer, facilitating planning, blocker follow-up and retrospectives while leading technical integration. Each member updates their own cards. E coordinates regression results and defect/retest evidence as Test Coordinator.
 
 | List | Entry / exit policy | Initial WIP limit |
 |---|---|---|

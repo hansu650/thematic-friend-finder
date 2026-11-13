@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-    [switch]$SkipBuild
+    [switch]$SkipBuild,
+    [switch]$KeepArtifacts
 )
 
 $ErrorActionPreference = 'Stop'
@@ -71,7 +72,7 @@ try {
         $expectedManifestHash = ((Get-Content -LiteralPath $manifestHashPath -Raw).Trim() -split '\s+')[0]
         $actualManifestHash = (Get-FileHash -LiteralPath $manifestPath -Algorithm SHA256).Hash.ToLowerInvariant()
         Assert-True ($expectedManifestHash -eq $actualManifestHash) 'manifest.sha256 does not match manifest.json.'
-        $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+        $manifest = Get-Content -LiteralPath $manifestPath -Encoding UTF8 -Raw | ConvertFrom-Json
         Assert-True (@($manifest.files).Count -eq $sourceHashesBefore.Count) 'Manifest file count is incorrect.'
         foreach ($file in Get-ChildItem -LiteralPath $fixture -File -Recurse) {
             Assert-True ($sourceHashesBefore[$file.Name] -eq (Get-FileHash $file.FullName -Algorithm SHA256).Hash) "Source changed: $($file.Name)"
@@ -103,7 +104,7 @@ try {
         Assert-Throws { & $restoreScript -BackupDirectory $backup.FullName -Destination $occupied } 'already exists'
         $unsafe = Join-Path $testRoot 'unsafe-manifest'
         Copy-Item -LiteralPath $backup.FullName -Destination $unsafe -Recurse
-        $unsafeManifest = Get-Content -LiteralPath (Join-Path $unsafe 'manifest.json') -Raw | ConvertFrom-Json
+        $unsafeManifest = Get-Content -LiteralPath (Join-Path $unsafe 'manifest.json') -Encoding UTF8 -Raw | ConvertFrom-Json
         $unsafeManifest.files[0].path = '../escape.mv.db'
         $unsafeJson = $unsafeManifest | ConvertTo-Json -Depth 8
         [IO.File]::WriteAllText((Join-Path $unsafe 'manifest.json'), $unsafeJson, [Text.UTF8Encoding]::new($false))
@@ -124,7 +125,7 @@ try {
     }
 
     Invoke-Case 'F-06' 'Independent reproduction handover is documented' {
-        $readme = Get-Content -LiteralPath (Join-Path $projectRoot 'README.md') -Raw
+        $readme = Get-Content -LiteralPath (Join-Path $projectRoot 'README.md') -Encoding UTF8 -Raw
         foreach ($command in @('scripts\backup.ps1', 'scripts\restore.ps1', 'mvnw.cmd')) {
             Assert-True ($readme.Contains($command)) "README is missing handover command: $command"
         }
@@ -133,7 +134,8 @@ try {
 finally {
     $results | Format-Table -AutoSize | Out-String | Write-Output
     $failed = @($results | Where-Object result -eq 'FAIL')
-    if (Test-Path -LiteralPath $testRoot) { Remove-Item -LiteralPath $testRoot -Recurse -Force -ErrorAction SilentlyContinue }
+    if ($KeepArtifacts) { Write-Output "Runtime check artifacts: $testRoot" }
+    elseif (Test-Path -LiteralPath $testRoot) { Remove-Item -LiteralPath $testRoot -Recurse -Force -ErrorAction SilentlyContinue }
     if ($failed.Count -gt 0) {
         $failed | ForEach-Object { Write-Error "$($_.id) $($_.name): $($_.error)" }
         exit 1

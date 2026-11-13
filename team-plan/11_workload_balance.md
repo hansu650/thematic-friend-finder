@@ -1,31 +1,31 @@
-# Workload Balance and Shared Responsibilities
+# Planned Workload and Responsibilities
 
-User decision, 6 November 2026: A may take more work, but B–F should have comparable workloads and meaningful responsibility. The initial five-week allocation is **A: 42 hours; B, C, D, E and F: 28 hours each**. These are estimates to confirm, not records of actual contributions or a claim that all features are equally difficult.
+Revision: 13 November 2026. A retains the largest individual scope. D receives six additional planned hours for messaging reliability and its verification. These figures are estimates, not completed contribution hours.
 
-| Member | Independent implementation | Additional responsibility that counts as work | Estimated total |
-|---|---|---|---|
-| A Qin Tian | Existing AI-assisted baseline, discovery, contracts and integration | Product Owner and Scrum Master, shared contracts, integration, final acceptance, Sprint facilitation, impediment follow-up and demonstration organisation | 42 h |
-| B Wang Yikai | Live profile preview, interest counter and accessible interaction | Lead usability observation and help coordinate the demonstration | 28 h |
-| C Tao Jiacheng | Password change, account/session policy and data contracts | Review B and support D's read-state data contract | 28 h |
-| D Zhou Ziyue | Unread indicators and older-message history | Review C and support communication/safety boundaries | 28 h |
-| E Wu Zhuoda | Restricted report review and permission tests | Test coordination, cross-module regression evidence, defect/retest follow-up and review of D | 28 h |
-| F Song Peitong | Backup/restore tools and clean-copy reproduction | Runtime handover, review of E and reproduction coordination | 28 h |
+| Member | Role and work | Planned total |
+|---|---|---|
+| A Qin Tian | Scrum Master and Lead Developer; core code, shared UI, discovery/activities, contracts, integration and release checks | 42 h |
+| B Wang Yikai | Developer; profile interaction, accessibility, usability and peer checks | 28 h |
+| C Tao Jiacheng | Product Owner; product goal, priorities, acceptance criteria, scope and account/data clarification | 28 h |
+| D Zhou Ziyue | Developer; unread/history work plus delivery identity, retry behavior and two-account regression | 34 h |
+| E Wu Zhuoda | Developer; safety, staff report review and regression coordination | 28 h |
+| F Song Peitong | Developer; backup/restore, clean-copy reproduction and handover | 28 h |
 
-All five have a real code increment, self-tests, peer review, integration work, a short progress record, demonstration participation and their own reflection. B has a somewhat smaller main code package and more observation/demonstration work. C/D have more implementation time. E's test coordination and F's reproduction work reduce the room for unrelated extras. Coordination is included in the estimates, not added invisibly afterwards.
+Total planned effort is **188 hours**. A is the primary developer and technical lead. Qin Tian and Tao Jiacheng both contributed to project selection; the [ownership record](./15_contribution_and_ownership.md) distinguishes that contribution from future responsibilities.
 
-## Role revision — 9 November 2026
+## Allocation changes
 
-Qin Tian takes both Product Owner and Scrum Master responsibilities. E continues the safety increment and replaces process facilitation with regression coordination and actual defect/retest evidence. All members still contribute their own tests and participate in reviews.
+The workbook transfers two T01 scope/acceptance hours from A to C and two T12 implementation hours from C to A. Their totals remain 42 and 28 hours. D gains four hours in T12 for delivery/retry work and two in T13 for recovery verification and evidence. The remaining allocations retain their previous estimates.
 
-The workbook redistributes one planned hour in T11 review/triage from E to A, and one planned hour in T13 reproduction/retesting from A to E. A's planning and impediment follow-up also sit within the existing shared-coordination budget. Total estimates remain A 42 h and B–F 28 h each; no extra contribution hours are claimed. Re-estimate after observing actual capacity.
+D's [new task](./tasks/week3/D_chat_reliability.md) is planned work. His merged unread/history increment remains a separate contribution. Existing UI, emoji/stickers and automatic checks are not reassigned to him as newly completed work.
+
+The previous provisional capacity inputs remain A 50 h and B-F 32 h. D's new 34 h plan therefore exceeds that unconfirmed input by 2 h; discuss availability or move lower-priority work during planning. The workbook makes that difference visible instead of inventing additional capacity.
 
 ## Review and adjustment
 
-1. At Sprint Planning, each member confirms available time and explains the task's dependencies and difficult parts.
-2. Split work into 1–3 hour cards. Check actual progress and blockers together; do not judge contribution by line counts or the number of commits.
-3. If a package is materially harder than expected, transfer a small, bounded task or reduce optional scope. Record the reason, new owner and estimates on the board and update the workbook.
-4. Keep the 28-hour figures as a comparable starting budget, not a quota that forces invented hours or extra work. Actual evidence remains individual.
+1. Confirm availability at Sprint Planning and explain dependencies before committing.
+2. Split work into small cards with observable acceptance criteria and actual results.
+3. Adjust scope or sequencing when work exceeds capacity; record the reason and new owner.
+4. Keep individual reflections and contribution evidence with their actual authors. Commit counts and planned hours do not measure completed contribution on their own.
 
-The [workbook](./project-management/six-person-gantt.xlsx) contains the task-by-member estimates and capacity inputs. The current capacity figures are provisional. Named responsibilities do not create extra Scrum accountabilities: A is Product Owner, Scrum Master and Developer; E is Developer and Test Coordinator; B/C/D/F are Developers with specific coordination focuses.
-
-Use the confirmed [team roster](./00_team_roster.md) on every task publication. Follow the [UI map](./12_ui_reference_map.md) and [test/evidence plan](./13_testing_and_weekly_evidence.md).
+The [workbook](./project-management/six-person-gantt.xlsx) retains its calendar dependencies. The 29-day network is an estimate; it does not automatically resolve resource conflicts.

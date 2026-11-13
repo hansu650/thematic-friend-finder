@@ -28,6 +28,7 @@ public class ChatController {
         Long actor=accounts.current(principal.getName()).getId();
         Connection link=connections.require(id,actor);
         var messages=chat.read(principal.getName(),id,null);
+        model.addAttribute("contacts",connections.forMember(actor).stream().map(c -> new Contact(c,accounts.member(c.other(actor)),chat.preview(c.getId()),chat.unreadCount(principal.getName(),c.getId()))).toList());
         model.addAttribute("connection",link);
         model.addAttribute("partner",accounts.member(link.other(actor)));
         model.addAttribute("messages",messages);
@@ -46,6 +47,10 @@ public class ChatController {
     @GetMapping("/api/conversations/{id}/messages") @ResponseBody
     public List<ChatService.MessageView> poll(Principal principal,@PathVariable Long id,@RequestParam(defaultValue="0") Long after) {
         return chat.read(principal.getName(),id,after);
+    }
+    @PostMapping("/api/conversations/{id}/messages") @ResponseBody
+    public ChatService.MessageView sendAsync(Principal principal,@PathVariable Long id,@RequestParam String body) {
+        return chat.send(principal.getName(),id,body);
     }
     @GetMapping("/api/conversations/{id}/history") @ResponseBody
     public ChatService.HistoryPage history(Principal principal,@PathVariable Long id,@RequestParam Long before) {

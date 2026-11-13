@@ -30,7 +30,7 @@ public class ChatService {
         this.readStates=readStates; this.guard=guard;
     }
     @Transactional
-    public void send(String username,Long id,String body) {
+    public MessageView send(String username,Long id,String body) {
         Long actor=accounts.current(username).getId();
         Connection link=connections.require(id,actor);
         guard.lock(link.getLowId(),link.getHighId());
@@ -38,7 +38,8 @@ public class ChatService {
         connections.require(id,actor);
         String text=body==null?"":body.strip();
         if (text.isBlank()||text.length()>1000) throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"ui.enter_a_non_blank_message_of_1_1000_characters");
-        messages.saveAndFlush(new Message(id,actor,text));
+        Message saved=messages.saveAndFlush(new Message(id,actor,text));
+        return new MessageView(saved.getId(),saved.getBody(),CLOCK.format(saved.getSentAt()),true);
     }
     public List<MessageView> read(String username,Long id,Long after) {
         Long actor=accounts.current(username).getId();

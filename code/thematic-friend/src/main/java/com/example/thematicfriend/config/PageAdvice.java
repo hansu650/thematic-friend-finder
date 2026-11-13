@@ -27,7 +27,7 @@ public class PageAdvice {
         model.addAttribute("demoMode",environment.matchesProfiles("demo"));
         model.addAttribute("chineseEnabled",environment.getProperty("app.chinese-enabled",Boolean.class,true));
         UriComponentsBuilder location=UriComponentsBuilder.fromPath(request.getRequestURI());
-        for(String parameter:new String[]{"interest","goal"}) {
+        for(String parameter:new String[]{"interest","goal","q","city","category","view","member"}) {
             if(request.getParameter(parameter)!=null) location.queryParam(parameter,request.getParameter(parameter));
         }
         model.addAttribute("englishUrl",location.cloneBuilder().queryParam("lang","en").build().encode().toUriString());

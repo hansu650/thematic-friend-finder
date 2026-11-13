@@ -6,13 +6,13 @@
 <div class="app-language"><nav th:replace="~{fragments/layout :: language}"></nav></div>
 <main class="app-main match-main">
   <section class="panel match-panel" aria-labelledby="match-title">
-    <p class="eyebrow" th:text="#{match.eyebrow}">A NEW CONNECTION</p>
+    <h1 id="match-title" th:text="#{match.title}">It's a match.</h1><p class="match-subtitle" th:text="#{ui.you_both_chose_each_other}">You both chose each other.</p>
     <div class="match-pair" aria-hidden="true">
-      <span class="avatar match-avatar" th:classappend="'palette-' + ${me.palette}" th:text="${me.initial}"></span>
-      <span class="match-heart">♡</span>
-      <span class="avatar match-avatar" th:classappend="'palette-' + ${partner.palette}" th:text="${partner.initial}"></span>
+      <span class="avatar match-avatar" th:classappend="'palette-' + ${me.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(me)} : '')" th:text="${me.initial}"></span>
+
+      <span class="avatar match-avatar" th:classappend="'palette-' + ${partner.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(partner)} : '')" th:text="${partner.initial}"></span>
     </div>
-    <h1 id="match-title" th:text="#{match.title}">It's a match.</h1>
+
     <p class="match-confirmation" role="status" th:text="#{match.confirmation(${partner.nickname})}">You both chose to connect.</p>
     <div class="match-common" th:if="${!shared.isEmpty()}">
       <p th:text="#{ui.you_both_enjoy}">You both enjoy</p>

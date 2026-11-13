@@ -16,7 +16,7 @@
   if (!card) return;
   const like = document.getElementById('like-form');
   const skip = document.getElementById('skip-form');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = () => window.MingleFeedback?.reduced() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let origin = null, delta = 0, horizontal = false, committed = false;
   const threshold = () => Math.min(105, card.getBoundingClientRect().width * 0.27);
   const reset = () => {
@@ -37,7 +37,7 @@
     card.style.opacity = '0';
     document.querySelectorAll('.action-button').forEach(button => { button.disabled = true; });
     // Native submission preserves the server-generated CSRF field and filters.
-    window.setTimeout(() => HTMLFormElement.prototype.submit.call(form), reduced ? 0 : 240);
+    window.setTimeout(() => HTMLFormElement.prototype.submit.call(form), reduced() ? 0 : 240);
   };
   [like, skip].forEach(form => form.addEventListener('submit', event => { event.preventDefault(); commit(form); }));
   card.addEventListener('pointerdown', event => {

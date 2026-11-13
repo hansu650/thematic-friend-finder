@@ -28,9 +28,9 @@ public class SecurityConfig {
     @Bean SecurityFilterChain webSecurity(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/staff/reports", "/staff/reports/**").hasRole("STAFF")
-                .requestMatchers("/", "/login", "/signup", "/privacy", "/css/**", "/js/**", "/images/**", "/error").permitAll()
+                .requestMatchers("/", "/login", "/signup", "/privacy", "/css/**", "/js/**", "/images/**", "/fonts/**", "/error").permitAll()
                 .anyRequest().authenticated())
-            .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/discover", true).failureUrl("/login?error").permitAll())
+            .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/explore", false).failureUrl("/login?error").permitAll())
             .logout(logout -> logout.logoutSuccessUrl("/?loggedout"))
             .exceptionHandling(errors -> errors.defaultAuthenticationEntryPointFor(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
                     PathPatternRequestMatcher.withDefaults().matcher("/api/**"))

@@ -42,6 +42,32 @@ class DiscoveryRegressionTests {
         noah = member("a_noah", "Noah", List.of("Music"), "Study buddy");
     }
 
+    @Test @DisplayName("Planet reuses discovery filters and excludes hidden, skipped, matched and blocked people")
+    void planetHonoursTheSameDiscoveryBoundaries() throws Exception {
+        mvc.perform(get("/explore")).andExpect(status().is3xxRedirection());
+        mvc.perform(get("/explore").with(user(jamie.getUsername())).param("interest", "Coffee"))
+                .andExpect(status().isOk()).andExpect(model().attribute("starCount",1))
+                .andExpect(model().attribute("stars",hasSize(1)))
+                .andExpect(content().string(containsString("star-profile-" + alex.getId())));
+        var hidden = member("planet_hidden","Hidden",List.of("Coffee"),"New friends");
+        var form = new ProfileForm(hidden); form.setDiscoverable(false); accounts.update(hidden.getUsername(),form);
+        var incoming = member("planet_blocker","Blocked",List.of("Coffee"),"New friends");
+        safety.block(incoming.getUsername(),jamie.getId());
+        var skipped = member("planet_skipped","Skipped",List.of("Coffee"),"New friends");
+        connections.decide(jamie.getUsername(),skipped.getId(),Decision.Choice.SKIP);
+        matched();
+        mvc.perform(get("/explore").with(user(jamie.getUsername())))
+                .andExpect(status().isOk()).andExpect(model().attribute("starCount",1))
+                .andExpect(model().attribute("connectionCount",1))
+                .andExpect(content().string(containsString("star-profile-" + noah.getId())))
+                .andExpect(content().string(not(containsString("star-profile-" + hidden.getId()))))
+                .andExpect(content().string(not(containsString("star-profile-" + incoming.getId()))))
+                .andExpect(content().string(not(containsString("star-profile-" + skipped.getId()))));
+        mvc.perform(get("/explore").with(user(jamie.getUsername())).param("interest","<script>bad()</script>"))
+                .andExpect(status().isOk()).andExpect(model().attribute("selectedInterest",""))
+                .andExpect(content().string(not(containsString("<script>bad()"))));
+    }
+
     private Member member(String username, String nickname, List<String> interests, String goal) {
         // Authentication is provided by MockMvc's user(); password behavior belongs to the baseline tests.
         var person = new Member(username, "unused-test-password-hash", nickname);

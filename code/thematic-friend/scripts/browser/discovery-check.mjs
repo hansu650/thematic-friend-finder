@@ -36,7 +36,8 @@ async function login(session, username) {
   await session.page.goto(base + '/login');
   await session.page.locator('#username').fill(username);
   await session.page.locator('#password').fill(password);
-  await Promise.all([session.page.waitForURL('**/discover'), click(session, 'form button[type=submit]')]);
+  await Promise.all([session.page.waitForURL('**/explore'), click(session, 'form button[type=submit]')]);
+  await session.page.goto(base + '/discover');
 }
 async function shot(session, name, fullPage = false) {
   if (skipScreenshots) return;
@@ -90,8 +91,8 @@ try {
   await login(jamie, 'demo_zhou');
   await filters(jamie, 'Coffee', 'New friends');
   assert.equal(await jamie.page.locator('#discovery-count').innerText(), '1 profile available');
-  assert.equal(await jamie.page.locator('#swipe-card h2').innerText(), 'Alex Lin');
-  assert.equal(await jamie.page.locator('.shared-interest strong').innerText(), 'Coffee, Reading');
+  assert.equal(await jamie.page.locator('.detail-copy>h1').innerText(), 'Alex Lin');
+  assert.equal(await jamie.page.locator('.detail-aside .event-info-row:last-child p').innerText(), 'Coffee, Reading');
   await shot(jamie, '03-after-filters');
   await click(jamie, '#remove-interest-filter');
   assert.equal(await jamie.page.locator('#interest').inputValue(), '');
@@ -134,7 +135,7 @@ try {
   const alex = await setup();
   await login(alex, 'demo_lin');
   await filters(alex, 'Coffee', 'New friends');
-  assert.equal(await alex.page.locator('#swipe-card h2').innerText(), 'Jamie Zhou');
+  assert.equal(await alex.page.locator('.detail-copy>h1').innerText(), 'Jamie Zhou');
   await oneDecision(alex, () => click(alex, '#like-form button'), /^\/matches\/\d+$/);
   assert.deepEqual(await alex.page.locator('#match-shared span').allTextContents(), ['Coffee', 'Reading']);
   assert.equal(await alex.page.locator('#open-conversation').innerText(), 'Say hello to Jamie Zhou');
@@ -152,7 +153,7 @@ try {
   const message = 'Coffee and a good book sounds like a lovely start.';
   await alex.page.locator('#body').fill(message);
   await click(alex, '#message-form button');
-  await jamie.page.getByText(message, { exact: true }).waitFor({ timeout: 10000 });
+  await jamie.page.locator('#messages .message>p').filter({ hasText: message }).waitFor({ timeout: 10000 });
   await shot(alex, '08-correct-conversation');
   ok('A-03/A-05b', 'Reciprocal button like opens real feedback, correct chat and a message received by the other participant.');
 
@@ -182,7 +183,7 @@ try {
   await noOverflow(mobile);
   await click(mobile, '#empty-clear-filters');
   await mobile.page.locator('#swipe-card').waitFor();
-  await click(mobile, '.language-switch a[lang=zh]');
+  await click(mobile, '.language-switch a[lang=zh]:visible');
   assert.equal(await mobile.page.locator('html').getAttribute('lang'), 'zh');
   await noOverflow(mobile);
   await shot(mobile, '11-mobile-chinese', true);
@@ -195,7 +196,7 @@ try {
   await noOverflow(smallMatch);
   assert.equal(await smallMatch.page.locator('#open-conversation').getAttribute('href'), conversation);
   await shot(smallMatch, '10-mobile-match', true);
-  await click(smallMatch, '.language-switch a[lang=zh]');
+  await click(smallMatch, '.language-switch a[lang=zh]:visible');
   assert.equal(await smallMatch.page.locator('#open-conversation').getAttribute('href'), conversation);
   assert.match(await smallMatch.page.locator('#match-title').innerText(), /互相喜欢/);
   await noOverflow(smallMatch);
@@ -225,7 +226,7 @@ try {
       const state = {
         text: status.textContent,
         busy: document.querySelector('#swipe-card').getAttribute('aria-busy'),
-        disabled: document.querySelectorAll('.action-button:disabled').length
+        disabled: document.querySelectorAll('#skip-form button:disabled, #like-form button:disabled').length
       };
       // Exercise the duplicate guard before the browser starts a navigation.
       document.querySelector('#like-form').requestSubmit();
@@ -288,7 +289,7 @@ try {
   await login(stale, 'demo_xu');
   await filters(stale, 'Coffee', 'New friends');
   const staleTarget = await stale.page.locator('#like-form').getAttribute('action');
-  const targetName = await stale.page.locator('#swipe-card h2').innerText();
+  const targetName = await stale.page.locator('.detail-copy>h1').innerText();
   const targetLogin = { 'Jamie Zhou': 'demo_zhou', 'Alex Lin': 'demo_lin' }[targetName];
   assert.ok(targetLogin, 'The stale-card fixture must be one of the known fictional Coffee profiles.');
   const hiding = await setup();

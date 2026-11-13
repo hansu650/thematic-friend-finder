@@ -2,11 +2,11 @@
 
 Named owner: **Zhou Ziyue (D)**. Reviewer: **E Wu Zhuoda**.
 
-Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer; communication and integration lead**. Reviewer: **E**. A reviews and merges PRs.
+Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer**, with expanded messaging reliability responsibility. Reviewer: **E**. A reviews and merges PRs.
 
-## Starting point
+## Current status
 
-The baseline has persisted messages, participant checks and polling for new messages, with only the latest 100 shown initially. It has no unread tracking or older-history UI.
+The unread/history increment was merged through PR #10. The original scope below remains a record of that increment. A new [chat reliability follow-up](../week3/D_chat_reliability.md) assigns delivery identity, retry behavior and two-account recovery verification to Zhou Ziyue. It adds six planned hours and remains pending implementation. D also owns the messaging walkthrough at the Sprint Review.
 
 ## Your actual work
 
@@ -35,7 +35,7 @@ Include your source, meaningful checks and docs/progress/week2/D_progress.md. Im
 
 The baseline is assigned to A for ownership and handover. This does not turn AI-generated code into unaided authorship or establish another member's contribution. Each member's evidence must describe work they actually performed.
 
-Five-week planning budget: 28 hours, including implementation, testing, review, coordination, demonstration and personal reflection. This is a comparable estimate, not an actual-hours record. See [workload balance](../../11_workload_balance.md).
+Five-week planning budget: 34 hours, including implementation, testing, review, coordination, demonstration and personal reflection. This is a comparable estimate, not an actual-hours record. See [workload balance](../../11_workload_balance.md).
 
 ## UI and test handover
 

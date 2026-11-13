@@ -1,5 +1,17 @@
 # Schedule Verification
 
+## Current role and effort update - 13 November 2026
+
+The workbook now records **A Qin Tian as Scrum Master and Lead Developer**, **C Tao Jiacheng as Product Owner**, and the other members as Developers. A and C share topic-selection credit in the [contribution record](../15_contribution_and_ownership.md).
+
+Current estimates are **A 42, B 28, C 28, D 34, E 28 and F 28 hours**, totaling **188 hours**. T01 transfers two planning hours from A to C; T12 transfers two implementation hours from C to A. D receives four extra T12 hours and two extra T13 hours for the three pending chat-reliability groups. The evidence plan therefore has 39 planned groups. These figures describe allocation, not completed work.
+
+The updated XLSX was reopened and its relevant XML/cell data checked. All 37 Team effort formula expressions are unchanged; the changed row/member totals and remaining-capacity caches were recalculated. Automatic full recalculation is enabled for Excel. Schedule durations/dependencies remain unchanged and the cached critical-path duration remains 29 calendar days. No new workbook or Draw.io visual-rendering check is claimed for this data-only update.
+
+Provisional availability remains A 50 and B-F 32 hours. D's 34-hour estimate therefore has **negative two hours of remaining capacity**; that visible difference needs planning adjustment and has not been hidden by increasing an unconfirmed availability value. See [workload balance](../11_workload_balance.md) and [D's assigned task](../tasks/week3/D_chat_reliability.md).
+
+## Historical schedule verification
+
 The final English schedule has 16 work packages and 20 finish-to-start dependencies. Its initial CPM duration is **29 calendar days**, ending on **4 December 2026**, with two days before the internal 6 December target. Two equal critical paths pass through T03 and T04 respectively, then join at T07.
 
 The workbook contains **825 formulas**. Its exported cached values were read back from the XLSX: duration 29 days; person-hours **A 42, B 28, C 28, D 28, E 28, F 28**. No cached formula-error cells or Chinese visible strings were found. The authoring calculation was also checked against an independent JavaScript forward/backward pass. Temporarily increasing T03 by one day increased the project duration to 30 days and gave the tied T04 branch one day of float; restoring the input restored the baseline result.
@@ -14,7 +26,7 @@ The Mingle title was patched in the existing Draw.io source without changing the
 
 These are planning checks, not actual team progress or confirmed member capacity. See [workload balance](../11_workload_balance.md).
 
-## Role and effort update — 9 November 2026
+## Historical Role and Effort Update - 9 November 2026
 
 The Team effort sheet now identifies A as Product Owner, Scrum Master and Developer, and E as Developer and Test Coordinator. T11 allocation changed from A 2 h / E 2 h to A 3 h / E 1 h; T13 changed from A 2 h / E 2 h to A 1 h / E 3 h. Only these four numeric inputs and the role note changed inside the workbook.
 
