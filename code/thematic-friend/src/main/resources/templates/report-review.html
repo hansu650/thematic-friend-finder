@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report review</title>
+  <style>
+    body { margin: 1rem auto; padding: 0 1rem; max-width: 44rem; background: #fffaf6; font: 1rem system-ui; color: #302620; }
+    article { background: white; border: 1px solid #eadbd2; border-radius: .75rem; padding: 1rem; overflow-wrap: anywhere; }
+    label, textarea { display: block; margin-top: .75rem; }
+    textarea { box-sizing: border-box; width: 100%; }
+    button { margin-top: .75rem; background: #a64036; color: white; padding: .5rem 1rem; border: 0; border-radius: .4rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Report review</h1>
+  <section th:if="${reports != null}">
+    <p th:if="${reports.isEmpty()}">No reports to display.</p>
+    <ul>
+      <li th:each="item : ${reports}">
+        <a th:href="@{/staff/reports/{id}(id=${item.id})}" th:text="|Report #${item.id}|"></a>
+        <span th:text="${item.reviewStatus}"></span>
+      </li>
+    </ul>
+  </section>
+  <article th:if="${report != null}">
+    <a th:href="@{/staff/reports}">Back to reports</a>
+    <h2 th:text="|Report #${report.id}|"></h2>
+    <dl>
+      <dt>Reported member ID</dt><dd th:text="${report.targetId}"></dd>
+      <dt>Reason</dt><dd th:text="${report.reason}"></dd>
+      <dt>Details</dt><dd th:text="${report.details}"></dd>
+      <dt>Status</dt><dd th:text="${report.reviewStatus}"></dd>
+    </dl>
+    <form th:if="${report.handledAt == null}" method="post"
+          th:action="@{/staff/reports/{id}(id=${report.id})}">
+      <label for="status">Resolution</label>
+      <select id="status" name="status" required>
+        <option value="REVIEWED">Reviewed</option>
+        <option value="DISMISSED">Dismissed</option>
+      </select>
+      <label for="note">Internal note</label>
+      <textarea id="note" name="note" maxlength="1000" rows="4"></textarea>
+      <button type="submit">Save resolution</button>
+    </form>
+    <dl th:if="${report.handledAt != null}">
+      <dt>Handler member ID</dt><dd th:text="${report.handlerId}"></dd>
+      <dt>Handled at</dt><dd th:text="${report.handledAt}"></dd>
+      <dt>Internal note</dt><dd th:text="${report.internalNote}"></dd>
+    </dl>
+  </article>
+</main>
+</body>
+</html>

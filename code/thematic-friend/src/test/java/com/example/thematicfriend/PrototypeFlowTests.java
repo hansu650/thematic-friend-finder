@@ -57,6 +57,42 @@ class PrototypeFlowTests {
         mvc.perform(get("/discover")).andExpect(status().is3xxRedirection());
         mvc.perform(get("/api/conversations/1/messages")).andExpect(status().isUnauthorized());
     }
+    @Test void reportReviewRequiresStaffForListDetailAndUpdate() throws Exception {
+        var report = reports.saveAndFlush(new Report(p.getId(), q.getId(), "Spam", "Synthetic report"));
+        String detail = "/staff/reports/" + report.getId();
+        for (String path : List.of("/staff/reports", detail)) {
+            mvc.perform(get(path)).andExpect(redirectedUrl("/login"));
+            mvc.perform(get(path).with(user(p.getUsername()))).andExpect(status().isForbidden());
+        }
+        mvc.perform(post(detail).with(user(p.getUsername())).with(csrf()).param("status", "REVIEWED"))
+                .andExpect(status().isForbidden());
+        assertThat(reports.findById(report.getId()).orElseThrow().getReviewStatus())
+                .isEqualTo(Report.ReviewStatus.PENDING);
+    }
+
+    @Test void staffCanResolveOnceAndInternalNotesStayPrivate() throws Exception {
+        var report = reports.saveAndFlush(new Report(p.getId(), q.getId(), "Spam", "Synthetic report"));
+        String detail = "/staff/reports/" + report.getId();
+        var staff = user(r.getUsername()).roles("USER", "STAFF");
+        mvc.perform(get("/staff/reports").with(staff)).andExpect(status().isOk());
+        mvc.perform(get(detail).with(staff)).andExpect(status().isOk());
+        mvc.perform(post(detail).with(staff).param("status", "REVIEWED")).andExpect(status().isForbidden());
+        mvc.perform(post(detail).with(staff).with(csrf()).param("status", "PENDING"))
+                .andExpect(status().isBadRequest());
+        mvc.perform(post(detail).with(staff).with(csrf()).param("status", "REVIEWED").param("note", "Synthetic private note"))
+                .andExpect(redirectedUrl(detail));
+        var saved = reports.findById(report.getId()).orElseThrow();
+        assertThat(saved.getReviewStatus()).isEqualTo(Report.ReviewStatus.REVIEWED);
+        assertThat(saved.getHandlerId()).isEqualTo(r.getId());
+        assertThat(saved.getHandledAt()).isNotNull();
+        assertThat(saved.getInternalNote()).isEqualTo("Synthetic private note");
+        mvc.perform(post(detail).with(staff).with(csrf()).param("status", "DISMISSED"))
+                .andExpect(status().isConflict());
+        mvc.perform(get("/safety").with(user(p.getUsername())))
+                .andExpect(content().string(org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Synthetic private note"))));
+        mvc.perform(get("/safety").with(user(q.getUsername())))
+                .andExpect(content().string(org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Synthetic report"))));
+    }
     @Test void signupHashesPasswordAndRejectsDuplicateAndUnderage() throws Exception {
         mvc.perform(post("/signup").with(csrf()).param("username","NEW_USER").param("nickname","新用户").param("password","Synthetic-New-2026").param("adult","true"))
                 .andExpect(redirectedUrl("/login?registered"));

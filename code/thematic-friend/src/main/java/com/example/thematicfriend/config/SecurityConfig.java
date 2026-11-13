@@ -1,6 +1,7 @@
 package com.example.thematicfriend.config;
 
 import com.example.thematicfriend.account.MemberRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -16,13 +17,17 @@ import org.springframework.security.web.servlet.util.matcher.PathPatternRequestM
 @Configuration
 public class SecurityConfig {
     @Bean PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
-    @Bean UserDetailsService userDetailsService(MemberRepository members) {
+    @Bean UserDetailsService userDetailsService(MemberRepository members,
+            @Value("${app.review.staff-member-id:0}") long staffMemberId) {
         return username -> members.findByUsername(username)
-                .map(m -> User.withUsername(m.getUsername()).password(m.getPasswordHash()).roles("USER").build())
+                .map(m -> User.withUsername(m.getUsername()).password(m.getPasswordHash())
+                        .roles(staffMemberId > 0 && m.getId() == staffMemberId
+                                ? new String[]{"USER", "STAFF"} : new String[]{"USER"}).build())
                 .orElseThrow(() -> new UsernameNotFoundException("ui.incorrect_username_or_password"));
     }
     @Bean SecurityFilterChain webSecurity(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/staff/reports", "/staff/reports/**").hasRole("STAFF")
                 .requestMatchers("/", "/login", "/signup", "/privacy", "/css/**", "/js/**", "/images/**", "/error").permitAll()
                 .anyRequest().authenticated())
             .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/discover", true).failureUrl("/login?error").permitAll())
