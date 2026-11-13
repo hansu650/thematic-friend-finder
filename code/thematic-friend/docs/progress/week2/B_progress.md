@@ -10,7 +10,7 @@ Work began from main `e8d14813b8cef985f9e6cef8976d3395ff59e221`. While this task
 
 A owns the existing application and shared visual design. This submission adds B's profile interaction and accessibility increment with Codex assistance. It does not establish unaided authorship, personal hours, participant feedback, team agreement or a completed peer review. Planned workload is not reported as actual time.
 
-Submission branch: [w2/b-interface](https://github.com/hansu650/thematic-friend-finder/tree/w2/b-interface). Pull request: recorded after publication.
+Submission branch: [w2/b-interface](https://github.com/hansu650/thematic-friend-finder/tree/w2/b-interface). Pull request: [#16](https://github.com/hansu650/thematic-friend-finder/pull/16). Published implementation: [d938a35632207134a0da63d622a2925ec4735300](https://github.com/hansu650/thematic-friend-finder/commit/d938a35632207134a0da63d622a2925ec4735300). All 43 uploaded file hashes were checked against the local submission after publication; this follow-up only adds these links.
 
 ## Implemented behavior
 
