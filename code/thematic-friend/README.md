@@ -73,4 +73,29 @@ The second A increment retains valid filters on error recovery, refreshes discov
 
 Run tests from the project directory with `mvnw.cmd test` using JDK 21. The build helper is the simplest way to keep the task's Maven cache settings consistent. See [verification](docs/VERIFICATION.md), [routes and data contracts](docs/CONTRACTS.md), [reference/licence record](docs/THIRD_PARTY.md) and [A's baseline](docs/BASELINE.md).
 
-D's unread indicators and bounded conversation history are now merged. B's live profile preview, C's password change, E's staff report review and F's backup/restore tools remain assigned increments; check their branches and PRs for current progress. The current application has no live moderation, account recovery, self-service deletion, real profile photos or end-to-end message encryption.
+D's unread indicators and bounded conversation history are now merged. B's live profile preview, C's password change and E's staff report review remain assigned increments; check their branches and PRs for current progress. The current application has no live moderation, account recovery, self-service deletion, real profile photos or end-to-end message encryption.
+
+## Stopped-database backup and restore
+
+Stop the application before copying its H2 files. The backup helper writes a timestamped directory under `.local/backups`, copies the database files, and records each file's size and SHA-256 checksum in `manifest.json` plus a checksum for that manifest in `manifest.sha256`:
+
+```powershell
+.\scripts\backup.ps1
+```
+
+Use explicit paths for a disposable fixture or a different data directory:
+
+```powershell
+.\scripts\backup.ps1 -DataDirectory .\fixture\data -BackupRoot .\fixture\backups
+.\scripts\restore.ps1 -BackupDirectory .\fixture\backups\backup-20261113-120000000 -Destination .\fixture\restored
+```
+
+Restore validates the manifest and every payload checksum before writing. It refuses a missing or corrupt backup, unsafe relative paths, a destination inside the backup, and any destination that already exists. The destination is assembled in a temporary sibling directory and moved into place only after all files have been copied. Keep the restored directory separate and start the application with `APP_DATA_DIR` pointing at it.
+
+Run the executable runtime checks from the project directory:
+
+```powershell
+.\scripts\tests\BackupRestore.Tests.ps1
+```
+
+The runner uses fictional fixture records for a profile pair, connection and message, exercises backup/restore failure paths, and runs the Maven integration suite for restart/persistence coverage. Add `-SkipBuild` when Maven has already been verified and only the PowerShell checks need to be repeated.
