@@ -1,0 +1,190 @@
+{
+  "verifiedOn": "2026-11-13",
+  "baseCommit": "ebf3533b82ce743e67b892eca7a44b9256eb745c",
+  "jarSha256": "dadeb48ee7e475998d93d43692bce69da6a261883e22dbc1bf34c5fc990b4e7c",
+  "browser": "157.0.4341.46",
+  "node": "v24.16.0",
+  "java": {
+    "tests": 47,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "scope": "Java and templates; subsequent changes were CSS only, then the final JAR passed all browser suites."
+  },
+  "discovery": {
+    "exitCode": 0,
+    "checks": [
+      {
+        "id": "A-01",
+        "assertion": "Visible filters, eligible count and actual shared interests; removing one filter preserves the other.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-04a",
+        "assertion": "Short mouse drag returns the same card and sends zero decisions.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-05a",
+        "assertion": "Empty results offer working clear/revisit actions; revisiting keeps filters.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-04b",
+        "assertion": "Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-03/A-05b",
+        "assertion": "Reciprocal button like opens real feedback, correct chat and a message received by the other participant.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-04c",
+        "assertion": "Repeated arrow-key events during commitment submit one decision.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-04d",
+        "assertion": "390 px emulated touch: short drag returns; committed swipe submits once.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-06a",
+        "assertion": "390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-06b",
+        "assertion": "390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-06c",
+        "assertion": "Reduced-motion button decision submits once.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-INT-UI-01",
+        "assertion": "A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-INT-UI-02",
+        "assertion": "Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-INT-UI-03",
+        "assertion": "With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-INT-UI-04",
+        "assertion": "A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.",
+        "result": "PASS"
+      },
+      {
+        "id": "A-INT-UI-05",
+        "assertion": "Ending the connection denies an old match link and keeps a usable, filtered discovery destination.",
+        "result": "PASS"
+      },
+      {
+        "id": "RUNTIME",
+        "assertion": "No browser exceptions or HTTP 5xx responses during these flows.",
+        "result": "PASS"
+      }
+    ]
+  },
+  "conversation": {
+    "exitCode": 0,
+    "checks": [
+      {
+        "id": "D-01/D-02",
+        "assertion": "Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-02",
+        "assertion": "A later incoming message becomes unread again and a new acknowledgement clears it.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-03",
+        "assertion": "More than 100 messages load in a bounded page, remain ascending and contain no duplicates.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-04",
+        "assertion": "A polling result arriving after older-history paging merges by ID without duplicates or reordering.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06a",
+        "assertion": "A 1,000-character message remains readable without horizontal page overflow.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06b",
+        "assertion": "Keyboard navigation reaches the send control and Enter submits the message.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06c",
+        "assertion": "An empty conversation shows a usable composer without a misleading load-history control.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-06d",
+        "assertion": "The desktop conversation remains usable at 390 px without horizontal overflow.",
+        "result": "PASS"
+      },
+      {
+        "id": "D-05/D-06e",
+        "assertion": "An ended conversation returns a real 403 error state that remains readable at 390 px.",
+        "result": "PASS"
+      },
+      {
+        "id": "RUNTIME",
+        "assertion": "No browser exceptions or HTTP 5xx responses during the checked flows.",
+        "result": "PASS"
+      }
+    ]
+  },
+  "ui": {
+    "exitCode": 0,
+    "checks": [
+      "Real filter form narrows the available card and preserves shared interests.",
+      "Discovery and filter sheet fit 320, 375, 390 and 768 px; decision buttons remain reachable.",
+      "Two real demo sessions match, send messages and show the actual unread count.",
+      "Saved profile, safety and mobile logout are accessible; logout protects discovery.",
+      "Public entry, login, signup and privacy fit a 320 px viewport.",
+      "No browser JavaScript errors or failed app / asset responses."
+    ],
+    "errors": []
+  },
+  "screenshots": [
+    {
+      "file": "../../images/ui-refresh-20261113/desktop-discover.png",
+      "sha256": "2e2b0eed06cfa24a3865be01f67dce13ef62d85ac8c7fd1939d922ae9e362ed4",
+      "source": "Automated Edge capture with isolated fictional data, 2026-11-13"
+    },
+    {
+      "file": "../../images/ui-refresh-20261113/mobile-discover.png",
+      "sha256": "37eed1428c03ea1f987d195d1d7f914be9d29296863d85955f35e2574e00e1b9",
+      "source": "Automated Edge capture with isolated fictional data, 2026-11-13"
+    },
+    {
+      "file": "../../images/ui-refresh-20261113/mobile-chat.png",
+      "sha256": "cc1b995fa0a87b59f839f336730b05c24e247e1b99db3f20d317a33da91f861c",
+      "source": "Automated Edge capture with isolated fictional data, 2026-11-13"
+    }
+  ],
+  "independentHumanReview": "pending",
+  "physicalDeviceTest": false,
+  "notes": [
+    "The six UI groups also passed from the user-renamed AAAAA-code local directory with the same JAR hash.",
+    "Original classroom and user-supplied captures are retained separately. No new human screenshots or teammate reviews are claimed."
+  ]
+}

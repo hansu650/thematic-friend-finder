@@ -63,6 +63,8 @@ Do not change database credentials for an existing database without planning the
 
 ## Checks and handover
 
+The 13 November Momo/Tantan-inspired interface and review steps are in [A's UI review](docs/progress/week2/A_UI_REVIEW.md). The optional [UI acceptance runner](scripts/ui-browser/README.md) checks the final JAR with isolated data and screenshots. It complements the existing discovery and conversation suites.
+
 For actual terminal screenshots, use [the live PowerShell evidence workflow](docs/TERMINAL_EVIDENCE.md). It executes Maven/browser checks and pauses for the person taking the screenshots. Formatted HTML reports are not terminal evidence.
 
 A's 6 November discovery increment adds visible filter chips/counts, useful empty-result recovery and participant-only match feedback. See [A's progress and evidence](docs/progress/week2/A_progress.md). The optional [browser checks](scripts/browser/README.md) run against disposable data; they are separate from the Java-only website startup.
