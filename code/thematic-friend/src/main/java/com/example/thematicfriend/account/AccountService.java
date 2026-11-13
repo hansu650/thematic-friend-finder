@@ -28,6 +28,13 @@ public class AccountService {
         return members.saveAndFlush(new Member(form.getUsername().toLowerCase(Locale.ROOT), encoder.encode(form.getPassword()), form.getNickname().strip()));
     }
     @Transactional
+    public boolean changePassword(String username, String currentPassword, String newPassword) {
+        Member member = current(username);
+        if (!encoder.matches(currentPassword, member.getPasswordHash())) return false;
+        member.changePasswordHash(encoder.encode(newPassword));
+        return true;
+    }
+    @Transactional
     public void update(String username, ProfileForm form) {
         if (!GOALS.contains(form.getGoal()) || !INTERESTS.containsAll(form.getInterests())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ui.choose_interests_and_an_activity_from_the_lists");
