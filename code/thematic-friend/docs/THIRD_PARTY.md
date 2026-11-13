@@ -10,4 +10,6 @@ Primary implementation references: [Spring web content guide](https://spring.io/
 
 No external profile photos, web fonts or third-party animation library are embedded. The card interaction uses local JavaScript and CSS. Development screenshots were captured with the user's installed Playwright screenshot helper; that helper is not part of the application runtime.
 
+The 13 November interface refresh uses the user-supplied Momo/Tantan screenshots as layout references. `static/images/avatar-0.svg` through `avatar-4.svg` and `ui-icons.svg` are original Codex-assisted vector assets. No people, portraits or brand assets were extracted from the reference screenshots. The illustrated avatars are decorative placeholders; photo upload is not implemented.
+
 For any later copied snippet or asset, record its exact source, licence, affected files, modifications and attribution before merging. Separate inspiration from copied code and actual individual work.
