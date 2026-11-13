@@ -1,0 +1,11 @@
+{
+  "name": "mingle-ui-browser-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:ui": "node run-ui-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

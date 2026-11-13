@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head(#{match.title})}"></head>
-<body>
+<body class="mingle-app match-page">
 <aside th:replace="~{fragments/layout :: sidebar('connections')}"></aside>
 <div class="app-language"><nav th:replace="~{fragments/layout :: language}"></nav></div>
 <main class="app-main match-main">

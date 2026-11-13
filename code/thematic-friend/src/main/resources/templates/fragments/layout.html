@@ -4,32 +4,34 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title th:text="${title} + ' · Mingle'"><th:block th:text="#{ui.mingle}">Mingle</th:block> </title>
   <link rel="stylesheet" th:href="@{/css/app.css}">
+  <link rel="stylesheet" th:href="@{/css/mingle-ui.css}">
   <script th:src="@{/js/app.js}" defer></script>
 </head>
 <body>
+<svg th:fragment="icon(name)" class="ui-icon" aria-hidden="true" focusable="false"><use th:href="@{/images/ui-icons.svg} + '#' + ${name}"></use></svg>
 <nav th:fragment="language" class="language-switch" aria-label="Language" th:if="${chineseEnabled}">
   <a th:href="${englishUrl}" lang="en" th:classappend="${#locale.language == 'en'} ? 'selected'" th:attr="aria-current=${#locale.language == 'en' ? 'true' : null}">EN</a>
   <a th:href="${chineseUrl}" lang="zh" th:classappend="${#locale.language == 'zh'} ? 'selected'" th:attr="aria-current=${#locale.language == 'zh' ? 'true' : null}">中文</a>
 </nav>
 <aside th:fragment="sidebar(active)" class="sidebar">
-  <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span><th:block th:text="#{ui.mingle}">Mingle</th:block> <small>MINGLE</small></span></a>
+  <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span><th:block th:text="#{ui.mingle}">Mingle</th:block> <small>MEET. CLICK. CONNECT.</small></span></a>
   <span class="nav-caption"><th:block th:text="#{ui.a_little_in_common_a_new_story}">A little in common. A new story.</th:block> </span>
   <nav class="main-nav" th:aria-label="#{ui.main_navigation}">
-    <a th:href="@{/discover}" th:classappend="${active == 'discover'} ? 'active'" th:attr="aria-current=${active == 'discover' ? 'page' : null}"><span aria-hidden="true">◈</span><th:block th:text="#{ui.discover}">Discover</th:block> </a>
-    <a th:href="@{/connections}" th:classappend="${active == 'connections'} ? 'active'" th:attr="aria-current=${active == 'connections' ? 'page' : null}"><span aria-hidden="true">♡</span><th:block th:text="#{ui.connections}">Connections</th:block> </a>
-    <a th:href="@{/profile}" th:classappend="${active == 'profile'} ? 'active'" th:attr="aria-current=${active == 'profile' ? 'page' : null}"><span aria-hidden="true">○</span><th:block th:text="#{ui.my_profile}">My profile</th:block> </a>
-    <a th:href="@{/safety}" th:classappend="${active == 'safety'} ? 'active'" th:attr="aria-current=${active == 'safety' ? 'page' : null}"><span aria-hidden="true">◇</span><th:block th:text="#{ui.privacy_and_safety}">Privacy and safety</th:block> </a>
+    <a th:href="@{/discover}" th:classappend="${active == 'discover'} ? 'active'" th:attr="aria-current=${active == 'discover' ? 'page' : null}"><svg th:replace="~{fragments/layout :: icon('discover')}"></svg><th:block th:text="#{ui.discover_short}">Discover</th:block> </a>
+    <a th:href="@{/connections}" th:classappend="${active == 'connections'} ? 'active'" th:attr="aria-current=${active == 'connections' ? 'page' : null}"><svg th:replace="~{fragments/layout :: icon('chat')}"></svg><th:block th:text="#{ui.messages}">Messages</th:block> </a>
+    <a th:href="@{/profile}" th:classappend="${active == 'profile'} ? 'active'" th:attr="aria-current=${active == 'profile' ? 'page' : null}"><svg th:replace="~{fragments/layout :: icon('person')}"></svg><th:block th:text="#{ui.my_profile}">My profile</th:block> </a>
+    <a th:href="@{/safety}" th:classappend="${active == 'safety'} ? 'active'" th:attr="aria-current=${active == 'safety' ? 'page' : null}"><svg th:replace="~{fragments/layout :: icon('shield')}"></svg><th:block th:text="#{ui.safety_short}">Safety</th:block> </a>
   </nav>
   <div class="sidebar-bottom" th:if="${me != null}">
     <a class="mini-profile" th:href="@{/profile}"><span class="avatar small" th:classappend="'palette-' + ${me.palette}" th:text="${me.initial}"><th:block th:text="#{ui.j}">J</th:block> </span><span><strong th:text="${me.nickname}"><th:block th:text="#{ui.jamie_zhou}">Jamie Zhou</th:block> </strong><small><th:block th:text="#{ui.your_mingle_card}">Your Mingle card</th:block> </small></span></a>
-    <form th:action="@{/logout}" method="post"><button class="quiet" type="submit"><th:block th:text="#{ui.sign_out}">Sign out</th:block> <span aria-hidden="true">↗</span></button></form>
+    <form th:action="@{/logout}" method="post"><button class="quiet" type="submit"><svg th:replace="~{fragments/layout :: icon('logout')}"></svg><th:block th:text="#{ui.sign_out}">Sign out</th:block></button></form>
     <p class="fine"><th:block th:text="#{ui.course_prototype_meet_at_your_own_pace}">Course prototype · Meet at your own pace</th:block> </p>
   </div>
 </aside>
 <div th:fragment="notice" class="notice" role="status" th:if="${notice}" th:text="${@i18n.text(notice)}"></div>
 <header th:fragment="publicNav" class="public-nav">
   <nav th:replace="~{fragments/layout :: language}"></nav>
-  <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span><th:block th:text="#{ui.mingle}">Mingle</th:block> <small>MINGLE</small></span></a>
-  <div><a class="quiet" th:href="@{/privacy}"><th:block th:text="#{ui.about}">About</th:block> </a><a class="button secondary small-button" th:if="${me == null}" th:href="@{/login}"><th:block th:text="#{ui.sign_in}">Sign in</th:block> </a><a class="button secondary small-button" th:if="${me != null}" th:href="@{/discover}"><th:block th:text="#{ui.discover}">Discover</th:block> </a></div>
+  <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">m<span>·</span></span><span><th:block th:text="#{ui.mingle}">Mingle</th:block> <small>MEET. CLICK. CONNECT.</small></span></a>
+  <div><a class="quiet" th:href="@{/privacy}"><th:block th:text="#{ui.about}">About</th:block> </a><a class="button secondary small-button" th:if="${me == null}" th:href="@{/login}"><th:block th:text="#{ui.sign_in}">Sign in</th:block> </a><a class="button secondary small-button" th:if="${me != null}" th:href="@{/discover}"><th:block th:text="#{ui.discover_short}">Discover</th:block> </a></div>
 </header>
 </body></html>
