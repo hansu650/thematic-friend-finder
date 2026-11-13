@@ -1,0 +1,13 @@
+Command: node scripts/profile-browser/run-profile-check.mjs
+Base revision: e8d14813b8cef985f9e6cef8976d3395ff59e221 (working tree recorded in results.json)
+JAR SHA-256: 02116d634089cdf5f7a2c54115e8a0964f1d84596b8cbc545a18ae314bdb3cb0
+Browser: 157.0.4341.42; Playwright: 1.62.1; Node: v24.21.0
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+Page errors: []
+FAIL AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+'none' !== 'solid'
+
+Browser exit code: 1

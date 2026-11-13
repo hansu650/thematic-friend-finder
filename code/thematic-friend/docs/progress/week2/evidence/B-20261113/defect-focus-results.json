@@ -1,0 +1,257 @@
+{
+  "startedAt": "2026-11-13T07:59:31.260Z",
+  "command": "node scripts/profile-browser/run-profile-check.mjs",
+  "baseCommit": "e8d14813b8cef985f9e6cef8976d3395ff59e221",
+  "workingTree": "M src/main/resources/messages.properties\n M src/main/resources/messages_zh.properties\n M src/main/resources/templates/fragments/layout.html\n M src/main/resources/templates/profile.html\n?? scripts/profile-browser/\n?? src/main/resources/static/css/profile-preview.css\n?? src/main/resources/static/js/profile-preview.js",
+  "node": "v24.21.0",
+  "java": "openjdk 21.0.12.1 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)",
+  "playwright": "1.62.1",
+  "jarSha256": "02116d634089cdf5f7a2c54115e8a0964f1d84596b8cbc545a18ae314bdb3cb0",
+  "sourceSha256": {
+    "src/main/java/com/example/thematicfriend/account/AccountController.java": "afc43218a13f7c9f52f114b7ac2096638f45bfa0ba18e599e821d9ddfaa579fe",
+    "src/main/java/com/example/thematicfriend/account/AccountService.java": "293dea992a9b7594310713c82ce6b5f8d3cd59e21fef4e60f19c40596a0e8067",
+    "src/main/java/com/example/thematicfriend/account/ChangePasswordForm.java": "042441c760b094c677ebf8b2550b3fdb14e6c4d620774b7ded21e688746a4803",
+    "src/main/java/com/example/thematicfriend/account/Member.java": "a3980baad2e395fb199bbd78ed931fea2e9e5888158486dce1356e2663345919",
+    "src/main/java/com/example/thematicfriend/account/MemberRepository.java": "f8338930ea7ac823671eb1d96c66ad9e5059f7ffeda89442c552b80c36690276",
+    "src/main/java/com/example/thematicfriend/account/ProfileForm.java": "d4268a98e9c18ebb1165459468e2bb5c3acc0a4240992aa2ddf74fe99c87299a",
+    "src/main/java/com/example/thematicfriend/account/SignupForm.java": "625178836d03d77f19f6c28ba2c0a4759029062e00f0802d9e36a22cfb72421e",
+    "src/main/java/com/example/thematicfriend/bootstrap/DemoData.java": "2842cc3d5bbd7c06d377342aac99cb8e41cd3cef659f4d66740287bae76c9f2b",
+    "src/main/java/com/example/thematicfriend/chat/ChatController.java": "131ce428f4e1c4993de25dee2f95dbbaa5764dc701987e8cdfe99134302c5746",
+    "src/main/java/com/example/thematicfriend/chat/ChatService.java": "f73d11bdb789f3b0ceeac290e6b45074e6afb5e848ecd2ca64fcc27540c1fd86",
+    "src/main/java/com/example/thematicfriend/chat/ConversationReadState.java": "a671012d0eebd2d0537f7af459ad878e27d11caf01ccad71e04e0c2c45fafbae",
+    "src/main/java/com/example/thematicfriend/chat/ConversationReadStateRepository.java": "5e700ad14bf76539b446398948a32f87357bed6d74b45436099f83839229d5fa",
+    "src/main/java/com/example/thematicfriend/chat/Message.java": "bce4ae48c53bb223d375215d876f7388fd0a6b8e6c0fc83aff02d6b887267259",
+    "src/main/java/com/example/thematicfriend/chat/MessageRepository.java": "86a65bcc3f9b9aeb5b40cc820af64c5543c4869fcf341fb7e1f11a1cc70f76a1",
+    "src/main/java/com/example/thematicfriend/config/I18n.java": "10b54cebce0f1b589b5171c62e013f93df3f8c194fef3243106f326538c7b6ba",
+    "src/main/java/com/example/thematicfriend/config/PageAdvice.java": "fbeed93e95265c77eed3247ac141751f9b1df055d36fbdfbe3d4099b3b5c9d83",
+    "src/main/java/com/example/thematicfriend/config/SecurityConfig.java": "d560ed64cd6f65204285a6fe5c2289cf230f0423b546a48531fa225d46206879",
+    "src/main/java/com/example/thematicfriend/config/WebConfig.java": "9acb58890164a7102b3ae100cc1a9584d25a86e34ffaa11caa842087dcf476d6",
+    "src/main/java/com/example/thematicfriend/connection/Connection.java": "d13582aebbe591a45b9fc5fc673351342e49b65b6df5dc5fde6beef4b320a871",
+    "src/main/java/com/example/thematicfriend/connection/ConnectionRepository.java": "77ba25772db9307416a4858c0449723411bcaa9295b0819f758d140f299f219e",
+    "src/main/java/com/example/thematicfriend/connection/ConnectionService.java": "d7ad5edb95c80ada0abb73e9297525f99b0b61ce9ef3c0d72ec6a41ca40b7ed0",
+    "src/main/java/com/example/thematicfriend/connection/Decision.java": "bc3ed0b00a3756b2d0824cbc405863c7307bbe621746548efae848e58e22bf5b",
+    "src/main/java/com/example/thematicfriend/connection/DecisionRepository.java": "8f22468b768958686becefa2deecc4b20bc8d9a5617a4377752ad7ddc432b7bc",
+    "src/main/java/com/example/thematicfriend/connection/PairGuard.java": "8d96dd78c5738459bd521e8a0cd20bd467210d844198949bf9d13a827398e544",
+    "src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java": "2fd9ce9fbc4bd9ad7890e337cceb70c164c2a9f31c507bc6e85759d7abc4a788",
+    "src/main/java/com/example/thematicfriend/discovery/DiscoveryService.java": "6bee742cf647f6b4c935e9a739917d9fff72ba3cf5ae918b91b2ea3e15116f3c",
+    "src/main/java/com/example/thematicfriend/discovery/MatchController.java": "a84b1289884aee95cc1ba016857a667e2f38c36f9f9bf5f21dc81cac4d4f11b0",
+    "src/main/java/com/example/thematicfriend/safety/Block.java": "5215f032088ace6ba8cf4f29b06323ced14a2cb13c28ddb5858afe293778d2ae",
+    "src/main/java/com/example/thematicfriend/safety/BlockRepository.java": "57e1242d199af01d4f91e8f9d4f71f751c640d8e0c45d8095d457e321befecdf",
+    "src/main/java/com/example/thematicfriend/safety/Report.java": "1811904b65574f5d8dc9272c8852b5e5c18f8fcc603beb282af6c2596d31167f",
+    "src/main/java/com/example/thematicfriend/safety/ReportRepository.java": "51861931e8586c3299ac87dbc696adb30bdfa94a84477f63ca13a82fdd5af481",
+    "src/main/java/com/example/thematicfriend/safety/ReportReviewController.java": "4112df0c71c259965960926a4afd1613d73ce13c7373c6b5de5a5f9b0aee4c58",
+    "src/main/java/com/example/thematicfriend/safety/SafetyController.java": "0a4ec956dd5839a0f017d54f8edd506b51fff17f5d366cd5356f8c3edfd1594d",
+    "src/main/java/com/example/thematicfriend/safety/SafetyService.java": "d3e65c9dc26cdf0a4054237b9dc8b5d4dbe67059cb6438da54545a3070efd9bf",
+    "src/main/java/com/example/thematicfriend/ThematicFriendApplication.java": "262ef73e0cc8cc9a9c837fe43a41aa39e3cc554e16337f5741d7742989d7490d",
+    "src/main/resources/application.properties": "b8cc79df3a6bc75868a043721ad28f21109b5d732d7bd24a343ab88d19237898",
+    "src/main/resources/messages.properties": "a27d82bd478fa4922701e86c5c71ab47ddddf27192efa6ecb4f35bfde675753f",
+    "src/main/resources/messages_zh.properties": "48526f7c33c6f1ccc2635bf20bc95e4dc530c60ae4800e9ef0bd1f3572328d47",
+    "src/main/resources/static/css/app.css": "174d412bd144808ccdd9d481941b3c536792b77d0064c0517d6bac02530be21f",
+    "src/main/resources/static/css/mingle-ui.css": "ef622eba347ebf6eb7b2c9e4c6db889a34f466e1c1606163226bef69c9999972",
+    "src/main/resources/static/css/profile-preview.css": "11eee660d5b18979e861da4f4dfb0475dc36d7fd0f473ed64f8e97d3fb3b6dec",
+    "src/main/resources/static/images/avatar-0.svg": "3bb794be0cdb859dc8d8c5843211ba43961d0e622ef40911ed3f37bb01ef96f4",
+    "src/main/resources/static/images/avatar-1.svg": "4acfc41c06228fc8895c8214a5621747e18a4632cdc0f4f6271d36193fb38728",
+    "src/main/resources/static/images/avatar-2.svg": "0b73f7b0b6e9bc6e014402504f837afaabaa838c89e5c3f9b64fc6d413e52438",
+    "src/main/resources/static/images/avatar-3.svg": "dc23906d9217b44d9288f0ed3cf5e6f0c8f8f89740922cca6da9144d60beb4a1",
+    "src/main/resources/static/images/avatar-4.svg": "bdea06a411d9ee59bdab680a3fdccfedecfa7fe5da2b1c97f3c33df0d50d330a",
+    "src/main/resources/static/images/ui-icons.svg": "271f57e9c3b1758b4addcbd96a1c9c0ec72d3fc7f31ae33d1030e3c8f9e59fda",
+    "src/main/resources/static/js/app.js": "15bb690d46de271a8af44c5488648a1e2c6f806cb8d57c0796c9e2976e6c94d5",
+    "src/main/resources/static/js/chat.js": "73fb39d088963e96a512c6db0918849f0c73d33afbf52b03eb34f03ebae00a9e",
+    "src/main/resources/static/js/profile-preview.js": "3144f1bff1ca645f6c66a9ee1b32d69c5d47a9d7295fd7faf67a33cd66b01c13",
+    "src/main/resources/templates/change-password.html": "2a11d3a99eb847d89970640e7eaf0e1fc3a3ef94444ae22faef38c4a48e53c01",
+    "src/main/resources/templates/connections.html": "6cfb9903dbe905d6fa730dd92421b3fa2467df6688f007ae4fe3ccd6188ff05b",
+    "src/main/resources/templates/conversation.html": "cd39c73062eb86bfb0022d8b02348131418053ecaf7c81f8d793c8d25e1c71ee",
+    "src/main/resources/templates/discover.html": "b4e25d79aa05dd5efb12679294891491478b569f6b4744d155229c258ad53e62",
+    "src/main/resources/templates/error.html": "850105b214f3960d66a9702d114dc3d27d2f87365f3d6985af81271e421dabe3",
+    "src/main/resources/templates/fragments/layout.html": "6dab261a06009427923ac870fb8758e336d3e987ac678e64631e9d56c5df582f",
+    "src/main/resources/templates/login.html": "8c3db22f2ac57f062eb3f268250bff0dd4178c9835fecb6331b28a7bbcd73a70",
+    "src/main/resources/templates/match.html": "9f59ccaf48d5dadd014118e3eb6b8e577ef1af0c89adf67410ec99b275f6c8b1",
+    "src/main/resources/templates/privacy.html": "468bdeef92c81951985cb4c4d5f703984b21bcdaa88c3a29b7f7f6b4a7f1c3d2",
+    "src/main/resources/templates/profile.html": "bac7348d7f2b0aad3909c91e0ee1384af9cc7172869b4241600a9fa8ae720fa9",
+    "src/main/resources/templates/report-review.html": "7559e215e0bd5336b8bd040950760df2b688c96c9f20c4d4bde8c6faf21b4879",
+    "src/main/resources/templates/report.html": "ee40467912c3b1b505c3e0763852f3b414683887459c25ec5bf6f359c430210a",
+    "src/main/resources/templates/safety.html": "5d12283532c747da5a5ed8f5be2a8a4e37a2f21b1c879bf57ffc5c86fcb707dc",
+    "src/main/resources/templates/signup.html": "e15b57d29d6388c33ba393f96363baffd868333b1ce2cd0fb81b4ef12dfb821e",
+    "src/main/resources/templates/welcome.html": "8afb349683e33e96376d1dc02e6ca04649815857a05028c3cd9053ca5ff1c3ff",
+    "src/test/java/com/example/thematicfriend/AIntegrationTests.java": "677cfae2c316f7ee1333679143059787e00ca828fb63173682383116f489aa05",
+    "src/test/java/com/example/thematicfriend/ChangePasswordTests.java": "308ce887cfc9726b3be80a7feb014dcb0a9c945d53c00686196db29c75f8c61b",
+    "src/test/java/com/example/thematicfriend/ConversationReadStateTests.java": "f7a741d591e781688d712534b9622ba4bff039a1ea3d5a66f07d6954300a199c",
+    "src/test/java/com/example/thematicfriend/DiscoveryRegressionTests.java": "3cff84ebe0a806fd729f68ccba91bbc363dad492372accf361d72a276ca77a84",
+    "src/test/java/com/example/thematicfriend/LanguageTests.java": "0a892fa4699a393d75633d8ca6944882aaca05dc967faccacf12680b910d9467",
+    "src/test/java/com/example/thematicfriend/PrototypeFlowTests.java": "6f944900745b7b69a6d45dbd7938e057f1904379b113395e1e3c7dabff08916b",
+    "src/test/java/com/example/thematicfriend/ThematicFriendApplicationTests.java": "cfdf7f6a63d6d474c1ea8d9f35e0099806a0ccdc0f33af3b8a399d895711853f",
+    "scripts/profile-browser/package-lock.json": "983346f9875fc914416ca3cc272b4ecb3e5127e27a13b3e0756c09317881e670",
+    "scripts/profile-browser/package.json": "7d26d8aa8071f02d7864c32518854bd046c652b21c334cb2ac4f9ee2af3ff13a",
+    "scripts/profile-browser/README.md": "14acec2b25cbc05b0229f7a704a0b5a7e0f54355eef647e28b0d9fd9f49f69ee",
+    "scripts/profile-browser/run-profile-check.mjs": "00951b04b990ff505b2f85f7ad6a3171fba4fa3b5c442012496b089504792a10"
+  },
+  "checks": [
+    {
+      "id": "B-01",
+      "title": "All preview fields update locally; refresh restores saved values; explicit save persists",
+      "passed": true,
+      "durationMs": 6339
+    },
+    {
+      "id": "B-02",
+      "title": "Mouse/Space enforce five interests, announce the sixth, and preserve existing choices",
+      "passed": true,
+      "durationMs": 2650
+    },
+    {
+      "id": "B-03",
+      "title": "HTML-like text stays inert; 30/300-character values fit at 390 px",
+      "passed": true,
+      "durationMs": 1984
+    },
+    {
+      "id": "B-04",
+      "title": "Keyboard tab order, visible focus, native controls and preview status work",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'none' !== 'solid'\n",
+      "durationMs": 2131
+    }
+  ],
+  "images": [
+    "B_normal.png",
+    "B_boundary.png",
+    "B_safe_text.png",
+    "B-04-failure.png"
+  ],
+  "errors": [
+    "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'none' !== 'solid'\n\n    at file:///D:/Codex/Projects/thematic-friend-finder/code/thematic-friend/scripts/profile-browser/run-profile-check.mjs:222:12\n    at async check (file:///D:/Codex/Projects/thematic-friend-finder/code/thematic-friend/scripts/profile-browser/run-profile-check.mjs:83:5)\n    at async file:///D:/Codex/Projects/thematic-friend-finder/code/thematic-friend/scripts/profile-browser/run-profile-check.mjs:207:3"
+  ],
+  "exitCode": 1,
+  "browser": "157.0.4341.42",
+  "pageErrors": [],
+  "domDiagnostics": {
+    "scripts": [
+      "http://127.0.0.1:63480/js/app.js",
+      "http://127.0.0.1:63480/js/profile-preview.js"
+    ],
+    "controls": [
+      {
+        "id": "",
+        "name": "_csrf",
+        "type": "hidden"
+      },
+      {
+        "id": "nickname",
+        "name": "nickname",
+        "type": "text"
+      },
+      {
+        "id": "interests1",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests2",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests3",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests4",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests5",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests6",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests7",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests8",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests9",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "interests10",
+        "name": "interests",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_interests",
+        "type": "hidden"
+      },
+      {
+        "id": "discoverable",
+        "name": "discoverable",
+        "type": "checkbox"
+      },
+      {
+        "id": "",
+        "name": "_discoverable",
+        "type": "hidden"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-13T08:00:09.218Z",
+  "output": "D:\\Codex\\Work\\b-profile-week2\\browser-runs\\B-0BDQQR"
+}

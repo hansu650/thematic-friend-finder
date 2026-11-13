@@ -1,0 +1,11 @@
+Command: node scripts/profile-browser/run-profile-check.mjs
+Base revision: e8d14813b8cef985f9e6cef8976d3395ff59e221 (working tree recorded in results.json)
+JAR SHA-256: 890f0fca4a9f7416afa109d5d5a5d6f0df696741832ee92301cfcbd4e765296c
+Browser: 157.0.4341.42; Playwright: 1.62.1; Node: v24.21.0
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+PASS B-04 Keyboard tab order, visible focus, native controls and preview status work
+Page errors: []
+FAIL AssertionError [ERR_ASSERTION]: Save button is above bottom navigation
+Browser exit code: 1

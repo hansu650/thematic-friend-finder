@@ -1,0 +1,3 @@
+Isolated test server did not become ready.
+Browser output: D:\Codex\Work\b-profile-week2\peer-discovery-runs\discovery-HXAsLm
+BrowserExit=1

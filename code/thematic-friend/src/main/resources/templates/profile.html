@@ -1,12 +1,80 @@
-<!DOCTYPE html><html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head(#{ui.my_profile})}"></head><body class="mingle-app profile-page"><aside th:replace="~{fragments/layout :: sidebar('profile')}"></aside>
+<!DOCTYPE html>
+<html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(#{ui.my_profile})}"></head>
+<body class="mingle-app profile-page">
+<aside th:replace="~{fragments/layout :: sidebar('profile')}"></aside>
 <div class="app-language"><nav th:replace="~{fragments/layout :: language}"></nav></div>
-<main class="app-main"><header class="page-heading"><div><h1 th:text="#{ui.my_profile}">My profile</h1><p class="muted"><th:block th:text="#{ui.no_perfect_introduction_needed_let_your_interests_do_the_talking}">No perfect introduction needed. Let your interests do the talking.</th:block> </p></div></header><div th:replace="~{fragments/layout :: notice}"></div>
-<div class="profile-layout"><section class="panel pl-card"><form th:action="@{/profile}" th:object="${profileForm}" method="post" class="stack-form">
-<label for="nickname"><th:block th:text="#{ui.display_name}">Display name</th:block> </label><input id="nickname" th:field="*{nickname}" maxlength="30" required><span class="field-error" th:errors="*{nickname}"></span>
-<label for="bio"><th:block th:text="#{ui.about_you}">About you</th:block> </label><textarea id="bio" th:field="*{bio}" rows="4" maxlength="300" th:placeholder="#{ui.what_are_you_enjoying_what_would_you_like_to_do_together}"></textarea><span class="fine"><th:block th:text="#{ui.up_to_300_characters_use_fictional_details_and_leave_out_contact_information}">Up to 300 characters. Use fictional details and leave out contact information.</th:block> </span><span class="field-error" th:errors="*{bio}"></span>
-<fieldset><legend><th:block th:text="#{ui.your_interests}">Your interests</th:block> <span class="fine"><th:block th:text="#{ui.choose_up_to_5}">Choose up to 5</th:block> </span></legend><div class="interest-options"><label th:each="item : ${allInterests}"><input type="checkbox" th:field="*{interests}" th:value="${item}"><span th:text="${@i18n.option(item)}"></span></label></div></fieldset><span class="field-error" th:errors="*{interests}"></span>
-<label for="goal"><th:block th:text="#{ui.what_brings_you_here}">What brings you here?</th:block> </label><select id="goal" th:field="*{goal}"><option th:each="item : ${allGoals}" th:value="${item}" th:text="${@i18n.option(item)}"></option></select><span class="field-error" th:errors="*{goal}"></span>
-<label class="check-label"><input type="checkbox" th:field="*{discoverable}"><span><th:block th:text="#{ui.show_my_profile_in_discover}">Show my profile in Discover</th:block> </span></label><p class="fine"><th:block th:text="#{ui.hiding_your_profile_does_not_end_existing_connections_manage_them_in_connections}">Hiding your profile does not end existing connections. Manage them in Connections.</th:block> </p>
-<button class="button" type="submit"><th:block th:text="#{ui.save_my_profile}">Save my profile</th:block> <span aria-hidden="true">↗</span></button></form></section>
-<aside class="panel profile-preview pl-card"><p class="eyebrow" th:text="#{ui.your_saved_card}">YOUR SAVED CARD</p><span class="avatar large" th:classappend="'palette-' + ${me.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(me)} : '')" th:text="${me.initial}"></span><h2 th:text="${me.nickname}"></h2><p th:text="${@i18n.option(me.goal)}"></p><div class="tags"><span th:each="item : ${me.interests}" th:text="${@i18n.option(item)}"></span></div><p class="fine"><th:block th:text="#{ui.this_preview_shows_your_saved_profile}">This preview shows your saved profile.</th:block> </p><a class="text-link" th:href="@{/change-password}" th:text="#{ui.change_password}">Change password</a><a class="text-link" th:href="@{/safety}"><th:block th:text="#{ui.privacy_and_safety_settings}">Privacy and safety settings ↗</th:block> </a></aside></div><section class="panel preferences"><h2 th:text="${#locale.language == 'zh' ? '声音与动态' : 'Sound & motion'}"></h2><label><input type="checkbox" data-sound-preference><span th:text="${#locale.language == 'zh' ? '消息提示音' : 'Message sounds'}"></span></label><label><input type="checkbox" data-motion-preference><span th:text="${#locale.language == 'zh' ? '减少动态效果' : 'Reduce motion'}"></span></label></section><form class="mobile-signout" th:action="@{/logout}" method="post"><button class="button secondary" type="submit"><svg th:replace="~{fragments/layout :: icon('logout')}"></svg><span th:text="#{ui.sign_out}">Sign out</span></button></form></main></body></html>
+<main class="app-main">
+  <header class="page-heading"><div>
+    <p class="eyebrow" th:text="#{profile.introduction}">A LITTLE ABOUT YOU</p>
+    <h1 th:text="#{ui.my_profile}">My profile</h1>
+    <p class="muted" th:text="#{ui.no_perfect_introduction_needed_let_your_interests_do_the_talking}"></p>
+  </div></header>
+  <div th:replace="~{fragments/layout :: notice}"></div>
+  <div class="profile-layout">
+    <section class="panel pl-card">
+      <form id="profile-form" th:action="@{/profile}" th:object="${profileForm}" method="post" class="stack-form"
+            th:attr="data-has-errors=${#fields.hasAnyErrors()}">
+        <label for="nickname" th:text="#{ui.display_name}">Display name</label>
+        <input id="nickname" th:field="*{nickname}" maxlength="30" required aria-describedby="nickname-error"
+               th:attr="aria-invalid=${#fields.hasErrors('nickname')}">
+        <span id="nickname-error" class="field-error" th:errors="*{nickname}"></span>
+        <label for="bio" th:text="#{ui.about_you}">About you</label>
+        <textarea id="bio" th:field="*{bio}" rows="4" maxlength="300" aria-describedby="bio-hint bio-error"
+                  th:placeholder="#{ui.what_are_you_enjoying_what_would_you_like_to_do_together}"
+                  th:attr="aria-invalid=${#fields.hasErrors('bio')}"></textarea>
+        <span id="bio-hint" class="fine" th:text="#{ui.up_to_300_characters_use_fictional_details_and_leave_out_contact_information}"></span>
+        <span id="bio-error" class="field-error" th:errors="*{bio}"></span>
+        <fieldset aria-describedby="interest-feedback interests-error" id="profile-interests">
+          <legend><span th:text="#{ui.your_interests}">Your interests</span></legend>
+          <p id="interest-feedback" class="fine" role="status" aria-live="polite" aria-atomic="true"
+             data-max="5" th:attr="data-count=#{profile.interests.count},data-limit=#{profile.interests.limit},data-over=#{profile.interests.over}"
+             th:text="#{ui.choose_up_to_5}">Choose up to 5</p>
+          <div class="interest-options">
+            <label th:each="item : ${allInterests}">
+              <input type="checkbox" th:field="*{interests}" th:value="${item}">
+              <span th:text="${@i18n.option(item)}"></span>
+            </label>
+          </div>
+        </fieldset>
+        <span id="interests-error" class="field-error" th:errors="*{interests}"></span>
+        <label for="goal" th:text="#{ui.what_brings_you_here}">What brings you here?</label>
+        <select id="goal" th:field="*{goal}" aria-describedby="goal-error"
+                th:attr="aria-invalid=${#fields.hasErrors('goal')}">
+          <option th:each="item : ${allGoals}" th:value="${item}" th:text="${@i18n.option(item)}"></option>
+        </select>
+        <span id="goal-error" class="field-error" th:errors="*{goal}"></span>
+        <label class="check-label">
+          <input id="discoverable" type="checkbox" th:field="*{discoverable}" aria-describedby="discoverable-hint">
+          <span th:text="#{ui.show_my_profile_in_discover}"></span>
+        </label>
+        <p id="discoverable-hint" class="fine" th:text="#{ui.hiding_your_profile_does_not_end_existing_connections_manage_them_in_connections}"></p>
+        <div class="profile-form-actions">
+          <button class="button" type="submit"><span th:text="#{ui.save_my_profile}">Save my profile</span><span aria-hidden="true">↗</span></button>
+          <button class="button secondary" type="reset" th:text="#{profile.reset}">Reset edits</button>
+        </div>
+      </form>
+    </section>
+    <aside class="panel profile-preview pl-card" aria-labelledby="preview-heading">
+      <p id="preview-heading" class="eyebrow" th:text="#{profile.card}">YOUR CARD</p>
+      <span id="preview-initial" class="avatar large" aria-hidden="true" th:classappend="'palette-' + ${me.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(me)} : '')" th:text="${me.initial}"></span>
+      <h2 id="preview-name" th:text="${profileForm.nickname}" th:attr="data-empty=#{profile.name.empty}"></h2>
+      <p id="preview-goal" th:text="${@i18n.option(profileForm.goal)}"></p>
+      <p id="preview-bio" th:text="${profileForm.bio}" th:attr="data-empty=#{profile.bio.empty}"></p>
+      <div id="preview-interests" class="tags">
+        <span th:each="item : ${profileForm.interests}" th:text="${@i18n.option(item)}"></span>
+      </div>
+      <p id="preview-status" class="fine" role="status" aria-live="polite" aria-atomic="true"
+         th:attr="data-saved=#{profile.preview.saved},data-unsaved=#{profile.preview.unsaved},data-invalid=#{profile.preview.invalid}"
+         th:text="#{ui.this_preview_shows_your_saved_profile}"></p>
+      <a class="text-link" th:href="@{/change-password}" th:text="#{ui.change_password}">Change password</a><br>
+      <a class="text-link" th:href="@{/safety}" th:text="#{ui.privacy_and_safety_settings}"></a>
+    </aside>
+  </div>
+  <section class="panel preferences"><h2 th:text="${#locale.language == 'zh' ? '声音与动态' : 'Sound & motion'}"></h2><label><input type="checkbox" data-sound-preference><span th:text="${#locale.language == 'zh' ? '消息提示音' : 'Message sounds'}"></span></label><label><input type="checkbox" data-motion-preference><span th:text="${#locale.language == 'zh' ? '减少动态效果' : 'Reduce motion'}"></span></label></section>
+  <form class="mobile-signout" th:action="@{/logout}" method="post">
+    <button class="button secondary" type="submit"><svg th:replace="~{fragments/layout :: icon('logout')}"></svg><span th:text="#{ui.sign_out}"></span></button>
+  </form>
+</main>
+</body>
+</html>

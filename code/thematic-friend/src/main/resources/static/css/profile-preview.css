@@ -1,0 +1,25 @@
+/* Profile-only additions; shared navigation and A/D layouts retain their styles. */
+.profile-page .profile-layout > * { min-width: 0; }
+.profile-page .profile-preview { overflow-wrap: anywhere; }
+.profile-page #preview-bio { white-space: pre-wrap; text-align: left; }
+.profile-page #interest-feedback { margin: 0 0 12px; color: #515965; min-height: 1.7em; }
+.profile-page #interest-feedback.at-limit { color: #a5264c; font-weight: 600; }
+.profile-page .profile-form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.profile-page .profile-form-actions .button { flex: 1 1 160px; }
+.profile-page input:not([type="hidden"]):focus-visible,
+.profile-page textarea:focus-visible,
+.profile-page select:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+.profile-page .interest-options input[type="checkbox"]:focus-visible ~ span { outline: 3px solid var(--purple); outline-offset: 3px; }
+.profile-page .interest-options input[type="checkbox"]:checked ~ span { background: #f5eefc; border-color: #b5a0d5; color: #684c91; }
+.profile-page .interest-options span { min-height: 44px; display: flex; align-items: center; }
+.profile-page #preview-status { display: block; color: #515965; }
+/* Align the narrow-screen reading and tab order: form, preview, account links. */
+@media (max-width: 940px) {
+  .profile-page #profile-form :is(input, textarea, select, button) { scroll-margin-bottom: 12px; }
+  .profile-page .profile-preview { order: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-page *, .profile-page *::before, .profile-page *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

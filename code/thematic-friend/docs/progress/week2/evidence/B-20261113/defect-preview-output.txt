@@ -1,0 +1,19 @@
+Command: node scripts/profile-browser/run-profile-check.mjs
+Base revision: e8d14813b8cef985f9e6cef8976d3395ff59e221 (working tree recorded in results.json)
+JAR SHA-256: 4c314deb03687dc0a57eb2600b4877464cf5c58cc62f934c98da02d2f43c8681
+Browser: 157.0.4341.42; Playwright: 1.62.1; Node: v24.21.0
+Page errors: ["Cannot read properties of null (reading 'checked')"]
+FAIL Error: expect(locator).toHaveText(expected) failed
+
+Locator:  locator('#preview-name')
+Expected: "Morgan Example"
+Received: "Jamie Zhou"
+Timeout:  5000ms
+
+Call log:
+  - Expect "to.have.text" with timeout 5000ms
+  - waiting for locator('#preview-name')
+    14 × locator resolved to <h2 id="preview-name" data-empty="Your display name">Jamie Zhou</h2>
+       - unexpected value "Jamie Zhou"
+
+Browser exit code: 1

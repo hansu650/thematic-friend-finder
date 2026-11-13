@@ -1,0 +1,8 @@
+{
+  "originalRunnerSha256": "76382e8443a848c4db4aaa5df661c4599716e436afc9f7a69ae231521aedcc18",
+  "changes": [
+    "Resolve the original scripts/browser directory from this scratch wrapper",
+    "Increase startup polling from 100 to 300 attempts after a real startup timeout; browser assertions are unchanged"
+  ],
+  "checkSha256": "2bd84cf52f178f2c31cf7af030f60fb0c424e6addd253f7b6ea5b067eac2c50c"
+}
