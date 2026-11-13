@@ -43,6 +43,9 @@ if ($Rebuild -or -not (Test-Path -LiteralPath $jarPath)) { & "$PSScriptRoot\buil
 $javaCommand = if ($env:JAVA_HOME) { Join-Path $env:JAVA_HOME 'bin\java.exe' }
     elseif (Test-Path -LiteralPath 'D:\kaifagongju\Java\jdk-21.0.12.1-hotspot\bin\java.exe') { 'D:\kaifagongju\Java\jdk-21.0.12.1-hotspot\bin\java.exe' }
     else { 'java' }
+if (-not (Get-Command $javaCommand -ErrorAction SilentlyContinue) -and -not (Test-Path -LiteralPath $javaCommand -PathType Leaf)) {
+    throw "Java executable was not found. Set JAVA_HOME to a JDK 21 installation; attempted: $javaCommand"
+}
 $previousPassword = $env:TONGPIN_DEMO_PASSWORD
 $previousDataDirectory = $env:APP_DATA_DIR
 try {
