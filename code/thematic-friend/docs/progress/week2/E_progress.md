@@ -43,6 +43,8 @@ Taken on 13 November 2026 from a local instance started with `--spring.profiles.
 - [Reporter receipt](./images/E_receipt.png) shows the receipt without the internal note. The receipt displays the original pending label, so this capture does not demonstrate a reporter-facing status update.
 - [Local test result](./images/E_tests.png) shows 54 tests passing, BUILD SUCCESS and exit code 0.
 
+- [Narrow viewport](./images/E_mobile_390.png) was captured using DevTools Protocol device emulation at 390 × 844 CSS px, device pixel ratio 2, with a Pixel 8 Android 14 user agent and touch enabled. The reviewed status, handler, timestamp and internal note are visible in one viewport.
+
 ## Pending
 
 Peer review by F after the account provisioning is confirmed with A and C, Trello update, and the two follow-ups listed above. Codex assisted with implementation, automated tests, captures and this record.
