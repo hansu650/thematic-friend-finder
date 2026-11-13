@@ -1,0 +1,14 @@
+{
+  "name": "mingle-preline-styles",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Compile the adapted free Preline UI components used by Mingle. The Java application serves the generated CSS locally.",
+  "scripts": {
+    "build": "tailwindcss -i ./preline.css -o ../../src/main/resources/static/css/preline.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.5",
+    "tailwindcss": "4.3.5",
+    "preline": "5.1.0"
+  }
+}

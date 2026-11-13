@@ -1,6 +1,6 @@
 # Testing and Weekly Evidence
 
-Every member owns implementation, executable tests, screenshots and an independent peer check. The initial allocation remains A 42 hours and B–F 28 hours each. Reserve about 8–10 hours of each B–F budget for test code, debugging, peer reproduction and evidence; this time is included in the total. Confirm capacity and reduce optional scope if needed.
+Every member owns implementation, executable tests, screenshots and an independent peer check. The revised allocation is A 42 hours, D 34 hours and B/C/E/F 28 hours each. Reserve about 8–10 hours of each B–F budget for test code, debugging, peer reproduction and evidence; this time is included in the total. Confirm capacity and reduce optional scope if needed.
 
 ## Executable tests
 

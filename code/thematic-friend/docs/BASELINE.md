@@ -1,31 +1,34 @@
-# A-Owned Baseline and Contribution Boundaries
+# Baseline, Current Capabilities and Contribution Boundaries
 
-On 6 November 2026, the user assigned the existing prototype to A as the team's starting version and asked for separate, balanced work for B–F. **A owns this baseline, explains it and coordinates integration. It was implemented with Codex assistance.** Ownership does not imply unaided authorship, nor does it establish another member's contribution.
+On 6 November 2026, the existing prototype became A's starting implementation for the six-person project. **Qin Tian owns the AI-assisted baseline and leads technical integration.** Codex assistance is recorded; ownership does not imply unaided authorship or establish another member's contribution.
 
-## Existing capabilities
+## Current integrated capabilities - 13 November 2026
 
-- Registration, login, logout, password hashing and profile editing.
-- Interest/activity filtering, genuine shared-interest labels and hidden/blocked-profile exclusion.
-- Drag-to-like/skip with a return animation below the threshold, equivalent buttons and arrow-key controls.
-- Mutual matching, a connection list and participant-only persisted text messaging with polling.
-- Ending contact, directional blocking, unblock rules and private report receipts.
-- English default UI with temporary session-based EN/Chinese switching and localised validation/status text.
-- File-based H2, optional fictional demo accounts and basic build/run scripts.
+- Registration, login/logout, password hashing, profile editing and current-password-verified password change.
+- Interest/activity filtering, shared-interest labels, eligible profile details, like/skip controls and mutual-match feedback.
+- Event and people feeds, activity search and creation, participant attendance and personal saved activities in H2.
+- Participant-only text, emoji and sticker conversations with polling, recipient-owned unread markers and bounded older-history pages.
+- Ending contact, two-direction block checks, private report receipts and explicitly authorized staff review.
+- English-default pages with a temporary Chinese switch, responsive reference-based layouts and reduced-motion controls.
+- Optional fictional profile/activity fixtures, local stock photographs, a file-based H2 database and stopped-database backup/restore tools.
 
-The website uses initial-based avatars. It does not contain copied Alovoa source. Sources and dependencies are recorded in [THIRD_PARTY.md](THIRD_PARTY.md).
+The current UI and its small polish are described in the [release record](releases/2026-11-13-reference-ui.md). The website is not an Alovoa fork. Asset sources and dependencies are recorded in [THIRD_PARTY.md](THIRD_PARTY.md).
 
-## New work reserved for the team
+## Ownership and member increments
 
-| Member | New increment |
+Qin Tian is **Scrum Master and Lead Developer**, and the project's primary technical contributor. Tao Jiacheng is **Product Owner**. They both participated in topic selection. Other members are Developers; see the [contribution record](../../../team-plan/15_contribution_and_ownership.md).
+
+| Member | Integrated work or current assignment |
 |---|---|
-| B | Live profile editing preview, interest counter and accessibility improvements |
-| C | Current-password-verified password change and explicit session/data contracts |
-| D | Unread indicators and older-message pagination |
-| E | Staff-only report review, handling records and permission tests |
-| F | Safe backup/restore tooling and independent clean-copy reproduction |
+| A | Starting implementation, discovery/recovery, shared UI, events, integration and verification |
+| B | Assigned profile preview, interest counter and accessibility increment; completion needs actual evidence |
+| C | Password change and current-session contract merged in PR #11; product goal, backlog and acceptance ownership |
+| D | Unread state and older-message paging merged in PR #10; new reliability follow-up is assigned, not implemented |
+| E | Staff-only report review, handling records and permission tests merged in PR #14 |
+| F | Backup/restore and runtime tooling merged in PR #13; independent reproduction needs its own record |
 
-These increments have not been implemented by the assistant. Each member must retain actual changes, meaningful tests, peer review and learning evidence. A continues discovery refinement, shared contracts and integration. See the [individual tasks](../../../team-plan/README.md) and [balanced workload](../../../team-plan/11_workload_balance.md): A 42 estimated hours, each of B–F 28.
+Preserve each member's changes, tests and explanations. The [workload estimates](../../../team-plan/11_workload_balance.md) are A 42, B 28, C 28, D 34, E 28 and F 28 hours, not completed-time claims.
 
 ## Limits
 
-This is a single-instance local course prototype, not a publicly deployed service. The age checkbox is self-declaration. Reports are stored without live staff review. Messages are not end-to-end encrypted. There is no account recovery, self-service deletion, password-change UI, unread state, older-history UI or production data migration process. User research, team meetings and independent member reproduction are not implied by automated tests.
+This remains a single-instance local course prototype. The age checkbox is self-declaration. A staff review route does not constitute a staffed moderation service. There are no profile photo uploads, account recovery, self-service deletion, end-to-end message encryption or production migration procedure. The new logical-send identity and retry guarantee are D's pending follow-up, not a current capability. Automated checks do not imply real-user research, team meetings or independent member reproduction.

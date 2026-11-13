@@ -25,7 +25,7 @@ The schedule is a baseline estimate. The implemented prototype is assigned to A 
 
 Use one preparation week, followed by Sprint 1 (9–22 Nov) and Sprint 2 (23 Nov–6 Dec). In Sprint Planning, agree one goal, the selected stories and realistic capacity. Use a brief daily update when working: what changed, what is next and what is blocked. At the Sprint Review, demonstrate software and discuss product feedback. At the Retrospective, discuss how the team worked and select a process improvement.
 
-From 9 November, A combines Product Owner, Scrum Master and Developer: A orders the Product Backlog, coordinates integration, facilitates Sprint events and follows up impediments. E coordinates regression checks and defect evidence. All six develop, test and record their own contributions. B coordinates usability observation, C maintains field contracts, D coordinates communication integration and F checks reproducible startup.
+From 13 November, C is Product Owner and orders the Product Backlog. A is Scrum Master and Lead Developer, leading core implementation and integration, facilitating Sprint events and following up impediments. E coordinates regression checks and defect evidence. All six develop, test and record their own contributions. B coordinates usability observation, C maintains field contracts, D coordinates communication integration and F checks reproducible startup.
 
 Every week retain real PRs, test outcomes, decisions, obstacles and follow-up actions. The current assessment allocates 25% to the team demonstration and 75% to individual reflection; the video limit is 15 minutes. See [course sources](./05_course_sources.md). Product functionality alone cannot replace personal reflective evidence.
 

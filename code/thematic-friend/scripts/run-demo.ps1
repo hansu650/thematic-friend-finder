@@ -1,7 +1,8 @@
 param(
     [ValidateRange(1, 65535)][int]$Port = 8080,
     [string]$DataDirectory,
-    [switch]$Rebuild
+    [switch]$Rebuild,
+    [switch]$SeedConversations
 )
 $ErrorActionPreference = 'Stop'
 $projectDir = Split-Path $PSScriptRoot -Parent
@@ -62,7 +63,9 @@ try {
         Write-Host "Open http://127.0.0.1:$Port/login and sign in as demo_zhou or demo_lin."
         Write-Host "Data directory: $DataDirectory"
         Write-Host 'Existing demo accounts keep their original passwords and profiles.'
-        & $javaCommand '-jar' $jarPath '--spring.profiles.active=demo' "--server.port=$Port"
+        $demoArguments = @('-jar', $jarPath, '--spring.profiles.active=demo', "--server.port=$Port")
+        if ($SeedConversations) { $demoArguments += '--app.demo-conversations=true' }
+        & $javaCommand @demoArguments
         if ($LASTEXITCODE -ne 0) { throw "Application exited with code $LASTEXITCODE." }
     } finally { Pop-Location }
 } finally {

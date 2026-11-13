@@ -40,7 +40,7 @@ class ChangePasswordTests {
         assertThat(encoder.matches(newPassword,hash())).isTrue();
         assertThat(encoder.matches(oldPassword,hash())).isFalse();
         mvc.perform(post("/login").with(csrf()).param("username","testuser").param("password",oldPassword)).andExpect(redirectedUrl("/login?error"));
-        mvc.perform(post("/login").with(csrf()).param("username","testuser").param("password",newPassword)).andExpect(redirectedUrl("/discover"));
+        mvc.perform(post("/login").with(csrf()).param("username","testuser").param("password",newPassword)).andExpect(redirectedUrl("/explore"));
     }
     @Test void passwordChangeKeepsOtherSessionSignedIn() throws Exception {
         MockHttpSession first = (MockHttpSession) mvc.perform(post("/login").with(csrf())

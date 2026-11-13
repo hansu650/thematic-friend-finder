@@ -1,6 +1,6 @@
 # Local demo, accounts and tests
 
-Run these commands from `code/thematic-friend` in PowerShell with JDK 21.
+Run these commands from the Java project directory (`AAAAA-code/thematic-friend` in this workspace) in PowerShell with JDK 21.
 
 ## Open the website
 
@@ -43,12 +43,17 @@ Changing only the port does not move or replace a database. To move an existing 
 
 Use a normal browser window for `demo_zhou` and a private window for `demo_lin`. Both windows can use port 8080. Check profile editing, filters and likes, a mutual match, messages, recipient-only unread indicators, opening a conversation to clear unread state, and ending a connection. Existing likes and messages remain between sessions.
 
+To begin with usable conversations, add `-SeedConversations` to the launcher command. It enables `app.demo-conversations=true` with the `demo` profile: 22 more fictional accounts are added (28 in total), and pairs without previous decisions receive a mutual connection and sample messages. Existing decisions, ended connections and blocks are never reset. On a fresh database, `demo_zhou` and `demo_lin` can go directly to their shared conversation. Sending text, emoji or a sticker stores a real message; a second independent browser session supplies the reply. Restarting does not append the sample history again.
+
+The **Explore** entry opens the event/people feed at `/explore`. **Events** supports search, city/topic filters, individual saves, attendance/cancellation and event creation. In demo mode, 18 local event fixtures are added individually when missing. Existing events, dates, capacities, attendance and saves are preserved on restart. Activity cover photos come from the local topic-specific library; original event records are not rewritten to change their cover. Profile settings control default-off message sounds and reduced motion. The public video has a pause button and respects the operating system preference. The old Planet sidebar and pop-up guide are no longer loaded.
+
 ## Run automated checks
 
 ```powershell
 .\scripts\build.ps1
 node scripts/browser/run-discovery-check.mjs
 node scripts/conversation-browser/run-conversation-check.mjs
+node scripts/reference-browser/run-reference-check.mjs
 ```
 
 The browser commands require the optional setup described in the [discovery checks](../scripts/browser/README.md) and [conversation checks](../scripts/conversation-browser/README.md). They use temporary ports, fresh fictional accounts and separate databases. Java tests use an in-memory database. Keep these destructive test flows separate from the persistent demo on 8080.

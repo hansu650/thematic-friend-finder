@@ -27,8 +27,8 @@ CPM assumes the proposed parallel work is feasible. It does not automatically re
 
 Draw.io is an editable snapshot of the current estimate, not a live Excel link. Update its durations, dates, float and highlighted edges after changing the workbook. The source uses Comic Sans MS for ordinary diagram text and MathJax for formulas.
 
-## Role and effort revision — 9 November 2026
+## Role and effort revision — 13 November 2026
 
-A now combines Product Owner, Scrum Master and Developer; E is Developer and Test Coordinator. Within the existing estimates, T11 review/triage changes from A 2 h / E 2 h to A 3 h / E 1 h, and T13 reproduction/retesting changes from A 2 h / E 2 h to A 1 h / E 3 h. This transfers facilitation effort to A and more regression coordination to E.
+A is Scrum Master and Lead Developer; C is Product Owner; B, D, E and F are Developers. T01 transfers two planned hours from A to C, and T12 transfers two implementation hours from C to A. D receives four additional T12 hours and two T13 hours for the chat reliability follow-up.
 
-Totals remain A 42 h and B–F 28 h each (182 h overall). Task owners, durations and dependencies are unchanged, so the critical-path diagram remains the same calendar estimate. Capacity still needs confirmation; these are planned hours.
+Totals are A 42 h, D 34 h and B/C/E/F 28 h each, or 188 h overall. Calendar durations and dependencies remain the prior estimate. D exceeds the earlier provisional 32-hour capacity by two hours, which must be resolved through availability or scope. The unchanged critical-path diagram does not establish that the extra capacity is available.

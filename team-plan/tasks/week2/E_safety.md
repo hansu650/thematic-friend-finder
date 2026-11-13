@@ -2,7 +2,7 @@
 
 Named owner: **Wu Zhuoda (E)**. Reviewer: **F Song Peitong**.
 
-Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer; Test Coordinator** (revised 9 November; A holds Product Owner and Scrum Master). Reviewer: **F, with A for security configuration**. A reviews and merges PRs.
+Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **7–9 hours**, to be confirmed by the member. Role: **Developer**, focusing on safety and regression coordination (A is Scrum Master and Lead Developer; C is Product Owner). Reviewer: **F, with A for security configuration**. A reviews and merges PRs.
 
 ## Starting point
 

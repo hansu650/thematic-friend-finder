@@ -6,7 +6,7 @@ Named owner: **Qin Tian (A)**. Reviewer: **B Wang Yikai**.
 
 **Second increment, 6 November:** filter-preserving error recovery, cached-history refresh and pending-decision feedback are implemented. The full suite now passes 39 Java tests and 16 browser groups. Eight new Java integration cases protect the shared match/chat/safety routes. [Concrete contract proposals](../../../code/thematic-friend/docs/INTEGRATION_PLAN.md) are ready for owner confirmation. [New screenshots](../../../code/thematic-friend/docs/A_NEXT_CAPTURE.md), B's review and B–F integration remain pending.
 
-Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **10–14 hours**, to be confirmed by the member. Role: **Product Owner + Scrum Master + Developer; team leader** (revised 9 November). Reviewer: **B, with C/F for security and runtime**. A reviews and merges PRs.
+Window: **9–15 November 2026**, Sprint 1 week one. Proposed effort: **10–14 hours**, to be confirmed by the member. Role: **Scrum Master and Lead Developer** (revised 13 November). Reviewer: **B, with C/F for security and runtime**. A reviews and merges PRs.
 
 ## Starting point
 
@@ -20,7 +20,8 @@ The current baseline already includes accounts, profiles, discovery, matching, b
 4. Review and integrate the five incoming modules; resolve shared integration failures with their owners and preserve the working demo.
 5. Lead CORE-01–08 acceptance, consistent recovery/permission behaviour and the final English interface check.
 6. Coordinate product evaluation, the demonstration narrative and handover with B/E/F; write A's own individual reflection.
-7. Maintain product priorities, facilitate Sprint Planning, Reviews and Retrospectives, and follow up impediments. Record actual product decisions and process improvements separately; Developers maintain their own estimates and task updates.
+7. Facilitate Sprint Planning, Reviews and Retrospectives, and follow up impediments. C owns product priorities and acceptance; A leads core implementation and technical integration. Record actual process improvements and technical decisions.
+8. Record the shared project-selection contribution with Tao Jiacheng and explain A's primary technical contribution using the current source and evidence.
 
 Code area: config/, discovery/, shared contracts and integration. Coordinate shared fields, interfaces and migrations before editing.
 
@@ -34,7 +35,7 @@ Code area: config/, discovery/, shared contracts and integration. Coordinate sha
 
 ## Deliverable and submission
 
-Baseline handover, discovery refinements, contracts and integration evidence, plus actual Product Owner and Scrum Master decisions/actions when performed.
+Baseline handover, discovery refinements, contracts and integration evidence, plus actual Scrum Master actions, shared selection work and core technical contributions when performed.
 
 Continue the existing branch w2/a-discovery; the Java baseline is already merged into main in [hansu650/thematic-friend-finder](https://github.com/hansu650/thematic-friend-finder). PR #9 already contains the first discovery increment. The next work is contract agreement, independent review and integration of the members' focused increments. Split remaining work into 1–3 hour cards using the team's confirmed capacity.
 

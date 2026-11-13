@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/reference :: head(${event.title})}"></head><body class="mingle-app event-page" th:with="cover=${@eventPhotos.url(event)}">
+<header th:replace="~{fragments/reference :: appNav('events')}"></header>
+<main class="app-main detail-main">
+ <div class="detail-copy">
+  <div th:replace="~{fragments/layout :: notice}"></div>
+  <h1 th:text="${event.title}"></h1>
+  <div class="detail-host"><span class="avatar" th:classappend="'palette-' + ${host.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(host)} : '')" th:text="${host.initial}"></span><p><span th:text="${#locale.language == 'zh' ? '发起人' : 'Hosted by'}"></span><strong th:text="${host.nickname}"></strong></p></div>
+  <a class="detail-group" th:href="@{/events(category=${event.category})}"><img th:src="@{${cover}}" alt=""><div><h3 th:text="${@i18n.option(event.category)}"></h3><p th:text="${event.city}"></p></div></a>
+  <section><h2 class="underlined-heading" th:text="${#locale.language == 'zh' ? '活动详情' : 'Details'}"></h2><p class="detail-description" th:text="${event.description}"></p></section>
+  <section><h2 th:text="${#locale.language == 'zh' ? '活动主题' : 'Topics'}"></h2><a class="topic-pill" th:href="@{/events(category=${event.category})}" th:text="${@i18n.option(event.category)}"></a></section>
+  <section><h2 th:text="${#locale.language == 'zh' ? '参加的人（' + card.attendees + '）' : 'Attendees (' + card.attendees + ')'}"></h2><div class="attendee-row" th:if="${!attendees.isEmpty()}"><div class="attendee" th:each="person : ${attendees}"><span class="avatar" th:classappend="'palette-' + ${person.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(person)} : '')" th:text="${person.initial}"></span><span th:text="${person.nickname}"></span></div></div><p class="muted" th:if="${attendees.isEmpty()}" th:text="${#locale.language == 'zh' ? '成为第一个参加的人。' : 'Be the first to join.'}"></p></section>
+ </div>
+ <div class="detail-aside-boundary"><aside class="detail-aside">
+  <figure class="tilted-photo"><img th:src="@{${cover}}" th:alt="${event.title}" fetchpriority="high"><button class="photo-open" type="button" data-open-photo="event-photo" th:text="${#locale.language == 'zh' ? '查看照片' : 'View photo'}"></button></figure>
+  <div class="event-info"><div class="event-info-row"><img th:src="@{/images/reference-sites/calendar.webp}" alt=""><div><strong th:text="${event.dateLabel(#locale.language)}"></strong><p><span th:text="${event.timeLabel()}"></span> CST</p></div></div><div class="event-info-row"><img th:src="@{/images/reference-sites/location.webp}" alt=""><div><strong th:text="${event.venue}"></strong><p th:text="${event.city}"></p></div></div></div>
+ </aside></div>
+ <section class="detail-related" th:if="${!related.isEmpty()}"><div class="section-heading"><h2 th:text="${#locale.language == 'zh' ? '你可能也喜欢' : 'You might also like'}"></h2><a th:href="@{/events}" th:text="${#locale.language == 'zh' ? '查看全部' : 'See all'}"></a></div><div class="event-grid"><th:block th:each="item : ${related}"><a th:replace="~{fragments/event-card :: card(${item})}"></a></th:block></div></section>
+</main>
+<div class="action-dock"><div class="dock-copy"><p><span th:text="${event.dateLabel(#locale.language)}"></span> · <span th:text="${event.timeLabel()}"></span></p><strong th:text="${event.title}"></strong></div><div class="dock-actions"><span class="free-chip" th:text="${#locale.language == 'zh' ? '免费' : 'Free'}"></span>
+ <form th:action="@{/events/{id}/save(id=${event.id})}" method="post"><input type="hidden" name="saved" th:value="${!card.saved}"><button class="icon-button" type="submit" th:attr="aria-pressed=${card.saved}" th:aria-label="${#locale.language == 'zh' ? (card.saved ? '取消收藏' : '收藏活动') : (card.saved ? 'Unsave event' : 'Save event')}"><svg th:replace="~{fragments/layout :: icon('heart')}"></svg></button></form>
+ <button class="icon-button soft" type="button" data-share-page th:aria-label="${#locale.language == 'zh' ? '复制活动链接' : 'Copy event link'}"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M5 14v6h14v-6"/></svg></button>
+ <form th:action="@{/events/{id}/attendance(id=${event.id})}" method="post"><input type="hidden" name="attending" th:value="${!card.attending}"><button class="button" type="submit" th:disabled="${!card.attending and (event.past or card.attendees >= event.capacity)}" th:text="${#locale.language == 'zh' ? (card.attending ? '取消报名' : (event.past ? '已结束' : (card.attendees >= event.capacity ? '已满员' : '参加活动'))) : (card.attending ? 'Cancel RSVP' : (event.past ? 'Ended' : (card.attendees >= event.capacity ? 'Full' : 'Attend')))}"></button></form>
+</div></div>
+<dialog id="event-photo" class="photo-dialog"><form method="dialog"><button class="sheet-close" type="submit" th:aria-label="#{ui.close}">×</button></form><img th:src="@{${cover}}" th:alt="${event.title}"></dialog>
+</body></html>

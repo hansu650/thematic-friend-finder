@@ -45,7 +45,7 @@ fsSync.closeSync(log);
 
 const metadata = {
   startedAt: new Date().toISOString(),
-  jarSha256: crypto.createHash('sha256').update(await fs.readFile(jar)).digest('hex'),
+  jar,
   java,
   node: process.version,
   base,

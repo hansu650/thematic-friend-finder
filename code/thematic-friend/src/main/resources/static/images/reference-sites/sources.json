@@ -1,0 +1,155 @@
+{
+  "purpose": "User-requested close local reference implementation. These assets remain owned by their source sites; no redistribution licence is asserted.",
+  "captured": "2026-11-13",
+  "assets": [
+    {
+      "file": "images/reference-sites/hinge-fountain.jpg",
+      "url": "https://images.hinge.co/b778181b28d16fe26306a1dcd4b0a97d8b7d1026-3375x2250.jpg?w=1920&q=75&auto=format",
+      "source": "Hinge",
+      "bytes": 463283,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "images/reference-sites/feeld-hero.mp4",
+      "url": "https://res.cloudinary.com/feeld-web/video/upload/c_fill,q_80,ar_16:9/v1787064039/hero-16x9-small.av1_cju2bz.mp4",
+      "source": "Feeld",
+      "bytes": 3066890,
+      "contentType": "video/mp4;codecs=avc1"
+    },
+    {
+      "file": "images/reference-sites/feeld-poster.jpg",
+      "url": "https://res.cloudinary.com/feeld-web/video/upload/so_0,w_1600,q_85/v1787064039/hero-16x9-small.av1_cju2bz.jpg",
+      "source": "Feeld; first frame of the observed hero video",
+      "bytes": 71624,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "images/reference-sites/meetup-autumn.webp",
+      "url": "https://secure.meetupstatic.com/photos/event/2/2/2/9/highres_537008745.webp?w=640",
+      "source": "Meetup event 317281576",
+      "bytes": 135954,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "images/reference-sites/meetup-group.jpeg",
+      "url": "https://secure.meetupstatic.com/photos/event/6/8/8/7/event_530006759.jpeg?w=128",
+      "source": "Meetup event 317281576",
+      "bytes": 31746,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "images/reference-sites/calendar.webp",
+      "url": "https://secure.meetupstatic.com/next/images/complex-icons/branded/calendar.webp?w=32",
+      "source": "Meetup",
+      "bytes": 18328,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "images/reference-sites/location.webp",
+      "url": "https://secure.meetupstatic.com/next/images/complex-icons/branded/pin.webp?w=32",
+      "source": "Meetup",
+      "bytes": 11760,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "images/reference-sites/bumble-card-1.jpg",
+      "url": "https://bumble.com/_next/image/?url=%2Fbumble-brand-assets%2Fhero%2Fanimation-card-1.jpg&w=1600&q=75",
+      "source": "Bumble",
+      "bytes": 71407,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "images/reference-sites/bumble-card-2.jpg",
+      "url": "https://bumble.com/_next/image/?url=%2Fbumble-brand-assets%2Fhero%2Fanimation-card-2.jpg&w=1600&q=75",
+      "source": "Bumble",
+      "bytes": 791306,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "images/reference-sites/bumble-card-3.jpg",
+      "url": "https://bumble.com/_next/image/?url=%2Fbumble-brand-assets%2Fhero%2Fanimation-card-3.jpg&w=1600&q=75",
+      "source": "Bumble",
+      "bytes": 129448,
+      "contentType": "image/jpeg"
+    },
+    {
+      "file": "fonts/reference/NeuSans-Regular.woff2",
+      "url": "https://www.meetup.com/_next/static/media/NeuSans-Regular.1ca3b39b.woff2",
+      "source": "Meetup",
+      "bytes": 23972,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/NeuSans-Regular.woff2"
+    },
+    {
+      "file": "fonts/reference/NeuSans-Medium.woff2",
+      "url": "https://www.meetup.com/_next/static/media/NeuSans-Medium.7b11edcf.woff2",
+      "source": "Meetup",
+      "bytes": 24208,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/NeuSans-Medium.woff2"
+    },
+    {
+      "file": "fonts/reference/NeuSans-Bold.woff2",
+      "url": "https://www.meetup.com/_next/static/media/NeuSans-Bold.5c45f750.woff2",
+      "source": "Meetup",
+      "bytes": 24700,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/NeuSans-Bold.woff2"
+    },
+    {
+      "file": "fonts/reference/BumbleSans-Medium.woff2",
+      "url": "https://bumble.com/bumble-brand-assets/fonts/BumbleSans/BumbleSans-Medium.woff2",
+      "source": "Bumble",
+      "bytes": 32388,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/BumbleSans-Medium.woff2"
+    },
+    {
+      "file": "fonts/reference/TiemposHeadline-Regular.woff",
+      "url": "https://hinge.co/_next/static/media/TiemposHeadline-Regular.2bc7d7e5.woff",
+      "source": "Hinge",
+      "bytes": 35060,
+      "contentType": "font/woff",
+      "servedFile": "images/reference-sites/fonts/TiemposHeadline-Regular.woff"
+    },
+    {
+      "file": "fonts/reference/TiemposHeadline-Semibold.woff",
+      "url": "https://hinge.co/_next/static/media/TiemposHeadline-Semibold.14cc36ce.woff",
+      "source": "Hinge",
+      "bytes": 32092,
+      "contentType": "font/woff",
+      "servedFile": "images/reference-sites/fonts/TiemposHeadline-Semibold.woff"
+    },
+    {
+      "file": "fonts/reference/ModernEra-Regular.woff2",
+      "url": "https://hinge.co/_next/static/media/ModernEra-Regular.d00b9e32.woff2",
+      "source": "Hinge",
+      "bytes": 28632,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/ModernEra-Regular.woff2"
+    },
+    {
+      "file": "fonts/reference/FeeldEdge-Regular.woff",
+      "url": "https://feeld.co/fonts/FEELDEDGE-RegularRounded.woff",
+      "source": "Feeld",
+      "bytes": 24088,
+      "contentType": "font/woff",
+      "servedFile": "images/reference-sites/fonts/FeeldEdge-Regular.woff"
+    },
+    {
+      "file": "fonts/reference/Diatype-Regular.woff2",
+      "url": "https://feeld.co/fonts/ABCDiatype-Regular.woff2",
+      "source": "Feeld",
+      "bytes": 42900,
+      "contentType": "font/woff2",
+      "servedFile": "images/reference-sites/fonts/Diatype-Regular.woff2"
+    },
+    {
+      "file": "images/reference-sites/fonts/FeeldEdge-Semibold.woff",
+      "url": "https://feeld.co/fonts/FEELDEdge-SemiBoldRounded.woff",
+      "source": "Feeld; observed font request on the reference homepage",
+      "bytes": 24724,
+      "contentType": "font/woff"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org"><body>
+<a th:fragment="card(item)" class="event-card" th:with="cover=${@eventPhotos.url(item.event)}" th:href="@{/events/{id}(id=${item.event.id})}">
+ <div class="card-cover"><img th:src="@{${cover}}" alt="" loading="lazy"></div>
+ <p class="event-date"><span th:text="${item.event.dateLabel(#locale.language)}"></span> · <span th:text="${item.event.timeLabel()}"></span></p>
+ <h3 th:text="${item.event.title}"></h3>
+ <p class="card-location" th:text="${item.event.venue + ' · ' + item.event.city}"></p>
+ <div class="card-meta"><span><svg th:replace="~{fragments/layout :: icon('person')}"></svg><span th:text="${#locale.language == 'zh' ? item.attendees + ' 人参加' : item.attendees + ' going'}"></span></span><span th:if="${item.attending}" th:text="${#locale.language == 'zh' ? '已报名' : 'You’re going'}"></span><span th:if="${item.saved}" th:text="${#locale.language == 'zh' ? '已收藏' : 'Saved'}"></span></div>
+</a>
+</body></html>

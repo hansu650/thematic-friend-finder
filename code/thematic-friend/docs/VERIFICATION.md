@@ -1,4 +1,10 @@
-# Current main verification - 9 November 2026
+# Current Integrated Verification - 13 November 2026
+
+The current application passed **66 Java tests, 7 reference-browser groups and 10 conversation-browser groups**, plus the executed PowerShell backup/restore fixture groups. See the [release report](releases/2026-11-13-reference-ui.md) and [portable results](releases/2026-11-13-verification.json) for scope, commands and limitations. The runtime runner skipped its own Maven invocation because the separate package run had already passed. Independent teammate review is not claimed.
+
+The dated records below are historical and retain their original tested revisions.
+
+# Historical Main Verification - 9 November 2026
 
 Main revision `7551876875d1ddd403e1a272d28ade98e682cbf7` includes A's discovery/integration work and D's unread-state and bounded-history increment. A copy of the updated coursework source passed **47 Java tests, 16 discovery browser groups and 10 conversation browser checks**, with all three processes exiting successfully. The Java run used JDK 21 with zero failures, errors or skips. Both browser suites used the same packaged JAR, Edge 157.0.4341.42, Playwright 1.62.1 through the documented module override, and separate H2 databases.
 

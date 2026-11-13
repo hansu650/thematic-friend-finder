@@ -10,7 +10,7 @@ import java.util.Locale;
 
 @Service
 public class AccountService {
-    public static final List<String> INTERESTS = List.of("Coffee", "Reading", "Films", "Music", "Photography", "Travel", "Sport", "Gaming", "Food", "Hiking");
+    public static final List<String> INTERESTS = List.of("Coffee", "Reading", "Films", "Music", "Photography", "Travel", "Sport", "Gaming", "Food", "Hiking", "Art");
     public static final List<String> GOALS = List.of("New friends", "Study buddy", "Workout buddy", "Weekend plans");
     private final MemberRepository members;
     private final PasswordEncoder encoder;

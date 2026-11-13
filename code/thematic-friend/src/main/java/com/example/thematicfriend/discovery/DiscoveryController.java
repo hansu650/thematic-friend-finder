@@ -8,6 +8,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.security.Principal;
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 @Controller
 public class DiscoveryController {
@@ -15,15 +17,19 @@ public class DiscoveryController {
     private final ConnectionService connections;
     public DiscoveryController(DiscoveryService discovery,ConnectionService connections) { this.discovery=discovery; this.connections=connections; }
     @GetMapping("/discover")
-    public String discover(Principal principal,@RequestParam(defaultValue="") String interest,@RequestParam(defaultValue="") String goal,Model model) {
+    public String discover(Principal principal,@RequestParam(defaultValue="") String interest,@RequestParam(defaultValue="") String goal,
+                           @RequestParam(required=false) Long member,Model model) {
         List<DiscoveryService.Candidate> candidates=discovery.discover(principal.getName(),interest,goal);
+        var selected=member==null?(candidates.isEmpty()?null:candidates.getFirst()):candidates.stream()
+                .filter(c->c.member().getId().equals(member)).findFirst()
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"ref.person.unavailable"));
         model.addAttribute("selectedInterest",DiscoveryService.validInterest(interest));
         model.addAttribute("selectedGoal",DiscoveryService.validGoal(goal));
-        model.addAttribute("candidate",candidates.isEmpty()?null:candidates.getFirst());
+        model.addAttribute("candidate",selected);
         model.addAttribute("remaining",candidates.size());
         model.addAttribute("hasFilters",!DiscoveryService.validInterest(interest).isEmpty() || !DiscoveryService.validGoal(goal).isEmpty());
         model.addAttribute("revisitableSkips",candidates.isEmpty()?discovery.revisitableSkips(principal.getName(),interest,goal):0);
-        model.addAttribute("upNext",candidates.stream().skip(1).limit(3).toList());
+        model.addAttribute("upNext",candidates.stream().filter(c->selected==null||!c.member().getId().equals(selected.member().getId())).limit(3).toList());
         model.addAttribute("activePage","discover");
         return "discover";
     }

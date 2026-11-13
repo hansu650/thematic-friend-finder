@@ -1,23 +1,23 @@
 # Mingle Core Flow and Final Acceptance
 
-Scope confirmed by Qin Tian on 6 November 2026: complete the friendship flow through profiles, discovery filters, mutual likes, conversations, account controls and safety. The supplied Momo/Soul images guide interaction and layout. The current round focuses on this coherent website; feed, location and photo-upload expansion are outside this agreed round.
+Current scope, revised 13 November 2026: profiles, discovery and mutual likes, conversations, account/safety controls and the approved activity feed. The approved reference interface is the current UI baseline. Precise location, profile uploads and public hosting remain outside this revision. C owns product acceptance; A leads implementation and integration.
 
 ## What this round achieves
 
 When the six increments have been reviewed, integrated and tested together, the core product can be feature-complete for the agreed coursework scope. Completing a feature PR or collecting screenshots alone does not complete the assessment. User observation, improvements, reproducible handover, the team demonstration and six individual reflections follow.
 
-The current source already has A's AI-assisted account/profile, discovery, mutual-match, basic chat and block/report baseline. A's discovery refinement and second recovery/integration increment are implemented on w2/a-discovery and await independent review. The latest local gate passes 39 Java tests and 16 browser groups; [A's contract proposals](../code/thematic-friend/docs/INTEGRATION_PLAN.md) still need owner confirmation. B–F's increments below remain assigned work, not completed features.
+A owns the AI-assisted core and current interface/integration revision. C, D, E and F have merged their first increments through PRs #11, #10, #14 and #13. B's assigned work and D's new reliability extension need their own evidence. See the contribution map and the current release verification instead of treating the original 6 November status as current.
 
 | Owner | Assigned result | Completion evidence |
 |---|---|---|
-| A Qin Tian | Combine Product Owner and Scrum Master responsibilities; own and explain the baseline; refine discovery and match feedback; agree shared contracts; review and integrate all modules; lead final acceptance and demonstration organisation | Discovery regressions, real screenshots, actual backlog/process decisions, contract agreements, reviewed PRs, integrated flow results and release/handover record |
+| A Qin Tian | Serve as Scrum Master and Lead Developer; own and explain the baseline; refine discovery and match feedback; agree shared contracts; review and integrate all modules; lead final acceptance and demonstration organisation | Discovery regressions, real screenshots, actual technical/process decisions and shared project-selection work, contract agreements, reviewed PRs, integrated flow results and release/handover record |
 | B Wang Yikai | Live unsaved profile preview, interest counter and accessible responsive interaction; coordinate usability observation | Preview/refresh and five-interest boundary tests, keyboard/390 px results, observed issues and one justified improvement |
-| C Tao Jiacheng | Password change and explicit account/session contracts | Invalid requests leave credentials unchanged; old/new login behaviour, agreed session invalidation and persistence verified |
-| D Zhou Ziyue | Per-participant unread state and bounded older-message loading | Two-session unread tests, history beyond 100 messages, ordering/duplicate checks and permission rejection |
+| C Tao Jiacheng | Product Owner; shared project selection, backlog/acceptance decisions and retained account/session contribution | Invalid requests leave credentials unchanged; old/new login behaviour, agreed session invalidation and persistence verified |
+| D Zhou Ziyue | Per-participant unread state, bounded history and the assigned delivery/retry follow-up | Two-session unread tests, history beyond 100 messages, ordering/duplicate checks and permission rejection |
 | E Wu Zhuoda | Restricted report review and meaningful safety permissions; coordinate regression and defect evidence | Staff/ordinary/anonymous tests, private notes, valid status/handler/time and actual regression/defect/retest records |
 | F Song Peitong | Stopped-database backup/restore and independent reproduction | Checksums, safe disposable restore, rejection of unsafe/corrupt/occupied targets and another person's clean-copy run |
 
-A has the largest individual allocation: **42 planned hours**, compared with **28 each for B–F**. These include development, testing, review, coordination, demonstration and reflection preparation. They are capacity estimates, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own implementation and tests.
+A has the largest individual allocation: **42 planned hours**, compared with **34 for D and 28 each for B/C/E/F**. These include development, testing, review, coordination, demonstration and reflection preparation. They are capacity estimates, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own implementation and tests.
 
 ## Integrated product acceptance
 
@@ -28,11 +28,11 @@ Run these checks on one recorded integrated commit. Record expected and actual r
 | CORE-01 | Create fictional accounts, sign in, edit a profile and reload; unsaved preview stays local and saved values persist | A/B/C | Baseline exists; B/C increments and final retest pending |
 | CORE-02 | Apply both filters; see genuine shared interests; clear a single condition; recover from empty results; hidden/self/blocked profiles are excluded | A/B | A's local increment passes; independent and integrated retest pending |
 | CORE-03 | One-sided like cannot create chat; reciprocal/repeated decisions create one connection and open the correct match/conversation | A/D | A's local increment passes; final integrated retest pending |
-| CORE-04 | Two sessions exchange persisted messages; unread state belongs to the recipient; older history loads without gaps or duplicates | D/C/A | Basic chat exists; unread/history pending |
-| CORE-05 | Change password using the current credential; invalid/anonymous/CSRF requests are rejected; session policy is explicit and tested | C/A | Pending C's increment |
-| CORE-06 | End/block contact, deny further access as specified, submit a private report and let authorised staff handle it; unrelated users cannot read it | E/D/C/A | Baseline actions exist; staff workflow and integration pending |
+| CORE-04 | Two sessions exchange persisted messages; unread state belongs to the recipient; older history loads without gaps or duplicates | D/C/A | Unread/history merged in PR #10; new retry extension pending |
+| CORE-05 | Change password using the current credential; invalid/anonymous/CSRF requests are rejected; session policy is explicit and tested | C/A | Password change merged in PR #11; final acceptance remains evidence-based |
+| CORE-06 | End/block contact, deny further access as specified, submit a private report and let authorised staff handle it; unrelated users cannot read it | E/D/C/A | Staff workflow merged in PR #14; retain permission and confidentiality checks |
 | CORE-07 | Use the core flow at desktop and 390 px with keyboard/buttons and reduced motion; validation, loading, empty and failure states remain understandable | B/A with module owners | A's selected flows pass; whole-product check pending |
-| CORE-08 | Build from a clean source copy, restart using the same data, back up a stopped fixture database, restore to a fresh destination and verify known records | F/A | Baseline restart exists; backup/restore and independent run pending |
+| CORE-08 | Build from a clean source copy, restart using the same data, back up a stopped fixture database, restore to a fresh destination and verify known records | F/A | Backup/restore merged in PR #13; independent teammate reproduction still needs its own evidence |
 
 The final submitted interface is English. The temporary development language switch is removed or disabled and verified at the final freeze. If a physical phone is tested, record the real device; an emulated 390 px check remains labelled emulated.
 

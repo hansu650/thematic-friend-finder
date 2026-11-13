@@ -1,8 +1,8 @@
 # D Zhou Ziyue Testing Tasks
 
-Owner: **Zhou Ziyue (D)**. Peer reviewer: **E Wu Zhuoda**. Scope: Conversation list, unread state and older messages. Six behavior groups are planned below; they are not completed results.
+Owner: **Zhou Ziyue (D)**. Peer reviewer: **E Wu Zhuoda**. Scope: Conversation list, unread state and older messages. The six original groups belong to the merged unread/history increment; use its PR evidence for actual results. The new delivery/retry extension below remains pending.
 
-Suggested code location: src/test/java/com/example/thematicfriend/ConversationReadStateTests.java. Add browser tests where the scenario needs UI interaction. These paths are planned additions, not claims that the files already exist.
+Suggested code location: src/test/java/com/example/thematicfriend/ConversationReadStateTests.java. Add browser tests where the scenario needs UI interaction. The existing files provide the regression base; identify new coverage explicitly.
 
 | ID | Scenario | Test level | Acceptance assertion | Status |
 |---|---|---|---|---|
@@ -12,6 +12,10 @@ Suggested code location: src/test/java/com/example/thematicfriend/ConversationRe
 | D-04 | Polling and paging overlap | Integration/browser | Overlapping responses and equal timestamps do not duplicate or reorder messages. | Not run |
 | D-05 | Access boundaries | Integration | Unrelated, blocked and ended participants cannot read/write history or read markers contrary to the agreed policy. | Not run |
 | D-06 | List and conversation states | Browser | Unread/empty/error states, long messages and keyboard send remain usable at 390 px and desktop. | Not run |
+
+## Additional assigned checks
+
+The [reliability task](../week3/D_chat_reliability.md) adds D-REL-01 repeated/concurrent send identity, D-REL-02 failed-send retry and draft retention, and D-REL-03 two-account lost-response/reload verification. These are assigned checks, not completed results.
 
 ## Weekly delivery
 
