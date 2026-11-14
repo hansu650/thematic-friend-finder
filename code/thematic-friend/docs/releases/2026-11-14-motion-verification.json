@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-11-14T10:06:39.5608601Z",
+  "scope": "Five selected motion effects, prepared for publication with reproducible browser verification.",
+  "packageExit": 0,
+  "javaTestsThisRound": "Explicitly skipped",
+  "referenceGroups": 7,
+  "discoveryGroups": 16,
+  "motionGroups": 7,
+  "referenceEvidence": "docs/releases/evidence/2026-11-14-motion/reference-results.json",
+  "discoveryEvidence": "docs/releases/evidence/2026-11-14-motion/discovery-run.json",
+  "motionEvidence": "docs/releases/evidence/2026-11-14-motion/motion-final-results.json",
+  "liveEvidence": "docs/releases/evidence/2026-11-14-motion/live-preview.json",
+  "files": [
+    {
+      "file": "src/main/resources/static/js/app.js",
+      "sha256": "3a46976c527979b667cbc2ac13c0d2c3c5d571b0653b81480b0707b61cd7fa6e"
+    },
+    {
+      "file": "src/main/resources/static/js/chat.js",
+      "sha256": "68f8f2f267586418d02157345615abe6f80f8d90737f23ce1321f00070b2e7c5"
+    },
+    {
+      "file": "src/main/resources/static/js/reference-motion.js",
+      "sha256": "3f06709e402bc0257e997ea2fc94e413009ae8a269b98776288c06b10e96a8d0"
+    },
+    {
+      "file": "src/main/resources/static/css/reference-motion.css",
+      "sha256": "571a927e23ab347528d92fb92288151fd88065b9d905a7dc2f086067a1b6d84a"
+    },
+    {
+      "file": "src/main/resources/templates/fragments/reference.html",
+      "sha256": "721341432be72ad96c34b3f1f4034c0c6621796d2fd281bc52316a1acc82e6d3"
+    },
+    {
+      "file": "src/main/resources/templates/match.html",
+      "sha256": "ebf990fbd5c5a421fe7d94708bbbe7c228dab658e32ecbbf5c4fe762de538718"
+    }
+  ],
+  "portableEvidence": "docs/releases/evidence/2026-11-14-motion/motion-portable-results.json",
+  "portableRunnerSha256": "a6f3533c29bd31668841f8e1ca64d0985b580c7c99160af8072e2cf695a24cfc",
+  "evidenceManifest": "docs/releases/evidence/2026-11-14-motion/manifest.json"
+}

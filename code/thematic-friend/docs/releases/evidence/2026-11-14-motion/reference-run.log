@@ -1,0 +1,8 @@
+PASS HOME Reference fonts/media, video pause, mobile menu at 320/390/768 px.
+PASS EVENTS Search/city/topic filters, personal bookmarks, two-account RSVP/cancel and persistence.
+PASS NATIVE Saved login destination and event actions work without JavaScript.
+PASS CREATE Published event persists with the authenticated host.
+PASS CHAT Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.
+PASS ACCOUNT Shared styling, Chinese strings, 320 px account/safety layouts and persistent reduced motion.
+PASS RUNTIME No browser exceptions, failed assets or HTTP 5xx.
+Browser output: <PROJECT>\.local\reference-browser-verification\review-HoSCOF

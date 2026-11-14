@@ -31,9 +31,10 @@
   });
   const updateStatus = () => {
     if (!stopped) status.textContent = sending ? list.dataset.sending : (sendProblem || list.dataset.polling);
+    form.setAttribute('aria-busy', String(sending));
   };
 
-  function makeRow(message, animate) {
+  function makeRow(message) {
     const row = document.createElement('div');
     row.className = 'message' + (message.mine ? ' mine' : '');
     row.dataset.messageId = String(message.id);
@@ -50,10 +51,6 @@
     } else body.textContent = message.body;
     const time = document.createElement('time'); time.textContent = message.time;
     row.append(body,time);
-    if (animate) {
-      row.classList.add('arriving');
-      row.addEventListener('animationend',()=>row.classList.remove('arriving'),{once:true});
-    }
     return row;
   }
 
@@ -64,8 +61,10 @@
     for (const message of messages) {
       const id = Number(message.id);
       if (id <= 0 || known.has(id)) continue;
-      const row = makeRow(message,!history), before = rows().find(item => numericId(item) > id);
+      const row = makeRow(message), before = rows().find(item => numericId(item) > id);
       list.insertBefore(row,before || null); known.add(id); added++;
+      // Animate confirmed new messages; old pages and duplicate polls stay still.
+      if (!history && (own || wasAtBottom)) window.MingleMotion?.message(row, Math.min(added - 1, 3) * 45);
       received ||= !message.mine;
     }
     // Leave existing DOM and scroll position completely alone on an empty poll.

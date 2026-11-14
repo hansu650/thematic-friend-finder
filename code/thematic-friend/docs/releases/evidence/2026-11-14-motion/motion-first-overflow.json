@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-14T09:57:12.515Z",
+  "checks": [
+    {
+      "id": "STAGGER",
+      "detail": "Visible event cards actually animate with staggered start times and settle to readable content.",
+      "result": "PASS"
+    },
+    {
+      "id": "MAGNET",
+      "detail": "Pointer tilt responds; a short real drag springs back without a decision POST.",
+      "result": "PASS"
+    }
+  ],
+  "errors": [
+    "AssertionError [ERR_ASSERTION]: Match motion must fit at 320\n\n20 !== 0\n\n    at <COURSEWORK>/tmp/inspect-motion-runtime.mjs:119:12"
+  ],
+  "captures": [
+    "01-explore-settled.png",
+    "02-magnetic-card-settled.png",
+    "03-match-settled.png",
+    "04-match-390.png"
+  ],
+  "exitCode": 1
+}

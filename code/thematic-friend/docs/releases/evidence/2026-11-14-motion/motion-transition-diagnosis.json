@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-14T10:01:46.087Z",
+  "checks": [
+    {
+      "id": "STAGGER",
+      "detail": "Visible event cards actually animate with staggered start times and settle to readable content.",
+      "result": "PASS"
+    },
+    {
+      "id": "MAGNET",
+      "detail": "Pointer tilt responds; a short real drag springs back without a decision POST.",
+      "result": "PASS"
+    },
+    {
+      "id": "MATCH",
+      "detail": "Real mutual match runs the two-card/heart sequence; 390/320 px animation and final states fit.",
+      "result": "PASS"
+    },
+    {
+      "id": "CHAT-MOTION",
+      "detail": "A confirmed message animates for sender and receiver; the next empty poll neither duplicates nor replays it.",
+      "result": "PASS"
+    },
+    {
+      "id": "SAVE-MOTION",
+      "detail": "Particles follow confirmed saving, clean up, and do not replay after refresh, unsaving or a denied request.",
+      "result": "PASS"
+    },
+    {
+      "id": "REDUCED",
+      "detail": "Both manual and operating-system reduced motion suppress effects while real save, match and message actions work.",
+      "result": "PASS"
+    }
+  ],
+  "errors": [
+    {
+      "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "stack": "",
+      "url": "http://127.0.0.1:64746/events/1/save",
+      "phase": "denied-save"
+    },
+    "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     message: 'Transition was aborted because of invalid state. ViewTransition opt-in disabled',\n+     phase: 'denied-save',\n+     stack: '',\n+     url: 'http://127.0.0.1:64746/events/1/save'\n+   }\n+ ]\n- []\n\n    at <COURSEWORK>/tmp/inspect-motion-runtime.mjs:181:10"
+  ],
+  "captures": [
+    "01-explore-settled.png",
+    "02-magnetic-card-settled.png",
+    "03-match-settled.png",
+    "04-match-390.png",
+    "04-match-320.png",
+    "05-chat-settled.png",
+    "06-reduced-chat-mobile.png"
+  ],
+  "exitCode": 1
+}

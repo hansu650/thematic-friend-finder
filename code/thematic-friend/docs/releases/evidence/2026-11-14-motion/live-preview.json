@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-14T10:04:30.123Z",
+  "base": "http://127.0.0.1:8083",
+  "explore": "http://127.0.0.1:8083/explore",
+  "match": "http://127.0.0.1:8083/matches/1",
+  "chat": "http://127.0.0.1:8083/conversations/1",
+  "assets": [
+    {
+      "file": "js/reference-motion.js",
+      "sha256": "3f06709e402bc0257e997ea2fc94e413009ae8a269b98776288c06b10e96a8d0"
+    },
+    {
+      "file": "js/app.js",
+      "sha256": "3a46976c527979b667cbc2ac13c0d2c3c5d571b0653b81480b0707b61cd7fa6e"
+    },
+    {
+      "file": "js/chat.js",
+      "sha256": "68f8f2f267586418d02157345615abe6f80f8d90737f23ce1321f00070b2e7c5"
+    },
+    {
+      "file": "css/reference-motion.css",
+      "sha256": "571a927e23ab347528d92fb92288151fd88065b9d905a7dc2f086067a1b6d84a"
+    }
+  ],
+  "errors": [],
+  "output": "<COURSEWORK>\\output\\motion-live-1794650666830"
+}
