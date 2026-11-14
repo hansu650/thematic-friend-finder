@@ -1,0 +1,22 @@
+[
+  {
+    "suite": "profile",
+    "exitCode": 0,
+    "log": "<PROJECT>\\.local\\full-verification-20261114\\profile-outside.log"
+  },
+  {
+    "suite": "reference",
+    "exitCode": 1,
+    "log": "<PROJECT>\\.local\\full-verification-20261114\\reference-outside.log"
+  },
+  {
+    "suite": "conversation",
+    "exitCode": 0,
+    "log": "<PROJECT>\\.local\\full-verification-20261114\\conversation-outside.log"
+  },
+  {
+    "suite": "discovery",
+    "exitCode": 0,
+    "log": "<PROJECT>\\.local\\full-verification-20261114\\discovery-outside.log"
+  }
+]

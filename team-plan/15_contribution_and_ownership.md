@@ -1,10 +1,10 @@
 # Contribution and Ownership Record
 
-Current revision: 13 November 2026.
+Current revision: 14 November 2026. Assignments below preserve actual ownership; current planning estimates and remaining work are in the [six-week evidence plan](./16_six_week_evidence_plan.md).
 
 ## Primary technical contribution
 
-**Qin Tian (A) is the project's primary developer and technical lead, and serves as Scrum Master.** A owns the AI-assisted starting implementation, core discovery/matching work, shared interface, activity flow, chat interface enhancements, module integration and release verification. A also supports Sprint planning, impediment follow-up and retrospectives. The planned allocation of 42 hours is the largest individual allocation.
+**Qin Tian (A) is the project's primary developer and technical lead, and serves as Scrum Master.** A owns the AI-assisted starting implementation, core discovery/matching work, shared interface, activity flow, chat interface enhancements, module integration and release verification. A also has responsibility for Sprint planning, impediment follow-up and retrospectives; actual events need their own records. The new proposed 50-hour allocation is the largest individual allocation, followed by C 40 h and D 34 h. These are planning estimates.
 
 The core baseline and this interface revision were implemented with Codex assistance. A remains responsible for understanding, reviewing, integrating and explaining that work. This description does not turn AI assistance into unaided authorship.
 
@@ -18,8 +18,8 @@ The earlier research submissions remain available in [A's PR #1](https://github.
 
 | Member | Recorded technical scope | Evidence or next action |
 |---|---|---|
-| A Qin Tian | Baseline, discovery/recovery, shared UI, events, integration and verification | Merged PRs #8, #9 and #12; current UI/role revision and its recorded checks |
-| B Wang Yikai | Profile interaction, accessibility and usability | Complete the assigned increment and retain actual changes and tests |
+| A Qin Tian | Baseline, discovery/recovery, shared UI, events, integration and verification | Merged PRs #8, #9, #12 and [#15](https://github.com/hansu650/thematic-friend-finder/pull/15); retain recorded checks and obtain actual independent review |
+| B Wang Yikai | Profile interaction, accessibility and usability | [Merged PR #16](https://github.com/hansu650/thematic-friend-finder/pull/16); final acceptance, observation and independent review remain separately recorded work |
 | C Tao Jiacheng | Password change and account/session contracts; Product Owner duties | [Merged PR #11](https://github.com/hansu650/thematic-friend-finder/pull/11); record future backlog and acceptance decisions |
 | D Zhou Ziyue | Unread state and bounded older-message history | [Merged PR #10](https://github.com/hansu650/thematic-friend-finder/pull/10); [new reliability task](./tasks/week3/D_chat_reliability.md) remains pending |
 | E Wu Zhuoda | Restricted report review and permission checks | [Merged PR #14](https://github.com/hansu650/thematic-friend-finder/pull/14) |

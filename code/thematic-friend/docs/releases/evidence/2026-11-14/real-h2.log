@@ -1,0 +1,32 @@
+PASS H2-01 Created a real profile edit, mutual connection, message and personal event save.
+Backup failed: �޷�����Get-FileHash����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ��������Ƶ�ƴд���������·������ȷ
+��·����ȷ��Ȼ������һ�Ρ�
+����λ�� <PROJECT>\scripts\backup.ps1:87 �ַ�: 5
++     throw "Backup failed: $($_.Exception.Message)"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Backup failed: ...��ȷ��·����ȷ��Ȼ������һ�Ρ�:String) [], RuntimeExc
+eption
+    + FullyQualifiedErrorId : Backup failed: �޷�����Get-FileHash����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ�����
+���Ƶ�ƴд���������·������ȷ��·����ȷ��Ȼ����    ��һ�Ρ�
+
+Error: Command failed: powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File <PROJECT>\scripts\backup.ps1 -DataDirectory <PROJECT>\.local\full-verification-20261114\restore-SzB5OV\original -BackupRoot <PROJECT>\.local\full-verification-20261114\restore-SzB5OV\backups
+Backup failed: �޷�����Get-FileHash����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ��������Ƶ�ƴд���������·������ȷ
+��·����ȷ��Ȼ������һ�Ρ�
+����λ�� <PROJECT>\scripts\backup.ps1:87 �ַ�: 5
++     throw "Backup failed: $($_.Exception.Message)"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Backup failed: ...��ȷ��·����ȷ��Ȼ������һ�Ρ�:String) [], RuntimeExc
+eption
+    + FullyQualifiedErrorId : Backup failed: �޷�����Get-FileHash����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ�����
+���Ƶ�ƴд���������·������ȷ��·����ȷ��Ȼ����    ��һ�Ρ�
+
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at ps (<PROJECT>/scripts/tests/run-h2-restore-check.mjs:61:14)
+    at <PROJECT>/scripts/tests/run-h2-restore-check.mjs:85:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Restore output: <PROJECT>\.local\full-verification-20261114\restore-SzB5OV
+RestoreExit=1

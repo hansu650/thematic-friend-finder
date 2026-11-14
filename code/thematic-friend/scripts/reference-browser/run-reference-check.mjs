@@ -119,7 +119,7 @@ try{
  ok('CHAT','Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.');
  for(const route of ['/profile','/safety','/change-password','/connections','/events/new','/privacy']){
   response=await a.page.goto(base+route+'?lang=zh');assert.equal(response.status(),200,route);await noOverflow(a.page);
-  assert.equal(await a.page.locator('link[rel=stylesheet]').getAttribute('href'),'/css/reference-ui.css');assert.equal(/\?\?(ui|ref|experience)\./.test(await a.page.locator('body').innerText()),false,'Visible message keys resolve.');
+  assert.equal(await a.page.locator('link[rel=stylesheet][href="/css/reference-ui.css"]').count(),1,'Shared theme loads alongside optional page styles');assert.equal(/\?\?(ui|ref|experience)\./.test(await a.page.locator('body').innerText()),false,'Visible message keys resolve.');
   await a.page.setViewportSize({width:320,height:844});await noOverflow(a.page);await a.page.setViewportSize({width:1440,height:1000});
  }
  await a.page.goto(base+'/profile?lang=zh');await a.page.locator('[data-motion-preference]').check();await a.page.goto(base+'/?lang=zh');

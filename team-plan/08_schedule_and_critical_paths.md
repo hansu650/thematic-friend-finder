@@ -1,5 +1,11 @@
 # Gantt Chart and Critical Paths
 
+The current six-week calendar is available as an [editable XLSX Gantt](project-management/six-week-gantt.xlsx) and page 10 of the [Draw.io design pack](../code/thematic-friend/docs/design/Mingle_Design_and_Plan.drawio). Historical windows, dated artifacts and future plans are distinguished. The XLSX recalculates weekly day overlaps when window dates change; it is a schedule, not a new resource-constrained critical-path calculation.
+
+![Six-week calendar prepared on 14 November 2026](./images/mingle-six-week-gantt-20261114.png)
+
+14 November update: this page and its linked Gantt/Draw.io files explain the historical November planning baseline. The [six-week evidence plan](./16_six_week_evidence_plan.md) and [live Trello board](https://trello.com/b/j4LiifAK/mingle-team-kanban) now govern dates, responsibilities and evidence. The 188-hour model below has not been recalculated as a 208-hour resource schedule. Keep that limitation when using the critical-path diagram in evaluation.
+
 [Excel workbook](./project-management/six-person-gantt.xlsx) · [Editable Draw.io source](./project-management/critical-paths.drawio) · [SVG preview](./project-management/critical-paths.svg)
 
 The model starts with remaining work on **6 November 2026** and uses calendar days, including weekends. Finish dates include the final task day. Duration and person-hours are separate estimates. The two-week Sprint boundaries do not reset whenever cards move.

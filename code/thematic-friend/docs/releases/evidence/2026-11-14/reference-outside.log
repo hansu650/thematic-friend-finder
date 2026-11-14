@@ -1,0 +1,14 @@
+PASS HOME Reference fonts/media, video pause, mobile menu at 320/390/768 px.
+PASS EVENTS Search/city/topic filters, personal bookmarks, two-account RSVP/cancel and persistence.
+PASS NATIVE Saved login destination and event actions work without JavaScript.
+PASS CREATE Published event persists with the authenticated host.
+PASS CHAT Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.
+locator.getAttribute: Error: strict mode violation: locator('link[rel=stylesheet]') resolved to 2 elements:
+    1) <link rel="stylesheet" href="/css/reference-ui.css"/> aka locator('link').first()
+    2) <link rel="stylesheet" href="/css/profile-preview.css"/> aka locator('link').nth(1)
+
+Call log:
+  - waiting for locator('link[rel=stylesheet]')
+
+    at <PROJECT>\scripts\reference-browser\run-reference-check.mjs:122:61
+Browser output: <PROJECT>\.local\reference-browser-verification\review-3wqb7X

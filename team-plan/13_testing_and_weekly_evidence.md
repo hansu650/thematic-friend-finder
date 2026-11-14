@@ -1,4 +1,24 @@
-# Testing and Weekly Evidence
+# Testing and Six Week Evidence
+
+## Current practice on 14 November 2026
+
+Use the [six-week plan](./16_six_week_evidence_plan.md), [capture session](./17_photo_and_capture_session.md) and [live Trello board](https://trello.com/b/j4LiifAK/mingle-team-kanban). Link actual records and GitHub evidence from the cards. The [workbook](project-management/scrum-and-evidence.xlsx) is an optional set of meeting/action, test/observation and PDP templates. Blank fields are not completed evidence.
+
+The teaching calendar is 26 October–6 December, with the sixth week reserved for reflection and demonstration. Earlier W1–W5 filenames below retain their November delivery-week numbering. Current proposed effort is A 50 h, C 40 h, D 34 h and B/E/F 28 h each; actual effort is not supplied.
+
+Photo and test counts below are historical planning suggestions, not quotas. One real session can cover several activities; keep a few useful, consented photos with their actual dates. Capture final deployment, acceptance and submission when they occur. Existing earlier records retain their original dates.
+
+The 14 November local source is aligned with main including PR #16. Record the integrated revision, expected/actual results, tester, time, environment and raw logs. Reuse unchanged successful checks; add or rerun checks when changes, failures or unresolved concerns justify it. Separate automated checks, physical-device checks, user observation and independent peer review.
+
+The [14 November integrated record](../code/thematic-friend/docs/releases/2026-11-14-main-verification.md) records 66 Java tests, 40 browser groups, four real-H2 restoration groups and six backup-tool groups, with one explicit build skip. These runs include PR #16. The earlier 13 November record remains historical. Automated restoration used known records and verified saved data after restarting without seeding. Include activities and final English-only behavior in product acceptance; independent reproduction remains open.
+
+A localhost URL only works on the running computer. Keep non-secret logs/reports in the repository and record CI run URLs. Computer Use can later display and capture actual terminal and two-account browser states; tests themselves can use the normal project commands.
+
+The Trello board was inspected and updated in the signed-in Edge browser on 14 November; see the [board record and screenshot](./03_trello_kanban.md). Update it only from actual work, and retain older captures with their dates. Use the [meeting template](./meetings/session_record_template.md) for real alternatives, differing views, decisions and follow-up actions.
+
+## Historical five-week testing and evidence plan
+
+The prior allocation, weekly labels and numerical targets below are retained for provenance. The current guidance above supersedes them.
 
 Every member owns implementation, executable tests, screenshots and an independent peer check. The revised allocation is A 42 hours, D 34 hours and B/C/E/F 28 hours each. Reserve about 8–10 hours of each B–F budget for test code, debugging, peer reproduction and evidence; this time is included in the total. Confirm capacity and reduce optional scope if needed.
 

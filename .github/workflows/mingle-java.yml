@@ -30,3 +30,15 @@ jobs:
           java-version: '21'
       - name: Build and run Java tests
         run: bash ./mvnw --batch-mode --no-transfer-progress verify
+
+  backup-windows:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: code/thematic-friend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify backup, restore and Windows PowerShell UTF-8 handling
+        run: ./scripts/tests/BackupRestore.Tests.ps1 -SkipBuild

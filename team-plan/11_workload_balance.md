@@ -1,5 +1,26 @@
 # Planned Workload and Responsibilities
 
+## Current proposal on 14 November 2026
+
+The whole-project estimate is **208 hours**, with A first, C second and D third in planned responsibility. These are estimates, not recorded actual effort or a ranking of marks.
+
+| Member | Substantial current responsibility | Proposed total |
+|---|---|---:|
+| A Qin Tian | Scrum Master and Lead Developer; core/UI code, integration, acceptance coordination, release and actual process facilitation | 50 h |
+| C Tao Jiacheng | Product Owner; shared selection, requirements, priorities, acceptance, feedback and product evaluation; retained account contribution | 40 h |
+| D Zhou Ziyue | Developer; unread/history, delivery/retry follow-up, two-account validation and messaging demonstration | 34 h |
+| B Wang Yikai | Developer; merged profile preview/accessibility, observed usability and independent review | 28 h |
+| E Wu Zhuoda | Developer and Test Coordinator; safety/permissions, defects/retests and ethics/source evaluation | 28 h |
+| F Song Peitong | Developer; real-H2 backup/restore, independent reproduction, persistent deployment or local handover | 28 h |
+
+Compared with the 188-hour baseline below, A gains 8 estimated hours for final integration, evidence synthesis and release/rehearsal, and C gains 12 for requirements, acceptance, feedback and evaluation. Testing and coordination are included rather than added again. D keeps the previously assigned six-hour extension.
+
+Confirm real availability, especially C's 40 h and D's 34 h against the previous unconfirmed 32-hour inputs. The [new workbook](project-management/scrum-and-evidence.xlsx) leaves capacity and actual hours blank until supplied. Reduce optional scope if capacity is insufficient. Preserve each member's actual ownership, and record changed plans with reasons.
+
+See the [six-week plan](./16_six_week_evidence_plan.md). The earlier Gantt/critical-path workbook and the allocation below remain historical planning evidence.
+
+## Historical allocation on 13 November 2026
+
 Revision: 13 November 2026. A retains the largest individual scope. D receives six additional planned hours for messaging reliability and its verification. These figures are estimates, not completed contribution hours.
 
 | Member | Role and work | Planned total |

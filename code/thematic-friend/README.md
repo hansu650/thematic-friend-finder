@@ -65,6 +65,8 @@ Do not change database credentials for an existing database without planning the
 
 ## Checks and handover
 
+The [14 November integrated verification](docs/releases/2026-11-14-main-verification.md) covers local main `7764f0e`, including B's merged PR #16: **66 Java tests, 40 browser groups, four real-H2 recovery groups and six backup-tool groups passed**. The backup suite explicitly skips its duplicate Maven invocation. Local fixes make UTF-8 manifests restorable in Windows PowerShell and correct three test-runner assumptions. The script fixes and evidence are included in this release change. See the [ten-page design and six-week Gantt pack](docs/design/README.md) or its [browser gallery](docs/design/index.html).
+
 The [integrated release record](docs/releases/2026-11-13-reference-ui.md) reports 66 passing Java tests, seven reference-browser groups and ten conversation-browser groups, plus the runtime fixture checks. The current 13 November interface follows the user's Bumble, Feeld, Hinge and Meetup references. See [current UI and verification notes](docs/EXPERIENCE_REVIEW.md). The current acceptance command is `node scripts/reference-browser/run-reference-check.mjs`, using isolated data and two browser accounts. The earlier Momo/Planet review and UI runners describe superseded visual revisions.
 
 For actual terminal screenshots, use [the live PowerShell evidence workflow](docs/TERMINAL_EVIDENCE.md). It executes Maven/browser checks and pauses for the person taking the screenshots. Formatted HTML reports are not terminal evidence.

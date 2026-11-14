@@ -1,0 +1,18 @@
+PASS A-01 Visible filters, eligible count and actual shared interests; removing one filter preserves the other.
+PASS A-04a Short mouse drag returns the same card and sends zero decisions.
+PASS A-05a Empty results offer working clear/revisit actions; revisiting keeps filters.
+PASS A-04b Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.
+PASS A-03/A-05b Reciprocal button like opens real feedback, correct chat and a message received by the other participant.
+PASS A-04c Repeated arrow-key events during commitment submit one decision.
+PASS A-04d 390 px emulated touch: short drag returns; committed swipe submits once.
+PASS A-06a 390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.
+PASS A-06b 390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.
+PASS A-06c Reduced-motion button decision submits once.
+PASS A-INT-UI-01 A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.
+PASS A-INT-UI-02 Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.
+PASS A-INT-UI-03 With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.
+PASS A-INT-UI-04 A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.
+PASS A-INT-UI-05 Ending the connection denies an old match link and keeps a usable, filtered discovery destination.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during these flows.
+Browser output: <PROJECT>\.local\full-verification-20261114\browser\discovery-RzTcSP
+BrowserExit=0
