@@ -1,0 +1,89 @@
+{
+  "capturedAt": "2026-11-14T09:59:22.464Z",
+  "browser": "157.0.4341.46",
+  "checks": [
+    {
+      "id": "A-01",
+      "assertion": "Visible filters, eligible count and actual shared interests; removing one filter preserves the other.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04a",
+      "assertion": "Short mouse drag returns the same card and sends zero decisions.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-05a",
+      "assertion": "Empty results offer working clear/revisit actions; revisiting keeps filters.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04b",
+      "assertion": "Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-03/A-05b",
+      "assertion": "Reciprocal button like opens real feedback, correct chat and a message received by the other participant.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04c",
+      "assertion": "Repeated arrow-key events during commitment submit one decision.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-04d",
+      "assertion": "390 px emulated touch: short drag returns; committed swipe submits once.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06a",
+      "assertion": "390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06b",
+      "assertion": "390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-06c",
+      "assertion": "Reduced-motion button decision submits once.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-INT-UI-01",
+      "assertion": "A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-INT-UI-02",
+      "assertion": "Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-INT-UI-03",
+      "assertion": "With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-INT-UI-04",
+      "assertion": "A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.",
+      "result": "PASS"
+    },
+    {
+      "id": "A-INT-UI-05",
+      "assertion": "Ending the connection denies an old match link and keeps a usable, filtered discovery destination.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "assertion": "No browser exceptions or HTTP 5xx responses during these flows.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [],
+  "screenshots": [],
+  "exitCode": 0
+}

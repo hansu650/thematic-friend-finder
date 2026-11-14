@@ -18,15 +18,31 @@
   const skip = document.getElementById('skip-form');
   const reduced = () => window.MingleFeedback?.reduced() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let origin = null, delta = 0, horizontal = false, committed = false;
+  let hoverFrame = 0, snapEffect;
+  const stopHover = () => {
+    cancelAnimationFrame(hoverFrame); hoverFrame = 0;
+    card.style.setProperty('--card-glow', '0');
+    if (!origin && !committed) card.style.transform = '';
+  };
+  const stopSnap = () => { snapEffect?.cancel(); snapEffect = undefined; };
   const threshold = () => Math.min(105, card.getBoundingClientRect().width * 0.27);
   const reset = () => {
+    if (committed) return;
+    const from = card.style.transform, distance = delta, returning = horizontal;
+    stopSnap();
     card.classList.remove('dragging'); card.style.transform = '';
     card.querySelector('.like-label').style.opacity = '0';
     card.querySelector('.skip-label').style.opacity = '0';
     origin = null; delta = 0; horizontal = false;
+    if (returning && from && !reduced()) snapEffect = window.MingleMotion?.animate(card, [
+      {transform: from},
+      {transform: 'translateX(' + distance * -.06 + 'px) rotate(' + distance * -.002 + 'deg)', offset: .7},
+      {transform: 'translateX(0) rotate(0)'}
+    ], {duration: 460});
   };
   const commit = form => {
     if (committed) return;
+    stopHover(); stopSnap();
     committed = true;
     card.setAttribute('aria-busy', 'true');
     const status = document.getElementById('decision-status');
@@ -42,6 +58,7 @@
   [like, skip].forEach(form => form.addEventListener('submit', event => { event.preventDefault(); commit(form); }));
   card.addEventListener('pointerdown', event => {
     if (committed || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    stopHover(); stopSnap();
     origin = {x:event.clientX, y:event.clientY, pointer:event.pointerId};
     delta = 0; horizontal = false;
   });
@@ -67,11 +84,31 @@
   card.addEventListener('lostpointercapture', event => {
     // Touch starts with implicit capture on a child; transferring it to the
     // card bubbles the child's lost event. Only our own capture ends a drag.
-    if (event.target === card && !committed) reset();
+    if (event.target === card && origin && !committed) reset();
   });
   card.addEventListener('keydown', event => {
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       event.preventDefault(); commit(event.key === 'ArrowRight' ? like : skip);
     }
   });
+  card.addEventListener('pointermove', event => {
+    if (origin || committed || snapEffect?.playState === 'running' || reduced() || event.pointerType !== 'mouse') return;
+    cancelAnimationFrame(hoverFrame);
+    const x = event.clientX, y = event.clientY;
+    hoverFrame = requestAnimationFrame(() => {
+      if (origin || committed || reduced()) return;
+      const bounds = card.parentElement.getBoundingClientRect();
+      const px = Math.max(0, Math.min(1, (x - bounds.left) / bounds.width));
+      const py = Math.max(0, Math.min(1, (y - bounds.top) / bounds.height));
+      card.style.transform = 'perspective(900px) rotateX(' + (.5 - py) * 6 + 'deg) rotateY(' + (px - .5) * 8 + 'deg) translateY(-2px)';
+      card.style.setProperty('--card-x', px * 100 + '%'); card.style.setProperty('--card-y', py * 100 + '%');
+      card.style.setProperty('--card-glow', '1');
+    });
+  }, {passive: true});
+  card.addEventListener('pointerleave', stopHover);
+  const preferenceChanged = () => { if (reduced()) { stopHover(); stopSnap(); } };
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', preferenceChanged);
+  new MutationObserver(preferenceChanged).observe(document.documentElement, {attributes: true, attributeFilter: ['data-motion']});
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { stopHover(); stopSnap(); } });
+  window.addEventListener('pagehide', () => { stopHover(); stopSnap(); });
 })();

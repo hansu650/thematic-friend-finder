@@ -1,0 +1,70 @@
+/* Short, input-driven motion; the original server-rendered UI is always visible. */
+.discover-page #swipe-card {
+  position: relative;
+  transform-origin: 50% 60%;
+  transition: transform 380ms cubic-bezier(.16,1,.3,1), opacity 220ms ease;
+}
+.discover-page #swipe-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--card-glow,0);
+  background: radial-gradient(circle at var(--card-x,50%) var(--card-y,50%),#ffffff42,transparent 56%);
+  transition: opacity 260ms ease;
+}
+.discover-page #swipe-card.dragging { transition: none; }
+.discover-page #swipe-card.exiting { transition: transform 240ms ease-in, opacity 220ms ease-in; }
+.discover-page .swipe-label { z-index: 1; }
+.match-pair { position: relative; isolation: isolate; gap: 0; padding: 12px 0; }
+.match-pair .match-avatar {
+  flex: none;
+  width: 132px;
+  height: 156px;
+  border-radius: 26px;
+  box-shadow: 0 14px 32px #3423451c;
+}
+.match-pair .match-avatar:nth-child(2) { transform: translateX(8px) rotate(-9deg); }
+.match-pair .match-avatar:last-child { transform: translateX(-8px) rotate(9deg); }
+.match-heart {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  color: #a2476a;
+  background: #fff;
+  border: 1px solid #f0d5e0;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px #6d365226;
+}
+.match-heart .ui-icon { width: 25px; height: 25px; fill: currentColor; }
+.match-orbit {
+  position: absolute;
+  z-index: -1;
+  inset: -20px calc(50% - 120px);
+  border: 1px solid #d8bfdc;
+  border-radius: 50%;
+  opacity: .35;
+}
+.motion-particles { position: fixed; inset: 0; z-index: 110; pointer-events: none; overflow: hidden; }
+.motion-particle { position: absolute; left: 0; top: 0; width: 6px; height: 6px; border-radius: 2px; background: var(--particle-color,#aa86bc); }
+.motion-ring { position: absolute; left: 0; top: 0; width: 38px; height: 38px; border: 2px solid #aa86bc; border-radius: 50%; }
+.message>p { transform-origin: 0 100%; }
+.message.mine>p { transform-origin: 100% 100%; }
+.message-form[aria-busy=true] button[type=submit] { opacity: .7; }
+@media(max-width:639px) {
+  .match-pair .match-avatar { width: 104px; height: 128px; border-width: 5px; border-radius: 22px; }
+  .match-heart { width: 46px; height: 46px; }
+  .match-orbit { inset: -12px calc(50% - 99px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .discover-page #swipe-card::after,.motion-particles { display: none; }
+}
+html[data-motion=reduced] .discover-page #swipe-card::after,
+html[data-motion=reduced] .motion-particles { display: none; }

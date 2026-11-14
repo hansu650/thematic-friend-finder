@@ -1,0 +1,80 @@
+[
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/reference-browser-verification/review-HoSCOF/results.json",
+    "originalSha256": "c96e8a00a376698dd20a8550cd3b468505c670db937cc9182275a736f8afe287",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/reference-results.json",
+    "publishedSha256": "c96e8a00a376698dd20a8550cd3b468505c670db937cc9182275a736f8afe287"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-reference-20261114.log",
+    "originalSha256": "215699f1a564a84a0a535112ef9d2c108c634077844ab91e9b446e39f65ef931",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/reference-run.log",
+    "publishedSha256": "99eefbf76efd086022d82c321c0c4a68032c50c51cdea5a8dd66b325628dd497"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/browser-verification/discovery-kfJoNw/results.json",
+    "originalSha256": "21ea9ab76b015b6f3c9e7f221b6f1b849ed79f8b469dc77f10e085d5f4f1ccfb",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/discovery-results.json",
+    "publishedSha256": "21ea9ab76b015b6f3c9e7f221b6f1b849ed79f8b469dc77f10e085d5f4f1ccfb"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/browser-verification/discovery-kfJoNw/run.json",
+    "originalSha256": "93952b7b93d9731061e0c7533fdcebe30e246d9889aad6a292276a19559dbe9d",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/discovery-run.json",
+    "publishedSha256": "0e37370f172c123ddc1b468392bffe24dc7851b5ade1fccf1079e3137fe5413f"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-discovery-final-20261114.log",
+    "originalSha256": "2a54a7786075fd7236df9b1d2606ce73f9edac711fd442240874b60397bc3532",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/discovery-run.log",
+    "publishedSha256": "37568ceb1133b843276b5248816d09b9333458fc32549f92241755b9ed0b4235"
+  },
+  {
+    "originalFile": "output/motion-review-1794650216448/results.json",
+    "originalSha256": "dfecc2057963ec66f94857f3c3a9dc638339fa38933b933979ba5da1fdefd267",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-first-overflow.json",
+    "publishedSha256": "8f6e976566b83ab2735c3de20d0e9ed9d998cdc325bb3feebc3881265990ebc9"
+  },
+  {
+    "originalFile": "output/motion-review-1794650331164/results.json",
+    "originalSha256": "8bcc528a95db8e8add51222adfbaa71dbf821d03a6ec6207d9adc0f410830d04",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-first-transition.json",
+    "publishedSha256": "1037808445e29abbc26fbbd6efa327a50ef6cbb427fbb08a0ebe3279b2a180e4"
+  },
+  {
+    "originalFile": "output/motion-review-1794650473478/results.json",
+    "originalSha256": "81ca4413ce9c7128f95fd202146c118f306faf27e1ec947850272e280c4a2167",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-transition-diagnosis.json",
+    "publishedSha256": "5304d369d76872ca3b0c69d7296b39dbb683dfd21e1e0c264096276381616067"
+  },
+  {
+    "originalFile": "output/motion-review-1794650560356/results.json",
+    "originalSha256": "b49ef4d5065f171081b09b6af208c9c03a33626da01b52d2740c86db1083c0c1",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-final-results.json",
+    "publishedSha256": "b49ef4d5065f171081b09b6af208c9c03a33626da01b52d2740c86db1083c0c1"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-browser-verification/motion-2GM8H1/results.json",
+    "originalSha256": "d739002d408eed0f90c70c477a56ba9b1750536033d59b6cd03cf071557f5a0a",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-portable-results.json",
+    "publishedSha256": "d739002d408eed0f90c70c477a56ba9b1750536033d59b6cd03cf071557f5a0a"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-portable-publication-20261114.log",
+    "originalSha256": "ff2be49bdb00a26a87c8471185d2db2170f5efc4cd5ea0bfa1678a69ab235e46",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/motion-portable-run.log",
+    "publishedSha256": "100832158b90a18f0035a25a97e45fd3b276a644467871abbe599f25dfc922f1"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-package-final-20261114.log",
+    "originalSha256": "13fecbc34c8640dd8ab67dccf8a663609e2c823d4ae1fc5d1f5455de7915602e",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/package.log",
+    "publishedSha256": "d372e270723246b3961cf66f099eb2ebf7d47e104835a9ac3fc4799bdc2734ea"
+  },
+  {
+    "originalFile": "AAAAA-code/thematic-friend/.local/motion-live-verification.json",
+    "originalSha256": "210238b947987ba6581846ba4a543e10e072ce9253b6a7cebaaa2f9798e3d8a6",
+    "publishedFile": "docs/releases/evidence/2026-11-14-motion/live-preview.json",
+    "publishedSha256": "241fb58bad00e9129ab128657e774d3ed7d25148a76f8683a30a6858caad154b"
+  }
+]

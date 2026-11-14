@@ -8,8 +8,9 @@
   <section class="panel match-panel" aria-labelledby="match-title">
     <h1 id="match-title" th:text="#{match.title}">It's a match.</h1><p class="match-subtitle" th:text="#{ui.you_both_chose_each_other}">You both chose each other.</p>
     <div class="match-pair" aria-hidden="true">
+      <span class="match-orbit"></span>
       <span class="avatar match-avatar" th:classappend="'palette-' + ${me.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(me)} : '')" th:text="${me.initial}"></span>
-
+      <span class="match-heart"><svg th:replace="~{fragments/layout :: icon('heart')}"></svg></span>
       <span class="avatar match-avatar" th:classappend="'palette-' + ${partner.palette} + (${demoMode} ? ' ' + ${@referencePhotos.css(partner)} : '')" th:text="${partner.initial}"></span>
     </div>
 

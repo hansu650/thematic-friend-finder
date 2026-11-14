@@ -1,6 +1,6 @@
 <!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org"><head th:fragment="head(title)">
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title th:text="${title == 'Mingle' ? 'Mingle' : title + ' · Mingle'}">Mingle</title>
-<link rel="stylesheet" th:href="@{/css/reference-ui.css}"><script th:src="@{/js/reference-ui.js}" defer></script><script th:src="@{/js/reference-motion.js}"></script><script th:src="@{/js/app.js}" defer></script><script th:src="@{/js/mingle-ui.js}" defer></script>
+<link rel="stylesheet" th:href="@{/css/reference-ui.css}"><link rel="stylesheet" th:href="@{/css/reference-motion.css}"><script th:src="@{/js/reference-ui.js}" defer></script><script th:src="@{/js/reference-motion.js}"></script><script th:src="@{/js/app.js}" defer></script><script th:src="@{/js/mingle-ui.js}" defer></script>
   <link th:if="${profileForm != null}" rel="stylesheet" th:href="@{/css/profile-preview.css}">
   <script th:if="${profileForm != null}" th:src="@{/js/profile-preview.js}" defer></script>
 </head><body>
