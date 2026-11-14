@@ -4,7 +4,7 @@ Updated and visually checked in the signed-in Edge browser on 14 November 2026.
 
 Use [Mingle Team Kanban](https://trello.com/b/j4LiifAK/mingle-team-kanban) for daily work. GitHub holds code, PRs and versioned test evidence. Keep fuller meeting, test and reflection records in Markdown and link them from the relevant card. The XLSX remains an optional template; it is not the daily management entry point.
 
-The private board retains its five lists and seven existing member/team cards, their original identities and activity history. Six weekly index cards were added on 14 November. The board now has 13 cards: nine in To do, two in Doing and two in Review. Test and Done are empty. Merged implementation is recorded separately from remaining acceptance work.
+The private board retains its five lists and seven existing member/team cards, their original identities and activity history. Six weekly indexes and three completed-deliverable cards were added on 14 November. After PR #17 merged, the board has 16 cards: nine in To do, two in Doing, two in Review, none in Test and three in Done. The completed cards have bounded implementation, verification or publication scope; final product acceptance and independent review remain open.
 
 ## Current cards
 
@@ -28,12 +28,22 @@ Each member/team card includes its named owner, relevant reviewer, merged PR evi
 |---|---|---|
 | W1, 26 Oct–1 Nov | [Research evidence index](https://trello.com/c/SmJE3MWh) | Review. Reconstructed index of dated source/research records; it does not claim a contemporaneous meeting. |
 | W2, 2–8 Nov | [Java baseline and handoff evidence](https://trello.com/c/HGDOHNsN) | Review. PRs, named packages and original 6 November captures are linked for historical checking. |
-| W3, 9–15 Nov | [Integrated UI, latest main and verification](https://trello.com/c/quumcm4M) | Doing. Includes main `7764f0e`, actual 14 November automated results, local fixes and open limits. |
+| W3, 9–15 Nov | [Integrated UI, latest main and verification](https://trello.com/c/quumcm4M) | Doing. Records the `7764f0e` application test base, PR #17 merged as `cafbccf`, successful PR/main CI and remaining acceptance work. |
 | W4, 16–22 Nov | [Acceptance, observed tasks and chat reliability](https://trello.com/c/B32dVzpG) | To do. Planned work with owners, outputs and completion conditions. |
 | W5, 23–29 Nov | [Selected fixes, feature freeze and handover](https://trello.com/c/sXcZsqKD) | To do. Planned feedback fixes, 26 November freeze and independent reproduction. |
 | W6, 30 Nov–6 Dec | [Evaluation, demonstration and individual reflections](https://trello.com/c/KPeqA8Nc) | To do. Planned evaluation, demonstration and personal writing; internal finish 4 December. |
 
 The weekly cards are indexes for the same board. They do not replace each member's work card or create a second management system. The new cards and descriptions were written on 14 November; their activity dates were not backdated. No future work was marked done.
+
+## Completed deliverables
+
+| Done card | Completed scope and evidence |
+|---|---|
+| [Java baseline and A-F initial increments](https://trello.com/c/HHHvpmcO) | The baseline and initial member increments are merged. Their original PRs and the contribution map are linked; this does not close the remaining member cards. |
+| [PR #17 recovery fixes and integrated checks](https://trello.com/c/LKUjNncC) | The recovery/script fixes and actual automated verification evidence are published in [PR #17](https://github.com/hansu650/thematic-friend-finder/pull/17). [PR CI](https://github.com/hansu650/thematic-friend-finder/actions/runs/43579908638) and [merged-main CI](https://github.com/hansu650/thematic-friend-finder/actions/runs/43580215008) both passed, including the Windows recovery job. |
+| [Ten design diagrams and six-week plan](https://trello.com/c/GTSEJmhM) | Editable Draw.io, ten SVGs, an embedded-font vector PDF and the six-week plan/Gantt are published. Future estimates remain plans; diagrams are not evidence of historical meetings. |
+
+A and W3 retain their actual unfinished acceptance/review work in Doing. A's source-sync checklist remains 1/4; the remaining 29 member/team acceptance and evidence items are not marked complete. No member invitation, new assignment or backdated completion was added.
 
 ## Work flow
 
@@ -60,9 +70,13 @@ Keep detailed scenarios in the task/test records rather than creating a card for
 
 ## Board evidence
 
+![Mingle Team Kanban with three completed deliverables on 14 November 2026](./images/mingle-done-20261114.jpg)
+
+Original browser JPEG after PR #17 and its main CI passed. All three Done cards have descriptions with PR, CI or artifact links and are marked complete. A/W3 remain Doing. The signed-in browser was used and its existing session was retained.
+
 ![Six-week Mingle Team Kanban on 14 November 2026](./images/mingle-six-week-kanban-20261114.jpg)
 
-Original browser JPEG captured after the six weekly indexes and actual verification update. It shows A/W3 in Doing, W1/W2 in Review and the remaining work in To do. W4–W6 continue lower down that scrollable list. A's checklist visibly reads 1/4. The native board links and card descriptions were inspected before capture.
+Earlier browser JPEG captured after the six weekly indexes and actual verification update, before the three Done cards were added. It shows A/W3 in Doing, W1/W2 in Review and the remaining work in To do. W4–W6 continue lower down that scrollable list. A's checklist visibly reads 1/4.
 
 ![Mingle Team Kanban after the 14 November 2026 update](./images/mingle-kanban-20261114.jpg)
 
