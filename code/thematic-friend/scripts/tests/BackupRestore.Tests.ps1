@@ -11,7 +11,13 @@ $backupScript = Join-Path $scriptRoot 'backup.ps1'
 $restoreScript = Join-Path $scriptRoot 'restore.ps1'
 $runId = [guid]::NewGuid().ToString('N')
 $testRoot = Join-Path ([IO.Path]::GetTempPath()) "mingle-f-runtime-$runId"
-$fixture = Join-Path $testRoot 'data'
+$temporaryRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath()).TrimEnd([IO.Path]::DirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar
+$testRoot = [IO.Path]::GetFullPath($testRoot)
+if (-not $testRoot.StartsWith($temporaryRoot, [StringComparison]::OrdinalIgnoreCase) -or
+    [IO.Path]::GetFileName($testRoot) -ne "mingle-f-runtime-$runId") {
+    throw 'Runtime fixture path is outside the intended temporary directory.'
+}
+$fixture = Join-Path $testRoot ('data-' + [char]0x8BFE + [char]0x7A0B)
 $backupRoot = Join-Path $testRoot 'backups'
 $restored = Join-Path $testRoot 'restored'
 $occupied = Join-Path $testRoot 'occupied'
@@ -79,7 +85,7 @@ try {
         }
     }
 
-    Invoke-Case 'F-03' 'Restore recovers fixture profiles, connection and message' {
+    Invoke-Case 'F-03' 'Restore reproduces the fixture bytes and checksums' {
         & $restoreScript -BackupDirectory $backup.FullName -Destination $restored
         $content = Get-Content -LiteralPath (Join-Path $restored 'tongpin.mv.db') -Raw
         foreach ($record in @('demo_zhou', 'demo_lin', 'connection:demo_zhou-demo_lin', 'message:hello')) {
@@ -96,9 +102,7 @@ try {
         $corrupt = Join-Path $testRoot 'corrupt'
         Copy-Item -LiteralPath $backup.FullName -Destination $corrupt -Recurse
         Add-Content -LiteralPath (Join-Path $corrupt 'tongpin.mv.db') -Value 'tampered'
-        try { & $restoreScript -BackupDirectory $corrupt -Destination (Join-Path $testRoot 'corrupt-destination') } catch {
-            Assert-True ($_.Exception.Message -match 'Size mismatch|Checksum mismatch') "Unexpected corruption error: $($_.Exception.Message)"
-        }
+        Assert-Throws { & $restoreScript -BackupDirectory $corrupt -Destination (Join-Path $testRoot 'corrupt-destination') } 'Size mismatch'
         New-Item -ItemType Directory -Path $occupied -Force | Out-Null
         [IO.File]::WriteAllText((Join-Path $occupied 'keep.txt'), 'do not overwrite')
         Assert-Throws { & $restoreScript -BackupDirectory $backup.FullName -Destination $occupied } 'already exists'
@@ -114,8 +118,10 @@ try {
         Assert-True ((Get-Content -LiteralPath (Join-Path $occupied 'keep.txt') -Raw) -eq 'do not overwrite') 'Occupied destination was modified.'
     }
 
-    Invoke-Case 'F-05' 'Restart/persistence check is covered by the Maven integration suite' {
-        if (-not $SkipBuild) {
+    if ($SkipBuild) {
+        $results.Add([pscustomobject]@{ id = 'F-05'; name = 'Maven suite (not run with -SkipBuild)'; result = 'SKIP'; seconds = 0 })
+    } else {
+        Invoke-Case 'F-05' 'Maven integration suite' {
             Push-Location $projectRoot
             try {
                 & .\mvnw.cmd --batch-mode --no-transfer-progress test
@@ -124,10 +130,25 @@ try {
         }
     }
 
-    Invoke-Case 'F-06' 'Independent reproduction handover is documented' {
+    Invoke-Case 'F-06' 'Reproduction commands are documented' {
         $readme = Get-Content -LiteralPath (Join-Path $projectRoot 'README.md') -Encoding UTF8 -Raw
         foreach ($command in @('scripts\backup.ps1', 'scripts\restore.ps1', 'mvnw.cmd')) {
             Assert-True ($readme.Contains($command)) "README is missing handover command: $command"
+        }
+    }
+
+    Invoke-Case 'F-07' 'Windows PowerShell restores a UTF-8 manifest with a non-ASCII source path' {
+        $windowsPowerShell = Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
+        $compatibilityDestination = Join-Path $testRoot 'restored-windows-powershell'
+        $previousModulePath = $env:PSModulePath
+        try {
+            $env:PSModulePath = $null
+            & $windowsPowerShell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File $restoreScript -BackupDirectory $backup.FullName -Destination $compatibilityDestination
+            Assert-True ($LASTEXITCODE -eq 0) 'Windows PowerShell could not read the UTF-8 manifest.'
+            $recoveredHash = (Get-FileHash -LiteralPath (Join-Path $compatibilityDestination 'tongpin.mv.db') -Algorithm SHA256).Hash
+            Assert-True ($recoveredHash -eq $sourceHashesBefore['tongpin.mv.db']) 'Restored bytes differ in the compatibility check.'
+        } finally {
+            $env:PSModulePath = $previousModulePath
         }
     }
 }
@@ -140,5 +161,7 @@ finally {
         $failed | ForEach-Object { Write-Error "$($_.id) $($_.name): $($_.error)" }
         exit 1
     }
-    Write-Output "All $($results.Count) F runtime checks passed."
+    $passedCount = @($results | Where-Object result -eq 'PASS').Count
+    $skippedCount = @($results | Where-Object result -eq 'SKIP').Count
+    Write-Output "F runtime checks: $passedCount passed, $skippedCount skipped."
 }

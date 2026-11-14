@@ -1,0 +1,3 @@
+Error: Test server stopped before becoming ready.
+    at <PROJECT>/scripts/reference-browser/run-reference-check.mjs:54:35
+Browser output: <PROJECT>\.local\reference-browser-verification\review-LjMqG1

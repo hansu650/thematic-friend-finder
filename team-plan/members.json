@@ -1,6 +1,8 @@
 {
   "confirmed": "2026-11-06",
   "roles_updated": "2026-11-13",
+  "planning_updated": "2026-11-14",
+  "hours_basis": "Proposed whole-project effort; capacity and actual hours are not confirmed",
   "order": "1–6 maps to A–F",
   "members": [
     {
@@ -12,7 +14,7 @@
       "refs": "3, 4, 5",
       "reviewer": "B Wang Yikai",
       "file": "A_discovery",
-      "hours": 42
+      "hours": 50
     },
     {
       "id": "B",
@@ -30,11 +32,11 @@
       "name": "Tao Jiacheng",
       "zh": "陶嘉成",
       "role": "Product Owner",
-      "area": "Product goal, backlog order, acceptance criteria, scope and account/data clarification",
+      "area": "Product goal, requirements, backlog, acceptance, feedback, product evaluation and account/data clarification",
       "refs": "Cross-page consistency; no account screen was supplied",
       "reviewer": "D Zhou Ziyue",
       "file": "C_accounts",
-      "hours": 28
+      "hours": 40
     },
     {
       "id": "D",

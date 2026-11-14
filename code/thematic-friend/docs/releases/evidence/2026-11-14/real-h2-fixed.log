@@ -1,0 +1,6 @@
+PASS H2-01 Created a real profile edit, mutual connection, message and personal event save.
+PASS H2-02 Stopped test process, backed up real H2 files, and restored to a new directory with checksum validation.
+PASS H2-03 Both retained passwords log in; saved profile, connection and exactly one message survive restoration without seeding.
+PASS H2-04 Restored saved events remain account-specific; English-only configuration overrides lang=zh.
+Restore output: <PROJECT>\.local\full-verification-20261114\restore-VtLZsA
+RestoreExit=0

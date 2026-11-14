@@ -1,6 +1,8 @@
 # Course Sources and Use
 
-The course PDFs and templates are available in the local coursework archive or Moodle and are not redistributed in this repository. Source titles and page references are retained below.
+14 November update: the [current plan](./16_six_week_evidence_plan.md) rechecked the assessment pp. 1–9 and the complete reflection template. Week 2 lecture p. 4 specifies five Group Work weeks and a sixth Reflective Writing week. The user-supplied [Moodle screenshot](./images/moodle-deadline-20261114.png) shows 18 December 2026 at 13:00, without a visible timezone. This supersedes the old PDF dates; recheck the same course-system account before submission.
+
+Course PDFs and official templates remain in the coursework archive or Moodle and are not redistributed here. Source titles and pages are preserved.
 
 This plan applies Software Development Process methods to the Thematic Project. Example companies, people and submission rules in other labs are not facts about this project.
 

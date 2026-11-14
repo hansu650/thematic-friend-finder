@@ -1,4 +1,16 @@
-# Five-Week Spring Boot Web Plan
+# Six Week Teaching and Delivery Plan
+
+Updated 14 November 2026. Follow the [current six-week evidence plan](./16_six_week_evidence_plan.md) and [live Trello board](https://trello.com/b/j4LiifAK/mingle-team-kanban). The original filename is retained for existing links.
+
+The teaching-week calendar is 26 October–6 December: five weeks of group work followed by reflective writing. This start is inferred from the dated Week 1 note and Week 2 schedule. Finish internally by 4 December. The Moodle screenshot shows 18 December 2026 at 13:00; its timezone is not visible. Original W1–W5 branch/package names retain their separate November delivery-week numbering.
+
+Current scope includes the approved activity flow, 28 fictional profile records and 18 activity covers. Portrait photographs are sourced demo assets. All initial member increments are merged, including B's PR #16. Local synchronization and automated regression were completed on 14 November; [the recorded checks](../code/thematic-friend/docs/releases/2026-11-14-main-verification.md) include actual H2 restoration. Final team acceptance and D's reliability follow-up still require evidence.
+
+Current proposed effort is A 50 h, C 40 h, D 34 h and B/E/F 28 h each, totalling 208 h. Confirm capacity; these are not completed hours. The November Sprint 1 window can remain 9–22 November. Freeze optional features by 26 November and reserve the final teaching week for evaluation, handover and reflection.
+
+## Historical five-week delivery baseline
+
+The following is the earlier planning record. Its old no-photo scope and unconfirmed deadline wording are superseded by the current plan above.
 
 ## Product and scope
 

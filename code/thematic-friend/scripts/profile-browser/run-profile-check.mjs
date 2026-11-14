@@ -14,7 +14,15 @@ const output = fs.mkdtempSync(path.join(outputParent, 'B-'));
 const jar = path.resolve(process.env.MINGLE_TEST_JAR || path.join(root, 'target/thematic-friend-0.0.1-SNAPSHOT.jar'));
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const java = process.env.JAVA_HOME ? path.join(process.env.JAVA_HOME,'bin',process.platform === 'win32' ? 'java.exe' : 'java') : 'java';
-const git = args => execFileSync('git', args, {cwd:root,encoding:'utf8',windowsHide:true}).trim();
+const git = args => execFileSync('git', args, {cwd:root,encoding:'utf8',windowsHide:true,stdio:['ignore','pipe','pipe']}).trim();
+let revision;
+try {
+  revision = {baseCommit:git(['rev-parse','HEAD']), workingTree:git(['status','--short']), gitMetadataAvailable:true};
+} catch (error) {
+  // Exported handoffs still have a complete source/JAR hash manifest below.
+  revision = {baseCommit:null, workingTree:null, gitMetadataAvailable:false,
+    gitMetadataError:String(error.stderr || error.message).trim()};
+}
 const manifest = {};
 function filesIn(directory) {
   for (const entry of fs.readdirSync(directory,{withFileTypes:true})) {
@@ -28,7 +36,7 @@ filesIn(path.join(root,'src'));
 filesIn(path.join(root,'scripts/profile-browser'));
 const result = {
   startedAt:new Date().toISOString(), command:'node scripts/profile-browser/run-profile-check.mjs',
-  baseCommit:git(['rev-parse','HEAD']), workingTree:git(['status','--short']),
+  ...revision,
   node:process.version, java:execFileSync(java,['--version'],{encoding:'utf8',windowsHide:true}).trim(),
   playwright:JSON.parse(fs.readFileSync(new URL('./node_modules/@playwright/test/package.json',import.meta.url))).version,
   jarSha256:hash(jar), sourceSha256:manifest, checks:[], images:[], errors:[], exitCode:1
@@ -104,7 +112,9 @@ try {
   browser=await chromium.launch({headless:true,...(process.env.MINGLE_BROWSER_PATH?{executablePath:process.env.MINGLE_BROWSER_PATH}:{})});
   result.browser=browser.version();
   log('Command: '+result.command);
-  log('Base revision: '+result.baseCommit+' (working tree recorded in results.json)');
+  log(result.gitMetadataAvailable
+    ? 'Base revision: '+result.baseCommit+' (working tree recorded in results.json)'
+    : 'Git metadata unavailable; source and JAR hashes recorded in results.json.');
   log('JAR SHA-256: '+result.jarSha256);
   log('Browser: '+result.browser+'; Playwright: '+result.playwright+'; Node: '+process.version);
 

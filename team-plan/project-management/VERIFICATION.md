@@ -1,6 +1,16 @@
 # Schedule Verification
 
-## Current role and effort update - 13 November 2026
+## Current six-week Gantt — 14 November 2026
+
+The [new six-week workbook](six-week-gantt.xlsx) contains one worksheet and 76 formulas. Artifact Tool recalculation, a formula-error scan, first/last/cross-week window checks and an end-date edit/restoration check completed. Extending the chat task into 23 November populated the next week's day count; restoring the date removed it. The rendered worksheet was visually checked. The exported XLSX was opened as an archive and its formula caches, conditional formatting and absence of error cells were verified separately. This does not establish native Excel UI behavior.
+
+The authoring runtime wrote the complete workbook and verification artifacts, then exited with code 1 without an error message. No successful authoring-process exit is claimed. The separate saved-file verification exited 0. Local details are in `tmp/assessment-audit-20261114/gantt-qa/` at the coursework root.
+
+All ten [Draw.io design/Gantt pages](../../code/thematic-friend/docs/design/README.md) exported to SVG and PNG successfully. The strict source audit reported zero errors and warnings, and rendered pages were reviewed. The local HTML gallery loaded all ten SVGs in headless Edge, and its 390 px viewport check found no horizontal overflow. Four planning-document images also loaded; 69 local links resolved. The user's own Markdown editor was not tested.
+
+The current Gantt uses historical evidence windows and future planned dates. It does not recalculate the retained historical critical-path network or establish actual hours, meetings or confirmed capacity.
+
+## Historical role and effort update - 13 November 2026
 
 The workbook now records **A Qin Tian as Scrum Master and Lead Developer**, **C Tao Jiacheng as Product Owner**, and the other members as Developers. A and C share topic-selection credit in the [contribution record](../15_contribution_and_ownership.md).
 

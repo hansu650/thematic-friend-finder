@@ -1,0 +1,416 @@
+{
+  "preparedAt": "2026-11-14T08:32:11.208Z",
+  "testedDate": "2026-11-14",
+  "applicationBase": "7764f0eb3ecd3465f264fdf80b0fe92e13aaa751",
+  "scope": "Application base includes PR #16; script fixes, evidence and design/planning documents accompany this release pull request.",
+  "tester": "Codex automated execution, not an independent teammate review",
+  "environment": {
+    "os": "Windows",
+    "java": "Temurin 21.0.12.1",
+    "node": "v24.16.0",
+    "playwright": "1.62.1",
+    "edge": "157.0.4341.46"
+  },
+  "jarSha256": "e8b0f07d8702842b43e938ff6735c4805d30480ba696c361714c7b116edc22fe",
+  "sourceChecks": 194,
+  "java": {
+    "tests": 66,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exitCode": 0
+  },
+  "browser": {
+    "profile": {
+      "groups": 7,
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "B-01",
+          "title": "All preview fields update locally; refresh restores saved values; explicit save persists",
+          "passed": true,
+          "durationMs": 2213
+        },
+        {
+          "id": "B-02",
+          "title": "Mouse/Space enforce five interests, announce the sixth, and preserve existing choices",
+          "passed": true,
+          "durationMs": 958
+        },
+        {
+          "id": "B-03",
+          "title": "HTML-like text stays inert; 30/300-character values fit at 390 px",
+          "passed": true,
+          "durationMs": 562
+        },
+        {
+          "id": "B-04",
+          "title": "Keyboard tab order, visible focus, native controls and preview status work",
+          "passed": true,
+          "durationMs": 1805
+        },
+        {
+          "id": "B-05",
+          "title": "Desktop/390 px navigation has an active destination and reachable content without overflow",
+          "passed": true,
+          "durationMs": 2047
+        },
+        {
+          "id": "B-06",
+          "title": "Both temporary languages associate controls; reduced motion removes animation",
+          "passed": true,
+          "durationMs": 1491
+        },
+        {
+          "id": "B-FALLBACK",
+          "title": "JavaScript-disabled saves work and six interests are rejected by the server without data loss",
+          "passed": true,
+          "durationMs": 841
+        }
+      ],
+      "resultFile": "docs/releases/evidence/2026-11-14/profile-results.json",
+      "resultSha256": "4b2f55ed0f8c37bc36a6e7dd595c68c5cf963c8fee90c461ddd07b8025fcc9d4",
+      "originalResultFile": ".local/full-verification-20261114/browser/B-RTkU7L/results.json",
+      "originalResultSha256": "8068cbb51119a6e1989bd079e2424089c89ebde4697d8e45ee69a981b8b0888e"
+    },
+    "reference": {
+      "groups": 7,
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "HOME",
+          "detail": "Reference fonts/media, video pause, mobile menu at 320/390/768 px.",
+          "result": "PASS"
+        },
+        {
+          "id": "EVENTS",
+          "detail": "Search/city/topic filters, personal bookmarks, two-account RSVP/cancel and persistence.",
+          "result": "PASS"
+        },
+        {
+          "id": "NATIVE",
+          "detail": "Saved login destination and event actions work without JavaScript.",
+          "result": "PASS"
+        },
+        {
+          "id": "CREATE",
+          "detail": "Published event persists with the authenticated host.",
+          "result": "PASS"
+        },
+        {
+          "id": "CHAT",
+          "detail": "Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.",
+          "result": "PASS"
+        },
+        {
+          "id": "ACCOUNT",
+          "detail": "Shared styling, Chinese strings, 320 px account/safety layouts and persistent reduced motion.",
+          "result": "PASS"
+        },
+        {
+          "id": "RUNTIME",
+          "detail": "No browser exceptions, failed assets or HTTP 5xx.",
+          "result": "PASS"
+        }
+      ],
+      "resultFile": "docs/releases/evidence/2026-11-14/reference-results.json",
+      "resultSha256": "0cdeba4217f12768cec2b8037615d76b75da2b0d52ebdf404ca9fe2a7afa38e5",
+      "originalResultFile": ".local/reference-browser-verification/review-Ksa58O/results.json",
+      "originalResultSha256": "a890b40cb16aa84e424213b7dc3f83a69d364100b9d759e9ae1467277a2593f5"
+    },
+    "conversation": {
+      "groups": 10,
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "D-01/D-02",
+          "assertion": "Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-02",
+          "assertion": "A later incoming message becomes unread again and a new acknowledgement clears it.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-03",
+          "assertion": "More than 100 messages load in a bounded page, remain ascending and contain no duplicates.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-04",
+          "assertion": "A polling result arriving after older-history paging merges by ID without duplicates or reordering.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-06a",
+          "assertion": "A 1,000-character message remains readable without horizontal page overflow.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-06b",
+          "assertion": "Keyboard navigation reaches the send control and Enter submits the message.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-06c",
+          "assertion": "An empty conversation shows a usable composer without a misleading load-history control.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-06d",
+          "assertion": "The desktop conversation remains usable at 390 px without horizontal overflow.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-05/D-06e",
+          "assertion": "An ended conversation returns a real 403 error state that remains readable at 390 px.",
+          "result": "PASS"
+        },
+        {
+          "id": "RUNTIME",
+          "assertion": "No browser exceptions or HTTP 5xx responses during the checked flows.",
+          "result": "PASS"
+        }
+      ],
+      "resultFile": "docs/releases/evidence/2026-11-14/conversation-results.json",
+      "resultSha256": "1285d10771d31c7b17b94d26ffd9be6d3e2d02ba8a12a368c9515aa1d0326aef",
+      "originalResultFile": ".local/full-verification-20261114/browser/conversation-PgDKPX/results.json",
+      "originalResultSha256": "1285d10771d31c7b17b94d26ffd9be6d3e2d02ba8a12a368c9515aa1d0326aef"
+    },
+    "discovery": {
+      "groups": 16,
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "A-01",
+          "assertion": "Visible filters, eligible count and actual shared interests; removing one filter preserves the other.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-04a",
+          "assertion": "Short mouse drag returns the same card and sends zero decisions.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-05a",
+          "assertion": "Empty results offer working clear/revisit actions; revisiting keeps filters.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-04b",
+          "assertion": "Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-03/A-05b",
+          "assertion": "Reciprocal button like opens real feedback, correct chat and a message received by the other participant.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-04c",
+          "assertion": "Repeated arrow-key events during commitment submit one decision.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-04d",
+          "assertion": "390 px emulated touch: short drag returns; committed swipe submits once.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-06a",
+          "assertion": "390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-06b",
+          "assertion": "390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-06c",
+          "assertion": "Reduced-motion button decision submits once.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-INT-UI-01",
+          "assertion": "A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-INT-UI-02",
+          "assertion": "Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-INT-UI-03",
+          "assertion": "With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-INT-UI-04",
+          "assertion": "A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-INT-UI-05",
+          "assertion": "Ending the connection denies an old match link and keeps a usable, filtered discovery destination.",
+          "result": "PASS"
+        },
+        {
+          "id": "RUNTIME",
+          "assertion": "No browser exceptions or HTTP 5xx responses during these flows.",
+          "result": "PASS"
+        }
+      ],
+      "resultFile": "docs/releases/evidence/2026-11-14/discovery-results.json",
+      "resultSha256": "8f72192328eb76daa5fbe039b40aad141bfce824b96493360e8ee7d241367f07",
+      "originalResultFile": ".local/full-verification-20261114/browser/discovery-RzTcSP/results.json",
+      "originalResultSha256": "8f72192328eb76daa5fbe039b40aad141bfce824b96493360e8ee7d241367f07"
+    }
+  },
+  "realH2": {
+    "groups": 4,
+    "exitCode": 0,
+    "checks": [
+      {
+        "id": "H2-01",
+        "description": "Created a real profile edit, mutual connection, message and personal event save.",
+        "passed": true
+      },
+      {
+        "id": "H2-02",
+        "description": "Stopped test process, backed up real H2 files, and restored to a new directory with checksum validation.",
+        "passed": true
+      },
+      {
+        "id": "H2-03",
+        "description": "Both retained passwords log in; saved profile, connection and exactly one message survive restoration without seeding.",
+        "passed": true
+      },
+      {
+        "id": "H2-04",
+        "description": "Restored saved events remain account-specific; English-only configuration overrides lang=zh.",
+        "passed": true
+      }
+    ],
+    "resultFile": "docs/releases/evidence/2026-11-14/real-h2-results.json",
+    "resultSha256": "c618a0ab10f826023e31cdd1d4a38083aa8d283a6c2bb10bb5d0e8b58273beb4",
+    "originalResultFile": ".local/full-verification-20261114/restore-VtLZsA/results.json",
+    "originalResultSha256": "4c8650e6e9215db9b8acd7ee4928591d5baf6b3f66dd58671a8853313ae75881"
+  },
+  "backupTools": {
+    "passed": 6,
+    "skipped": 1,
+    "exitCode": 0,
+    "skippedReason": "F-05 Maven invocation skipped because the separate Java package/test run passed.",
+    "publicationRetest": {
+      "date": "2026-11-14",
+      "passed": 6,
+      "skipped": 1,
+      "exitCode": 0,
+      "log": "docs/releases/evidence/2026-11-14/backup-publication-retest.log",
+      "reason": "After strengthening corrupt-payload failure assertion and bounding temporary cleanup."
+    }
+  },
+  "changedScripts": [
+    {
+      "file": "scripts/restore.ps1",
+      "sha256": "463de2678fd1521735d39c807f327092f8b88dadd7e26d644b448e87827f98ae",
+      "priorSha256": "463de2678fd1521735d39c807f327092f8b88dadd7e26d644b448e87827f98ae"
+    },
+    {
+      "file": "scripts/profile-browser/run-profile-check.mjs",
+      "sha256": "8474be163cfaad3282878b84c61e85384b0a2dbe97465d7821e04e844b8fc5c9",
+      "priorSha256": "8474be163cfaad3282878b84c61e85384b0a2dbe97465d7821e04e844b8fc5c9"
+    },
+    {
+      "file": "scripts/reference-browser/run-reference-check.mjs",
+      "sha256": "025e8ff13055046a53ff9e095003c583964e668653c7f6469cd5320594245086",
+      "priorSha256": "025e8ff13055046a53ff9e095003c583964e668653c7f6469cd5320594245086"
+    },
+    {
+      "file": "scripts/tests/BackupRestore.Tests.ps1",
+      "sha256": "7fbb9671a81b0f40296141bcfc1a3a22989a8f3f44d8f2cc4457abc678b58fc9",
+      "priorSha256": "b18c5de6795311006de919e2ddadb59a7d9bbdc17513516d234e5c12cd465fb8"
+    },
+    {
+      "file": "scripts/tests/run-h2-restore-check.mjs",
+      "sha256": "3e535bca52e8019c011d4b646a75467fa405a1ac24533042fdad88cfca2712f7",
+      "priorSha256": "3e535bca52e8019c011d4b646a75467fa405a1ac24533042fdad88cfca2712f7"
+    }
+  ],
+  "logs": [
+    {
+      "file": "docs/releases/evidence/2026-11-14/java-build.log",
+      "sha256": "56f2d85c38c7f62ea6667f55738be333dd4f8a0c161c213a5d606246a2c418f6",
+      "originalFile": ".local/full-verification-20261114/java-build.log",
+      "originalSha256": "2625888238f5cf6553ac077cfba2130cb5d6d366748b9ca0c908dcb951177c1c"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/profile-original.log",
+      "sha256": "3ae4f7285c42cdf7d9f529591e901ced3a9fe4d1fc79e55fc9fe113c724d55aa",
+      "originalFile": ".local/full-verification-20261114/profile-original.log",
+      "originalSha256": "a11ac1f33a4f1b4caa302931758c737c8e4bf6d9d9da6ec79e226fee4dff3132"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/profile-outside.log",
+      "sha256": "584ba38fba92bea7771a55b6aaef7beda48510850dd6170c11de08921adff263",
+      "originalFile": ".local/full-verification-20261114/profile-outside.log",
+      "originalSha256": "d172a69ebbe1fc2f8bc8cf500d2da3424acfba85c8d03a5c156bb19fbe8720ae"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/reference-outside.log",
+      "sha256": "ca2d012084410aee1b1f0b14beaecbd7be6433ad902fecd20ae74c1e5a6dd825",
+      "originalFile": ".local/full-verification-20261114/reference-outside.log",
+      "originalSha256": "103dccd5151d270d0fe3a3d6d93b73abd1249b4337c7d3ec297f6769f156f1dc"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/reference-retest.log",
+      "sha256": "dcfc58226ce1b5fdaddb6bcfd9e90c603c40b210592a9bce6a896898d87d8952",
+      "originalFile": ".local/full-verification-20261114/reference-retest.log",
+      "originalSha256": "57efb34694f9e62a7041b742c26751a19abc18d0a49fee8e9d80052f9bcb09b1"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/conversation-outside.log",
+      "sha256": "44ada47946b685cfa25bb0df83c21e5b6e1d38c2de85e6155dcb1a66a1299d8c",
+      "originalFile": ".local/full-verification-20261114/conversation-outside.log",
+      "originalSha256": "b8c12a13b2fbed235a8868c3d62d341a2376371092903e5de41348a89f8dceb2"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/discovery-outside.log",
+      "sha256": "94d1613468a1d06c15e6cbe3d75a77e590a0a4d7179f264782bd1e390253ac62",
+      "originalFile": ".local/full-verification-20261114/discovery-outside.log",
+      "originalSha256": "69b9c66f96f6cfa651830f6d3cad1f82faf582fd9fcb6d0e13149954c02c706d"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/backup-retest.log",
+      "sha256": "dfd9d112efff09f00bd157f2568990a9e1aeae8e8eadbe7045c3a312be81a01b",
+      "originalFile": ".local/full-verification-20261114/backup-retest.log",
+      "originalSha256": "f98f1a1f8ef3da85258d524da4920f875ce10af9445d626eb3a6814a9520a161"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/real-h2-retest.log",
+      "sha256": "601805d322c8b5690984ee641c5d7d9b72e6d5a6c3ff792bd6c9e98c54257244",
+      "originalFile": ".local/full-verification-20261114/real-h2-retest.log",
+      "originalSha256": "8ec1f9ce5ca6f4d2356287d4b56681aeac3d5754f89f5976a8597cd077360c64"
+    },
+    {
+      "file": "docs/releases/evidence/2026-11-14/real-h2-fixed.log",
+      "sha256": "9ba0bab9d138fae6decf7d966fd45e894e0386258dce04450c52ae9f8ca98bd4",
+      "originalFile": ".local/full-verification-20261114/real-h2-fixed.log",
+      "originalSha256": "a356096b8838428c4a8a07c00b9c1df98e6c0a8d1777b5029b3850d2d74e7f45"
+    }
+  ],
+  "limitations": [
+    "Headless Edge and emulated widths/touch; no physical-device or real-user acceptance claim.",
+    "D logical-send idempotency/retry extension remains open.",
+    "B independent review, C acceptance and F separate-machine reproduction remain pending.",
+    "Existing long-running demo was not restarted; tests used isolated databases."
+  ],
+  "publication": {
+    "preparedAt": "2026-11-14T09:13:24.370Z",
+    "normalization": "Local project/coursework/user-home paths (including encoded or garbled console forms) are replaced with placeholders; line endings use LF and trailing spaces are removed. Generated framework test passwords, if present, are redacted. Outcomes and source hashes are retained; original bytes remain in the local evidence archive.",
+    "manifest": "docs/releases/evidence/2026-11-14/manifest.json"
+  }
+}

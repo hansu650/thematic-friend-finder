@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-14T08:39:09.9138055Z",
+  "pages": 10,
+  "sourceAudit": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "svgLoaded": 10,
+  "galleryDesktopAnd390px": true,
+  "localLinksChecked": 69,
+  "previewEnvironment": "Headless Edge; user editor not tested",
+  "sourceSha256": "65da4d7eb583e3f6615e2fdd6a4a5eaf01f1b297f0418e999688787a31ff18ee",
+  "exports": [
+    {
+      "sha256": "98fc468557734a44f77eb7499d301f34d94804a36685c75fe299abc727c70536",
+      "file": "images/01-use-cases.svg"
+    },
+    {
+      "sha256": "a2c6a83a812ec4b0d7c6dee31706c3637cf416937f17115e014d08446809ed10",
+      "file": "images/02-architecture.svg"
+    },
+    {
+      "sha256": "7976a1b1a8600724b5d9354dcc24f87b71deb840b5d87db52ec54d4d7196d41a",
+      "file": "images/03-core-classes.svg"
+    },
+    {
+      "sha256": "5deb13b4f5410d1120df8857114749177a4a515947fcf57ab63909263cc4d228",
+      "file": "images/04-activity-report-classes.svg"
+    },
+    {
+      "sha256": "7c08ce65ed37ce8b972561023dc9f1142e5410080366a18e72685efa058acf4f",
+      "file": "images/05-match-sequence.svg"
+    },
+    {
+      "sha256": "3a42d5c62bae281e2764d9b2bb6345a0fd388749b224517cc433d12b63802d12",
+      "file": "images/06-chat-sequence.svg"
+    },
+    {
+      "sha256": "93e57a985f16103dcfb7a8486e2f36547fb3be793408697de020ad33461fc5f1",
+      "file": "images/07-contact-states.svg"
+    },
+    {
+      "sha256": "3b85333ef8fc88bd183f5305e8bd9e5dca4aa4eb59aeb49fbf50164de878dc5b",
+      "file": "images/08-deployment-recovery.svg"
+    },
+    {
+      "sha256": "2f6b8baec67e2bf29aee40e97ec93e578707274171a09a412b9228ad51d8f297",
+      "file": "images/09-event-activity.svg"
+    },
+    {
+      "sha256": "cef8c12f9fb917cbb161384cc7c7f9f626b36144fda9a9bb9d58d3a0a64f90f5",
+      "file": "images/10-six-week-gantt.svg"
+    }
+  ],
+  "pdf": {
+    "pages": 10,
+    "rasterImages": 0,
+    "fontsEmbedded": {
+      "/AAAAAA+ComicSansMS-Bold": true,
+      "/BAAAAA+ComicSansMS": true
+    },
+    "textLengths": [
+      823,
+      1182,
+      1310,
+      1134,
+      886,
+      1041,
+      937,
+      1147,
+      729,
+      1262
+    ],
+    "file": "Mingle_Design_and_Plan.pdf",
+    "sha256": "40d5348fb5230a580f08bc8fc6762319b2e720857b27474e27ec4f4287c7b54a",
+    "renderedPages": 10,
+    "visualReview": "All ten rendered pages inspected; no clipping or missing content observed."
+  }
+}

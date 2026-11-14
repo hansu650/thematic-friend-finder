@@ -1,6 +1,6 @@
 # Roles and Collaboration
 
-Current revision: 13 November 2026. Qin Tian is the Scrum Master and Lead Developer. Tao Jiacheng is the Product Owner. Wang Yikai, Zhou Ziyue, Wu Zhuoda and Song Peitong are Developers with the focuses below.
+Current revision: 14 November 2026. Qin Tian is the Scrum Master and Lead Developer. Tao Jiacheng is the Product Owner. Wang Yikai, Zhou Ziyue, Wu Zhuoda and Song Peitong are Developers with the focuses below. The [six-week plan](./16_six_week_evidence_plan.md) defines current remaining responsibilities and evidence.
 
 | Member | Role | Ownership | Initial reviewer |
 |---|---|---|---|
@@ -44,4 +44,4 @@ Use lowercase task branches named w<week>/<member-letter>-<task>. Start from cur
 
 The user authorised A's current UI/role revision to merge after verification. This does not manufacture a peer approval or change the team's ordinary review responsibilities.
 
-Planned effort: A 42 hours; D 34 hours; B, C, E and F 28 hours each, including development, coordination and evidence. See [workload](./11_workload_balance.md), [roster](./00_team_roster.md) and [contributions](./15_contribution_and_ownership.md).
+Proposed effort: A 50 h, C 40 h, D 34 h and B/E/F 28 h each, including development, coordination and evidence. Confirm real capacity; actual hours are not supplied. See [workload](./11_workload_balance.md), [roster](./00_team_roster.md) and [contributions](./15_contribution_and_ownership.md).

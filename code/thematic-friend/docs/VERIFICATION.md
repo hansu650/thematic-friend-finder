@@ -1,4 +1,10 @@
-# Current Integrated Verification - 13 November 2026
+# Current Integrated Verification - 14 November 2026
+
+Local source now includes PR #16 at main `7764f0e`. **66 Java tests, 40 browser groups, four real-H2 recovery groups and six backup-tool groups passed**, all with successful test process exits. The backup-tool suite reports one deliberately skipped Maven invocation because Java was tested separately. Read the [full report, defects and limitations](releases/2026-11-14-main-verification.md) and [structured evidence](releases/2026-11-14-verification.json). These are Codex automated checks on isolated data. Independent teammate review and final product acceptance remain pending. The script fixes and evidence accompany this release change.
+
+The dated records below retain their original tested revisions.
+
+# Historical Integrated Verification - 13 November 2026
 
 The current application passed **66 Java tests, 7 reference-browser groups and 10 conversation-browser groups**, plus the executed PowerShell backup/restore fixture groups. See the [release report](releases/2026-11-13-reference-ui.md) and [portable results](releases/2026-11-13-verification.json) for scope, commands and limitations. The runtime runner skipped its own Maven invocation because the separate package run had already passed. Independent teammate review is not claimed.
 

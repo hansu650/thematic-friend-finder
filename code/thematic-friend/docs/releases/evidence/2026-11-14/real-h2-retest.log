@@ -1,0 +1,76 @@
+PASS H2-01 Created a real profile edit, mutual connection, message and personal event save.
+Invalid manifest JSON: �޷�ʶ���ת�����С� (148): {
+    "format":  "mingle-h2-backup-v1",
+    "createdUtc":  "2026-11-14T07:57:50.8255063Z",
+    "sourceDataDirectory":  "<PROJECT>\\.local\\full-v
+erification-20261114\\restore-aBsbV9\\original",
+    "files":  [
+                  {
+                      "path":  "tongpin.mv.db",
+                      "bytes":  81920,
+                      "sha256":  "022fd66587cc5166fe63c6a1995adbc2c10ff2ddbe3507ff97b9af62db5e06cc"
+                  }
+              ]
+}
+����λ�� <PROJECT>\scripts\restore.ps1:58 �ַ�: 92
++ ... on } catch { throw "Invalid manifest JSON: $($_.Exception.Message)" }
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Invalid manifes...           ]
+}:String) [], RuntimeException
+    + FullyQualifiedErrorId : Invalid manifest JSON: �޷�ʶ���ת�����С� (148): {
+    "format":  "mingle-h2-backup-v1",
+    "createdUtc":  "2026-11-14T07:57:50.8255063Z",
+        "sourceDataDirectory":  "<PROJECT>\\.local\\fu
+ll-verificatio    n-20261114\\restore-aBsbV9\\original",
+    "files":  [
+                  {
+                      "path":  "tongpin.mv.db",
+                      "bytes":  81920,
+                      "sha256":  "022fd66587cc5166fe63c6a1995adbc2c10ff2ddbe3507ff97b9af62db5e06cc"
+                  }
+              ]
+}
+
+Error: Command failed: powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File <PROJECT>\scripts\restore.ps1 -BackupDirectory <PROJECT>\.local\full-verification-20261114\restore-aBsbV9\backups\backup-20261114-155750754 -Destination <PROJECT>\.local\full-verification-20261114\restore-aBsbV9\restored
+Invalid manifest JSON: �޷�ʶ���ת�����С� (148): {
+    "format":  "mingle-h2-backup-v1",
+    "createdUtc":  "2026-11-14T07:57:50.8255063Z",
+    "sourceDataDirectory":  "<PROJECT>\\.local\\full-v
+erification-20261114\\restore-aBsbV9\\original",
+    "files":  [
+                  {
+                      "path":  "tongpin.mv.db",
+                      "bytes":  81920,
+                      "sha256":  "022fd66587cc5166fe63c6a1995adbc2c10ff2ddbe3507ff97b9af62db5e06cc"
+                  }
+              ]
+}
+����λ�� <PROJECT>\scripts\restore.ps1:58 �ַ�: 92
++ ... on } catch { throw "Invalid manifest JSON: $($_.Exception.Message)" }
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Invalid manifes...           ]
+}:String) [], RuntimeException
+    + FullyQualifiedErrorId : Invalid manifest JSON: �޷�ʶ���ת�����С� (148): {
+    "format":  "mingle-h2-backup-v1",
+    "createdUtc":  "2026-11-14T07:57:50.8255063Z",
+        "sourceDataDirectory":  "<PROJECT>\\.local\\fu
+ll-verificatio    n-20261114\\restore-aBsbV9\\original",
+    "files":  [
+                  {
+                      "path":  "tongpin.mv.db",
+                      "bytes":  81920,
+                      "sha256":  "022fd66587cc5166fe63c6a1995adbc2c10ff2ddbe3507ff97b9af62db5e06cc"
+                  }
+              ]
+}
+
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at ps (<PROJECT>/scripts/tests/run-h2-restore-check.mjs:65:14)
+    at <PROJECT>/scripts/tests/run-h2-restore-check.mjs:92:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Restore output: <PROJECT>\.local\full-verification-20261114\restore-aBsbV9
+RestoreExit=1

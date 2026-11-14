@@ -1,0 +1,18 @@
+Restore completed: <USER_HOME>\AppData\Local\Packages\sandbox.{92dcd3c5-0e85-4b85-9243-818e439ff880}\AC\Temp\mingle-f-runtime-96b96bfb42264d3cb161db1efa7a6017\restored
+Files restored: 2; source backup: <USER_HOME>\AppData\Local\Packages\sandbox.{92dcd3c5-0e85-4b85-9243-818e439ff880}\AC\Temp\mingle-f-runtime-96b96bfb42264d3cb161db1efa7a6017\backups\backup-20261114-170525236
+Restore completed: <USER_HOME>\AppData\Local\Packages\sandbox.{92dcd3c5-0e85-4b85-9243-818e439ff880}\AC\Temp\mingle-f-runtime-96b96bfb42264d3cb161db1efa7a6017\restored-windows-powershell
+Files restored: 2; source backup: <USER_HOME>\AppData\Local\Packages\sandbox.{92dcd3c5-0e85-4b85-9243-818e439ff880}\AC\Temp\mingle-f-runtime-96b96bfb42264d3cb161db1efa7a6017\backups\backup-20261114-170525236
+
+id   name                                                                      result seconds
+--   ----                                                                      ------ -------
+F-01 Clean-copy startup and script syntax                                      PASS      0.73
+F-02 Stopped database backup has manifest and checksums                        PASS      0.04
+F-03 Restore reproduces the fixture bytes and checksums                        PASS      0.10
+F-04 Corrupt, missing, unsafe and occupied inputs are rejected                 PASS      0.21
+F-05 Maven suite (not run with -SkipBuild)                                     SKIP         0
+F-06 Reproduction commands are documented                                      PASS      0.00
+F-07 Windows PowerShell restores a UTF-8 manifest with a non-ASCII source path PASS      0.66
+
+
+Runtime check artifacts: <USER_HOME>\AppData\Local\Packages\sandbox.{92dcd3c5-0e85-4b85-9243-818e439ff880}\AC\Temp\mingle-f-runtime-96b96bfb42264d3cb161db1efa7a6017
+F runtime checks: 6 passed, 1 skipped.

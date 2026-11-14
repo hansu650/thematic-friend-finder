@@ -49,13 +49,13 @@ if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf) -or -not (Test-Pa
     throw 'Backup is incomplete: manifest.json and manifest.sha256 are both required.'
 }
 
-$expectedManifestHash = ((Get-Content -LiteralPath $manifestHashPath -Raw).Trim() -split '\s+')[0].ToLowerInvariant()
+$expectedManifestHash = ((Get-Content -LiteralPath $manifestHashPath -Encoding UTF8 -Raw).Trim() -split '\s+')[0].ToLowerInvariant()
 $actualManifestHash = (Get-FileHash -LiteralPath $manifestPath -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($expectedManifestHash -notmatch '^[0-9a-f]{64}$' -or $expectedManifestHash -ne $actualManifestHash) {
     throw "Manifest checksum mismatch. Expected $expectedManifestHash, got $actualManifestHash."
 }
 
-try { $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json } catch { throw "Invalid manifest JSON: $($_.Exception.Message)" }
+try { $manifest = Get-Content -LiteralPath $manifestPath -Encoding UTF8 -Raw | ConvertFrom-Json } catch { throw "Invalid manifest JSON: $($_.Exception.Message)" }
 if ($manifest.format -ne 'mingle-h2-backup-v1') { throw "Unsupported backup format: $($manifest.format)" }
 $entries = @($manifest.files)
 if ($entries.Count -eq 0) { throw 'Manifest contains no database files.' }

@@ -1,12 +1,12 @@
 # Mingle Core Flow and Final Acceptance
 
-Current scope, revised 13 November 2026: profiles, discovery and mutual likes, conversations, account/safety controls and the approved activity feed. The approved reference interface is the current UI baseline. Precise location, profile uploads and public hosting remain outside this revision. C owns product acceptance; A leads implementation and integration.
+Current scope, revised 14 November 2026: profiles, discovery and mutual likes, conversations, account/safety controls and the approved activity feed. The approved reference interface is the current UI baseline. Precise location and personal profile uploads remain outside this revision. Public hosting is a proposed delivery step and is not yet verified. C owns product acceptance; A leads implementation and integration. Use the [six-week plan](./16_six_week_evidence_plan.md) for current dates and evidence priorities.
 
 ## What this round achieves
 
 When the six increments have been reviewed, integrated and tested together, the core product can be feature-complete for the agreed coursework scope. Completing a feature PR or collecting screenshots alone does not complete the assessment. User observation, improvements, reproducible handover, the team demonstration and six individual reflections follow.
 
-A owns the AI-assisted core and current interface/integration revision. C, D, E and F have merged their first increments through PRs #11, #10, #14 and #13. B's assigned work and D's new reliability extension need their own evidence. See the contribution map and the current release verification instead of treating the original 6 November status as current.
+A owns the AI-assisted core and interface/integration revision, now merged through PR #15. B, C, D, E and F have merged their first increments through PRs #16, #11, #10, #14 and #13. Local source was aligned with main including PR #16 and automatically checked on 14 November. The [verification report](../code/thematic-friend/docs/releases/2026-11-14-main-verification.md) records the precise scope, defects and retests. D's new reliability extension and final team acceptance need their own evidence.
 
 | Owner | Assigned result | Completion evidence |
 |---|---|---|
@@ -17,7 +17,7 @@ A owns the AI-assisted core and current interface/integration revision. C, D, E 
 | E Wu Zhuoda | Restricted report review and meaningful safety permissions; coordinate regression and defect evidence | Staff/ordinary/anonymous tests, private notes, valid status/handler/time and actual regression/defect/retest records |
 | F Song Peitong | Stopped-database backup/restore and independent reproduction | Checksums, safe disposable restore, rejection of unsafe/corrupt/occupied targets and another person's clean-copy run |
 
-A has the largest individual allocation: **42 planned hours**, compared with **34 for D and 28 each for B/C/E/F**. These include development, testing, review, coordination, demonstration and reflection preparation. They are capacity estimates, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own implementation and tests.
+The proposed allocation is **A 50 h, C 40 h, D 34 h and B/E/F 28 h each**, including development, testing, review, coordination, demonstration and reflection preparation. These are estimates requiring capacity confirmation, not claimed hours. A owns integration and fixes shared integration problems; each member remains responsible for their own work.
 
 ## Integrated product acceptance
 
@@ -25,14 +25,15 @@ Run these checks on one recorded integrated commit. Record expected and actual r
 
 | ID | End-to-end behaviour | Owners | Current final-acceptance state |
 |---|---|---|---|
-| CORE-01 | Create fictional accounts, sign in, edit a profile and reload; unsaved preview stays local and saved values persist | A/B/C | Baseline exists; B/C increments and final retest pending |
-| CORE-02 | Apply both filters; see genuine shared interests; clear a single condition; recover from empty results; hidden/self/blocked profiles are excluded | A/B | A's local increment passes; independent and integrated retest pending |
-| CORE-03 | One-sided like cannot create chat; reciprocal/repeated decisions create one connection and open the correct match/conversation | A/D | A's local increment passes; final integrated retest pending |
+| CORE-01 | Create fictional accounts, sign in, edit a profile and reload; unsaved preview stays local and saved values persist | A/B/C | Integrated automated checks pass on 14 Nov; owner acceptance pending |
+| CORE-02 | Apply both filters; see genuine shared interests; clear a single condition; recover from empty results; hidden/self/blocked profiles are excluded | A/B | Java/browser checks pass on 14 Nov; independent acceptance pending |
+| CORE-03 | One-sided like cannot create chat; reciprocal/repeated decisions create one connection and open the correct match/conversation | A/D | Integrated automated checks pass on 14 Nov; owner acceptance pending |
 | CORE-04 | Two sessions exchange persisted messages; unread state belongs to the recipient; older history loads without gaps or duplicates | D/C/A | Unread/history merged in PR #10; new retry extension pending |
 | CORE-05 | Change password using the current credential; invalid/anonymous/CSRF requests are rejected; session policy is explicit and tested | C/A | Password change merged in PR #11; final acceptance remains evidence-based |
 | CORE-06 | End/block contact, deny further access as specified, submit a private report and let authorised staff handle it; unrelated users cannot read it | E/D/C/A | Staff workflow merged in PR #14; retain permission and confidentiality checks |
-| CORE-07 | Use the core flow at desktop and 390 px with keyboard/buttons and reduced motion; validation, loading, empty and failure states remain understandable | B/A with module owners | A's selected flows pass; whole-product check pending |
-| CORE-08 | Build from a clean source copy, restart using the same data, back up a stopped fixture database, restore to a fresh destination and verify known records | F/A | Backup/restore merged in PR #13; independent teammate reproduction still needs its own evidence |
+| CORE-07 | Use the core flow at desktop and 390 px with keyboard/buttons and reduced motion; validation, loading, empty and failure states remain understandable | B/A with module owners | Selected automated flows pass at emulated widths; physical-device and observed-user acceptance pending |
+| CORE-08 | Build from a clean source copy, restart using the same data, back up a stopped H2 fixture database, restore to a fresh destination and verify known records | F/A | Backup/restore merged in PR #13; independent reproduction and real-H2 recovery still need evidence |
+| EVENT-01 | Browse/search activities and exercise implemented creation, saving and attendance with two accounts; verify selected records after restart | A/C | Browser and real-H2 restoration checks pass on 14 Nov; product acceptance pending |
 
 The final submitted interface is English. The temporary development language switch is removed or disabled and verified at the final freeze. If a physical phone is tested, record the real device; an emulated 390 px check remains labelled emulated.
 
@@ -42,7 +43,7 @@ The final submitted interface is English. The temporary development language swi
 2. **Build and review:** each owner delivers a focused feature, meaningful executable tests and their own evidence. B reviews A; C reviews B; D reviews C; E reviews D; F reviews E; A reviews F. Completed PRs are Ready for review.
 3. **Integrate and observe:** A integrates accepted work and runs CORE-01–08. B coordinates real, consented task observation; record the task, outcome, difficulty and changes made. Each owner fixes issues in their area. Do not manufacture participants, feedback or failed tests.
 4. **Evaluate and reproduce:** compare the final outcome with the brief and original plan; explain supported strengths, remaining weaknesses, changed priorities and what the team learned. F coordinates a second person's reproduction. A records the final revision and known limits.
-5. **Demonstrate and reflect:** produce one team video of at most 15 minutes and one completed reflection per person. Verify the video URL and uploaded files. Confirm the actual university deadline in Moodle or with the teacher; the local assessment retains conflicting dates.
+5. **Demonstrate and reflect:** produce one team video of at most 15 minutes and one completed reflection per person. Verify the video URL and uploaded files. The supplied Moodle screenshot shows 18 December 2026 at 13:00, with no visible timezone; the internal finish is 4 December. Recheck the same Moodle account before upload.
 
 ## Evidence for the highest assessment band
 

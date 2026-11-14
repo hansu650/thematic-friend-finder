@@ -1,0 +1,31 @@
+{
+  "startedAt": "2026-11-14T08:00:48.675Z",
+  "command": "node scripts/tests/run-h2-restore-check.mjs",
+  "jarSha256": "e8b0f07d8702842b43e938ff6735c4805d30480ba696c361714c7b116edc22fe",
+  "checks": [
+    {
+      "id": "H2-01",
+      "description": "Created a real profile edit, mutual connection, message and personal event save.",
+      "passed": true
+    },
+    {
+      "id": "H2-02",
+      "description": "Stopped test process, backed up real H2 files, and restored to a new directory with checksum validation.",
+      "passed": true
+    },
+    {
+      "id": "H2-03",
+      "description": "Both retained passwords log in; saved profile, connection and exactly one message survive restoration without seeding.",
+      "passed": true
+    },
+    {
+      "id": "H2-04",
+      "description": "Restored saved events remain account-specific; English-only configuration overrides lang=zh.",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "exitCode": 0,
+  "output": "<PROJECT>\\.local\\full-verification-20261114\\restore-VtLZsA",
+  "finishedAt": "2026-11-14T08:01:18.030Z"
+}

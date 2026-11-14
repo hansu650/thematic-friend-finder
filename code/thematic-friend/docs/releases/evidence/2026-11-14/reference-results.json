@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-11-14T07:57:20.785Z",
+  "base": "http://127.0.0.1:49683",
+  "checks": [
+    {
+      "id": "HOME",
+      "detail": "Reference fonts/media, video pause, mobile menu at 320/390/768 px.",
+      "result": "PASS"
+    },
+    {
+      "id": "EVENTS",
+      "detail": "Search/city/topic filters, personal bookmarks, two-account RSVP/cancel and persistence.",
+      "result": "PASS"
+    },
+    {
+      "id": "NATIVE",
+      "detail": "Saved login destination and event actions work without JavaScript.",
+      "result": "PASS"
+    },
+    {
+      "id": "CREATE",
+      "detail": "Published event persists with the authenticated host.",
+      "result": "PASS"
+    },
+    {
+      "id": "CHAT",
+      "detail": "Two independent accounts mutually connect; text/emoji/stickers, reload and JavaScript-free form delivery pass.",
+      "result": "PASS"
+    },
+    {
+      "id": "ACCOUNT",
+      "detail": "Shared styling, Chinese strings, 320 px account/safety layouts and persistent reduced motion.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "detail": "No browser exceptions, failed assets or HTTP 5xx.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [],
+  "screenshots": [
+    "01-home-desktop.png",
+    "02-home-mobile.png",
+    "03-explore-desktop.png",
+    "04-event-desktop.png",
+    "05-event-mobile.png",
+    "06-profile-detail.png",
+    "07-mutual-match.png",
+    "08-conversation-desktop.png",
+    "09-conversation-mobile.png"
+  ],
+  "exitCode": 0
+}

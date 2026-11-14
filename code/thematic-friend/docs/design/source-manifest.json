@@ -1,0 +1,134 @@
+{
+  "createdAt": "2026-11-14T08:20:55.013Z",
+  "applicationBase": "7764f0eb3ecd3465f264fdf80b0fe92e13aaa751",
+  "pages": [
+    {
+      "stem": "01-use-cases",
+      "width": 1500,
+      "height": 1070
+    },
+    {
+      "stem": "02-architecture",
+      "width": 1500,
+      "height": 1030
+    },
+    {
+      "stem": "03-core-classes",
+      "width": 1510,
+      "height": 1210
+    },
+    {
+      "stem": "04-activity-report-classes",
+      "width": 1510,
+      "height": 1130
+    },
+    {
+      "stem": "05-match-sequence",
+      "width": 1550,
+      "height": 1350
+    },
+    {
+      "stem": "06-chat-sequence",
+      "width": 1550,
+      "height": 1640
+    },
+    {
+      "stem": "07-contact-states",
+      "width": 1500,
+      "height": 1080
+    },
+    {
+      "stem": "08-deployment-recovery",
+      "width": 1500,
+      "height": 1110
+    },
+    {
+      "stem": "09-event-activity",
+      "width": 1500,
+      "height": 1280
+    },
+    {
+      "stem": "10-six-week-gantt",
+      "width": 1680,
+      "height": 1160
+    }
+  ],
+  "sources": [
+    {
+      "file": "src/main/java/com/example/thematicfriend/config/SecurityConfig.java",
+      "sha256": "816eb3fef09919294662caa22ee24c810974d50fb758d77759140a0a24f520f7"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/account/Member.java",
+      "sha256": "a3980baad2e395fb199bbd78ed931fea2e9e5888158486dce1356e2663345919"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/discovery/DiscoveryController.java",
+      "sha256": "0ebf9e94240cd2677aaabce76ba93576da3812a7859d3f8941ce656341fea7bf"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/discovery/MatchController.java",
+      "sha256": "a84b1289884aee95cc1ba016857a667e2f38c36f9f9bf5f21dc81cac4d4f11b0"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/connection/ConnectionService.java",
+      "sha256": "d7ad5edb95c80ada0abb73e9297525f99b0b61ce9ef3c0d72ec6a41ca40b7ed0"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/connection/PairGuard.java",
+      "sha256": "8d96dd78c5738459bd521e8a0cd20bd467210d844198949bf9d13a827398e544"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/chat/ChatController.java",
+      "sha256": "98fff2773ff9afe3ba969e51002c57a4b565592c81b8ee50eb569ddb28fdb1f6"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/chat/ChatService.java",
+      "sha256": "7296f6a00985d619c7e1e0e0c5de6a2fd254bc222531c18c74f8fd733d2c202c"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/chat/ConversationReadState.java",
+      "sha256": "a671012d0eebd2d0537f7af459ad878e27d11caf01ccad71e04e0c2c45fafbae"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/safety/SafetyService.java",
+      "sha256": "d3e65c9dc26cdf0a4054237b9dc8b5d4dbe67059cb6438da54545a3070efd9bf"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/safety/ReportReviewController.java",
+      "sha256": "4112df0c71c259965960926a4afd1613d73ce13c7373c6b5de5a5f9b0aee4c58"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/safety/ReportRepository.java",
+      "sha256": "51861931e8586c3299ac87dbc696adb30bdfa94a84477f63ca13a82fdd5af481"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/safety/Report.java",
+      "sha256": "1811904b65574f5d8dc9272c8852b5e5c18f8fcc603beb282af6c2596d31167f"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/events/CommunityEvent.java",
+      "sha256": "8f9cc4a92302e507686aeac88915b9e58211f44b307f337484d3b9071c9f0e22"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/events/EventService.java",
+      "sha256": "f39c365ab5128e9eb4d1e0b00d7ecfd8d4cdb4047ecf46c0210c77491cc16129"
+    },
+    {
+      "file": "src/main/java/com/example/thematicfriend/events/EventAction.java",
+      "sha256": "644e3d69cd80f9cf195f968da7962792106043978585fe62bbc313a1c5c58c1b"
+    },
+    {
+      "file": "src/main/resources/static/js/chat.js",
+      "sha256": "f31375c2f11c5a175b7014f51f1102f9a048baa1e18fd8f5d776f01fa8608e35"
+    },
+    {
+      "file": "scripts/backup.ps1",
+      "sha256": "97b012152fc1ff69aa4355b2b04a5a52e0d5bc6008182c7684ca1728d77857bf"
+    },
+    {
+      "file": "scripts/restore.ps1",
+      "sha256": "463de2678fd1521735d39c807f327092f8b88dadd7e26d644b448e87827f98ae"
+    }
+  ]
+}
