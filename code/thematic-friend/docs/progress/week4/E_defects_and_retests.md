@@ -21,4 +21,4 @@
 | Consolidate defect record and confirm wording for the demonstration | C / A | Pending team coordination. |
 | Review the logical-send reliability boundary | E reviews D | No Week 4 D branch visible in the fetched remote refs. D’s unpublished work and review remain pending. |
 | Independent review of the safety increment | F Song Peitong | Pending. Reviewer, date, findings and follow-up remain unrecorded until the review takes place. |
-| Integrate and record acceptance | A / C | Pending remote PR, review and product acceptance. |
+| Integrate and record acceptance | A / C | [PR #20](https://github.com/hansu650/thematic-friend-finder/pull/20) is ready for review. Merge and product acceptance are pending. |

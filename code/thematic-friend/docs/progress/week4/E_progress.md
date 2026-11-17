@@ -2,7 +2,7 @@
 
 Role: Developer and Test Coordinator for safety and regression. Task: permission boundaries, confidential reports and defect retests.
 
-Status on 17 November 2026: the local implementation and automated verification are complete. Peer review, product acceptance and remote handover are pending. Personal time spent and personal reflection remain for Wu Zhuoda to record from actual work.
+Status on 17 November 2026: implementation and automated verification are complete. The pull request is ready for review. Peer review and product acceptance are pending. Personal time spent and personal reflection remain for Wu Zhuoda to record from actual work.
 
 | Item | Record |
 |---|---|
@@ -10,7 +10,7 @@ Status on 17 November 2026: the local implementation and automated verification 
 | Local branch | `w4/e-safety-regression` |
 | Tested code revision | `6a2132d45cbb2c1772c4fa48549d1dbb0fd7e488` contains the tested source and test changes. The build preceded the Git commit; the new test file's final line ending was normalized before committing. |
 | Evidence | [Permission matrix](./E_permission_matrix.md), [test record](./E_test_record.md), [defect and retest](./E_defects_and_retests.md) |
-| Review / tracking | Assigned reviewer F Song Peitong. A integrates and C records product acceptance. The PR and review are pending. [Existing E Trello card](https://trello.com/c/x3d0dlGM) |
+| Review / tracking | [PR #20](https://github.com/hansu650/thematic-friend-finder/pull/20) is open against `main`. The independent review by F Song Peitong is pending. A integrates and C records product acceptance. [Existing E Trello card](https://trello.com/c/x3d0dlGM) |
 
 ## Inherited behavior
 
