@@ -1,0 +1,177 @@
+{
+  "startedAt": "2026-11-20T05:05:33.348Z",
+  "source": "05532a19db852e516629303f770afa141b672cb0",
+  "jarSha256": "d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff",
+  "shell": "Windows PowerShell 5.1",
+  "phases": [
+    {
+      "label": "seeded-original",
+      "url": "http://127.0.0.1:57066/login",
+      "pid": 42376,
+      "seed": true,
+      "httpStatus": 200,
+      "exitCode": 0,
+      "databaseClosed": true
+    },
+    {
+      "label": "restarted-original",
+      "url": "http://127.0.0.1:49951/login",
+      "pid": 46384,
+      "seed": false,
+      "httpStatus": 200,
+      "exitCode": 0,
+      "databaseClosed": true
+    },
+    {
+      "label": "restored-without-seed",
+      "url": "http://127.0.0.1:56251/login",
+      "pid": 23984,
+      "seed": false,
+      "httpStatus": 200,
+      "exitCode": 0,
+      "databaseClosed": true
+    }
+  ],
+  "observations": {
+    "beforeRestart": {
+      "accounts": [
+        "demo_zhou",
+        "demo_lin"
+      ],
+      "nickname": "Recovery a4bef08c66",
+      "htmlLanguage": "en",
+      "chineseSwitchCount": 0,
+      "conversation": "/conversations/1",
+      "message": "W4 H2 recovery a4bef08c66",
+      "eventPath": "/events/1",
+      "messageCounts": [
+        1,
+        1
+      ],
+      "savedCounts": [
+        1,
+        0
+      ]
+    },
+    "afterRestart": {
+      "accounts": [
+        "demo_zhou",
+        "demo_lin"
+      ],
+      "nickname": "Recovery a4bef08c66",
+      "htmlLanguage": "en",
+      "chineseSwitchCount": 0,
+      "conversation": "/conversations/1",
+      "message": "W4 H2 recovery a4bef08c66",
+      "eventPath": "/events/1",
+      "messageCounts": [
+        1,
+        1
+      ],
+      "savedCounts": [
+        1,
+        0
+      ]
+    },
+    "afterRestore": {
+      "accounts": [
+        "demo_zhou",
+        "demo_lin"
+      ],
+      "nickname": "Recovery a4bef08c66",
+      "htmlLanguage": "en",
+      "chineseSwitchCount": 0,
+      "conversation": "/conversations/1",
+      "message": "W4 H2 recovery a4bef08c66",
+      "eventPath": "/events/1",
+      "messageCounts": [
+        1,
+        1
+      ],
+      "savedCounts": [
+        1,
+        0
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "F-W4-T1",
+      "details": "Isolated JAR accepted GET /login.",
+      "passed": true
+    },
+    {
+      "id": "F-W4-T2",
+      "details": "Original database retained both logins, profile, connection, message, and personal save after a seed-disabled restart.",
+      "passed": true
+    },
+    {
+      "id": "F-W4-T3",
+      "details": "Restored both accounts and identical records from the stopped backup without reseeding.",
+      "passed": true
+    },
+    {
+      "id": "F-W4-T5",
+      "details": "Windows PowerShell backup and restore succeeded with Chinese source, backup, and destination directories.",
+      "passed": true
+    },
+    {
+      "id": "F-W4-T4",
+      "details": "All four negative cases exited 1 and preserved destination state, original database, and valid backup.",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "exitCode": 0,
+  "browser": "157.0.4341.60",
+  "rejections": [
+    {
+      "label": "broken-manifest",
+      "exitCode": 1,
+      "diagnostic": "Manifest checksum mismatch",
+      "destinationState": "absent"
+    },
+    {
+      "label": "broken-payload",
+      "exitCode": 1,
+      "diagnostic": "Checksum mismatch for backup file: tongpin.mv.db",
+      "destinationState": "absent"
+    },
+    {
+      "label": "missing-backup",
+      "exitCode": 1,
+      "diagnostic": "Path does not exist",
+      "destinationState": "absent"
+    },
+    {
+      "label": "occupied-destination",
+      "exitCode": 1,
+      "diagnostic": "Restore destination already exists; refusing to overwrite",
+      "destinationState": "sentinel intact"
+    }
+  ],
+  "files": {
+    "manifestHash": "8cb49d5aa402012a68d64a03ac21e7affc165c12e5da76022721edcdc6b15337",
+    "originalBefore": {
+      "tongpin.mv.db": "a60f1658b2a383345a566b318b82c7669ca510aa1fa9942b1dd98563c41c95de"
+    },
+    "originalAfter": {
+      "tongpin.mv.db": "a60f1658b2a383345a566b318b82c7669ca510aa1fa9942b1dd98563c41c95de"
+    },
+    "backupBefore": {
+      "manifest.json": "8cb49d5aa402012a68d64a03ac21e7affc165c12e5da76022721edcdc6b15337",
+      "manifest.sha256": "bcd4b347d013f5e07c42631ca1f7e955b9c190b3737bc32b9459762b614af27e",
+      "tongpin.mv.db": "a60f1658b2a383345a566b318b82c7669ca510aa1fa9942b1dd98563c41c95de"
+    },
+    "backupAfter": {
+      "manifest.json": "8cb49d5aa402012a68d64a03ac21e7affc165c12e5da76022721edcdc6b15337",
+      "manifest.sha256": "bcd4b347d013f5e07c42631ca1f7e955b9c190b3737bc32b9459762b614af27e",
+      "tongpin.mv.db": "a60f1658b2a383345a566b318b82c7669ca510aa1fa9942b1dd98563c41c95de"
+    },
+    "restoredBeforeStartup": {
+      "tongpin.mv.db": "a60f1658b2a383345a566b318b82c7669ca510aa1fa9942b1dd98563c41c95de"
+    }
+  },
+  "finishedAt": "2026-11-20T05:06:31.52Z",
+  "sanitization": "Diagnostic categories retained. Local filesystem paths and raw log references omitted."
+}
