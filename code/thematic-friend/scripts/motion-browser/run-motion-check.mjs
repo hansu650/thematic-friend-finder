@@ -38,6 +38,8 @@ async function session(options={}) {
   // Observe real browser animations without replacing application methods.
   await context.addInitScript(() => {
     window.motionObserved={effects:[],maxOverflow:0};
+    window.motionObserved.started=[];
+    document.addEventListener('animationstart',event=>window.motionObserved.started.push(event.animationName));
     const seen=new WeakSet();
     function sample(){
       window.motionObserved.maxOverflow=Math.max(window.motionObserved.maxOverflow,document.documentElement.scrollWidth-innerWidth);
@@ -46,6 +48,7 @@ async function session(options={}) {
         const node=animation.effect?.target;if(!(node instanceof Element))continue;
         window.motionObserved.effects.push({
           id:node.id,className:node.getAttribute('class')||'',tag:node.tagName,
+          name:animation.animationName,sticker:node.closest('[data-sticker-id]')?.dataset.stickerId,
           chat:Boolean(node.closest('#messages')),match:Boolean(node.closest('.match-pair')),
           duration:animation.effect.getTiming().duration,delay:animation.effect.getTiming().delay
         });
@@ -78,7 +81,28 @@ async function submit(page,selector){
 }
 async function send(page,text){
   await page.locator('#body').fill(text);await page.locator('#message-form button').click();
-  await page.locator('#messages .message>p').filter({hasText:text}).waitFor({state:'visible'});
+  await page.locator('#messages .message[data-message-id]>p').filter({hasText:text}).waitFor({state:'visible'});
+}
+
+async function showStickers(page) {
+  await page.locator('#emoji-toggle').focus();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('End');
+  assert.equal(await page.locator('#sticker-tab').getAttribute('aria-selected'),'true');
+  assert.equal(await page.locator('#sticker-panel button:visible').count(),6);
+}
+
+async function checkQuietFeedback(page,eventPath,chatPath) {
+  await page.goto(base+eventPath);
+  await submit(page,'form[action$="/attendance"] button');
+  const confirmation=page.locator('.rsvp-confirmed [role="status"]');
+  await confirmation.waitFor({state:'visible'});
+  assert.equal(await confirmation.evaluate(el=>getComputedStyle(el,'::before').animationName),'none');
+  await page.goto(base+chatPath);
+  await showStickers(page);
+  assert.ok(await page.locator('#sticker-panel .sticker-art').evaluateAll(
+    icons=>icons.every(icon=>getComputedStyle(icon).animationName==='none' && getComputedStyle(icon).opacity==='1')));
+  await page.keyboard.press('Escape');
 }
 
 try {
@@ -154,6 +178,20 @@ try {
   await capture(a.page,'05-chat-settled');
   ok('CHAT-MOTION','A confirmed message animates for sender and receiver; the next empty poll neither duplicates nor replays it.');
 
+  phase='sticker-picker';
+  await showStickers(a.page);
+  await a.page.waitForFunction(()=>window.motionObserved.effects.filter(e=>e.name==='sticker-arrival').length===6);
+  const stickerIds=await a.page.locator('#sticker-panel button').evaluateAll(buttons=>buttons.map(button=>button.dataset.stickerId));
+  const stickerDelays=await a.page.evaluate(ids=>ids.map(id=>window.motionObserved.effects.find(e=>e.sticker===id&&e.name==='sticker-arrival').delay),stickerIds);
+  assert.equal(stickerDelays[0],0);
+  assert.ok(stickerDelays.slice(1).every((delay,i)=>delay>stickerDelays[i]));
+  await capture(a.page,'07-sticker-picker');
+  await a.page.keyboard.press('Escape');
+  assert.equal(await a.page.locator('#emoji-toggle').getAttribute('aria-expanded'),'false');
+  assert.equal(await a.page.evaluate(()=>document.activeElement.id),'emoji-toggle');
+  ok('STICKERS','The keyboard opens all six stickers in staggered order, and Escape returns focus to the toggle.');
+
+  phase='event-feedback';
   await a.page.goto(base+'/events');await a.page.locator('.event-card').first().click();
   const eventPath=new URL(a.page.url()).pathname,save='form[action$="/save"] button';
   await submit(a.page,save);
@@ -172,6 +210,21 @@ try {
   assert.equal(await a.page.evaluate(()=>window.motionObserved.effects.filter(e=>e.className==='motion-particle').length),0);
   ok('SAVE-MOTION','Particles follow confirmed saving, clean up, and do not replay after refresh, unsaving or a denied request.');
 
+  phase='rsvp';
+  const attendance='form[action$="/attendance"] button';
+  await submit(a.page,attendance);
+  await a.page.locator('.rsvp-confirmed [role="status"]').waitFor({state:'visible'});
+  await a.page.waitForFunction(()=>window.motionObserved.started.includes('rsvp-check-draw'));
+  assert.equal(await a.page.locator(attendance).innerText(),'Cancel RSVP');
+  await capture(a.page,'08-rsvp-confirmed');
+  await a.page.reload();
+  assert.equal(await a.page.locator('.rsvp-confirmed').count(),0);
+  assert.equal(await a.page.locator(attendance).innerText(),'Cancel RSVP');
+  await submit(a.page,attendance);
+  assert.equal(await a.page.locator('.rsvp-confirmed').count(),0);
+  assert.equal(await a.page.locator(attendance).innerText(),'Attend');
+  ok('RSVP','A successful RSVP draws the check beside the status text, with no replay on refresh or cancellation.');
+
   phase='manual-reduced-motion';
   await a.page.goto(base+'/profile');await a.page.locator('[data-motion-preference]').check();
   await a.page.goto(base+eventPath);await submit(a.page,save);await settled(a.page);
@@ -179,6 +232,7 @@ try {
   assert.equal(await a.page.evaluate(()=>window.motionObserved.effects.some(e=>e.className==='motion-particle')),false);
   await a.page.goto(base+matchPath);await settled(a.page);
   assert.equal(await a.page.evaluate(()=>window.motionObserved.effects.some(e=>e.match)),false);
+  await checkQuietFeedback(a.page,eventPath,chatPath);
   phase='system-reduced-motion';
   const reduced=await session({reducedMotion:'reduce',viewport:{width:390,height:844}});
   await login(reduced,'demo_lin');await reduced.page.goto(base+matchPath);await settled(reduced.page);
@@ -187,7 +241,8 @@ try {
   await settled(reduced.page);
   assert.equal(await reduced.page.evaluate(()=>window.motionObserved.effects.some(e=>e.chat)),false);
   await capture(reduced.page,'06-reduced-chat-mobile');
-  ok('REDUCED','Both manual and operating-system reduced motion suppress effects while real save, match and message actions work.');
+  await checkQuietFeedback(reduced.page,eventPath,chatPath);
+  ok('REDUCED','Both reduced-motion settings keep the RSVP check and stickers visible and static, and preserve save, match and chat actions.');
   assert.deepEqual(errors,[]);
   ok('RUNTIME','No browser exceptions or server 5xx errors during motion inspection.');
 } catch(error) {
