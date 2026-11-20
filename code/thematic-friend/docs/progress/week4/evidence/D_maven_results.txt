@@ -1,0 +1,20 @@
+# D Week 4 Maven results
+
+Command: `JAVA_HOME=.../jdk-21.0.2 sh ./mvnw --batch-mode --no-transfer-progress clean package`
+Environment: OpenJDK 21.0.2, Maven 3.10.0, H2 2.4.240
+JAR SHA-256: `6ef4dbf838f683d981e6f4f371974f4daf49f15c0dc1820577ae98359c31407e`
+
+| Test class | Tests | Failures | Errors | Skipped |
+|---|---:|---:|---:|---:|
+| `com.example.thematicfriend.AIntegrationTests` | 8 | 0 | 0 | 0 |
+| `com.example.thematicfriend.ChangePasswordTests` | 5 | 0 | 0 | 0 |
+| `com.example.thematicfriend.ChatSendIdempotencyTests` | 7 | 0 | 0 | 0 |
+| `com.example.thematicfriend.ConversationReadStateTests` | 10 | 0 | 0 | 0 |
+| `com.example.thematicfriend.DemoConversationTests` | 2 | 0 | 0 | 0 |
+| `com.example.thematicfriend.DiscoveryRegressionTests` | 13 | 0 | 0 | 0 |
+| `com.example.thematicfriend.EventFlowTests` | 7 | 0 | 0 | 0 |
+| `com.example.thematicfriend.LanguageTests` | 4 | 0 | 0 | 0 |
+| `com.example.thematicfriend.PrototypeFlowTests` | 16 | 0 | 0 | 0 |
+| `com.example.thematicfriend.ReportPermissionRegressionTests` | 4 | 0 | 0 | 0 |
+| `com.example.thematicfriend.ThematicFriendApplicationTests` | 1 | 0 | 0 | 0 |
+| **Total** | **77** | **0** | **0** | **0** |
