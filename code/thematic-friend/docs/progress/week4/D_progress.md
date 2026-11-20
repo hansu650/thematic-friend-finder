@@ -2,17 +2,17 @@
 
 Role: Developer for chat reliability. Task: one logical send, safe retry and failure recovery.
 
-Status on 20 November 2026: implementation and local verification are complete. The owner review, A/C contract agreement, E's independent review and product acceptance are pending. No commit, push or pull request has been created from this working copy.
+Status on 20 November 2026: implementation and local verification are complete. [PR #21](https://github.com/hansu650/thematic-friend-finder/pull/21) is open and ready for review. A/C contract agreement, E's independent review and product acceptance are pending.
 
 | Item | Record |
 |---|---|
 | Starting revision | `f9de8e1` from `origin/main` |
 | Working branch | `w4/d-chat-reliability` |
-| Tested source | Uncommitted working-tree changes based on `f9de8e1`; a commit will be created only after owner review |
+| Tested source | Commit `112591c` contains the tested source and test changes. The build and browser checks ran on the equivalent working tree before that commit. |
 | Tested artifact | `thematic-friend-0.0.1-SNAPSHOT.jar`, SHA-256 `6ef4dbf838f683d981e6f4f371974f4daf49f15c0dc1820577ae98359c31407e` |
 | Environment | macOS, OpenJDK 21.0.2, Maven 3.10.0, H2 2.4.240, Node 24.20.0, Chrome 157.0.8103.80 |
 | Records | [Send contract](./D_send_contract.md), [test record](./D_test_record.md), [defect and retest](./D_defect_and_retest.md) |
-| Review / tracking | E review and A/C contract agreement pending; [D Trello card](https://trello.com/c/03lTfNYQ) |
+| Review / tracking | [PR #21](https://github.com/hansu650/thematic-friend-finder/pull/21); E review and A/C contract agreement pending; [D Trello card](https://trello.com/c/03lTfNYQ) |
 
 ## Inherited behaviour
 
@@ -40,10 +40,9 @@ During browser review, polling could confirm a committed message while the origi
 
 ## Remaining work
 
-1. Zhou Ziyue reviews the local diff and demonstration wording.
-2. A and C confirm the identity scope, `409` rule and response-field change.
-3. E independently reviews duplicate, authorization and retry boundaries.
-4. F checks whether the added column affects stopped-database backup/restore documentation.
-5. After review, create the focused commit, push `w4/d-chat-reliability`, open the PR, record the actual review and update Trello.
+1. A and C confirm the identity scope, `409` rule and response-field change.
+2. E independently reviews duplicate, authorization and retry boundaries.
+3. F checks whether the added column affects stopped-database backup/restore documentation.
+4. Record the actual review outcome and update the Trello card after review.
 
 Personal time spent and the individual reflection must still be recorded by Zhou Ziyue from actual experience. Codex assisted with source inspection, implementation, tests, browser captures and these records. That assistance is not an independent peer review.

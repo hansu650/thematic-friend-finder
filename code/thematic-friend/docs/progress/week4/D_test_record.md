@@ -1,10 +1,10 @@
 # D | Actual test record
 
-Run by Codex on 20 November 2026 (UTC+08:00) on macOS with OpenJDK 21.0.2, Maven 3.10.0, H2 2.4.240, Node 24.20.0 and Chrome 157.0.8103.80. All data was fictional and isolated from the shared preview database.
+Run by Codex on 20 November 2026 (UTC+08:00) on macOS with OpenJDK 21.0.2, Maven 3.10.0, H2 2.4.240, Node 24.20.0 and Chrome 157.0.8103.80. All data was fictional and isolated from the shared preview database. The commands ran on the equivalent working tree before commit `112591c`; the committed source and test content are unchanged.
 
 | Run | Source and command from `code/thematic-friend` | Result |
 |---|---|---|
-| Focused idempotency tests | Working tree based on `f9de8e1` · `sh ./mvnw --batch-mode --no-transfer-progress -Dtest=ChatSendIdempotencyTests test` | 7 tests passed, exit 0. |
+| Focused idempotency tests | Commit `112591c` (equivalent pre-commit working tree) · `sh ./mvnw --batch-mode --no-transfer-progress -Dtest=ChatSendIdempotencyTests test` | 7 tests passed, exit 0. |
 | Full build | Same working tree · `JAVA_HOME=.../jdk-21.0.2 sh ./mvnw --batch-mode --no-transfer-progress clean package` | 77 tests passed, 0 failures, 0 errors, exit 0. JAR SHA-256 `6ef4dbf838f683d981e6f4f371974f4daf49f15c0dc1820577ae98359c31407e`. |
 | Retry browser flow | `MINGLE_CHECK_SCRIPT=retry-check.mjs node scripts/conversation-browser/run-conversation-check.mjs` | B1-B7 and runtime checks passed, exit 0. See [results](./evidence/D_retry_browser_results.json). |
 | Inherited conversation flow | `node scripts/conversation-browser/run-conversation-check.mjs` | All D-01 to D-06 browser checks passed, including 390 px, exit 0. See [results](./evidence/D_conversation_regression_results.json). |
