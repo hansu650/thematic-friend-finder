@@ -1,0 +1,212 @@
+{
+  "startedAt": "2026-11-17T04:30:58.513Z",
+  "jarSha256": "0A6FEA9F5A02D7F966082379F21A47C1AF62C0C5F2C64B0BB814FD4B1E368C30",
+  "node": "v24.20.0",
+  "browser": "Microsoft Edge",
+  "viewport": {
+    "width": 320,
+    "height": 800
+  },
+  "expectedLabel": "Recorded",
+  "steps": [
+    {
+      "step": "Keyboard focus reaches fictional contact in Messages",
+      "actual": {
+        "tabCount": 10,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(35, 35, 38)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches conversation More",
+      "actual": {
+        "tabCount": 4,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(235, 235, 238)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Report",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(35, 35, 38)"
+      }
+    },
+    {
+      "step": "Report form width",
+      "actual": {
+        "viewportWidth": 320,
+        "pageWidth": 320,
+        "innerWidth": 320
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Reason",
+      "actual": {
+        "tabCount": 4,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "none",
+        "borderColor": "rgb(217, 217, 223)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Details",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "none",
+        "borderColor": "rgb(217, 217, 223)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Save report",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(49, 49, 52)"
+      }
+    },
+    {
+      "step": "Member Safety width",
+      "actual": {
+        "viewportWidth": 320,
+        "pageWidth": 320,
+        "innerWidth": 320
+      }
+    },
+    {
+      "step": "Reporter receipt before staff action",
+      "actual": {
+        "label": "Recorded, pending review",
+        "ownsDetails": true,
+        "visibleSaveNotice": true
+      }
+    },
+    {
+      "step": "Staff queue width",
+      "actual": {
+        "viewportWidth": 320,
+        "pageWidth": 320,
+        "innerWidth": 320
+      }
+    },
+    {
+      "step": "Keyboard focus reaches staff report link",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "auto",
+        "borderColor": "rgb(0, 0, 238)"
+      }
+    },
+    {
+      "step": "Staff report detail width",
+      "actual": {
+        "viewportWidth": 320,
+        "pageWidth": 320,
+        "innerWidth": 320
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Resolution",
+      "actual": {
+        "tabCount": 2,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "auto",
+        "borderColor": "rgb(118, 118, 118)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Internal note",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "auto",
+        "borderColor": "rgb(118, 118, 118)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Save resolution",
+      "actual": {
+        "tabCount": 1,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "auto",
+        "borderColor": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "step": "Actual configured staff resolution",
+      "actual": {
+        "postStatus": 302,
+        "status": "REVIEWED",
+        "noteVisible": true
+      }
+    },
+    {
+      "step": "Reporter receipt after staff action",
+      "actual": {
+        "label": "Recorded, pending review",
+        "staffNoteVisible": false
+      }
+    },
+    {
+      "step": "Keyboard focus reaches conversation More for blocking",
+      "actual": {
+        "tabCount": 4,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(235, 235, 238)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Block person",
+      "actual": {
+        "tabCount": 3,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(179, 62, 89)"
+      }
+    },
+    {
+      "step": "Keyboard focus reaches Unblock",
+      "actual": {
+        "tabCount": 5,
+        "focusVisible": true,
+        "inViewportAndUncovered": true,
+        "outline": "solid",
+        "borderColor": "rgb(240, 232, 247)"
+      }
+    },
+    {
+      "step": "Keyboard block and unblock",
+      "actual": {
+        "postStatus": 302,
+        "notice": "Person unblocked. Closed connections remain closed.",
+        "blockRemoved": true
+      }
+    }
+  ],
+  "failures": [
+    "The member receipt did not consistently use the expected status-neutral wording."
+  ],
+  "browserVersion": "157.0.4341.60",
+  "finishedAt": "2026-11-17T04:31:07.143Z",
+  "exitCode": 1
+}

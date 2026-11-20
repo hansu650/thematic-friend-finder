@@ -1,6 +1,7 @@
 package com.example.thematicfriend;
 
 import com.example.thematicfriend.account.*;
+import com.example.thematicfriend.chat.ConversationReadStateRepository;
 import com.example.thematicfriend.chat.MessageRepository;
 import com.example.thematicfriend.connection.*;
 import com.example.thematicfriend.safety.*;
@@ -32,12 +33,14 @@ class AIntegrationTests {
     @Autowired DecisionRepository decisions;
     @Autowired ConnectionRepository links;
     @Autowired MessageRepository messages;
+    @Autowired ConversationReadStateRepository readStates;
     @Autowired BlockRepository blocks;
     @Autowired ReportRepository reports;
     @Autowired SafetyService safety;
     Member jamie, alex, outsider;
 
     @BeforeEach void fixtures() {
+        readStates.deleteAll();
         messages.deleteAll(); reports.deleteAll(); blocks.deleteAll(); links.deleteAll(); decisions.deleteAll(); members.deleteAll();
         jamie = member("integration_jamie", "Jamie");
         alex = member("integration_alex", "Alex");
@@ -62,6 +65,34 @@ class AIntegrationTests {
         return link;
     }
 
+    private void expectContactClosed(Long connectionId, long messageId) throws Exception {
+        String conversation = "/conversations/" + connectionId;
+        String api = "/api" + conversation;
+        for (Member person : List.of(jamie, alex)) {
+            var participant = user(person.getUsername());
+            mvc.perform(get("/matches/" + connectionId).with(participant))
+                    .andExpect(status().isForbidden());
+            mvc.perform(get(conversation).with(participant))
+                    .andExpect(status().isForbidden());
+            mvc.perform(get(api + "/messages").with(participant))
+                    .andExpect(status().isForbidden()).andExpect(jsonPath("$.error").exists());
+            mvc.perform(post(conversation + "/messages").with(participant).with(csrf())
+                            .param("body", "Fictional message after closure"))
+                    .andExpect(status().isForbidden());
+            mvc.perform(post(api + "/messages").with(participant).with(csrf())
+                            .param("body", "Fictional message after closure"))
+                    .andExpect(status().isForbidden());
+            mvc.perform(get(api + "/history").with(participant)
+                            .param("before", Long.toString(messageId + 1)))
+                    .andExpect(status().isForbidden());
+            mvc.perform(post(api + "/read").with(participant).with(csrf())
+                            .param("throughMessageId", Long.toString(messageId)))
+                    .andExpect(status().isForbidden());
+        }
+        assertThat(messages.count()).isEqualTo(1);
+        assertThat(readStates.count()).isZero();
+    }
+
     @Test @DisplayName("A-INT-01: stale hidden profile keeps filters without saving a decision")
     void hiddenCardHasAUsableFilteredRecovery() throws Exception {
         var form = new ProfileForm(alex); form.setDiscoverable(false); accounts.update(alex.getUsername(), form);
@@ -77,7 +108,12 @@ class AIntegrationTests {
     @ParameterizedTest @ValueSource(booleans={false, true})
     @DisplayName("A-INT-02: either block direction rejects an old card without disclosing the blocker")
     void blockedStaleCardKeepsTheSamePrivateError(boolean incoming) throws Exception {
+        String target = alex.getId().toString();
+        mvc.perform(get("/discover").with(user(jamie.getUsername())).param("member", target))
+                .andExpect(status().isOk());
         safety.block(incoming ? alex.getUsername() : jamie.getUsername(), incoming ? jamie.getId() : alex.getId());
+        mvc.perform(get("/discover").with(user(jamie.getUsername())).param("member", target))
+                .andExpect(status().isNotFound());
         mvc.perform(post("/decisions/" + alex.getId()).with(user(jamie.getUsername())).with(csrf())
                         .param("choice", "LIKE").param("interest", "Coffee"))
                 .andExpect(status().isNotFound())
@@ -114,25 +150,23 @@ class AIntegrationTests {
                 .andExpect(status().isNotFound()).andExpect(jsonPath("$.error").exists());
         mvc.perform(post("/connections/" + link.getId() + "/end").with(user(alex.getUsername())).with(csrf()))
                 .andExpect(redirectedUrl("/connections"));
-        for (var person : List.of(jamie, alex)) {
-            mvc.perform(get("/matches/" + link.getId()).with(user(person.getUsername()))).andExpect(status().isForbidden());
-            mvc.perform(get("/conversations/" + link.getId()).with(user(person.getUsername()))).andExpect(status().isForbidden());
-            mvc.perform(get("/api/conversations/" + link.getId() + "/messages").with(user(person.getUsername())))
-                    .andExpect(status().isForbidden()).andExpect(jsonPath("$.error").exists());
-            mvc.perform(post("/conversations/" + link.getId() + "/messages").with(user(person.getUsername())).with(csrf()).param("body", "Must not save"))
-                    .andExpect(status().isForbidden());
-        }
+        long messageId = messages.findTopByConnectionIdOrderByIdDesc(link.getId()).orElseThrow().getId();
+        expectContactClosed(link.getId(), messageId);
         mvc.perform(post("/decisions/" + alex.getId()).with(user(jamie.getUsername())).with(csrf())
                         .param("choice", "LIKE").param("interest", "Coffee"))
                 .andExpect(status().isConflict()).andExpect(model().attribute("recoveryInterest", "Coffee"));
         assertThat(links.count()).isEqualTo(1);
-        assertThat(messages.count()).isEqualTo(1);
     }
 
     @Test @DisplayName("A-INT-05: block, private report and unblock never reopen a conversation")
     void blockReportAndUnblockRemainConsistentAcrossRoutes() throws Exception {
         var link = matchThroughHttp();
+        mvc.perform(post("/conversations/" + link.getId() + "/messages").with(user(jamie.getUsername())).with(csrf())
+                        .param("body", "Fictional message before blocking"))
+                .andExpect(redirectedUrl("/conversations/" + link.getId()));
+        long messageId = messages.findTopByConnectionIdOrderByIdDesc(link.getId()).orElseThrow().getId();
         mvc.perform(post("/blocks/" + alex.getId()).with(user(jamie.getUsername())).with(csrf())).andExpect(redirectedUrl("/safety"));
+        expectContactClosed(link.getId(), messageId);
         mvc.perform(post("/reports/" + alex.getId()).with(user(jamie.getUsername())).with(csrf())
                         .param("reason", "Other concern").param("details", "Private fixture receipt A-INT-05"))
                 .andExpect(redirectedUrl("/safety"));
@@ -145,10 +179,7 @@ class AIntegrationTests {
         mvc.perform(post("/blocks/" + alex.getId() + "/remove").with(user(jamie.getUsername())).with(csrf())).andExpect(redirectedUrl("/safety"));
         assertThat(blocks.count()).isZero();
         assertThat(reports.count()).isEqualTo(1);
-        for (var person : List.of(jamie, alex)) {
-            mvc.perform(get("/api/conversations/" + link.getId() + "/messages").with(user(person.getUsername())))
-                    .andExpect(status().isForbidden());
-        }
+        expectContactClosed(link.getId(), messageId);
         assertThat(links.findById(link.getId()).orElseThrow().isActive()).isFalse();
     }
 

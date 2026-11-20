@@ -1,0 +1,36 @@
+Selected Maven console lines. Full output retained locally.
+Environment: Windows 11, Eclipse OpenJDK 21.0.9, Maven 3.10.0.
+
+Inherited baseline (90d6b6d9bdee2644f0a9aae3675932df8d46a980)
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.157 s -- in com.example.thematicfriend.AIntegrationTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.541 s -- in com.example.thematicfriend.ConversationReadStateTests
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.899 s -- in com.example.thematicfriend.DiscoveryRegressionTests
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.378 s -- in com.example.thematicfriend.PrototypeFlowTests
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Finished at: 2026-11-17T12:29:33+08:00
+Process exit code: 0
+
+Baseline receipt probe (same code with the new test copied temporarily)
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.867 s <<< FAILURE! -- in com.example.thematicfriend.ReportPermissionRegressionTests
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] BUILD FAILURE
+[INFO] Finished at: 2026-11-17T12:30:34+08:00
+Process exit code: 1
+Receipt status text emitted in the failed assertion: Recorded, pending review
+
+Full retest (6a2132d45cbb2c1772c4fa48549d1dbb0fd7e488)
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.984 s -- in com.example.thematicfriend.AIntegrationTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.690 s -- in com.example.thematicfriend.ChangePasswordTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.199 s -- in com.example.thematicfriend.ConversationReadStateTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.718 s -- in com.example.thematicfriend.DemoConversationTests
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.651 s -- in com.example.thematicfriend.DiscoveryRegressionTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.458 s -- in com.example.thematicfriend.EventFlowTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.402 s -- in com.example.thematicfriend.LanguageTests
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.823 s -- in com.example.thematicfriend.PrototypeFlowTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.814 s -- in com.example.thematicfriend.ReportPermissionRegressionTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.251 s -- in com.example.thematicfriend.ThematicFriendApplicationTests
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Finished at: 2026-11-17T12:30:48+08:00
+Process exit code: 0
