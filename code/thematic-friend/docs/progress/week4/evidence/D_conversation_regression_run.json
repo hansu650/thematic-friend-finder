@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-11-20T01:27:42.791Z",
+  "jar": "target/thematic-friend-0.0.1-SNAPSHOT.jar",
+  "java": "OpenJDK 21.0.2",
+  "node": "v24.20.0",
+  "base": "http://127.0.0.1:51989",
+  "output": ".local/browser-verification/conversation-EMYvk4",
+  "browserPath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "command": "node scripts/conversation-browser/run-conversation-check.mjs",
+  "finishedAt": "2026-11-20T01:27:58.314Z",
+  "exitCode": 0
+}

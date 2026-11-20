@@ -235,6 +235,8 @@ dialog::backdrop{background:#17151d70;backdrop-filter:blur(4px)}
 .message>p{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:11px 17px;font-size:16px;line-height:24px;color:#323038}
 .message.mine>p{background:#f3edfc;border-color:#e9e1f3;border-radius:18px 18px 4px 18px;color:#4b3e65}
 .message>time{display:block;font-size:12px;color:#8d8795;margin-top:6px}.message.mine>time{text-align:right}
+.message.pending>p{opacity:.72;border-style:dashed}.message.pending>time{font-style:italic}
+.message.pending.failed>p{background:#fff2f3;border-color:#f0d6de;color:#a63f5c;opacity:1}.message.pending.failed>time{color:#a63f5c;font-style:normal}
 .chat-status{margin:0;padding:5px 24px;font-size:12px;color:#7f7888;flex:none;min-height:24px}.chat-panel>.form-error{flex:none;margin:0 20px 10px}
 .composer-shell{position:relative;background:#fff;border-top:1px solid var(--line);padding:11px 22px 18px;flex:none}
 .composer-toolbar{display:flex;align-items:center;justify-content:space-between;padding:0 0 9px}

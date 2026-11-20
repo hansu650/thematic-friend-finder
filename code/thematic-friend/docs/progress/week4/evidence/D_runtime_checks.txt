@@ -1,0 +1,35 @@
+# D Week 4 runtime checks
+
+Run: 2026-11-20 09:28:18 CST
+Java: openjdk version "21.0.2" 2024-01-16
+JAR SHA-256: 6ef4dbf838f683d981e6f4f371974f4daf49f15c0dc1820577ae98359c31407e
+
+## Existing H2 schema upgrade
+Baseline columns:
+COLUMN_NAME
+ID
+BODY
+CONNECTION_ID
+SENDER_ID
+SENT_AT
+(5 rows, 12 ms)
+Upgraded columns and uniqueness:
+COLUMN_NAME
+ID
+BODY
+CONNECTION_ID
+SENDER_ID
+SENT_AT
+CLIENT_MESSAGE_ID
+(6 rows, 12 ms)
+CONSTRAINT_NAME                | CONSTRAINT_TYPE
+CONSTRAINT_A                   | PRIMARY KEY
+UK_CHAT_MESSAGES_SENDER_CLIENT | UNIQUE
+(2 rows, 0 ms)
+Upgraded startup: Started ThematicFriendApplication in 2.112 seconds (process running for 2.318)
+
+## Restart replay persistence
+First request stored ID: 1
+After process restart, replay returned ID: 1
+Rows for clientMessageId=restart-stable-key: 1
+Result: PASS

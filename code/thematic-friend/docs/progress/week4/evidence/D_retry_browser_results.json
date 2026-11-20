@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-11-20T01:27:51.313Z",
+  "browser": "157.0.8103.80",
+  "checks": [
+    {
+      "id": "D-W4-B1",
+      "assertion": "The unchanged draft is retained while a send is pending.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B2",
+      "assertion": "A committed response that never reaches the browser is shown as failed with the draft retained.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B3",
+      "assertion": "Retry reuses the logical identity and resolves to one confirmed message.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B4",
+      "assertion": "Editing a failed draft creates a new logical send instead of reusing the failed identity.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B7",
+      "assertion": "A poll-confirmed message is not changed back to failed when the original response later reports a network error.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B5",
+      "assertion": "The recipient has one unread increment per confirmed logical message and sees the final preview.",
+      "result": "PASS"
+    },
+    {
+      "id": "D-W4-B6",
+      "assertion": "Both accounts retain one stored row per logical send, including the edited new message.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "assertion": "No browser exceptions or HTTP 5xx responses during the checked retry flow.",
+      "result": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "body": "Response was lost after commit",
+      "clientMessageId": "985a726f-bd15-497c-a59b-36c0af8afb54"
+    },
+    {
+      "body": "Response was lost after commit",
+      "clientMessageId": "985a726f-bd15-497c-a59b-36c0af8afb54"
+    },
+    {
+      "body": "Edit after failed response",
+      "clientMessageId": "439f5b50-c734-4dbb-ad1a-20eca8c9a906"
+    },
+    {
+      "body": "Edit after failed response — changed",
+      "clientMessageId": "a6b376eb-fafc-4f8b-9679-d7bcbebd0e3b"
+    },
+    {
+      "body": "Poll confirmed before failed response",
+      "clientMessageId": "b94b79db-ee4e-4e33-b02d-7e29af85c824"
+    }
+  ],
+  "issues": [],
+  "screenshots": [
+    "D_retry_pending.png",
+    "D_retry_failed.png",
+    "D_retry_confirmed.png"
+  ],
+  "exitCode": 0
+}

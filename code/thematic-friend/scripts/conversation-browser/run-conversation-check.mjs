@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(directory, '../..');
+const checkScript = process.env.MINGLE_CHECK_SCRIPT || 'conversation-check.mjs';
 const jar = path.resolve(process.env.MINGLE_TEST_JAR || path.join(root, 'target/thematic-friend-0.0.1-SNAPSHOT.jar'));
 await fs.access(jar);
 const parent = path.resolve(process.env.MINGLE_TEST_OUTPUT || path.join(root, '.local/browser-verification'));
@@ -51,7 +52,7 @@ const metadata = {
   base,
   output,
   browserPath,
-  command: 'node scripts/conversation-browser/run-conversation-check.mjs'
+  command: `node scripts/conversation-browser/run-conversation-check.mjs${process.env.MINGLE_CHECK_SCRIPT ? ` (${checkScript})` : ''}`
 };
 let exitCode = 1;
 try {
@@ -66,7 +67,7 @@ try {
   }
   if (!ready) throw new Error('Isolated test server did not become ready.');
 
-  const check = spawn(process.execPath, [path.join(directory, 'conversation-check.mjs')], {
+  const check = spawn(process.execPath, [path.join(directory, checkScript)], {
     cwd: root,
     windowsHide: true,
     stdio: 'inherit',

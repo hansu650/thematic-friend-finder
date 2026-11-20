@@ -6,6 +6,7 @@
   const form = document.getElementById('message-form');
   const draft = form.querySelector('textarea');
   const sendButton = form.querySelector('button[type=submit]');
+  const clientMessageIdInput = form.querySelector('input[name=clientMessageId]');
   const loadOlder = document.getElementById('load-older');
   const loadOlderLabel = loadOlder ? loadOlder.textContent.trim() : '';
   const csrfToken = list.dataset.csrf, csrfHeader = list.dataset.csrfHeader;
@@ -21,7 +22,10 @@
   // ahead of a large incoming backlog without making those messages disappear.
   let cursor = Number(list.dataset.cursor || 0), stopped = false, loadingOlder = false;
   let acknowledged = 0, acknowledging = false, scrollTimer = 0, sending = false, pollTimer = 0;
-  let sendProblem = '', polling = false;
+  let sendProblem = '', sendNotice = '', noticeTimer = 0, polling = false;
+  let pendingSend = null, pendingRow = null;
+  const confirmedClientMessageIds = new Set();
+  let availableClientMessageId = clientMessageIdInput?.value || generateClientMessageId();
   const rows = () => [...list.querySelectorAll('.message[data-message-id]')];
   const numericId = row => Number(row.dataset.messageId || 0);
   const oldestId = () => Math.min(...rows().map(numericId));
@@ -30,28 +34,80 @@
     'Accept':'application/json', 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8', [csrfHeader]:csrfToken
   });
   const updateStatus = () => {
-    if (!stopped) status.textContent = sending ? list.dataset.sending : (sendProblem || list.dataset.polling);
+    if (!stopped) status.textContent = sending ? list.dataset.sending : (sendProblem || sendNotice || list.dataset.polling);
     form.setAttribute('aria-busy', String(sending));
   };
 
-  function makeRow(message) {
-    const row = document.createElement('div');
-    row.className = 'message' + (message.mine ? ' mine' : '');
-    row.dataset.messageId = String(message.id);
-    const body = document.createElement('p'), sticker = stickers.get(message.body);
+  function generateClientMessageId() {
+    if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+    return 'send-' + Date.now() + '-' + Math.random().toString(36).slice(2, 14);
+  }
+  function takeClientMessageId() {
+    const current = availableClientMessageId;
+    availableClientMessageId = generateClientMessageId();
+    if (clientMessageIdInput) clientMessageIdInput.value = availableClientMessageId;
+    return current;
+  }
+  function addMessageBody(row, body) {
+    const text = document.createElement('p'), sticker = stickers.get(body);
     if (sticker) {
-      body.className = 'sticker-bubble'; body.dataset.sticker = sticker.id;
+      text.className = 'sticker-bubble'; text.dataset.sticker = sticker.id;
       const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
       svg.classList.add('sticker-art'); svg.setAttribute('aria-hidden','true');
       const use = document.createElementNS('http://www.w3.org/2000/svg','use');
       use.setAttribute('href','/images/mingle-stickers.svg#' + sticker.id); svg.append(use);
       const caption = document.createElement('span');
       caption.className = 'sticker-caption'; caption.textContent = sticker.label;
-      body.append(svg,caption);
-    } else body.textContent = message.body;
+      text.append(svg,caption);
+    } else text.textContent = body;
+    row.append(text);
+  }
+  function makeRow(message) {
+    const row = document.createElement('div');
+    row.className = 'message' + (message.mine ? ' mine' : '');
+    row.dataset.messageId = String(message.id);
+    if (message.clientMessageId) row.dataset.clientMessageId = message.clientMessageId;
+    addMessageBody(row, message.body);
     const time = document.createElement('time'); time.textContent = message.time;
-    row.append(body,time);
+    row.append(time);
     return row;
+  }
+
+  function makePendingRow(body) {
+    const row = document.createElement('div');
+    row.className = 'message mine pending';
+    row.dataset.clientMessageId = pendingSend.key;
+    addMessageBody(row, body);
+    const time = document.createElement('time');
+    time.textContent = list.dataset.messagePending;
+    row.append(time);
+    return row;
+  }
+
+  function clearPendingRow() {
+    pendingRow?.remove();
+    pendingRow = null;
+  }
+  function showSentNotice() {
+    sendNotice = list.dataset.sent || '';
+    clearTimeout(noticeTimer);
+    noticeTimer = setTimeout(() => { sendNotice = ''; updateStatus(); }, 2200);
+  }
+  function abandonPendingSend() {
+    if (!pendingSend || sending) return;
+    clearPendingRow(); pendingSend = null; sendProblem = ''; updateStatus();
+  }
+  function confirmedLocally(key) {
+    return Boolean(key) && rows().some(row => row.dataset.clientMessageId === key);
+  }
+  function settlePending(message) {
+    if (!pendingSend || !message.clientMessageId || message.clientMessageId !== pendingSend.key) return false;
+    const completed = pendingSend;
+    confirmedClientMessageIds.add(message.clientMessageId);
+    clearPendingRow(); pendingSend = null; sending = false; sendProblem = '';
+    if (completed.clearDraft && draft.value === completed.body) { draft.value=''; resizeDraft(); }
+    showSentNotice(); updateStatus();
+    return true;
   }
 
   function mergeMessages(messages, history = false, own = false) {
@@ -59,6 +115,7 @@
     const wasAtBottom = atBottom(), oldHeight = list.scrollHeight, oldTop = list.scrollTop;
     let added = 0, received = false;
     for (const message of messages) {
+      settlePending(message);
       const id = Number(message.id);
       if (id <= 0 || known.has(id)) continue;
       const row = makeRow(message), before = rows().find(item => numericId(item) > id);
@@ -132,14 +189,24 @@
     if (stopped || sending) return;
     if (!body.trim()) { draft.setCustomValidity(list.dataset.empty); draft.reportValidity(); return; }
     const submittedDraft = draft.value;
-    sending = true; sendProblem = ''; sendButton.disabled = true;
+    if (!pendingSend || pendingSend.body !== body) {
+      abandonPendingSend();
+      const clientMessageId = takeClientMessageId();
+      pendingSend = {key:clientMessageId,body,clearDraft};
+      pendingRow = makePendingRow(body);
+      list.append(pendingRow); list.scrollTop = list.scrollHeight;
+    }
+    const sendIdentity = pendingSend.key;
+    pendingRow.classList.remove('failed');
+    pendingRow.querySelector('time').textContent = list.dataset.messagePending;
+    sending = true; sendProblem = ''; sendNotice = ''; sendButton.disabled = true;
     stickerButtons.forEach(button=>{button.disabled=true;}); updateStatus();
     try {
-      const response = await fetch(list.dataset.url,{method:'POST',headers:headers(),body:new URLSearchParams({body})});
+      const response = await fetch(list.dataset.url,{method:'POST',headers:headers(),body:new URLSearchParams({body,clientMessageId:sendIdentity})});
       if (accessFailure(response)) return;
       if (!response.ok) {
         const error = await response.json().catch(()=>({}));
-        throw new Error(response.status === 400 && error.error ? error.error : list.dataset.sendFailed);
+        throw new Error([400,409].includes(response.status) && error.error ? error.error : list.dataset.sendFailed);
       }
       const message = await response.json();
       mergeMessages([message],false,true);
@@ -147,7 +214,19 @@
       updateContactPreview(message.body);
       closePicker(); draft.focus(); window.MingleFeedback?.tone('sent');
     } catch (error) {
-      if (!stopped) sendProblem = error.message === 'Failed to fetch' ? list.dataset.sendFailed : (error.message || list.dataset.sendFailed);
+      if (!stopped) {
+        if (confirmedClientMessageIds.has(sendIdentity) || confirmedLocally(sendIdentity)) {
+          if (pendingSend) { clearPendingRow(); pendingSend = null; }
+          confirmedClientMessageIds.add(sendIdentity); sendProblem=''; showSentNotice();
+        } else {
+          sendProblem = error.message === 'Failed to fetch' ? list.dataset.sendFailed : (error.message || list.dataset.sendFailed);
+          if (pendingRow) {
+            pendingRow.classList.add('failed');
+            pendingRow.querySelector('time').textContent = list.dataset.messageFailed;
+            pendingRow.scrollIntoView({block:'nearest'});
+          }
+        }
+      }
     } finally {
       sending = false;
       if (!stopped) { sendButton.disabled=false; stickerButtons.forEach(button=>{button.disabled=false;}); updateStatus(); }
@@ -163,7 +242,10 @@
     draft.style.height='48px'; draft.style.height=Math.min(144,Math.max(48,draft.scrollHeight+2))+'px';
   }
   form.addEventListener('submit',event=>{event.preventDefault();sendMessage(draft.value,true);});
-  draft.addEventListener('input',()=>{draft.setCustomValidity('');resizeDraft();});
+  draft.addEventListener('input',()=>{
+    draft.setCustomValidity(''); resizeDraft();
+    if (!sending && pendingSend && draft.value !== pendingSend.body) abandonPendingSend();
+  });
   draft.addEventListener('keydown',event=>{
     if (event.key==='Enter' && !event.shiftKey && !event.isComposing && event.keyCode!==229) {
       event.preventDefault(); form.requestSubmit(sendButton);

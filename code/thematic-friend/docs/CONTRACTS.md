@@ -21,9 +21,9 @@ Current revision: 13 November 2026. Base package: `com.example.thematicfriend`. 
 | POST `/events/{id}/save` | Set the current account's `saved=true/false` idempotently |
 | GET `/connections` | Active, unblocked mutual connections with recipient-owned unread counts |
 | GET `/conversations/{id}` | Participant-only conversation and latest 100 messages |
-| POST `/conversations/{id}/messages` | Native form send with redirect; non-blank body of at most 1,000 characters |
+| POST `/conversations/{id}/messages` | Native form send with redirect; form fields `body` and `clientMessageId`; non-blank body of at most 1,000 characters |
 | GET `/api/conversations/{id}/messages?after=0` | Up to 100 later messages in ID order |
-| POST `/api/conversations/{id}/messages` | Form-encoded `body`; save and return one message as JSON |
+| POST `/api/conversations/{id}/messages` | Form-encoded `body` and `clientMessageId`; idempotently save and return one message as JSON |
 | GET `/api/conversations/{id}/history?before=<messageId>` | Up to 100 older messages in ascending ID order, with `hasOlder` and `nextBefore` |
 | POST `/api/conversations/{id}/read` | Monotonic acknowledgement for the current participant through `throughMessageId` |
 | POST `/connections/{id}/end` | End the connection |
@@ -37,12 +37,12 @@ Current revision: 13 November 2026. Base package: `com.example.thematicfriend`. 
 
 - `Member`: unique lowercase username, password hash, display name (30 characters), bio (300), up to five validated interests, activity and discoverability.
 - `Decision`: unique directional actor/target pair with LIKE/SKIP. `Connection`: canonical lower/higher member pair, active/ended status and creation time; only mutual likes create one.
-- `Message`: connection, sender, body and timestamp. Every read/write checks membership, active state and both directions of blocking. Text and emoji use the body directly; the six controlled stickers use `[[sticker:<id>]]`. Unknown text remains escaped text.
+- `Message`: connection, sender, body, timestamp and nullable logical-send identity. The identity is unique within `(connectionId, senderId, clientMessageId)`. Every read/write checks membership, active state and both directions of blocking. Text and emoji use the body directly; the six controlled stickers use `[[sticker:<id>]]`. Unknown text remains escaped text.
 - `ConversationReadState`: one participant marker per connection, with monotonically increasing `lastReadMessageId`. Only incoming messages above that marker count as unread.
 - `CommunityEvent`: host, title, description, category, venue/city, start time, capacity and local image. `EventAction` records attendance or save state per event/account/kind. Repeated state-setting requests preserve a single action; enabling an action on a past event returns conflict.
 - `Block`: directional actor/target pair, checked in both directions. `Report`: private reporter/target/reason/details plus review status, handler, time and note. Ordinary accounts see their own receipts; the explicitly configured STAFF member can review reports.
 
-Templates escape user text; polling appends text with `textContent`. CSRF-protected native forms remain usable without JavaScript. Pair locks, event locks and unique constraints guard the relevant mutations; this is not a high-load concurrency certification. Current chat sends have no persistent logical-send idempotency key; that is the assigned [D reliability task](../../../team-plan/tasks/week3/D_chat_reliability.md).
+Templates escape user text; polling appends text with `textContent`. CSRF-protected native forms remain usable without JavaScript. Pair locks, event locks and unique constraints guard the relevant mutations; this is not a high-load concurrency certification. Chat retries use a persistent logical-send identity scoped to connection and sender. Replaying the same identity with the same body returns the stored row; changed content returns `409`. The current implementation and evidence are recorded in [D's send contract](progress/week4/D_send_contract.md).
 
 ## Password and staff contracts
 
