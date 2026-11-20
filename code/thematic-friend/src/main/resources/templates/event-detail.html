@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en" th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/reference :: head(${event.title})}"></head><body class="mingle-app event-page" th:with="cover=${@eventPhotos.url(event)}">
+<head th:replace="~{fragments/reference :: head(${event.title})}"></head><body class="mingle-app event-page" th:classappend="${card.attending and notice == 'ref.event.joined' ? 'rsvp-confirmed' : ''}" th:with="cover=${@eventPhotos.url(event)}">
 <header th:replace="~{fragments/reference :: appNav('events')}"></header>
 <main class="app-main detail-main">
  <div class="detail-copy">

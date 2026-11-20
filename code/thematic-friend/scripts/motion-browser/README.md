@@ -1,6 +1,6 @@
 # Motion browser verification
 
-This runner observes the five motion effects while exercising real save, match and chat requests. It uses a fresh local H2 database, a random loopback port and generated fictional-account credentials. It does not connect to an existing preview or production database.
+This runner observes the motion effects while exercising real save, RSVP, match and chat requests. It uses a fresh local H2 database, a random loopback port and generated fictional-account credentials.
 
 From the application directory, use Java 21 and an existing Node.js installation:
 
@@ -20,6 +20,6 @@ Optional environment overrides:
 - MINGLE_TEST_OUTPUT: parent directory for a newly created, isolated run folder.
 - MINGLE_CAPTURE_MODULE: optional screenshot helper exporting captureScreenshot.
 
-The seven groups cover staggered entry, physical drag return, real mutual-match animation at 390/320 px, sender/receiver message arrival without poll replay, save success versus denied/unsave/reload cases, both reduced-motion settings, and browser/server errors. The result records the tested JAR hash, runtime, checks and captures. The runner stops its own server and browser and retains the evidence and test database in its run folder.
+The checks cover staggered entry, drag return, mutual-match animation at 390/320 px, sender/receiver message arrival, the keyboard-operated sticker picker, save success and rejection, and the one-time RSVP confirmation. They also check both reduced-motion settings and browser/server errors. The result records the tested JAR hash, runtime, checks and captures. The runner stops its own server and browser and retains the evidence and test database in its run folder.
 
 Automated browser evidence is not independent teammate review or user acceptance.
