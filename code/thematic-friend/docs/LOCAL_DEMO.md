@@ -59,3 +59,5 @@ node scripts/reference-browser/run-reference-check.mjs
 The browser commands require the optional setup described in the [discovery checks](../scripts/browser/README.md) and [conversation checks](../scripts/conversation-browser/README.md). They use temporary ports, fresh fictional accounts and separate databases. Java tests use an in-memory database. Keep these destructive test flows separate from the persistent demo on 8080.
 
 Before merging a feature PR, check Java CI, run the browser suite for the affected feature and obtain the assigned peer review. After the merge, pull `main` and use `-Rebuild` for the local demo. Automated results do not establish independent peer review.
+
+For a stopped H2 backup, verified recovery with demo seeding disabled, or rollback, use the [operations handover](OPERATIONS_HANDOVER.md).

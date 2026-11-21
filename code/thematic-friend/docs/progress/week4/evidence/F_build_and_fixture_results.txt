@@ -1,0 +1,22 @@
+Sanitized excerpts from the local Maven and fixture runs.
+Source 05532a19db852e516629303f770afa141b672cb0
+JAR SHA-256 d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff
+The build inputs matched 232 upstream Git blobs.
+
+PowerShell 7.6.9> .\scripts\build.ps1
+Exit 0
+[INFO] Tests run: 77, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  07:31 min
+[INFO] Finished at: 2026-11-20T13:05:30+08:00
+
+PowerShell 7.6.9> pwsh -NoProfile -File .\scripts\tests\BackupRestore.Tests.ps1 -SkipBuild -KeepArtifacts
+Exit 0
+F-01 Clean-copy startup and script syntax                                      PASS      0.74
+F-02 Stopped database backup has manifest and checksums                        PASS      0.06
+F-03 Restore reproduces the fixture bytes and checksums                        PASS      0.13
+F-04 Corrupt, missing, unsafe and occupied inputs are rejected                 PASS      0.18
+F-05 Maven suite (not run with -SkipBuild)                                     SKIP         0
+F-06 Reproduction commands are documented                                      PASS      0.00
+F-07 Windows PowerShell restores a UTF-8 manifest with a non-ASCII source path PASS      0.76
+F runtime checks: 6 passed, 1 skipped.
