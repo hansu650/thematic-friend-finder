@@ -237,9 +237,11 @@ try {
     assert.equal(chipOutline,'solid');
     for(let i=0;i<await page.locator('input[name=interests]').count();i++) await page.keyboard.press('Tab');
     await expect(page.locator('#goal')).toBeFocused();
-    const before=await page.locator('#goal').inputValue();
-    await page.keyboard.press('ArrowDown');
-    await expect(page.locator('#goal')).not.toHaveValue(before);
+    // Native select type-ahead commits the option without depending on how the OS opens the picker.
+    await expect(page.locator('#goal')).toHaveValue('New friends');
+    await page.keyboard.press('s');
+    await expect(page.locator('#goal')).toHaveValue('Study buddy');
+    await expect(page.locator('#preview-goal')).toHaveText('Study buddy');
     await page.keyboard.press('Tab');
     await expect(page.locator('#discoverable')).toBeFocused();
     const checked=await page.locator('#discoverable').isChecked();

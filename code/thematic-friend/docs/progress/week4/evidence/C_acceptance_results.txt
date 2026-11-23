@@ -1,0 +1,139 @@
+C | Integrated acceptance command excerpts
+2026-11-23 UTC+08:00 | Executed by Codex on macOS 27.0.1 arm64
+Tested runtime source: ac9c61c1726fb31a70e7a28be70e1306ebbda926
+JAR SHA-256: d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff
+Zulu Java 21.0.8+9-LTS, Node 24.12.0, Playwright 1.62.1, Chrome 157.0.8103.79.
+Selected lines from original logs. Local paths and private server output omitted.
+The profile final retest changes the runner only. No runtime binary was rebuilt for that change.
+
+Clean Java 21 build
+sh ./mvnw --batch-mode --no-transfer-progress clean package
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.752 s -- in com.example.thematicfriend.ReportPermissionRegressionTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.299 s -- in com.example.thematicfriend.EventFlowTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.387 s -- in com.example.thematicfriend.ThematicFriendApplicationTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.605 s -- in com.example.thematicfriend.ChangePasswordTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.699 s -- in com.example.thematicfriend.ChatSendIdempotencyTests
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.087 s -- in com.example.thematicfriend.PrototypeFlowTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.403 s -- in com.example.thematicfriend.LanguageTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.986 s -- in com.example.thematicfriend.ConversationReadStateTests
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.680 s -- in com.example.thematicfriend.DiscoveryRegressionTests
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.355 s -- in com.example.thematicfriend.AIntegrationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.524 s -- in com.example.thematicfriend.DemoConversationTests
+[INFO] Tests run: 77, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Finished at: 2026-11-23T08:31:46+08:00
+build exit=0
+
+New account runner
+node scripts/profile-browser/run-account-acceptance.mjs
+Browser 157.0.8103.79
+PASS T1 registration, form login and explicit profile save on a fresh H2 database.
+PASS T3 wrong password preserves credential; valid change signs out only the submitting session; old login fails and new login succeeds.
+PASS T1 profile name, bio, selected interest and replacement credential survive a seed-disabled Java process restart.
+PASS T5 lang=zh and a zh-CN browser preference render English controls and rejection text, hide the language switch and preserve user-entered Chinese.
+account-final exit=0
+
+Discovery
+node scripts/browser/run-discovery-check.mjs
+PASS A-01 Visible filters, eligible count and actual shared interests; removing one filter preserves the other.
+PASS A-04a Short mouse drag returns the same card and sends zero decisions.
+PASS A-05a Empty results offer working clear/revisit actions; revisiting keeps filters.
+PASS A-04b Committed mouse swipe sends exactly one like; a one-sided like stays in discovery.
+PASS A-03/A-05b Reciprocal button like opens real feedback, correct chat and a message received by the other participant.
+PASS A-04c Repeated arrow-key events during commitment submit one decision.
+PASS A-04d 390 px emulated touch: short drag returns; committed swipe submits once.
+PASS A-06a 390 px discovery/empty states and Chinese controls have no horizontal overflow and submit the same action.
+PASS A-06b 390 px match feedback and Chinese/reduced-motion mode preserve the conversation destination.
+PASS A-06c Reduced-motion button decision submits once.
+PASS A-INT-UI-01 A delayed response shows saving/busy feedback; duplicate input cannot submit a second decision.
+PASS A-INT-UI-02 Real Back navigation and an explicit persisted-pageshow event refresh eligibility and restore usable controls.
+PASS A-INT-UI-03 With JavaScript disabled, native CSRF-protected buttons still submit the same validated action.
+PASS A-INT-UI-04 A profile hidden in another session returns a real 404; recovery keeps both filters at 390 px.
+PASS A-INT-UI-05 Ending the connection denies an old match link and keeps a usable, filtered discovery destination.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during these flows.
+BrowserExit=0
+
+Conversation
+node scripts/conversation-browser/run-conversation-check.mjs
+PASS D-01/D-02 Incoming messages show a recipient-only badge; opening the conversation acknowledges the current participant and clears it.
+PASS D-02 A later incoming message becomes unread again and a new acknowledgement clears it.
+PASS D-03 More than 100 messages load in a bounded page, remain ascending and contain no duplicates.
+PASS D-04 A polling result arriving after older-history paging merges by ID without duplicates or reordering.
+PASS D-06a A 1,000-character message remains readable without horizontal page overflow.
+PASS D-06b Keyboard navigation reaches the send control and Enter submits the message.
+PASS D-06c An empty conversation shows a usable composer without a misleading load-history control.
+PASS D-06d The desktop conversation remains usable at 390 px without horizontal overflow.
+PASS D-05/D-06e An ended conversation returns a real 403 error state that remains readable at 390 px.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during the checked flows.
+BrowserExit=0
+
+Logical-send retry
+MINGLE_CHECK_SCRIPT=retry-check.mjs node scripts/conversation-browser/run-conversation-check.mjs
+PASS D-W4-B1 The unchanged draft is retained while a send is pending.
+PASS D-W4-B2 A committed response that never reaches the browser is shown as failed with the draft retained.
+PASS D-W4-B3 Retry reuses the logical identity and resolves to one confirmed message.
+PASS D-W4-B4 Editing a failed draft creates a new logical send instead of reusing the failed identity.
+PASS D-W4-B7 A poll-confirmed message is not changed back to failed when the original response later reports a network error.
+PASS D-W4-B5 The recipient has one unread increment per confirmed logical message and sees the final preview.
+PASS D-W4-B6 Both accounts retain one stored row per logical send, including the edited new message.
+PASS RUNTIME No browser exceptions or HTTP 5xx responses during the checked retry flow.
+BrowserExit=0
+
+Profile initial run
+node scripts/profile-browser/run-profile-check.mjs
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+FAIL Error: expect(locator).not.toHaveValue(expected) failed
+Expected: not "New friends"
+Received: "New friends"
+Browser exit code: 1
+
+Standalone native select probe
+Playwright setContent with a labelled select and three options, focused before each key sequence.
+ArrowDown => New friends
+ArrowDown + ArrowDown + Enter => New friends
+Space + ArrowDown + Enter => New friends
+w => Weekend plans
+s => Study buddy
+End => New friends
+
+Profile first retest using w
+node scripts/profile-browser/run-profile-check.mjs
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+FAIL Error: expect(locator).toHaveValue(expected) failed
+Expected: "Weekend plans"
+Received: "Workout buddy"
+Browser exit code: 1
+
+Profile final retest using s
+node scripts/profile-browser/run-profile-check.mjs
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+PASS B-04 Keyboard tab order, visible focus, native controls and preview status work
+PASS B-05 Desktop/390 px navigation has an active destination and reachable content without overflow
+PASS B-06 Both temporary languages associate controls; reduced motion removes animation
+PASS B-FALLBACK JavaScript-disabled saves work and six interests are rejected by the server without data loss
+Browser exit code: 0
+profile-final exit=0
+
+Motion initial run alongside conversation and retry
+node scripts/motion-browser/run-motion-check.mjs
+PASS STAGGER Visible event cards actually animate with staggered start times and settle to readable content.
+AssertionError [ERR_ASSERTION]: A released short drag must pass the resting point before settling.
+
+Motion standalone rerun, same source and JAR
+node scripts/motion-browser/run-motion-check.mjs
+PASS STAGGER Visible event cards actually animate with staggered start times and settle to readable content.
+PASS MAGNET Pointer tilt responds; a short real drag springs back without a decision POST.
+PASS MATCH Real mutual match runs the two-card/heart sequence; 390/320 px animation and final states fit.
+PASS CHAT-MOTION A confirmed message animates for sender and receiver; the next empty poll neither duplicates nor replays it.
+PASS STICKERS The keyboard opens all six stickers in staggered order, and Escape returns focus to the toggle.
+PASS SAVE-MOTION Particles follow confirmed saving, clean up, and do not replay after refresh, unsaving or a denied request.
+PASS RSVP A successful RSVP draws the check beside the status text, with no replay on refresh or cancellation.
+PASS REDUCED Both reduced-motion settings keep the RSVP check and stickers visible and static, and preserve save, match and chat actions.
+PASS RUNTIME No browser exceptions or server 5xx errors during motion inspection.
+motion-retest exit=0
