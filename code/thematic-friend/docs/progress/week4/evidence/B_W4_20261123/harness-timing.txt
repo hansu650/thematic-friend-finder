@@ -1,0 +1,6 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+FAIL B-W4-KEYBOARD-390 Focused control must be visible and unobscured: {"selector":"BUTTON","text":"","rect":{"x":233.578125,"y":769.5,"width":37,"height":42},"viewport":{"width":390,"height":844},"visible":true,"unobscured":false,"outline":"solid 2px","boxShadow":"none","focusVisible":true}
+FAIL B-W4-KEYBOARD-320 Focused control must be visible and unobscured: {"selector":"BUTTON","text":"","rect":{"x":180.671875,"y":769.5,"width":32,"height":42},"viewport":{"width":320,"height":844},"visible":true,"unobscured":false,"outline":"solid 2px","boxShadow":"none","focusVisible":true}
+PASS B-W4-HISTORY 107 ordered, unique messages after keyboard history load; no chat arrival effect on history or two subsequent polls.
+FAIL B-W4-REDUCED-PREFERENCES Focused control must be visible and unobscured: {"selector":"/conversations/2","text":"NNoah ChenB history fixture 104","rect":{"x":17,"y":561.5,"width":580.34375,"height":90},"viewport":{"width":320,"height":844},"visible":true,"unobscured":false,"outline":"solid 2px","boxShadow":"none","focusVisible":true}
+Usability inspection: D:\Codex\Work\b-w4-20261123\usability-verified\B-W4-NkMLcn

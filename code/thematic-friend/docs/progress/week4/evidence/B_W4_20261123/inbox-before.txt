@@ -1,0 +1,3 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+FAIL B-W4-INBOX Inbox pane must fit the workspace at 390: {"workspace":{"left":20,"right":370,"width":350},"pane":{"left":21,"right":641.34375,"width":620.34375},"controls":[{"tag":"INPUT","left":41,"right":621.34375,"width":580.34375},{"tag":"A","left":41,"right":621.34375,"width":580.34375},{"tag":"A","left":41,"right":621.34375,"width":580.34375}]}
+Usability inspection: D:\Codex\Work\b-w4-20261123\inbox-before\B-W4-0k241Y

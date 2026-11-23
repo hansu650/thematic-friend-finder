@@ -1,0 +1,8 @@
+{
+  "command": ".\\scripts\\build.ps1",
+  "started": "2026-11-23T15:50:31.0256832+08:00",
+  "ended": "2026-11-23T15:52:13.7503379+08:00",
+  "exitCode": 0,
+  "revision": "cbe4089ed94c71638ecef9b8300d397d529a9c43",
+  "jarSha256": "D962A4D204B4170465164F3ADBF7B268D91E6BF0ED4E4CF5D783C66F02B66DFF"
+}

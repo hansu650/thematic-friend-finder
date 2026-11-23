@@ -1,0 +1,10 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+PASS B-W4-INBOX Seeded conversation previews, search and contact rows remain inside the visible pane at 1440/390/320 px; inner clipping is checked as well as document overflow.
+PASS B-W4-KEYBOARD-390 Keyboard login, profile edit/reset/save, Meet control, event save and conversation send; 30/300-character profile; no document overflow; final English mode.
+PASS B-W4-KEYBOARD-320 Keyboard login, profile edit/reset/save, Meet control, event save and conversation send; 30/300-character profile; no document overflow; final English mode.
+PASS B-W4-HISTORY 109 ordered, unique messages after keyboard history load; no chat arrival effect on history or two subsequent polls.
+FAIL B-W4-REDUCED-PREFERENCES {"mode":"manual","manual":"reduced","system":false,"setting":"reduced","reduced":true,"effects":[{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"},{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"},{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"},{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"},{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"},{"chat":true,"className":"messages pl-messages","id":"messages","duration":0.01,"type":"CSSTransition"}]}
+
+6 !== 0
+
+Usability inspection: D:\Codex\Work\b-w4-20261123\usability-final\B-W4-6wNBOr

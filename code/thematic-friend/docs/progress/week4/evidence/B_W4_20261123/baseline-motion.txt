@@ -1,0 +1,11 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+PASS STAGGER Visible event cards actually animate with staggered start times and settle to readable content.
+PASS MAGNET Pointer tilt responds; a short real drag springs back without a decision POST.
+PASS MATCH Real mutual match runs the two-card/heart sequence; 390/320 px animation and final states fit.
+PASS CHAT-MOTION A confirmed message animates for sender and receiver; the next empty poll neither duplicates nor replays it.
+PASS STICKERS The keyboard opens all six stickers in staggered order, and Escape returns focus to the toggle.
+PASS SAVE-MOTION Particles follow confirmed saving, clean up, and do not replay after refresh, unsaving or a denied request.
+PASS RSVP A successful RSVP draws the check beside the status text, with no replay on refresh or cancellation.
+PASS REDUCED Both reduced-motion settings keep the RSVP check and stickers visible and static, and preserve save, match and chat actions.
+PASS RUNTIME No browser exceptions or server 5xx errors during motion inspection.
+Motion inspection: D:\Codex\Work\b-w4-20261123\baseline-motion\motion-pC7SQZ
