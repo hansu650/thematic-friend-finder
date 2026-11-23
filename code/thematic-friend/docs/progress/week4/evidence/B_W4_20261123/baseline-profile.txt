@@ -1,0 +1,14 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+Command: node scripts/profile-browser/run-profile-check.mjs
+Base revision: cbe4089ed94c71638ecef9b8300d397d529a9c43 (working tree recorded in results.json)
+JAR SHA-256: d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff
+Browser: 158.0.4370.33; Playwright: 1.62.1; Node: v24.21.0
+PASS B-01 All preview fields update locally; refresh restores saved values; explicit save persists
+PASS B-02 Mouse/Space enforce five interests, announce the sixth, and preserve existing choices
+PASS B-03 HTML-like text stays inert; 30/300-character values fit at 390 px
+PASS B-04 Keyboard tab order, visible focus, native controls and preview status work
+PASS B-05 Desktop/390 px navigation has an active destination and reachable content without overflow
+PASS B-06 Both temporary languages associate controls; reduced motion removes animation
+PASS B-FALLBACK JavaScript-disabled saves work and six interests are rejected by the server without data loss
+Browser exit code: 0
+Evidence directory: D:\Codex\Work\b-w4-20261123\baseline-profile\B-pwo0M0

@@ -1,0 +1,7 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+PASS B-W4-INBOX Seeded conversation previews, search and contact rows remain inside the visible pane at 1440/390/320 px; inner clipping is checked as well as document overflow.
+PASS B-W4-KEYBOARD-390 Keyboard login, profile edit/reset/save, Meet control, event save and conversation send; 30/300-character profile; no document overflow; final English mode.
+PASS B-W4-KEYBOARD-320 Keyboard login, profile edit/reset/save, Meet control, event save and conversation send; 30/300-character profile; no document overflow; final English mode.
+PASS B-W4-HISTORY 109 ordered, unique messages after keyboard history load; no chat arrival effect on history or two subsequent polls.
+PASS B-W4-REDUCED-PREFERENCES Manual preference with OS no-preference, then independent OS reduce with manual unchecked; profile save and keyboard message send remain usable at 320 px; no JavaScript chat arrival animation and only at-most-0.01 ms CSS transitions.
+Usability inspection: D:\Codex\Work\b-w4-20261123\usability-pass\B-W4-kSFrux

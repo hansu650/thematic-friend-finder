@@ -1,0 +1,148 @@
+{
+  "preparedOn": "2026-11-23",
+  "timezone": "Asia/Shanghai",
+  "operator": "Codex at user request; human observation and review pending",
+  "suppliedArchive": "B_Wang_Yikai_W4.zip",
+  "archiveSha256": "8c30666dddc839f4f2c9adb7fd274f0d7bceeafed01ad0ad1b6e7f1ba46eac19",
+  "archiveBase": "90d6b6d9bdee2644f0a9aae3675932df8d46a980",
+  "testedBase": "cbe4089ed94c71638ecef9b8300d397d529a9c43",
+  "branch": "codex/b-w4-usability-20261123",
+  "applicationSourceChanges": [
+    "src/main/resources/static/css/reference-ui.css"
+  ],
+  "baselineJarSha256": "d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff",
+  "fixedJarSha256": "7d98ac6227fe6b857c27fdc627e51fd203c48e8b77ba91178115444f6c038e9e",
+  "operatingSystem": {
+    "name": "Microsoft Windows 11 Home Chinese",
+    "version": "10.0.26200",
+    "build": "26200"
+  },
+  "java": "openjdk 21.0.12.1 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)",
+  "node": "v24.21.0",
+  "browser": "158.0.4370.33",
+  "playwright": "1.62.1",
+  "logs": {
+    "baseline-build": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/baseline-build.log",
+      "originalSha256": "0841aa0681ec920b7b4187801a01bf7a286faaa4442bc55b4e469ba2ec4edbf9",
+      "redacted": false,
+      "shared": "baseline-build.txt"
+    },
+    "baseline-profile": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/baseline-profile.log",
+      "originalSha256": "232ba0dac59c989df7929e91b5d2ce205e395b653061cd81a25eef483ded404c",
+      "redacted": false,
+      "shared": "baseline-profile.txt"
+    },
+    "baseline-motion": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/baseline-motion.log",
+      "originalSha256": "580c266662cb8aca4792cfdb60dfac920102b186e1e6533f63b4c66506a1a97a",
+      "redacted": false,
+      "shared": "baseline-motion.txt"
+    },
+    "inbox-before": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/inbox-before.log",
+      "originalSha256": "4c1fccafb42ac3ddfc993506be690c23e9f66a3ef74358a8a088e8d637887fdb",
+      "redacted": false,
+      "shared": "inbox-before.txt"
+    },
+    "keyboard-before": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/usability-confirmed.log",
+      "originalSha256": "b3c7e346f96862dc795d63866b3e361da86c98750d02f4100815670d734f6edd",
+      "redacted": false,
+      "shared": "keyboard-before.txt"
+    },
+    "fixed-package": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/fixed-package.log",
+      "originalSha256": "255ad8821267b0938dd5c12c77a703906f1c184233609523ba2b03a38f4f8a69",
+      "redacted": false,
+      "shared": "fixed-package.txt"
+    },
+    "profile-retest": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/profile-retest.log",
+      "originalSha256": "6d4fa5ef031dee445e4639648c3092553a5d1844754d21141a5e6c52ec548629",
+      "redacted": false,
+      "shared": "profile-retest.txt"
+    },
+    "usability-retest": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/usability-pass.log",
+      "originalSha256": "0e75e6a7b0491995606f3975af0b25be69b47d0651df282ad9c152b6ef99d61c",
+      "redacted": false,
+      "shared": "usability-retest.txt"
+    },
+    "harness-initial": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/usability-baseline.log",
+      "originalSha256": "a628f38b9bfccea616b9a2fa8318179463271c916db59d7d818b265fa9d23ecf",
+      "redacted": false,
+      "shared": "harness-initial.txt"
+    },
+    "harness-timing": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/usability-verified.log",
+      "originalSha256": "5e14a2650b3d7840f9ebf6915792c6323914278ec29372566d5171c5d2a9761d",
+      "redacted": false,
+      "shared": "harness-timing.txt"
+    },
+    "harness-reduced-diagnosis": {
+      "privateOriginal": "D:/Codex/Work/b-w4-20261123/usability-final.log",
+      "originalSha256": "daf5f547250b0557a02965267e28430b427e9fef3a556ce759bac8e36c6ff071",
+      "redacted": false,
+      "shared": "harness-reduced-diagnosis.txt"
+    }
+  },
+  "captures": {
+    "B_W4_before_inbox_390.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/inbox-before/B-W4-0k241Y/B_inbox_390.png",
+      "sha256": "fc149bd0c1acc643a56d189797699a4fd0b9e2308a0755fb775fe5b4f4a0d414"
+    },
+    "B_W4_before_focus_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-confirmed/B-W4-dqzkw9/B_failure_1795420661538.png",
+      "sha256": "762287ffd7f47683193cbdbcd120458306eb6870ef6a79da274751fb6dee21ce"
+    },
+    "B_W4_after_inbox_390.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_inbox_390.png",
+      "sha256": "7241e365d9464fae0c08321f9d8a3ed49878af08c4a3ec0aec10015fbca44386"
+    },
+    "B_W4_after_inbox_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_inbox_320.png",
+      "sha256": "56382caca46ead5bd55d7d3b7f6dbdcf3b7d2879252de10cd0d16f6b3c0221ef"
+    },
+    "B_W4_after_inbox_1440.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_inbox_1440.png",
+      "sha256": "8feef462138cf31fe1ba6a1690697c9cba53da8aa96b1ee15a0dbbe3eda740ba"
+    },
+    "B_W4_profile_limits_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_profile_limits_320.png",
+      "sha256": "73a98631dc306ad6c6da50de671f2b0a284898abd2899c64b4a0794ac0721ff6"
+    },
+    "B_W4_discover_keyboard_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_discover_keyboard_320.png",
+      "sha256": "10af847d1e00e4425496edabc9837f9043cb8452730c46c40700c3cb109ef2a6"
+    },
+    "B_W4_event_keyboard_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_event_keyboard_320.png",
+      "sha256": "9ec940e2de1a88a6b712d866114c216e6a945eb61e92390d92d8910c184ff2d9"
+    },
+    "B_W4_chat_keyboard_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_chat_keyboard_320.png",
+      "sha256": "5e02ad97e638d8c9f5d7c3ccdbabd4a85f754a0221fe95ece3a71e4bb8b2f6c0"
+    },
+    "B_W4_history_no_replay.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_history_no_replay.png",
+      "sha256": "7b7af2ceae76af4ac13c95aa50eccd8930ae55b86a3fbdb506d8ac99f6f195d3"
+    },
+    "B_W4_reduced_manual_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_reduced_manual_320.png",
+      "sha256": "52581978e4608e86310e18df922571810652da018a9c7d463393f753b6e85325"
+    },
+    "B_W4_reduced_system_320.png": {
+      "source": "D:/Codex/Work/b-w4-20261123/usability-pass/B-W4-kSFrux/B_reduced_system_320.png",
+      "sha256": "c8e46a72fb058cedb3c24d2fc56d82ff1dbd06e58b8b966ad70cf297fc55d531"
+    }
+  },
+  "automated": true,
+  "physicalPhone": false,
+  "realScreenReader": false,
+  "humanParticipants": 0,
+  "peerReview": "pending",
+  "publication": "not submitted"
+}

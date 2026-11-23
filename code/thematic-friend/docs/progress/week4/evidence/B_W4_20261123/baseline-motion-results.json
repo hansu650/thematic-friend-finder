@@ -1,0 +1,66 @@
+{
+  "at": "2026-11-23T07:53:42.675Z",
+  "jarSha256": "d962a4d204b4170465164f3adbf7b268d91e6bf0ed4e4cf5d783c66f02b66dff",
+  "node": "v24.21.0",
+  "platform": "win32",
+  "checks": [
+    {
+      "id": "STAGGER",
+      "detail": "Visible event cards actually animate with staggered start times and settle to readable content.",
+      "result": "PASS"
+    },
+    {
+      "id": "MAGNET",
+      "detail": "Pointer tilt responds; a short real drag springs back without a decision POST.",
+      "result": "PASS"
+    },
+    {
+      "id": "MATCH",
+      "detail": "Real mutual match runs the two-card/heart sequence; 390/320 px animation and final states fit.",
+      "result": "PASS"
+    },
+    {
+      "id": "CHAT-MOTION",
+      "detail": "A confirmed message animates for sender and receiver; the next empty poll neither duplicates nor replays it.",
+      "result": "PASS"
+    },
+    {
+      "id": "STICKERS",
+      "detail": "The keyboard opens all six stickers in staggered order, and Escape returns focus to the toggle.",
+      "result": "PASS"
+    },
+    {
+      "id": "SAVE-MOTION",
+      "detail": "Particles follow confirmed saving, clean up, and do not replay after refresh, unsaving or a denied request.",
+      "result": "PASS"
+    },
+    {
+      "id": "RSVP",
+      "detail": "A successful RSVP draws the check beside the status text, with no replay on refresh or cancellation.",
+      "result": "PASS"
+    },
+    {
+      "id": "REDUCED",
+      "detail": "Both reduced-motion settings keep the RSVP check and stickers visible and static, and preserve save, match and chat actions.",
+      "result": "PASS"
+    },
+    {
+      "id": "RUNTIME",
+      "detail": "No browser exceptions or server 5xx errors during motion inspection.",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "captures": [
+    "01-explore-settled.png",
+    "02-magnetic-card-settled.png",
+    "03-match-settled.png",
+    "04-match-390.png",
+    "04-match-320.png",
+    "05-chat-settled.png",
+    "07-sticker-picker.png",
+    "08-rsvp-confirmed.png",
+    "06-reduced-chat-mobile.png"
+  ],
+  "exitCode": 0
+}

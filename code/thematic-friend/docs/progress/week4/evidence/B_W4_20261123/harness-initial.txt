@@ -1,0 +1,6 @@
+Shared terminal-output copy; generated security password lines, if any, are redacted. Original retained locally.
+FAIL B-W4-KEYBOARD-390 Focused control must be visible and unobscured: {"selector":"BUTTON","text":"Reset edits","rect":{"x":46,"y":1115.796875,"width":298,"height":48},"viewport":{"width":390,"height":844},"visible":false,"unobscured":false,"outline":"solid 2px","boxShadow":"none","focusVisible":true}
+FAIL B-W4-KEYBOARD-320 Focused control must be visible and unobscured: {"selector":"BUTTON","text":"Reset edits","rect":{"x":42,"y":1188.796875,"width":236,"height":48},"viewport":{"width":320,"height":844},"visible":false,"unobscured":false,"outline":"solid 2px","boxShadow":"none","focusVisible":true}
+PASS B-W4-HISTORY 107 ordered, unique messages after keyboard history load; no chat arrival effect on history or two subsequent polls.
+FAIL B-W4-REDUCED-PREFERENCES Focused control must be visible and unobscured: {"selector":"INPUT","text":"Reduce motion","rect":{"x":79,"y":1957.796875,"width":104,"height":24},"viewport":{"width":320,"height":844},"visible":false,"unobscured":false,"outline":"none 3px","boxShadow":"none","focusVisible":true}
+Usability inspection: D:\Codex\Work\b-w4-20261123\usability-baseline\B-W4-0nDXkO
