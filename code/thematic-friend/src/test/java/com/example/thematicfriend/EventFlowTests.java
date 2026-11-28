@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDateTime;
 import java.util.List;
 import static org.assertj.core.api.Assertions.*;
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -39,7 +40,10 @@ class EventFlowTests {
         mvc.perform(post("/events/"+event.getId()+"/attendance").with(user(second.getUsername())).with(csrf()).param("attending","true"))
                 .andExpect(status().is3xxRedirection());
         mvc.perform(post("/events/"+event.getId()+"/attendance").with(user(third.getUsername())).with(csrf()).param("attending","true"))
-                .andExpect(status().isConflict());
+                .andExpect(status().isConflict())
+                .andExpect(model().attribute("recoveryEventId", event.getId().toString()))
+                .andExpect(content().string(containsString("href=\"/events/" + event.getId() + "\">Back to this event</a>")))
+                .andExpect(content().string(containsString("href=\"/events\">Browse other events</a>")));
         assertThat(service.detail(first.getUsername(),event.getId()).attendees()).isEqualTo(2);
     }
     @Test void cancellationOnlyChangesTheSignedInAccountsAttendance() throws Exception {

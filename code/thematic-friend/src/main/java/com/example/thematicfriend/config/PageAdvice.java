@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.security.Principal;
@@ -42,6 +43,11 @@ public class PageAdvice {
         view.setStatus(error.getStatusCode());
         view.addObject("status",error.getStatusCode().value());
         view.addObject("explanation",message);
+        if ("ref.event.full".equals(error.getReason()) &&
+                request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE) instanceof Map<?, ?> route) {
+            view.addObject("recoveryEventId", route.get("id"));
+            return view;
+        }
         // Recovery is always a local GET. Retain only the same allowlisted filters
         // accepted by discovery, never a submitted next/return URL or POST body.
         String interest=DiscoveryService.validInterest(request.getParameter("interest"));

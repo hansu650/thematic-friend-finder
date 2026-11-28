@@ -78,9 +78,20 @@
     row.className = 'message mine pending';
     row.dataset.clientMessageId = pendingSend.key;
     addMessageBody(row, body);
-    const time = document.createElement('time');
-    time.textContent = list.dataset.messagePending;
-    row.append(time);
+    const actions = document.createElement('div');
+    actions.className = 'pending-actions';
+    const label = document.createElement('span');
+    label.textContent = list.dataset.messagePending;
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'message-retry';
+    retry.textContent = list.dataset.retrySend;
+    retry.hidden = true;
+    retry.addEventListener('click', () => {
+      if (row === pendingRow && pendingSend) sendMessage(pendingSend.body, pendingSend.clearDraft);
+    });
+    actions.append(label, retry);
+    row.append(actions);
     return row;
   }
 
@@ -104,7 +115,7 @@
     if (!pendingSend || !message.clientMessageId || message.clientMessageId !== pendingSend.key) return false;
     const completed = pendingSend;
     confirmedClientMessageIds.add(message.clientMessageId);
-    clearPendingRow(); pendingSend = null; sending = false; sendProblem = '';
+    clearPendingRow(); pendingSend = null; sendProblem = '';
     if (completed.clearDraft && draft.value === completed.body) { draft.value=''; resizeDraft(); }
     showSentNotice(); updateStatus();
     return true;
@@ -139,6 +150,7 @@
   }
   function stop(text) {
     stopped = true; clearTimeout(pollTimer); status.textContent = text;
+    if (pendingRow) pendingRow.querySelector('.message-retry').hidden = true;
     document.querySelector('.composer-shell').querySelectorAll('textarea,button').forEach(input => { input.disabled = true; });
     closePicker(); if (loadOlder) loadOlder.disabled = true;
   }
@@ -188,7 +200,6 @@
   async function sendMessage(body, clearDraft) {
     if (stopped || sending) return;
     if (!body.trim()) { draft.setCustomValidity(list.dataset.empty); draft.reportValidity(); return; }
-    const submittedDraft = draft.value;
     if (!pendingSend || pendingSend.body !== body) {
       abandonPendingSend();
       const clientMessageId = takeClientMessageId();
@@ -198,7 +209,11 @@
     }
     const sendIdentity = pendingSend.key;
     pendingRow.classList.remove('failed');
-    pendingRow.querySelector('time').textContent = list.dataset.messagePending;
+    const label = pendingRow.querySelector('.pending-actions span');
+    const retry = pendingRow.querySelector('.message-retry');
+    label.textContent = list.dataset.messagePending;
+    retry.hidden = true;
+    let rejected = false;
     sending = true; sendProblem = ''; sendNotice = ''; sendButton.disabled = true;
     stickerButtons.forEach(button=>{button.disabled=true;}); updateStatus();
     try {
@@ -206,11 +221,12 @@
       if (accessFailure(response)) return;
       if (!response.ok) {
         const error = await response.json().catch(()=>({}));
-        throw new Error([400,409].includes(response.status) && error.error ? error.error : list.dataset.sendFailed);
+        rejected = [400,409].includes(response.status);
+        throw new Error(rejected ? (error.error || list.dataset.messageRejected) : list.dataset.sendFailed);
       }
       const message = await response.json();
       mergeMessages([message],false,true);
-      if (clearDraft && draft.value === submittedDraft) { draft.value=''; resizeDraft(); }
+      if (clearDraft && draft.value === body) { draft.value=''; resizeDraft(); }
       updateContactPreview(message.body);
       closePicker(); draft.focus(); window.MingleFeedback?.tone('sent');
     } catch (error) {
@@ -219,10 +235,11 @@
           if (pendingSend) { clearPendingRow(); pendingSend = null; }
           confirmedClientMessageIds.add(sendIdentity); sendProblem=''; showSentNotice();
         } else {
-          sendProblem = error.message === 'Failed to fetch' ? list.dataset.sendFailed : (error.message || list.dataset.sendFailed);
+          sendProblem = rejected ? error.message : list.dataset.sendFailed;
           if (pendingRow) {
             pendingRow.classList.add('failed');
-            pendingRow.querySelector('time').textContent = list.dataset.messageFailed;
+            label.textContent = rejected ? list.dataset.messageRejected : list.dataset.messageUnconfirmed;
+            retry.hidden = rejected;
             pendingRow.scrollIntoView({block:'nearest'});
           }
         }
@@ -244,7 +261,7 @@
   form.addEventListener('submit',event=>{event.preventDefault();sendMessage(draft.value,true);});
   draft.addEventListener('input',()=>{
     draft.setCustomValidity(''); resizeDraft();
-    if (!sending && pendingSend && draft.value !== pendingSend.body) abandonPendingSend();
+    if (!sending && pendingSend?.clearDraft && draft.value !== pendingSend.body) abandonPendingSend();
   });
   draft.addEventListener('keydown',event=>{
     if (event.key==='Enter' && !event.shiftKey && !event.isComposing && event.keyCode!==229) {

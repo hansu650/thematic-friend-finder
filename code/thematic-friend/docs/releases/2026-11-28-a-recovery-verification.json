@@ -1,0 +1,149 @@
+{
+  "preparedOn": "2026-11-28",
+  "timezone": "Asia/Shanghai",
+  "operator": "Codex automated checks for A; no human peer review claimed",
+  "baseCommit": "081597d5e2012ef078b2f42369446c7480e4b8f0",
+  "verifiedCodeCommit": "7d0bd297048ace4d1080c99e5230e7694e12b10c",
+  "jarSha256": "fbfac88545abf1b56b44f9249d8ef2e45d0e0cb50b3ccd19dbbc355ddc365273",
+  "java": "Temurin 21.0.12.1+1",
+  "node": "24.16.0",
+  "maven": {
+    "command": "./scripts/build.ps1",
+    "exitCode": 0,
+    "tests": 79,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browserRuns": {
+    "retry": {
+      "recordedAt": "2026-11-28T12:08:29.143Z",
+      "browser": "158.0.4370.45",
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "D-W4-B1",
+          "assertion": "The unchanged draft is retained while a send is pending.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B2",
+          "assertion": "A lost response is labelled unconfirmed; the draft and native Retry button remain available.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B3",
+          "assertion": "Retry reuses the logical identity and resolves to one confirmed message.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B4",
+          "assertion": "Editing a failed draft creates a new logical send instead of reusing the failed identity.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B7",
+          "assertion": "A poll-confirmed message is not changed back to failed when the original response later reports a network error.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B5",
+          "assertion": "The recipient has one unread increment per confirmed logical message and sees the final preview.",
+          "result": "PASS"
+        },
+        {
+          "id": "D-W4-B6",
+          "assertion": "Both accounts retain one stored row per logical send, including the edited new message.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-W5-STICKER",
+          "assertion": "Retry sends the original sticker once and preserves an unrelated edited draft.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-W5-REJECTED",
+          "assertion": "An explicit validation rejection is distinguished from uncertain delivery and has no Retry action.",
+          "result": "PASS"
+        },
+        {
+          "id": "A-W5-ACCESS",
+          "assertion": "Access loss disables the composer and removes Retry.",
+          "result": "PASS"
+        },
+        {
+          "id": "RUNTIME",
+          "assertion": "No browser exceptions or HTTP 5xx responses during the checked retry flow.",
+          "result": "PASS"
+        }
+      ],
+      "issues": []
+    },
+    "finalEnglish": {
+      "recordedAt": "2026-11-28T12:08:30.856Z",
+      "browser": "158.0.4370.45",
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "HOME",
+          "detail": "Friendship copy is rendered in English, including a Chinese-browser session.",
+          "result": "PASS"
+        },
+        {
+          "id": "LANGUAGE",
+          "detail": "Final mode hides language controls and ignores lang=zh.",
+          "result": "PASS"
+        },
+        {
+          "id": "DATA",
+          "detail": "All 18 freshly seeded event titles, descriptions and location details are English. Existing databases are outside this check.",
+          "result": "PASS"
+        },
+        {
+          "id": "EVENT",
+          "detail": "A stale capacity race returns local recovery links; after cancellation the third account can join without exceeding capacity.",
+          "result": "PASS"
+        },
+        {
+          "id": "LAYOUT",
+          "detail": "B’s zero minimum width remains applied and the inbox fits at 390 and 768 emulated pixels.",
+          "result": "PASS"
+        }
+      ],
+      "issues": []
+    },
+    "development": {
+      "recordedAt": "2026-11-28T12:08:30.917Z",
+      "browser": "158.0.4370.45",
+      "exitCode": 0,
+      "checks": [
+        {
+          "id": "HOME",
+          "detail": "Friendship copy is rendered in English, including a Chinese-browser session.",
+          "result": "PASS"
+        },
+        {
+          "id": "LANGUAGE",
+          "detail": "Tablet account menu retains a working development language switch.",
+          "result": "PASS"
+        },
+        {
+          "id": "DATA",
+          "detail": "All 18 freshly seeded event titles, descriptions and location details are English. Existing databases are outside this check.",
+          "result": "PASS"
+        },
+        {
+          "id": "EVENT",
+          "detail": "A stale capacity race returns local recovery links; after cancellation the third account can join without exceeding capacity.",
+          "result": "PASS"
+        },
+        {
+          "id": "LAYOUT",
+          "detail": "B’s zero minimum width remains applied and the inbox fits at 390 and 768 emulated pixels.",
+          "result": "PASS"
+        }
+      ],
+      "issues": []
+    }
+  }
+}
