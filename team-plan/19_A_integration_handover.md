@@ -1,6 +1,6 @@
 # A's integration and assessment handover
 
-Updated **28 November 2026**. Qin Tian has now authorised Codex to merge verified PRs and perform technical integration. PRs #26 and #27 are merged. Candidate preparation can proceed; human acceptance, personal reflection and final sign-off still require the actual participants. This document does not record a completed freeze or submission.
+Updated **28 November 2026**. Qin Tian has now authorised Codex to merge verified PRs and perform technical integration. PRs #26–#29 are merged. A versioned candidate has been built and checked through its actual launcher; human acceptance, personal reflection and final sign-off still require the actual participants. This document does not record a completed freeze or submission.
 
 ## Available evidence and next operations
 
@@ -9,11 +9,18 @@ Updated **28 November 2026**. Qin Tian has now authorised Codex to merge verifie
 | [Recovery PR #26](https://github.com/hansu650/thematic-friend-finder/pull/26) | Actionable Retry, event-full recovery, friendship copy, tablet development language access; B #25 and D #21 retained | Merged on 28 November after its two CI jobs passed |
 | [Automated verification](https://github.com/hansu650/thematic-friend-finder/blob/d182b089658d674487ce0a70b008cb35b907ef07/code/thematic-friend/docs/releases/2026-11-28-a-recovery.md) | 79 Java tests and 21 browser checks passed; exact source/JAR identity and images recorded | Engineering evidence of that branch, not a frozen team candidate |
 | [A's dated evidence register](./evidence/A_2026-11-28.md) | PR chronology, W2/W3 calendar correction, source-supported decisions and five-section reflection mapping | Personal action/learning statements still require A's input |
-| [Candidate record](./templates/candidate_record.md) | One place for commit, JAR, configuration, changes and returned acceptance | Blank template; fill only after A selects the combined version |
+| [Actual candidate record](./evidence/2026-11-28-candidate/README.md) | Source `85a03f9`, JAR/source/distribution hashes, CI, actual English startup and restart screenshots | Prepared for B–F acceptance; not a frozen final release |
+| [A’s English speaking outline](./evidence/A_W6_demo_outline.md) | Five sourced facts, suggested 60–90 second segment and screen sequence | Prepared; factual understanding and final recording remain with A |
 
 The two original increments were based on `081597d5e2012ef078b2f42369446c7480e4b8f0` and are now integrated. Their merge records technical integration, not final team acceptance. The [candidate packaging tool](../code/thematic-friend/README.md#build-a-versioned-review-candidate) turns a clean recorded revision into one runnable bundle and checksum record.
 
-## After choosing the PRs to merge
+## Use the prepared candidate first
+
+The [candidate record](./evidence/2026-11-28-candidate/README.md) is the current technical handover. Extract the whole bundle and use its `Start-Mingle.ps1`; that launcher validates JAR/source checksums and enforces English. The first run uses `-NewData`; restarts retain the same path without that switch. Read the [standalone guide](../code/thematic-friend/docs/CANDIDATE_README.md). Distribute the one candidate identity and collect actual returned evidence before final freeze. A later code/configuration change requires a newly identified candidate and the affected checks.
+
+The procedure below remains available for rebuilding or choosing a later revision. It is not an instruction to discard the current candidate or repeat unchanged, passed checks.
+
+## When building a later revision
 
 1. Preserve any uncommitted local work and the existing demonstration database. Review each PR's changed files, CI and remaining limits. Do not overwrite a working directory with the older local source tree.
 2. After merging, obtain the chosen main revision in a clean working copy. Record the full commit and confirm that the tree has no uncommitted application changes. A different combined revision is a different candidate.
