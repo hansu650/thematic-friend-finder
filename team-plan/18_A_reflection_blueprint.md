@@ -2,6 +2,8 @@
 
 Prepared 14 November 2026 for the supplied five-section reflection template. Qin Tian is Scrum Master and Lead Developer. This file supplies structure and candidate evidence; it does not supply personal feelings, meetings, feedback or learning outcomes that have not been provided.
 
+Update 28 November: use the [dated evidence register](./evidence/A_2026-11-28.md) for the corrected calendar and new automated recovery evidence, and the [integration handover](./19_A_integration_handover.md) for remaining dependencies. The prompts below remain prompts for Qin Tian’s own experience.
+
 Keep the official template, personal details and shared MMUTube demonstration URL. Use the required surname, initials and MMU-ID naming convention after checking the student's exact details. No word limit was found in the supplied specification/template; follow any additional Moodle instruction if present.
 
 ## How to develop an answer
