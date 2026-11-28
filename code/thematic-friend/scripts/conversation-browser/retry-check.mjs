@@ -20,6 +20,8 @@ const screenshots = [];
 const requests = [];
 let activePage;
 let dropNext = false;
+let holdPolls = true;
+let rejectNext = false;
 let releaseDroppedResponse = () => {};
 let droppedResponseGate = Promise.resolve();
 
@@ -74,8 +76,15 @@ async function matchJamieAndAlex(jamie, alex) {
 }
 
 async function installSendRoute(page) {
-  await page.route('**/api/conversations/*/messages', async route => {
-    if (route.request().method() !== 'POST') return route.continue();
+  await page.route('**/api/conversations/*/messages*', async route => {
+    if (route.request().method() !== 'POST') {
+      if (holdPolls) return route.fulfill({ status: 200, contentType: 'application/json', body: '[]' });
+      return route.continue();
+    }
+    if (rejectNext) {
+      rejectNext = false;
+      return route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ error: 'Controlled validation rejection' }) });
+    }
     requests.push(Object.fromEntries(new URLSearchParams(route.request().postData() || '')));
     if (!dropNext) return route.continue();
     dropNext = false;
@@ -92,7 +101,11 @@ async function prepareDroppedResponse() {
 
 async function screenshot(session, name) {
   await session.page.evaluate(() => document.fonts.ready);
-  await session.page.screenshot({ path: path.join(images, name), type: 'png', fullPage: true });
+  const file = path.join(images, name);
+  if (process.env.MINGLE_CAPTURE_MODULE) {
+    const { captureScreenshot } = await import(process.env.MINGLE_CAPTURE_MODULE);
+    await captureScreenshot(session.page, { file, cursor: 'arrow', fullPage: true });
+  } else await session.page.screenshot({ path: file, type: 'png', fullPage: true });
   screenshots.push(name);
 }
 
@@ -119,9 +132,12 @@ try {
   assert.equal(await draft.inputValue(), text);
   assert.match(await alex.page.locator('#chat-status').innerText(), /Could not confirm delivery/);
   await screenshot(alex, 'D_retry_failed.png');
-  ok('D-W4-B2', 'A committed response that never reaches the browser is shown as failed with the draft retained.');
+  assert.equal(await alex.page.locator('.pending-actions span').innerText(), 'Delivery unconfirmed');
+  ok('D-W4-B2', 'A lost response is labelled unconfirmed; the draft and native Retry button remain available.');
 
-  await send.click();
+  const retry = alex.page.getByRole('button', { name: 'Retry', exact: true });
+  await retry.focus();
+  await alex.page.keyboard.press('Enter');
   await alex.page.locator('#messages .message[data-message-id]').filter({ hasText: text }).waitFor({ timeout: 10000 });
   await alex.page.locator('#messages .message.pending').waitFor({ state: 'detached', timeout: 10000 });
   assert.equal(await draft.inputValue(), '');
@@ -148,6 +164,7 @@ try {
   assert.notEqual(editedKey, failedKey);
   ok('D-W4-B4', 'Editing a failed draft creates a new logical send instead of reusing the failed identity.');
 
+  holdPolls = false;
   const pollText = 'Poll confirmed before failed response';
   await draft.fill(pollText);
   await prepareDroppedResponse();
@@ -155,6 +172,7 @@ try {
   await alex.page.locator('#messages .message.pending').filter({ hasText: pollText }).waitFor();
   await alex.page.locator('#messages .message.pending').waitFor({ state: 'detached', timeout: 7000 });
   assert.equal(await alex.page.locator('#messages .message[data-message-id]').filter({ hasText: pollText }).count(), 1);
+  assert.equal(await send.isDisabled(), true, 'An unresolved POST still owns the send lock.');
   releaseDroppedResponse();
   await alex.page.waitForTimeout(500);
   assert.doesNotMatch(await alex.page.locator('#chat-status').innerText(), /Could not confirm delivery/);
@@ -174,6 +192,47 @@ try {
   assert.equal(await exactBodyCount(editedText), 1);
   assert.equal(await exactBodyCount(pollText), 1);
   ok('D-W4-B6', 'Both accounts retain one stored row per logical send, including the edited new message.');
+
+  holdPolls = true;
+  await draft.fill('Keep this unrelated draft');
+  await alex.page.locator('#emoji-toggle').click();
+  await alex.page.locator('#sticker-tab').click();
+  const sticker = alex.page.locator('[data-sticker-id]').first();
+  const stickerId = await sticker.getAttribute('data-sticker-id');
+  await prepareDroppedResponse();
+  await sticker.click();
+  await alex.page.locator('.message.pending').waitFor();
+  releaseDroppedResponse();
+  await alex.page.locator('.message.pending.failed').waitFor();
+  const stickerKey = requests.at(-1).clientMessageId;
+  await draft.fill('Keep this edited unrelated draft');
+  assert.equal(await alex.page.locator('.message.pending.failed').count(), 1);
+  await alex.page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await alex.page.locator('.message.pending').waitFor({ state: 'detached' });
+  assert.equal(requests.at(-1).clientMessageId, stickerKey);
+  assert.equal(await draft.inputValue(), 'Keep this edited unrelated draft');
+  assert.equal(await alex.page.locator('.message[data-message-id] p[data-sticker="' + stickerId + '"]').count(), 1);
+  ok('A-W5-STICKER', 'Retry sends the original sticker once and preserves an unrelated edited draft.');
+
+  rejectNext = true;
+  await send.click();
+  await alex.page.locator('.message.pending.failed').waitFor();
+  assert.equal(await alex.page.locator('.pending-actions span').innerText(), 'Message not accepted');
+  assert.equal(await alex.page.getByRole('button', { name: 'Retry', exact: true }).count(), 0);
+  assert.equal(await draft.inputValue(), 'Keep this edited unrelated draft');
+  ok('A-W5-REJECTED', 'An explicit validation rejection is distinguished from uncertain delivery and has no Retry action.');
+
+  await draft.fill('Access loss while retry is available');
+  await prepareDroppedResponse();
+  await send.click();
+  await alex.page.locator('.message.pending').waitFor();
+  releaseDroppedResponse();
+  await alex.page.locator('.message.pending.failed').waitFor();
+  await alex.page.route('**/api/conversations/*/messages*', route => route.fulfill({ status: 403, contentType: 'application/json', body: '{}' }));
+  await alex.page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await alex.page.waitForFunction(() => document.querySelector('#body').disabled);
+  assert.equal(await alex.page.getByRole('button', { name: 'Retry', exact: true }).count(), 0);
+  ok('A-W5-ACCESS', 'Access loss disables the composer and removes Retry.');
 
   assert.deepEqual(issues, []);
   ok('RUNTIME', 'No browser exceptions or HTTP 5xx responses during the checked retry flow.');

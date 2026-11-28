@@ -112,6 +112,7 @@ button,summary,a,input,textarea,select{outline-offset:4px}
 .site-account>div{position:absolute;top:50px;right:0;width:210px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px #12121510}
 .site-account a,.site-account form button{display:block;text-align:left;font-size:15px;padding:10px 12px;border-radius:8px;width:100%;background:none;border:0}
 .site-account a:hover,.site-account form button:hover{background:#f7f4fa}
+.site-account .language-switch { display: none; }
 .site-header .language-switch{height:38px;background:none;padding:0;gap:1px}.site-header .language-switch a{padding:7px 8px;font-size:13px}
 .site-header .avatar{width:36px;height:36px}
 .app-main{max-width:1200px;width:calc(100% - 80px);margin:62px auto 110px;padding:0}
@@ -235,8 +236,11 @@ dialog::backdrop{background:#17151d70;backdrop-filter:blur(4px)}
 .message>p{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:11px 17px;font-size:16px;line-height:24px;color:#323038}
 .message.mine>p{background:#f3edfc;border-color:#e9e1f3;border-radius:18px 18px 4px 18px;color:#4b3e65}
 .message>time{display:block;font-size:12px;color:#8d8795;margin-top:6px}.message.mine>time{text-align:right}
-.message.pending>p{opacity:.72;border-style:dashed}.message.pending>time{font-style:italic}
-.message.pending.failed>p{background:#fff2f3;border-color:#f0d6de;color:#a63f5c;opacity:1}.message.pending.failed>time{color:#a63f5c;font-style:normal}
+.message.pending>p{opacity:.72;border-style:dashed}
+.pending-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:6px;color:#695f72;font-size:12px}
+.message.pending.failed>p{background:#fff2f3;border-color:#f0d6de;color:#a63f5c;opacity:1}
+.message-retry{background:white;border:1px solid currentColor;border-radius:999px;padding:4px 12px;min-height:30px;color:#70456b;font:inherit;font-weight:600;cursor:pointer}
+.message-retry:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .chat-status{margin:0;padding:5px 24px;font-size:12px;color:#7f7888;flex:none;min-height:24px}.chat-panel>.form-error{flex:none;margin:0 20px 10px}
 .composer-shell{position:relative;background:#fff;border-top:1px solid var(--line);padding:11px 22px 18px;flex:none}
 .composer-toolbar{display:flex;align-items:center;justify-content:space-between;padding:0 0 9px}
@@ -290,7 +294,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}legend{margin-bottom:13px}.inte
 .feedback-toast{position:fixed;bottom:35px;left:50%;transform:translate(-50%,10px);max-width:calc(100vw - 32px);padding:13px 21px;border:1px solid #e1d9ed;border-radius:16px;background:#fff;color:#50435f;box-shadow:0 6px 22px #12121520;font-size:15px;opacity:0;pointer-events:none;z-index:200;transition:opacity .2s,transform .2s}
 .feedback-toast.visible{opacity:1;transform:translate(-50%,0)}
 @media(max-width:1280px){.site-header{gap:28px;padding-left:28px;padding-right:28px}.site-search{width:390px}.site-links{gap:16px}.detail-main{column-gap:44px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.app-main{width:calc(100% - 80px)}.capsule-nav{gap:4px}.capsule-nav>a,.capsule-nav>details>summary{padding-left:18px;padding-right:18px}.hinge-copy{padding-left:40px}.hinge-section{padding-left:65px;padding-right:65px}.detail-copy>h1{font-size:43px;line-height:51px}.dock-copy strong{font-size:22px}}
-@media(max-width:1099px){.site-search{width:320px}.site-links{gap:14px}.site-header>.header-tools .language-switch{display:none}.site-wordmark{font-size:26px}.site-header{gap:24px}.profile-layout{gap:30px;grid-template-columns:minmax(0,1fr) 300px}.public-header{padding:25px 28px;gap:18px}.public-wordmark{font-size:33px}.capsule-nav>a,.capsule-nav>details>summary{font-size:16px;padding-left:15px;padding-right:15px}.public-header>.header-tools .language-switch{height:50px}.public-header>.header-tools{gap:6px}.feeld-heading{left:65px;right:65px}.hero-actions{left:65px;right:65px}.hinge-copy{padding-left:0}.hinge-copy h2{font-size:56px}.bumble-section>h2{font-size:56px;line-height:1.1}.bumble-product>img{height:320px}.inbox-workspace{grid-template-columns:330px minmax(0,1fr)}.messenger-workspace{grid-template-columns:245px minmax(0,1fr)}}
+@media(max-width:1099px){.site-search{width:320px}.site-links{gap:14px}.site-header>.header-tools>.language-switch{display:none}.site-account .language-switch{display:flex}.site-wordmark{font-size:26px}.site-header{gap:24px}.profile-layout{gap:30px;grid-template-columns:minmax(0,1fr) 300px}.public-header{padding:25px 28px;gap:18px}.public-wordmark{font-size:33px}.capsule-nav>a,.capsule-nav>details>summary{font-size:16px;padding-left:15px;padding-right:15px}.public-header>.header-tools .language-switch{height:50px}.public-header>.header-tools{gap:6px}.feeld-heading{left:65px;right:65px}.hero-actions{left:65px;right:65px}.hinge-copy{padding-left:0}.hinge-copy h2{font-size:56px}.bumble-section>h2{font-size:56px;line-height:1.1}.bumble-product>img{height:320px}.inbox-workspace{grid-template-columns:330px minmax(0,1fr)}.messenger-workspace{grid-template-columns:245px minmax(0,1fr)}}
 @media(max-width:899px){
  h1{font-size:36px;line-height:44px;letter-spacing:-1px}.site-header{height:76px;padding:15px 24px;gap:20px}.site-search{width:280px}.site-links{display:none}.site-header>.header-tools{margin-left:auto}
  .mobile-nav{display:block;position:relative}.mobile-nav>summary{width:42px;height:42px;border:1px solid #e9e5ef;border-radius:50%;background:#fff;color:#28262f;display:grid;place-items:center;list-style:none;cursor:pointer}
@@ -412,3 +416,4 @@ html[data-motion=reduced] .event-card:hover .card-cover,html[data-motion=reduced
 .photo-dialog[open]::backdrop,.profile-sheet[open]::backdrop{animation:detail-backdrop-in 220ms ease both}
 @keyframes detail-sheet-in{from{opacity:0;transform:translateY(14px) scale(.965)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes detail-backdrop-in{from{opacity:0}to{opacity:1}}
+.error-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
