@@ -25,8 +25,12 @@ $javaCommand = if ($env:JAVA_HOME) { Join-Path $env:JAVA_HOME 'bin\java.exe' }
     elseif (Test-Path -LiteralPath 'D:\kaifagongju\Java\jdk-21.0.12.1-hotspot\bin\java.exe') { 'D:\kaifagongju\Java\jdk-21.0.12.1-hotspot\bin\java.exe' }
     else { 'java' }
 if (-not (Get-Command $javaCommand -ErrorAction SilentlyContinue)) { throw 'Java was not found. Set JAVA_HOME to JDK 21.' }
-$javaVersion = (& $javaCommand --version 2>&1 | Select-Object -First 1).ToString()
-if ($LASTEXITCODE -ne 0 -or $javaVersion -notmatch '\b21(?:[.\s]|$)') { throw 'Java 21 is required.' }
+# Let the native process finish before selecting its first output line.
+# An early pipeline stop can leave LASTEXITCODE unset in a fresh PowerShell process.
+$javaOutput = & $javaCommand --version 2>&1
+$javaExitCode = $LASTEXITCODE
+$javaVersion = ($javaOutput | Select-Object -First 1).ToString()
+if ($javaExitCode -ne 0 -or $javaVersion -notmatch '\b21(?:[.\s]|$)') { throw 'Java 21 is required.' }
 $probe = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $Port)
 try { $probe.Server.ExclusiveAddressUse = $true; $probe.Start() }
 catch [Net.Sockets.SocketException] { throw ('Port ' + $Port + ' is unavailable. Choose -Port or use the existing application.') }

@@ -152,6 +152,11 @@ exit /b %errorlevel%
             Assert-True ($LASTEXITCODE -eq 0) 'Windows PowerShell package check failed.'
         } finally { $env:PSModulePath = $previousModulePath }
     }
+    Invoke-Case 'CAND-10' 'A fresh current PowerShell process validates Java without inheriting a native exit code' {
+        $currentPowerShell = (Get-Process -Id $PID).Path
+        & $currentPowerShell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File $launcher -Check -Port (Free-Port) | Out-Null
+        Assert-True ($LASTEXITCODE -eq 0) 'Fresh PowerShell candidate check failed.'
+    }
     Invoke-Case 'CAND-09' 'A failed build publishes no candidate and preserves diagnostic logs' {
         Write-Utf8 (Join-Path $fixtureProject 'mvnw.cmd') "@echo off`r`necho controlled fixture failure`r`nexit /b 7`r`n"
         & git -C $fixtureRepo add code/thematic-friend/mvnw.cmd

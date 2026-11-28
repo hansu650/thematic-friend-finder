@@ -32,8 +32,10 @@ if (-not $jdk) {
     }
 }
 if (-not $jdk -or -not (Test-Path -LiteralPath (Join-Path $jdk 'bin\java.exe'))) { throw 'Set JAVA_HOME to JDK 21.' }
-$javaVersion = (& (Join-Path $jdk 'bin\java.exe') --version 2>&1 | Select-Object -First 1).ToString()
-if ($LASTEXITCODE -ne 0 -or $javaVersion -notmatch '\b21(?:[.\s]|$)') { throw 'Java 21 is required.' }
+$javaOutput = & (Join-Path $jdk 'bin\java.exe') --version 2>&1
+$javaExitCode = $LASTEXITCODE
+$javaVersion = ($javaOutput | Select-Object -First 1).ToString()
+if ($javaExitCode -ne 0 -or $javaVersion -notmatch '\b21(?:[.\s]|$)') { throw 'Java 21 is required.' }
 if ([string]::IsNullOrWhiteSpace($OutputRoot)) { $OutputRoot = Join-Path $projectDir '.local\candidates' }
 $OutputRoot = [IO.Path]::GetFullPath($OutputRoot)
 if (Test-Path -LiteralPath $OutputRoot -PathType Leaf) { throw 'OutputRoot must be a directory.' }
