@@ -42,3 +42,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify backup, restore and Windows PowerShell UTF-8 handling
         run: ./scripts/tests/BackupRestore.Tests.ps1 -SkipBuild
+
+  candidate-windows:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: code/thematic-friend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Verify candidate archive, checksums and English launcher
+        run: ./scripts/tests/Candidate.Tests.ps1

@@ -63,6 +63,20 @@ For an English-only final run, set `TONGPIN_CHINESE_ENABLED=false`. This hides t
 
 Do not change database credentials for an existing database without planning the corresponding database change. Keep the H2 console disabled. The default is one local application instance; this is not a production hosting configuration.
 
+## Build a versioned review candidate
+
+Use `scripts/package-candidate.ps1` from a committed, clean application tree. It exports that exact Git commit and builds from the archive, so an old local JAR, ignored source or demonstration database cannot silently enter the package. The output contains a JAR, source ZIP, commit/tree IDs, SHA-256 checksums, build log and an English-only launcher.
+
+```powershell
+.\scripts\package-candidate.ps1
+```
+
+The output directory is printed after a successful build. Extract/share the whole candidate folder; its [standalone instructions](docs/CANDIDATE_README.md) describe `Start-Mingle.ps1 -Check`, first-run data protection and restart. Failed builds publish no candidate and retain their staging log.
+
+Tests run by default. Only when the same application inputs already passed recorded checks may you use `-SkipTests -ValidationReference "URL or exact existing test record"`. The manifest records the actual arguments and that those tests were not rerun; the supplied reference must be checked by the operator. Rebuilt JAR bytes may differ, so distribute the generated checksum with that exact JAR.
+
+The [candidate tooling tests](scripts/tests/Candidate.Tests.ps1) use a synthetic Git repository and a small executable Java fixture to verify archive provenance, checksum rejection, data protection, port conflicts, environment restoration, Windows PowerShell compatibility and failed-build handling. They are engineering checks, not F’s independent reproduction or team acceptance.
+
 ## Checks and handover
 
 The [14 November integrated verification](docs/releases/2026-11-14-main-verification.md) covers local main `7764f0e`, including B's merged PR #16: **66 Java tests, 40 browser groups, four real-H2 recovery groups and six backup-tool groups passed**. The backup suite explicitly skips its duplicate Maven invocation. Local fixes make UTF-8 manifests restorable in Windows PowerShell and correct three test-runner assumptions. The script fixes and evidence are included in this release change. See the [ten-page design and six-week Gantt pack](docs/design/README.md) or its [browser gallery](docs/design/index.html).

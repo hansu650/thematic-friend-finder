@@ -1,17 +1,17 @@
 # A's integration and assessment handover
 
-Prepared **28 November 2026**. Qin Tian retains PR review, merging, the combined release and final demonstration. This document prepares the operations that do not require B–F's results. It does not record a completed freeze, human acceptance or submission.
+Updated **28 November 2026**. Qin Tian has now authorised Codex to merge verified PRs and perform technical integration. PRs #26 and #27 are merged. Candidate preparation can proceed; human acceptance, personal reflection and final sign-off still require the actual participants. This document does not record a completed freeze or submission.
 
-## Ready for A to review
+## Available evidence and next operations
 
 | Item | Available result | Status |
 | --- | --- | --- |
-| [Recovery PR #26](https://github.com/hansu650/thematic-friend-finder/pull/26) | Actionable Retry, event-full recovery, friendship copy, tablet development language access; B #25 and D #21 retained | Submitted separately from this documentation PR; A decides when to merge |
+| [Recovery PR #26](https://github.com/hansu650/thematic-friend-finder/pull/26) | Actionable Retry, event-full recovery, friendship copy, tablet development language access; B #25 and D #21 retained | Merged on 28 November after its two CI jobs passed |
 | [Automated verification](https://github.com/hansu650/thematic-friend-finder/blob/d182b089658d674487ce0a70b008cb35b907ef07/code/thematic-friend/docs/releases/2026-11-28-a-recovery.md) | 79 Java tests and 21 browser checks passed; exact source/JAR identity and images recorded | Engineering evidence of that branch, not a frozen team candidate |
 | [A's dated evidence register](./evidence/A_2026-11-28.md) | PR chronology, W2/W3 calendar correction, source-supported decisions and five-section reflection mapping | Personal action/learning statements still require A's input |
 | [Candidate record](./templates/candidate_record.md) | One place for commit, JAR, configuration, changes and returned acceptance | Blank template; fill only after A selects the combined version |
 
-The recovery and documentation branches both start from main `081597d5e2012ef078b2f42369446c7480e4b8f0` and change separate files. Neither requires a teammate's pending result to be reviewed. Merging either is a separate decision from final acceptance.
+The two original increments were based on `081597d5e2012ef078b2f42369446c7480e4b8f0` and are now integrated. Their merge records technical integration, not final team acceptance. The [candidate packaging tool](../code/thematic-friend/README.md#build-a-versioned-review-candidate) turns a clean recorded revision into one runnable bundle and checksum record.
 
 ## After choosing the PRs to merge
 
