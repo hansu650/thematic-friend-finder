@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-awaiting-human-acceptance",
+  "createdAt": "2026-11-28T20:55:27.4422752+08:00",
+  "sourceCommit": "85a03f96e7c13937663762473070c5bcc7b0c6a9",
+  "applicationTree": "72fd3fcef18b27dffe599b228f5f6e6a471364cc",
+  "sourcePath": "code/thematic-friend",
+  "jarSha256": "fbfac88545abf1b56b44f9249d8ef2e45d0e0cb50b3ccd19dbbc355ddc365273",
+  "sourceArchiveSha256": "c659422d5e7a94d09e4dee7c19c8ae4e9c2fa4cd5065d6bbc46771505eeb77ad",
+  "java": "openjdk 21.0.12.1 2026-08-18 LTS",
+  "build": {
+    "command": "mvnw.cmd",
+    "arguments": [
+      "--batch-mode",
+      "--no-transfer-progress",
+      "package",
+      "-Dmaven.repo.local=D:\\daima\\codex\\mingle-a-independent-20261128\\code\\thematic-friend\\.cache\\maven\\repository",
+      "-DskipTests"
+    ],
+    "exitCode": 0,
+    "testsRunInThisBuild": false,
+    "validationReference": "Merged-main GitHub Actions https://github.com/hansu650/thematic-friend-finder/actions/runs/46146854821 passed verify, backup-windows and candidate-windows for 85a03f96e7c13937663762473070c5bcc7b0c6a9."
+  },
+  "launch": {
+    "profile": "demo",
+    "chineseEnabled": false,
+    "bindAddress": "127.0.0.1",
+    "defaultPort": 8080,
+    "defaultDataDirectory": "./data"
+  },
+  "acceptance": "B-F results and final sign-off remain pending. This package contains no credentials or database."
+}

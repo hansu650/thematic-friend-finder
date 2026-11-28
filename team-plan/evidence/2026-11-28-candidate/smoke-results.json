@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-11-28T12:58:21.624Z",
+  "operator": "Codex automated checks; no human acceptance claimed",
+  "sourceCommit": "85a03f96e7c13937663762473070c5bcc7b0c6a9",
+  "applicationTree": "72fd3fcef18b27dffe599b228f5f6e6a471364cc",
+  "jarSha256": "fbfac88545abf1b56b44f9249d8ef2e45d0e0cb50b3ccd19dbbc355ddc365273",
+  "base": "http://127.0.0.1:63431",
+  "checks": [
+    {
+      "id": "RC-START",
+      "detail": "The packaged launcher starts the real JAR, forces English despite conflicting environment/query/browser settings, and accepts a fictional account.",
+      "result": "PASS"
+    },
+    {
+      "id": "RC-DATA",
+      "detail": "All 18 events in this actual fresh candidate database have English titles, descriptions and location details.",
+      "result": "PASS"
+    },
+    {
+      "id": "RC-RESTART",
+      "detail": "The same account and selected saved event survive restart with the same explicit database; English remains enforced.",
+      "result": "PASS"
+    },
+    {
+      "id": "RC-ISOLATION",
+      "detail": "Only the explicitly selected test-data path was created; the distributed candidate still contains no runtime database.",
+      "result": "PASS"
+    }
+  ],
+  "issues": [],
+  "shutdown": "Owned launcher process tree stopped with Windows taskkill; test database never packaged",
+  "exitCode": 0
+}
